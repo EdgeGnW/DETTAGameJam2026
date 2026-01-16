@@ -46,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 		if current_char == ".": pause = 0.4
 		text_tween.pause()
 		await get_tree().create_timer(pause).timeout
-		text_tween.play()
+		if text_tween.is_valid(): text_tween.play()
 		return
 	var pitch_scale = randf_range(0.9, 1.1)
 	if current_char in ["a", "i", "u", "e", "o"]:
