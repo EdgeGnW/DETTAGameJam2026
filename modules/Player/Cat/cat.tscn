@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckbe0vvra4kp2"]
+
+[ext_resource type="Script" uid="uid://cthoxurc3pg5t" path="res://modules/Player/Cat/cat.gd" id="1_tsvbs"]
+[ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/2D/textures/2D_player.png" id="2_hkbnf"]
+[ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_xxla7"]
+[ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/2D/idle.gd" id="4_5djog"]
+[ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/2D/walking.gd" id="5_pg68p"]
+[ext_resource type="Script" uid="uid://ddi714nnvvybl" path="res://modules/Player/2D/jumping.gd" id="6_whkjs"]
+[ext_resource type="Script" uid="uid://ck4hd7p6sbmdy" path="res://modules/Player/2D/wall_jumping.gd" id="7_frb73"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
+radius = 8.0
+height = 32.0
+
+[node name="Cat" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_tsvbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ycsqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_hkbnf")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_xxla7")]
+current_state = NodePath("Idle")
+subject = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_5djog")
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("5_pg68p")
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource("6_whkjs")
+
+[node name="WallJumping" type="Node" parent="StateMachine"]
+script = ExtResource("7_frb73")
+
+[node name="Timer" type="Timer" parent="StateMachine/WallJumping"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="StateMachine/WallJumping/Timer" to="StateMachine/WallJumping" method="_on_timer_timeout"]

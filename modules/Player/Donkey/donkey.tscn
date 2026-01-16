@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2k3smpp8hlt5"]
+
+[ext_resource type="Script" uid="uid://jai6c71agusm" path="res://modules/Player/Donkey/donkey.gd" id="1_63wvj"]
+[ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/2D/textures/2D_player.png" id="2_wl2ke"]
+[ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_52hi8"]
+[ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/2D/idle.gd" id="4_ac7i3"]
+[ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/2D/walking.gd" id="5_3bw2j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
+radius = 8.0
+height = 32.0
+
+[node name="Donkey" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_63wvj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ycsqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_wl2ke")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_52hi8")]
+current_state = NodePath("Idle")
+subject = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_ac7i3")
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("5_3bw2j")

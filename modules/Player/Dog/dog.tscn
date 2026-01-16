@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://tccsja70bqmy"]
+
+[ext_resource type="Script" uid="uid://bc3bdxhx1jnu7" path="res://modules/Player/Dog/dog.gd" id="1_c2sop"]
+[ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/2D/textures/2D_player.png" id="2_ptn7w"]
+[ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_188by"]
+[ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/2D/idle.gd" id="4_t567j"]
+[ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/2D/walking.gd" id="5_6uw0d"]
+[ext_resource type="Script" uid="uid://ddi714nnvvybl" path="res://modules/Player/2D/jumping.gd" id="6_diexe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
+radius = 8.0
+height = 32.0
+
+[node name="Dog" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_c2sop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ycsqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_ptn7w")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_188by")]
+current_state = NodePath("Idle")
+subject = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_t567j")
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("5_6uw0d")
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource("6_diexe")
