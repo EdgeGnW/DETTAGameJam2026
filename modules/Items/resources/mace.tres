@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c1js0x8b2g2aq"]
+
+[ext_resource type="Texture2D" uid="uid://ces1n3qmepfc8" path="res://modules/Items/icons/textures/mace.png" id="1_33l0w"]
+[ext_resource type="PackedScene" uid="uid://c2ayuesl4aipf" path="res://modules/Items/models/mace.glb" id="2_ll46e"]
+[ext_resource type="Script" uid="uid://c2v6grye0waiq" path="res://modules/Items/item.gd" id="3_856ee"]
+
+[resource]
+script = ExtResource("3_856ee")
+name = "Mace"
+scene = ExtResource("2_ll46e")
+icon = ExtResource("1_33l0w")
+metadata/_custom_type_script = "uid://c2v6grye0waiq"

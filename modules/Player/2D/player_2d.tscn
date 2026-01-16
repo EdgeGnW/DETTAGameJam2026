@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://b22x7ctyyj7vj"]
+
+[ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/2D/player_2d.gd" id="1_cxo3m"]
+[ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/2D/textures/2D_player.png" id="2_vkdlh"]
+[ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_ct3u1"]
+[ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/2D/idle.gd" id="4_cbobr"]
+[ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/2D/walking.gd" id="5_cbobr"]
+[ext_resource type="Script" uid="uid://ddi714nnvvybl" path="res://modules/Player/2D/jumping.gd" id="6_nylwi"]
+[ext_resource type="Script" uid="uid://403p10ob6hf0" path="res://modules/Player/2D/rolling.gd" id="7_m1bjh"]
+[ext_resource type="Script" uid="uid://ck4hd7p6sbmdy" path="res://modules/Player/2D/wall_jumping.gd" id="7_xcel3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
+radius = 8.0
+height = 32.0
+
+[node name="Player2D" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_cxo3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ycsqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_vkdlh")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_ct3u1")]
+current_state = NodePath("Idle")
+subject = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_cbobr")
+
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("5_cbobr")
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource("6_nylwi")
+
+[node name="WallJumping" type="Node" parent="StateMachine"]
+script = ExtResource("7_xcel3")
+
+[node name="Timer" type="Timer" parent="StateMachine/WallJumping"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Rolling" type="Node" parent="StateMachine"]
+script = ExtResource("7_m1bjh")
+
+[node name="Timer" type="Timer" parent="StateMachine/Rolling"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="StateMachine/WallJumping/Timer" to="StateMachine/WallJumping" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Rolling/Timer" to="StateMachine/Rolling" method="_on_timer_timeout"]

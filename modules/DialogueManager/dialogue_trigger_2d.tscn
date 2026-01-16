@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbg2y3go636fc"]
+
+[ext_resource type="Script" uid="uid://bh58rbsdvlv40" path="res://modules/DialogueManager/scripts/dialogue_trigger_2d.gd" id="1_nu3ou"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nu3ou"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s8iow"]
+size = Vector2(16, 16)
+
+[node name="DialogueTrigger2D" type="Area2D"]
+texture_filter = 1
+texture_repeat = 2
+monitorable = false
+script = ExtResource("1_nu3ou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nu3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_s8iow")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -38.0
+offset_right = 20.0
+offset_bottom = 2.0
+text = "Read"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://6efnxw81kurk"]
+
+[ext_resource type="Texture2D" uid="uid://b83p17pm1h0pi" path="res://modules/DialogueManager/textures/dino.png" id="1_i0c2n"]
+[ext_resource type="Script" uid="uid://c33l4cwd3q5ta" path="res://modules/DialogueManager/scripts/character.gd" id="2_pkgb5"]
+[ext_resource type="AudioStream" uid="uid://b8xwin8m3mnns" path="res://modules/DialogueManager/sfx/dinora.wav" id="3_pkgb5"]
+
+[resource]
+script = ExtResource("2_pkgb5")
+name = "Dinora"
+picture = ExtResource("1_i0c2n")
+voice = ExtResource("3_pkgb5")
+metadata/_custom_type_script = "uid://c33l4cwd3q5ta"

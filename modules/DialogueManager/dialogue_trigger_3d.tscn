@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2mx7yylj50op"]
+
+[ext_resource type="Script" uid="uid://cmsr38y66mmi" path="res://modules/DialogueManager/scripts/dialogue_trigger_3d.gd" id="1_n3k8f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2bhw7"]
+
+[node name="DialogueTrigger3D" type="Area3D"]
+monitorable = false
+script = ExtResource("1_n3k8f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2bhw7")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.779721, 0)
+visible = false
+text = "Read"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

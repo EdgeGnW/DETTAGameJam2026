@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://bechb86noxipw"]
+
+[ext_resource type="PackedScene" uid="uid://c2g8r5tcqhuk7" path="res://modules/Player/3D/player_3d.tscn" id="1_hwf4s"]
+[ext_resource type="Texture2D" uid="uid://3p4lbq57guo4" path="res://modules/Test/3D/kenney_prototype_textures/dark/texture_01.png" id="2_th7an"]
+[ext_resource type="PackedScene" uid="uid://c2mx7yylj50op" path="res://modules/DialogueManager/dialogue_trigger_3d.tscn" id="3_l7poo"]
+[ext_resource type="PackedScene" uid="uid://dw3iilj74xg0f" path="res://modules/Items/pickup_3D.tscn" id="4_3uosh"]
+[ext_resource type="Script" uid="uid://dw3oquha21obs" path="res://modules/Test/3D/ui_root.gd" id="5_fn3nv"]
+[ext_resource type="PackedScene" uid="uid://c37yv2q5s7t0q" path="res://modules/Inventory/inventory_dialog.tscn" id="5_wyqrp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aar06"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_hwf4s"]
+sky_material = SubResource("ProceduralSkyMaterial_aar06")
+
+[sub_resource type="Environment" id="Environment_th7an"]
+background_mode = 2
+sky = SubResource("Sky_hwf4s")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7poo"]
+albedo_texture = ExtResource("2_th7an")
+uv1_triplanar = true
+
+[node name="3DTest" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_th7an")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(100, 0.5, 100)
+material = SubResource("StandardMaterial3D_l7poo")
+
+[node name="DialogueTrigger3D" parent="CSGCombiner3D" instance=ExtResource("3_l7poo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -2)
+dialogue_text = " 2"
+
+[node name="DialogueTrigger3D2" parent="CSGCombiner3D" instance=ExtResource("3_l7poo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77621, 0.6, -2)
+dialogue_text = "3"
+
+[node name="DialogueTrigger3D3" parent="CSGCombiner3D" instance=ExtResource("3_l7poo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84098, 0.6, -2)
+type = 1
+dialogue_text = " 2 : 1"
+
+[node name="Player" parent="." instance=ExtResource("1_hwf4s")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12507, 1.70245)
+
+[node name="Node3D" parent="." instance=ExtResource("4_3uosh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46972, 1.00828, 0)
+
+[node name="UIRoot" type="CanvasLayer" parent="."]
+script = ExtResource("5_fn3nv")
+
+[node name="InventoryDialog" parent="UIRoot" instance=ExtResource("5_wyqrp")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -17.5
+offset_right = 48.5
+offset_bottom = 17.5
