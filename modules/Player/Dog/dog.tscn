@@ -13,6 +13,7 @@ radius = 8.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_188by"]
+size = Vector2(10, 11)
 
 [node name="Dog" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
@@ -21,6 +22,7 @@ collision_mask = 4
 script = ExtResource("1_c2sop")
 jump_velocity = -500.0
 gravity = Vector2(0, 800)
+height = 48.0
 animal_state = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -44,13 +46,14 @@ script = ExtResource("5_6uw0d")
 script = ExtResource("6_diexe")
 
 [node name="Mount" type="Area2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -16)
 collision_layer = 2
 collision_mask = 2
 input_pickable = false
 script = ExtResource("7_ptn7w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mount"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_188by")
 
 [connection signal="body_entered" from="Mount" to="Mount" method="_on_body_entered"]

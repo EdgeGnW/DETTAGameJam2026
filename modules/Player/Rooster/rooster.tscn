@@ -17,6 +17,7 @@ script = ExtResource("1_rordu")
 jump_velocity = -300.0
 gravity = Vector2(0, 400)
 max_fall_speed = 200.0
+height = 32.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ycsqo")

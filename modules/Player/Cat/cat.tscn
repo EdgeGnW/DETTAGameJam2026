@@ -15,7 +15,7 @@ radius = 8.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5djog"]
-size = Vector2(12, 20)
+size = Vector2(12, 8)
 
 [node name="Cat" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
@@ -25,6 +25,7 @@ script = ExtResource("1_hkbnf")
 jump_velocity = -500.0
 gravity = Vector2(0, 1200)
 max_fall_speed = 600.0
+height = 32.0
 animal_state = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -58,7 +59,7 @@ one_shot = true
 script = ExtResource("8_hkbnf")
 
 [node name="Mount" type="Area2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -16)
 collision_layer = 0
 input_pickable = false
 script = ExtResource("9_xxla7")

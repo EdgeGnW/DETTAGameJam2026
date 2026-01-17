@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 AudioManager="*res://modules/AudioManager/audio_manager.gd"
 DialogueManager="*res://modules/DialogueManager/dialogue_manager.tscn"
+AnimalState="*res://modules/Player/animal_state.gd"
 
 [global_group]
 

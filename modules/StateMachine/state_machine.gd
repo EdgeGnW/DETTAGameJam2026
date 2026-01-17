@@ -40,4 +40,3 @@ func on_child_transition(new_state_name: StringName) -> void:
 		
 func set_active(new_active: bool) -> void:
 	active = new_active
-	on_child_transition("Idle")
