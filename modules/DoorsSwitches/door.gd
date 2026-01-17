@@ -11,9 +11,9 @@ var open := false
 var switches: Array[Switch]
 
 func _ready():
-	var switches = get_tree().get_nodes_in_group("switches")
+	var switches_ = get_tree().get_nodes_in_group("switches")
 	
-	for switch in switches:
+	for switch in switches_:
 		if switch.door_index == door_index:
 			self.switches.append(switch)
 			
@@ -26,8 +26,12 @@ func check_switches():
 		sum += int(switch.pressed)
 	if sum >= switch_threshold:
 		if not open:
-			collision_shape_2d.disabled = true
+			collision_shape_2d.set_deferred("disabled", true)
+			open = true
+			$Sprite2D.hide()
 	elif open and not stay_once_opened:
-		collision_shape_2d.disabled = false
+		collision_shape_2d.set_deferred("disabled", false)
+		open = false
+		$Sprite2D.show()
 		
 	
