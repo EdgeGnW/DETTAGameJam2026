@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://rlqfmp2u1484"]
+[gd_scene load_steps=12 format=4 uid="uid://rlqfmp2u1484"]
 
 [ext_resource type="Texture2D" uid="uid://spyvk0vjwisd" path="res://modules/Test/2D/textures/2D_test_tileset.png" id="2_8bydr"]
 [ext_resource type="PackedScene" uid="uid://cbg2y3go636fc" path="res://modules/DialogueManager/dialogue_trigger_2d.tscn" id="3_6rqt4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckbe0vvra4kp2" path="res://modules/Player/Cat/cat.tscn" id="4_vm8yo"]
 [ext_resource type="PackedScene" uid="uid://d2k3smpp8hlt5" path="res://modules/Player/Donkey/donkey.tscn" id="5_llujc"]
 [ext_resource type="PackedScene" uid="uid://tccsja70bqmy" path="res://modules/Player/Dog/dog.tscn" id="7_dhvk3"]
+[ext_resource type="Script" uid="uid://bjdk6je6da4bv" path="res://modules/Player/camera_2d.gd" id="7_jbcf8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oyfwt"]
 texture = ExtResource("2_8bydr")
@@ -42,6 +43,7 @@ Dinora: hey..."
 
 [node name="Cat" parent="." instance=ExtResource("4_vm8yo")]
 position = Vector2(719, 506)
+camera_zoom = 2.5
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["movables"]]
 position = Vector2(651, 496)
@@ -61,8 +63,13 @@ position = Vector2(523, 494)
 
 [node name="Rooster" parent="." instance=ExtResource("3_fkea0")]
 position = Vector2(852, 475)
+camera_zoom = 4.0
+
+[node name="Camera2D" type="Camera2D" parent="Rooster"]
+script = ExtResource("7_jbcf8")
 
 [node name="Dog" parent="." instance=ExtResource("7_dhvk3")]
 position = Vector2(1051, 513)
+camera_zoom = 1.5
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
