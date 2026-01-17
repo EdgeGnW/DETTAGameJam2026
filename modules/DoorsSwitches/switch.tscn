@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://l1thpy5w485p"]
+
+[ext_resource type="Script" uid="uid://cc4je4kek1fbf" path="res://modules/DoorsSwitches/switch.gd" id="1_x66yt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nu3ou"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s8iow"]
+size = Vector2(16, 16)
+
+[node name="Switch" type="Area2D" groups=["switches"]]
+texture_filter = 1
+texture_repeat = 2
+monitorable = false
+script = ExtResource("1_x66yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nu3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_s8iow")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

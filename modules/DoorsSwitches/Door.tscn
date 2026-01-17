@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkok7cmswbpge"]
+
+[ext_resource type="Script" uid="uid://dt63e3y85ewkt" path="res://modules/DoorsSwitches/door.gd" id="1_rqxmw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_febky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqxmw"]
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_rqxmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_febky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rqxmw")
