@@ -1,18 +1,18 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2k3smpp8hlt5"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_mhh0p"]
-[ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/textures/2D_player.png" id="2_wl2ke"]
+[ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="2_64bre"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_52hi8"]
 [ext_resource type="Script" path="res://modules/Player/idle.gd" id="4_ac7i3"]
 [ext_resource type="Script" path="res://modules/Player/walking.gd" id="5_3bw2j"]
 [ext_resource type="Script" uid="uid://fl6rvi6impgo" path="res://modules/Player/Donkey/mount.gd" id="6_64bre"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
-radius = 8.0
-height = 32.0
+radius = 27.0
+height = 78.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhh0p"]
-size = Vector2(10, 8)
+size = Vector2(37, 8)
 
 [node name="Donkey" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
@@ -25,11 +25,13 @@ height = 64.0
 animal_state = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_wl2ke")
+texture = ExtResource("2_64bre")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_52hi8")]
 current_state = NodePath("Idle")
@@ -42,13 +44,14 @@ script = ExtResource("4_ac7i3")
 script = ExtResource("5_3bw2j")
 
 [node name="Mount" type="Area2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(-8, -16.5)
 collision_layer = 0
 collision_mask = 46
 input_pickable = false
 script = ExtResource("6_64bre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mount"]
+position = Vector2(-4.5, 0)
 shape = SubResource("RectangleShape2D_mhh0p")
 
 [connection signal="body_entered" from="Mount" to="Mount" method="_on_body_entered"]

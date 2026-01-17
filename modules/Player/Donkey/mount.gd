@@ -7,17 +7,17 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.animal_state == AnimalState.Animal_state.ACTIVE:
 			if body.velocity.y > 0:
 				get_parent().has_mount = true
+				get_parent().mount = body
 				get_parent().set_animal_state(AnimalState.Animal_state.ACTIVE)
 				body.set_animal_state(AnimalState.Animal_state.RIDING)
 				#var pos = body.global_position
 				if body.get_parent():
 					body.get_parent().remove_child(body)
 				call_deferred("attach", body)
-				
-				
+
+
 func attach(body):
 	add_child(body)
-	get_parent().mount = body
 	#body.global_position = pos
 	body.global_position.x = global_position.x
 	body.global_position.y = global_position.y - body.height / 2
