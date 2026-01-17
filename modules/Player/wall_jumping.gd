@@ -21,14 +21,14 @@ func enter():
 	normal = subject.get_wall_normal()
 	subject.velocity.x = sign(normal.x) * subject.speed
 	subject.jump()
-	subject.movement_locked = true
+	subject.wall_jumped = sign(normal.x)
 	$Timer.start()
 	rotation = sign(subject.velocity.x)
 
 func exit():
 	$Timer.stop()
 	subject.sprite_2d.rotation = 0
-	subject.movement_locked = false
+	subject.wall_jumped = 0
 	
 func _on_timer_timeout() -> void:
-	subject.movement_locked = false
+	subject.wall_jumped = 0

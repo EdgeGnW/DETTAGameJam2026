@@ -10,7 +10,7 @@ var gravity: Vector2 = Vector2(0, 1000)
 const MAX_VELOCITY: float = 80
 var free_falling: bool = false
 
-var movement_locked := false
+var wall_jumped: int = 0
 var dir: int
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
@@ -44,12 +44,14 @@ func _physics_process(delta: float) -> void:
 		
 		
 	
-	if movement_locked:
-		move_and_slide()
-		return
-	if direction:
+	if wall_jumped and sign(direction) == -wall_jumped:
+		velocity.x += direction * speed * delta * 4
+		if sign(velocity.x) != wall_jumped and abs(velocity.x) >= speed:
+			velocity.x = sign(velocity.x) * speed
+			wall_jumped = 0
+	elif direction:
 		velocity.x = direction * speed
-	else:
+	elif not wall_jumped:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
@@ -99,7 +101,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif Input.is_action_pressed("up") and has_mount:
 				free_falling = false
 				dismount(true)
-			elif not movement_locked and is_on_floor():
+			elif not wall_jumped and is_on_floor():
 				free_falling = false
 				jump()
 		elif event.is_action_released("jump"):

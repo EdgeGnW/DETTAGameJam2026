@@ -43,7 +43,6 @@ Dinora: hey..."
 
 [node name="Cat" parent="." instance=ExtResource("4_vm8yo")]
 position = Vector2(719, 506)
-jump_height = 250.0
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["movables"]]
 position = Vector2(651, 496)
@@ -63,10 +62,8 @@ position = Vector2(523, 494)
 
 [node name="Rooster" parent="." instance=ExtResource("3_fkea0")]
 position = Vector2(852, 475)
-max_fall_speed = 50.0
 
 [node name="Dog" parent="." instance=ExtResource("7_dhvk3")]
 position = Vector2(1051, 513)
-jump_height = 200.0
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
