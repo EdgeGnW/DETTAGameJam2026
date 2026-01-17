@@ -23,6 +23,7 @@ AnimalState="*res://modules/Player/animal_state.gd"
 
 Animal=""
 switches="switches that open doors"
+movables=""
 
 [input]
 

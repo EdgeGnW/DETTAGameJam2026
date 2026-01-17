@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://rlqfmp2u1484"]
+[gd_scene load_steps=11 format=4 uid="uid://rlqfmp2u1484"]
 
 [ext_resource type="Texture2D" uid="uid://spyvk0vjwisd" path="res://modules/Test/2D/textures/2D_test_tileset.png" id="2_8bydr"]
 [ext_resource type="PackedScene" uid="uid://cbg2y3go636fc" path="res://modules/DialogueManager/dialogue_trigger_2d.tscn" id="3_6rqt4"]
@@ -26,9 +26,6 @@ sources/1 = SubResource("TileSetAtlasSource_oyfwt")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkea0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhvk3"]
-size = Vector2(19, 19)
-
 [node name="2DTest" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -46,10 +43,8 @@ Dinora: hey..."
 [node name="Cat" parent="." instance=ExtResource("4_vm8yo")]
 position = Vector2(719, 506)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["movables"]]
 position = Vector2(651, 496)
-collision_layer = 32
-collision_mask = 17
 mass = 1.5
 lock_rotation = true
 script = ExtResource("4_snpbt")
@@ -60,12 +55,6 @@ texture = ExtResource("2_8bydr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_fkea0")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="RigidBody2D"]
-collision_mask = 0
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D/StaticBody2D"]
-shape = SubResource("RectangleShape2D_dhvk3")
 
 [node name="Donkey" parent="." instance=ExtResource("5_llujc")]
 position = Vector2(523, 494)

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var gravity: Vector2 = Vector2(0, 900)
 @export var max_fall_speed: float = 1000
 @export var height: float
+const MAX_VELOCITY: float = 80
 
 var movement_locked := false
 var dir: int
@@ -40,6 +41,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collider = get_slide_collision(i)
+		var collision = collider.get_collider()
+		if collision.is_in_group("movables") and name == "Donkey" and abs(collision.get_linear_velocity().x) < MAX_VELOCITY:
+			collision.apply_central_impulse(collider.get_normal() * -speed)
 	
 func jump() -> void:
 	velocity.y = jump_velocity
