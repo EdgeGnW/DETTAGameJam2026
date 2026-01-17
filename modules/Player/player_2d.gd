@@ -2,12 +2,13 @@ class_name Player2D
 extends CharacterBody2D
 
 @export var speed: float = 300.0
-@export var jump_velocity: float = -400.0
-@export var gravity: Vector2 = Vector2(0, 900)
+@export var jump_height: float = 40.0
 @export var max_fall_speed: float = 1000
 @export var height: float
 @export var camera_zoom: float = 1.0
+var gravity: Vector2 = Vector2(0, 1000)
 const MAX_VELOCITY: float = 80
+var free_falling: bool = false
 
 var movement_locked := false
 var dir: int
@@ -21,10 +22,13 @@ var mount: Player2D
 func _physics_process(delta: float) -> void:
 	if animal_state == AnimalState.Animal_state.RIDING:
 		return
-	# Add the gravity.
-	if not is_on_floor():
+	# Add the gravity
+	if not is_on_floor(): 
 		velocity += gravity * delta
-		velocity.y = clamp(velocity.y, -1000, max_fall_speed)
+		var upper_limit = max_fall_speed
+		if free_falling:
+			upper_limit = 1000
+		velocity.y = clamp(velocity.y, -1000, upper_limit)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -57,7 +61,7 @@ func _physics_process(delta: float) -> void:
 			collision.apply_central_impulse(collider.get_normal() * -speed)
 	
 func jump() -> void:
-	velocity.y = jump_velocity
+	velocity.y = -sqrt(1000 * jump_height)
 
 func set_animal_state(new_state: AnimalState.Animal_state) -> void:
 	animal_state = new_state
@@ -87,9 +91,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			if Input.is_action_pressed("ui_down") and has_mount:
 				dismount(false)
 			elif Input.is_action_pressed("ui_up") and has_mount:
+				free_falling = false
 				dismount(true)
 			elif not movement_locked and is_on_floor():
+				free_falling = false
 				jump()
+		elif event.is_action_released("ui_accept"):
+			if velocity.y < 0:
+				velocity.y *= 0.5
+		elif event.is_action_pressed("ui_down"):
+			free_falling = true
+		elif event.is_action_released("ui_down"):
+			free_falling = false
 				
 func flip_mount():
 	if not has_mount: return
