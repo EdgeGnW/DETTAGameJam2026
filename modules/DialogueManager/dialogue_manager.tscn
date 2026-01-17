@@ -1,24 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dikp2c2s7v3l1"]
+[gd_scene load_steps=7 format=3 uid="uid://dikp2c2s7v3l1"]
 
 [ext_resource type="Script" uid="uid://b27s4u1ga6ilh" path="res://modules/DialogueManager/scripts/dialogue_manager.gd" id="1_jbixp"]
 [ext_resource type="Script" uid="uid://c33l4cwd3q5ta" path="res://modules/DialogueManager/scripts/character.gd" id="2_507jh"]
-[ext_resource type="Texture2D" uid="uid://cxtrfkultsv0" path="res://modules/DialogueManager/textures/pascal.png" id="2_smvbx"]
-[ext_resource type="Texture2D" uid="uid://b83p17pm1h0pi" path="res://modules/DialogueManager/textures/dino.png" id="3_61474"]
+[ext_resource type="Texture2D" uid="uid://d2r8k3ejo64v" path="res://modules/Player/Rooster/Hahn_Basis.png" id="3_ps80s"]
 [ext_resource type="AudioStream" uid="uid://b8xwin8m3mnns" path="res://modules/DialogueManager/sfx/dinora.wav" id="4_61474"]
-[ext_resource type="AudioStream" uid="uid://chxy3lgbgcios" path="res://modules/DialogueManager/sfx/pascal.wav" id="4_jf0e1"]
 
-[sub_resource type="Resource" id="Resource_jf0e1"]
+[sub_resource type="Resource" id="Resource_kgemy"]
 script = ExtResource("2_507jh")
-name = "Dinora"
-picture = ExtResource("3_61474")
-voice = ExtResource("4_61474")
-metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
-
-[sub_resource type="Resource" id="Resource_507jh"]
-script = ExtResource("2_507jh")
-name = "Pascal"
-picture = ExtResource("2_smvbx")
-voice = ExtResource("4_jf0e1")
+name = &"Hahn"
+picture = ExtResource("3_ps80s")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l8nsb"]
@@ -27,8 +17,10 @@ metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 process_mode = 1
 script = ExtResource("1_jbixp")
 characters = Dictionary[String, ExtResource("2_507jh")]({
-"Dinora": SubResource("Resource_jf0e1"),
-"Pascal": SubResource("Resource_507jh")
+"Esel": null,
+"Hahn": SubResource("Resource_kgemy"),
+"Hund": null,
+"Katze": null
 })
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -79,6 +71,8 @@ offset_left = 118.0
 offset_top = 415.0
 offset_right = 209.0
 offset_bottom = 457.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 30
 text = "Pascal"
 fit_content = true

@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction: float = 0
 	if animal_state == AnimalState.Animal_state.ACTIVE:
-		direction = Input.get_axis("ui_left", "ui_right")
+		direction = Input.get_axis("left", "right")
 	if direction != 0:
 		dir = int(direction)
 		var flip_h = dir < 0
@@ -67,7 +67,10 @@ func set_animal_state(new_state: AnimalState.Animal_state) -> void:
 	animal_state = new_state
 	if animal_state == AnimalState.Animal_state.ACTIVE:
 		$StateMachine.set_active(true)
-		get_viewport().get_camera_2d().zoom = Vector2(camera_zoom, camera_zoom)
+		#get_viewport().get_camera_2d().zoom = Vector2(camera_zoom, camera_zoom)
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property(get_viewport().get_camera_2d(), "zoom", Vector2(camera_zoom, camera_zoom), 0.5)
 	else:
 		$StateMachine.set_active(false)
 
@@ -83,25 +86,28 @@ func dismount(jump_start: bool) -> void:
 	await get_tree().create_timer(1).timeout
 	has_mount = false
 	mount = null
+	for i in range (1,get_child_count()-1):
+		if get_child(i).is_class("CollisionShape2D"):
+			remove_child(get_child(i))
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if animal_state == AnimalState.Animal_state.ACTIVE:
-		if event.is_action_pressed("ui_accept"):
-			if Input.is_action_pressed("ui_down") and has_mount:
+		if event.is_action_pressed("jump"):
+			if Input.is_action_pressed("down") and has_mount:
 				dismount(false)
-			elif Input.is_action_pressed("ui_up") and has_mount:
+			elif Input.is_action_pressed("up") and has_mount:
 				free_falling = false
 				dismount(true)
 			elif not movement_locked and is_on_floor():
 				free_falling = false
 				jump()
-		elif event.is_action_released("ui_accept"):
+		elif event.is_action_released("jump"):
 			if velocity.y < 0:
 				velocity.y *= 0.5
-		elif event.is_action_pressed("ui_down"):
+		elif event.is_action_pressed("down"):
 			free_falling = true
-		elif event.is_action_released("ui_down"):
+		elif event.is_action_released("down"):
 			free_falling = false
 				
 func flip_mount():

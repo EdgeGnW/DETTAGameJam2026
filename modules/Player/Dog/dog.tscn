@@ -24,7 +24,7 @@ height = 32.0
 camera_zoom = 1.2
 animal_state = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="OwnCollision" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")

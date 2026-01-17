@@ -40,6 +40,6 @@ func _on_body_exited(_body: Node2D) -> void:
 	
 func _input(event: InputEvent) -> void:
 	if DialogueManager.state != DialogueManager.DialogueState.Disabled: return
-	if type == Type.Interact and event.is_action_pressed("ui_accept") and $RichTextLabel.visible:
+	if type == Type.Interact and event.is_action_pressed("interact") and $RichTextLabel.visible:
 		_display_text()
 		get_viewport().set_input_as_handled()
