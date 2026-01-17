@@ -6,6 +6,8 @@ extends Node
 @export var subject: Node
 var states: Dictionary = {}
 
+var active: bool
+
 
 func _ready():
 	for child in get_children():
@@ -18,10 +20,12 @@ func _ready():
 	current_state.enter()
 	
 func _process(delta: float) -> void:
-	current_state.update(delta)
+	if active:
+		current_state.update(delta)
 
 func _physics_process(delta: float) -> void:
-	current_state.physics_update(delta)
+	if active:
+		current_state.physics_update(delta)
 	
 func on_child_transition(new_state_name: StringName) -> void:
 	var new_state = states.get(new_state_name)
@@ -33,3 +37,7 @@ func on_child_transition(new_state_name: StringName) -> void:
 		current_state = new_state
 	else:
 		push_warning("State does not exist")
+		
+func deactivate() -> void:
+	active = false
+	on_child_transition("Idle")

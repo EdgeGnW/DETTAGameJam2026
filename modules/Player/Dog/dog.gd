@@ -9,6 +9,8 @@ const MAX_FALL_SPEED: float = 1000
 var movement_locked := false
 var dir: int
 
+var active: bool
+
 @onready var sprite_2d: Sprite2D = %Sprite2D
 
 
@@ -27,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	if movement_locked:
 		move_and_slide()
 		return
-	if direction:
+	if direction and active:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

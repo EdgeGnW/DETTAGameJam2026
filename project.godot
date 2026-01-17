@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 AudioManager="*res://modules/AudioManager/audio_manager.gd"
 DialogueManager="*res://modules/DialogueManager/dialogue_manager.tscn"
 
+[global_group]
+
+Animal=""
+
 [input]
 
 ui_left={

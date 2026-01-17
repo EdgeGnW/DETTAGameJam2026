@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED: float = 300.0
+const SPEED: float = 100.0
 const JUMP_VELOCITY: float = 0.0
 const GRAVITY: Vector2 = Vector2(0, 900)
 const MAX_FALL_SPEED: float = 1000
 
 var movement_locked := false
 var dir: int
+
+var active: bool = false
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
 
@@ -27,12 +29,16 @@ func _physics_process(delta: float) -> void:
 	if movement_locked:
 		move_and_slide()
 		return
-	if direction:
+	if direction and active:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * SPEED)
 	
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY

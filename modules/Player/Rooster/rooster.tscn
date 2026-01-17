@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnxxdeo3sdwlw"]
+[gd_scene load_steps=9 format=3 uid="uid://cnxxdeo3sdwlw"]
 
-[ext_resource type="Script" uid="uid://dejvqvkabeoy2" path="res://modules/Player/Rooster/rooster.gd" id="1_hunxe"]
+[ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/2D/player_2d.gd" id="1_rordu"]
 [ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/2D/textures/2D_player.png" id="2_y0jqs"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_ljd5q"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/2D/idle.gd" id="4_v7642"]
@@ -11,9 +11,14 @@
 radius = 8.0
 height = 32.0
 
-[node name="Rooster" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oop5y"]
+
+[node name="Rooster" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
-script = ExtResource("1_hunxe")
+script = ExtResource("1_rordu")
+jump_velocity = -300.0
+gravity = Vector2(0, 400)
+max_fall_speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ycsqo")
@@ -34,3 +39,9 @@ script = ExtResource("5_q05bg")
 
 [node name="Jumping" type="Node" parent="StateMachine"]
 script = ExtResource("6_8r7gw")
+
+[node name="Feet" type="Area2D" parent="."]
+position = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
+shape = SubResource("RectangleShape2D_oop5y")

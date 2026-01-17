@@ -8,8 +8,8 @@ func physics_update(_delta):
 		transition.emit("Idle")
 	#elif Input.is_action_pressed("roll"):
 	#	transition.emit("Rolling")
-	else:
-		subject.sprite_2d.rotation = 0.25 * sign(subject.velocity.x)
+	#else:
+		#subject.sprite_2d.rotation = 0.25 * sign(subject.velocity.x)
 
 func exit():
 	subject.sprite_2d.rotation = 0
