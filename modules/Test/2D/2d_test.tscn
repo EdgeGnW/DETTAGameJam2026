@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://cmkmanaabgd3w"]
 
-[ext_resource type="PackedScene" uid="uid://b22x7ctyyj7vj" path="res://modules/Player/2D/player_2d.tscn" id="1_34aym"]
+[ext_resource type="PackedScene" uid="uid://b22x7ctyyj7vj" path="res://modules/Player/player_2d.tscn" id="1_34aym"]
 [ext_resource type="Texture2D" uid="uid://spyvk0vjwisd" path="res://modules/Test/2D/textures/2D_test_tileset.png" id="2_784ov"]
 [ext_resource type="PackedScene" uid="uid://cbg2y3go636fc" path="res://modules/DialogueManager/dialogue_trigger_2d.tscn" id="3_784ov"]
 

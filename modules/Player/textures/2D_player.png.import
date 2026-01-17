@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://distf8p8lhn18"
-path="res://.godot/imported/texture_10.png-84f6cdd8576b4cd739b8df55519e0265.ctex"
+uid="uid://bswcxwwsonggn"
+path="res://.godot/imported/2D_player.png-fac3b6670364588d4efcd2f88f98e0e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/Test/3D/kenney_prototype_textures/orange/texture_10.png"
-dest_files=["res://.godot/imported/texture_10.png-84f6cdd8576b4cd739b8df55519e0265.ctex"]
+source_file="res://modules/Player/textures/2D_player.png"
+dest_files=["res://.godot/imported/2D_player.png-fac3b6670364588d4efcd2f88f98e0e7.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
