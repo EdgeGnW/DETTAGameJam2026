@@ -13,7 +13,7 @@ var free_falling: bool = false
 var wall_jumped: int = 0
 var dir: int
 
-@onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
 const RAYCAST_LENGTH = 14
 @onready var raycast := RayCast2D.new()
@@ -28,6 +28,7 @@ func _ready():
 	if name != "Cat": raycast.enabled = false
 
 func _physics_process(delta: float) -> void:
+	
 	if animal_state == AnimalState.Animal_state.RIDING:
 		return
 	# Add the gravity
@@ -126,3 +127,7 @@ func flip_mount():
 	mount.sprite_2d.flip_h = !mount.sprite_2d.flip_h
 	mount.flip_mount()
 	
+
+
+func _on_animated_sprite_2d_animation_changed() -> void:
+	print("jaaaaaaaaaaaaaaaaaa")

@@ -1,15 +1,106 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnxxdeo3sdwlw"]
+[gd_scene load_steps=20 format=3 uid="uid://cnxxdeo3sdwlw"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_rordu"]
-[ext_resource type="Texture2D" uid="uid://d2r8k3ejo64v" path="res://modules/Player/Rooster/Hahn_Basis.png" id="2_oop5y"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_ljd5q"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/idle.gd" id="4_v7642"]
 [ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/walking.gd" id="5_q05bg"]
 [ext_resource type="Script" uid="uid://ddi714nnvvybl" path="res://modules/Player/jumping.gd" id="6_8r7gw"]
 [ext_resource type="Script" uid="uid://bjdk6je6da4bv" path="res://modules/Player/camera_2d.gd" id="7_6gvkf"]
+[ext_resource type="Texture2D" uid="uid://c8ysink5chpb6" path="res://modules/Player/Rooster/Hahns_Charakter_Animation.png" id="8_hunxe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
 radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gvkf"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(0, 0, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunxe"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(36, 0, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00nbm"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(72, 0, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxrku"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(0, 62, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy7t8"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(36, 62, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l2jn"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(72, 62, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw45g"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(0, 31, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lds6y"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(36, 31, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypc1p"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(72, 31, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wk67"]
+atlas = ExtResource("8_hunxe")
+region = Rect2(108, 31, 36, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l2jn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gvkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hunxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00nbm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxrku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy7t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l2jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy7t8")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw45g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lds6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypc1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wk67")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [node name="Rooster" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
@@ -23,9 +114,12 @@ camera_zoom = 2.6
 [node name="OwnCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ycsqo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_oop5y")
+sprite_frames = SubResource("SpriteFrames_1l2jn")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5911407
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_ljd5q")]
 current_state = NodePath("Idle")
@@ -42,3 +136,5 @@ script = ExtResource("6_8r7gw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("7_6gvkf")
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

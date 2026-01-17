@@ -3,6 +3,8 @@ extends Node
 var music_player := AudioStreamPlayer.new()
 var ambience_player := AudioStreamPlayer.new()
 
+const DAYTIME_FARM_AMBIENCE_409990 = preload("uid://bqrhyx8mnncpu")
+
 @onready var sound_players: Array[AudioStreamPlayer] = [
 	AudioStreamPlayer.new(),
 	AudioStreamPlayer.new(),
@@ -29,10 +31,16 @@ func _ready() -> void:
 	for player in sound_players:
 		add_child(player)
 		player.bus = "SoundEffects"
+		
+	play_ambience(DAYTIME_FARM_AMBIENCE_409990)
 
 func play_music(music: AudioStream):
 	music_player.stream = music
 	music_player.play()
+	
+func play_ambience(ambience: AudioStream):
+	ambience_player.stream = ambience
+	ambience_player.play()
 	
 func play_sound(sound: AudioStream, pitch_scale := 1.0):
 	var player = sound_players[sound_index]

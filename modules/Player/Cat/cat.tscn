@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckbe0vvra4kp2"]
+[gd_scene load_steps=14 format=3 uid="uid://ckbe0vvra4kp2"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_hkbnf"]
 [ext_resource type="Texture2D" uid="uid://dti2dmn20r2w8" path="res://modules/Player/Cat/mieze_blau.png" id="2_xxla7"]
@@ -13,6 +13,21 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
 radius = 9.5
 height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxla7"]
+atlas = ExtResource("2_xxla7")
+region = Rect2(0, 0, 34, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5djog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxla7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5djog"]
 size = Vector2(18, 5.5)
@@ -32,9 +47,11 @@ animal_state = 2
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_xxla7")
+sprite_frames = SubResource("SpriteFrames_5djog")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_xxla7")]
 current_state = NodePath("Idle")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2k3smpp8hlt5"]
+[gd_scene load_steps=11 format=3 uid="uid://d2k3smpp8hlt5"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_mhh0p"]
 [ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="2_64bre"]
@@ -10,6 +10,21 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
 radius = 27.0
 height = 78.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64bre"]
+atlas = ExtResource("2_64bre")
+region = Rect2(0, 0, 88, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63wvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64bre")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhh0p"]
 size = Vector2(37, 8)
@@ -29,9 +44,11 @@ position = Vector2(0, 1.5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_64bre")
+sprite_frames = SubResource("SpriteFrames_63wvj")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_52hi8")]
 current_state = NodePath("Idle")

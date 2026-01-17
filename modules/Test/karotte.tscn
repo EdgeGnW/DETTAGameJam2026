@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://y88ywyed8jjy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3ho3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_q3ho3"]
+
+[node name="Karotte" type="RigidBody2D"]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q3ho3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_q3ho3")

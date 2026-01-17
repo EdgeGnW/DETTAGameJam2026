@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tccsja70bqmy"]
+[gd_scene load_steps=12 format=3 uid="uid://tccsja70bqmy"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_c2sop"]
 [ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="2_ptn7w"]
@@ -11,6 +11,21 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
 radius = 16.0
 height = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptn7w"]
+atlas = ExtResource("2_ptn7w")
+region = Rect2(0, 0, 55, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_188by"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptn7w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_188by"]
 size = Vector2(24, 11)
@@ -29,9 +44,11 @@ position = Vector2(2, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_ptn7w")
+sprite_frames = SubResource("SpriteFrames_188by")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_188by")]
 current_state = NodePath("Idle")

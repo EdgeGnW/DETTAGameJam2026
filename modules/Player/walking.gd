@@ -1,7 +1,7 @@
 extends PlayerMovementState
 
 func physics_update(_delta):
-	
+	subject.sprite_2d.play("walk")
 	if not subject.is_on_floor() and subject.name != "Donkey":
 		transition.emit("Jumping")
 	elif subject.velocity.x == 0.0:
@@ -10,6 +10,3 @@ func physics_update(_delta):
 	#	transition.emit("Rolling")
 	#else:
 		#subject.sprite_2d.rotation = 0.25 * sign(subject.velocity.x)
-
-func exit():
-	subject.sprite_2d.rotation = 0
