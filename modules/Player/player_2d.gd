@@ -15,9 +15,16 @@ var dir: int
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
 
+const RAYCAST_LENGTH = 14
+@onready var raycast := RayCast2D.new()
+
 @export var animal_state: AnimalState.Animal_state
 var has_mount: bool = false
 var mount: Player2D
+
+func _ready():
+	add_child(raycast)
+	raycast.target_position = Vector2(RAYCAST_LENGTH, 0)
 
 func _physics_process(delta: float) -> void:
 	if animal_state == AnimalState.Animal_state.RIDING:
@@ -41,6 +48,7 @@ func _physics_process(delta: float) -> void:
 		if sprite_2d.flip_h != flip_h:
 			flip_mount()
 		sprite_2d.flip_h = flip_h
+		raycast.target_position.x = dir * RAYCAST_LENGTH
 		
 		
 	
