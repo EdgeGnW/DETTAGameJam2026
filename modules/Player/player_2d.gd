@@ -63,7 +63,10 @@ func set_animal_state(new_state: AnimalState.Animal_state) -> void:
 	animal_state = new_state
 	if animal_state == AnimalState.Animal_state.ACTIVE:
 		$StateMachine.set_active(true)
-		get_viewport().get_camera_2d().zoom = Vector2(camera_zoom, camera_zoom)
+		#get_viewport().get_camera_2d().zoom = Vector2(camera_zoom, camera_zoom)
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property(get_viewport().get_camera_2d(), "zoom", Vector2(camera_zoom, camera_zoom), 0.5)
 	else:
 		$StateMachine.set_active(false)
 
