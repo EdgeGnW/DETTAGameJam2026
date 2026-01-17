@@ -16,11 +16,12 @@ func _on_body_entered(body: Node2D) -> void:
 				call_deferred("attach", body)
 
 
-func attach(body):
+func attach(body: Player2D):
 	add_child(body)
 	#body.global_position = pos
 	body.global_position.x = global_position.x
 	body.global_position.y = global_position.y - body.height / 2
+	body.get_node("StateMachine").current_state.transition.emit("Idle")
 	var temp_mount = body
 	while temp_mount != null:
 		var collision_shape = temp_mount.get_child(0).duplicate()

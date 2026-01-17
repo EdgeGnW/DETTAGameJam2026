@@ -6,10 +6,11 @@ extends Node
 @export var subject: Node
 var states: Dictionary = {}
 
-var active: bool
+var active := true
 
 
 func _ready():
+	await get_parent().ready
 	for child in get_children():
 		if child is State:
 			states[child.name] = child
@@ -18,6 +19,12 @@ func _ready():
 		else:
 			push_warning("State machine contains incompatible child node")
 	current_state.enter()
+	
+	for child in get_children():
+		if child is State:
+			print(child.get_signal_connection_list("transition"))
+	
+	
 	
 func _process(delta: float) -> void:
 	if active:

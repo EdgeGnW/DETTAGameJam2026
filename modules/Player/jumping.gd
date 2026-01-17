@@ -17,7 +17,4 @@ func physics_update(_delta):
 #	subject.sprite_2d.rotate(delta * 10 * rotation)
 
 func enter():
-	rotation = subject.dir
-
-func exit():
-	subject.sprite_2d.rotation = 0
+	subject.sprite_2d.play("jump")

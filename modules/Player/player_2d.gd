@@ -127,7 +127,3 @@ func flip_mount():
 	mount.sprite_2d.flip_h = !mount.sprite_2d.flip_h
 	mount.flip_mount()
 	
-
-
-func _on_animated_sprite_2d_animation_changed() -> void:
-	print("jaaaaaaaaaaaaaaaaaa")
