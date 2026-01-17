@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://rlqfmp2u1484"]
+[gd_scene load_steps=12 format=4 uid="uid://rlqfmp2u1484"]
 
 [ext_resource type="Texture2D" uid="uid://spyvk0vjwisd" path="res://modules/Test/2D/textures/2D_test_tileset.png" id="2_8bydr"]
 [ext_resource type="PackedScene" uid="uid://cbg2y3go636fc" path="res://modules/DialogueManager/dialogue_trigger_2d.tscn" id="3_6rqt4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://yteoi8e605ig" path="res://modules/Test/movable_block.gd" id="4_snpbt"]
 [ext_resource type="PackedScene" uid="uid://ckbe0vvra4kp2" path="res://modules/Player/Cat/cat.tscn" id="4_vm8yo"]
 [ext_resource type="PackedScene" uid="uid://d2k3smpp8hlt5" path="res://modules/Player/Donkey/donkey.tscn" id="5_llujc"]
+[ext_resource type="PackedScene" uid="uid://tccsja70bqmy" path="res://modules/Player/Dog/dog.tscn" id="7_dhvk3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oyfwt"]
 texture = ExtResource("2_8bydr")
@@ -19,11 +20,14 @@ texture = ExtResource("2_8bydr")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_fafsv"]
-physics_layer_0/collision_layer = 15
+physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_oyfwt")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkea0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhvk3"]
+size = Vector2(19, 19)
 
 [node name="2DTest" type="Node2D"]
 
@@ -41,12 +45,11 @@ Dinora: hey..."
 
 [node name="Cat" parent="." instance=ExtResource("4_vm8yo")]
 position = Vector2(719, 506)
-height = 48.0
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(600, 0)
-collision_layer = 15
-collision_mask = 8
+position = Vector2(651, 496)
+collision_layer = 32
+collision_mask = 17
 mass = 1.5
 lock_rotation = true
 script = ExtResource("4_snpbt")
@@ -58,10 +61,19 @@ texture = ExtResource("2_8bydr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_fkea0")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="RigidBody2D"]
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_dhvk3")
+
 [node name="Donkey" parent="." instance=ExtResource("5_llujc")]
 position = Vector2(523, 494)
 
 [node name="Rooster" parent="." instance=ExtResource("3_fkea0")]
 position = Vector2(852, 475)
+
+[node name="Dog" parent="." instance=ExtResource("7_dhvk3")]
+position = Vector2(1051, 513)
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]

@@ -1,7 +1,5 @@
 extends RigidBody2D
 
 
-
-
-func _on_body_entered(body: Node) -> void:
-	print(body)
+func _ready() -> void:
+	$StaticBody2D.add_collision_exception_with(self)

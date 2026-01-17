@@ -13,7 +13,7 @@ var dir: int
 @onready var sprite_2d: Sprite2D = %Sprite2D
 
 @export var animal_state: AnimalState.Animal_state
-
+var has_mount: bool = false
 
 func _physics_process(delta: float) -> void:
 	if animal_state == AnimalState.Animal_state.RIDING:
@@ -51,6 +51,25 @@ func set_animal_state(new_state: AnimalState.Animal_state) -> void:
 	else:
 		$StateMachine.set_active(false)
 
+func dismount(jump_start: bool) -> void:
+	var mounter = get_child(3).get_child(1)
+	get_child(3).remove_child(mounter)
+	get_parent().add_child(mounter)
+	animal_state = AnimalState.Animal_state.ALONE
+	mounter.set_animal_state(AnimalState.Animal_state.ACTIVE)
+	mounter.global_position = get_child(3).global_position
+	if jump_start:
+		mounter.jump()
+	await get_tree().create_timer(1).timeout
+	has_mount = false
+
+
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept") and not movement_locked and is_on_floor() and animal_state == AnimalState.Animal_state.ACTIVE:
-		jump()
+	if animal_state == AnimalState.Animal_state.ACTIVE:
+		if event.is_action_pressed("ui_accept"):
+			if Input.is_action_pressed("ui_down") and has_mount:
+				dismount(false)
+			elif Input.is_action_pressed("ui_up") and has_mount:
+				dismount(true)
+			elif not movement_locked and is_on_floor():
+				jump()
