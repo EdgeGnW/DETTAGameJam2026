@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://b27s4u1ga6ilh" path="res://modules/DialogueManager/scripts/dialogue_manager.gd" id="1_jbixp"]
 [ext_resource type="Script" uid="uid://c33l4cwd3q5ta" path="res://modules/DialogueManager/scripts/character.gd" id="2_507jh"]
 [ext_resource type="Texture2D" uid="uid://d2r8k3ejo64v" path="res://modules/Player/Rooster/Hahn_Basis.png" id="3_ps80s"]
-[ext_resource type="AudioStream" uid="uid://b8xwin8m3mnns" path="res://modules/DialogueManager/sfx/dinora.wav" id="4_61474"]
+[ext_resource type="Texture2D" uid="uid://pp8e3iooqhlt" path="res://modules/DialogueManager/resources/Textbox_720_mal_180.png" id="4_kgemy"]
+[ext_resource type="Texture2D" uid="uid://bqtu761xxw33" path="res://modules/DialogueManager/resources/Dialog_Char_Box_grun.webp" id="4_ps80s"]
 
 [sub_resource type="Resource" id="Resource_kgemy"]
 script = ExtResource("2_507jh")
 name = &"Hahn"
 picture = ExtResource("3_ps80s")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l8nsb"]
 
 [node name="DialogueManager" type="CanvasLayer"]
 process_mode = 1
@@ -39,7 +38,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_l8nsb")
+texture = ExtResource("4_kgemy")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -51,6 +50,7 @@ theme_override_constants/margin_bottom = 20
 [node name="DialogueText" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "AAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -63,14 +63,15 @@ offset_left = 60.0
 offset_top = 256.0
 offset_right = 260.0
 offset_bottom = 456.0
+texture = ExtResource("4_ps80s")
 expand_mode = 1
 
 [node name="CharacterName" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-offset_left = 118.0
-offset_top = 415.0
-offset_right = 209.0
-offset_bottom = 457.0
+offset_left = 91.0
+offset_top = 412.0
+offset_right = 241.0
+offset_bottom = 454.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 30
@@ -78,15 +79,11 @@ text = "Pascal"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+horizontal_alignment = 1
 
 [node name="ReadCooldown" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_61474")
-pitch_scale = 0.5
 
 [connection signal="timeout" from="ReadCooldown" to="." method="skip_line"]
