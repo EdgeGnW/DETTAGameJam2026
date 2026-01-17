@@ -80,7 +80,7 @@ func dismount(jump_start: bool) -> void:
 	get_parent().add_child(mounter)
 	animal_state = AnimalState.Animal_state.ALONE
 	mounter.set_animal_state(AnimalState.Animal_state.ACTIVE)
-	mounter.global_position = get_child(3).global_position
+	mounter.global_position = $Mount.global_position
 	if jump_start:
 		mounter.jump()
 	await get_tree().create_timer(1).timeout
