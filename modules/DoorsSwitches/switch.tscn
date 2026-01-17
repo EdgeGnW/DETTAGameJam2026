@@ -10,6 +10,7 @@ size = Vector2(16, 16)
 [node name="Switch" type="Area2D" groups=["switches"]]
 texture_filter = 1
 texture_repeat = 2
+collision_mask = 30
 monitorable = false
 script = ExtResource("1_x66yt")
 
