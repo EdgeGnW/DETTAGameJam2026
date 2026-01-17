@@ -167,59 +167,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
 text = "Zurück"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/SettingMenu"]
-layout_mode = 0
-offset_left = 113.0
-offset_top = 93.0
-offset_right = 629.0
-offset_bottom = 246.0
-theme_override_constants/h_separation = 14
-theme_override_constants/v_separation = 20
-columns = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/SettingMenu/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 21
-text = "Musik"
-horizontal_alignment = 1
-
-[node name="volume_slider" type="HSlider" parent="CanvasLayer/SettingMenu/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxLine_oa53l")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_d3a7t")
-value = 50.0
-script = ExtResource("2_d3a7t")
-audio_bus_name = "Music"
-
-[node name="Label2" type="Label" parent="CanvasLayer/SettingMenu/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 21
-text = "Ambience"
-vertical_alignment = 1
-
-[node name="volume_slider2" type="HSlider" parent="CanvasLayer/SettingMenu/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_styles/slider = SubResource("StyleBoxLine_oa53l")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_d3a7t")
-value = 50.0
-script = ExtResource("2_d3a7t")
-audio_bus_name = "Music"
-
-[node name="Label3" type="Label" parent="CanvasLayer/SettingMenu/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 21
-text = "SFX"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="volume_slider3" type="HSlider" parent="CanvasLayer/SettingMenu/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -96.5
+offset_right = 165.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_oa53l")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_d3a7t")
 value = 50.0
@@ -254,7 +214,5 @@ text = "Die Bremer Stadtmusikanten"
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/end" to="." method="_on_end_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/end" to="CanvasLayer/MainMenu/MainButtons" method="_on_end_pressed"]
 [connection signal="pressed" from="CanvasLayer/SettingMenu/back" to="." method="_on_back_pressed"]
-[connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider" to="CanvasLayer/SettingMenu/GridContainer/volume_slider" method="_on_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider2" to="CanvasLayer/SettingMenu/GridContainer/volume_slider2" method="_on_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider3" to="CanvasLayer/SettingMenu/GridContainer/volume_slider3" method="_on_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingMenu/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingMenu/HSlider" to="CanvasLayer/SettingMenu/HSlider" method="_on_value_changed"]
