@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction: float = 0
 	if animal_state == AnimalState.Animal_state.ACTIVE:
-		direction = Input.get_axis("ui_left", "ui_right")
+		direction = Input.get_axis("left", "right")
 	if direction != 0:
 		dir = int(direction)
 		var flip_h = dir < 0
@@ -83,10 +83,10 @@ func dismount(jump_start: bool) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if animal_state == AnimalState.Animal_state.ACTIVE:
-		if event.is_action_pressed("ui_accept"):
-			if Input.is_action_pressed("ui_down") and has_mount:
+		if event.is_action_pressed("jump"):
+			if Input.is_action_pressed("down") and has_mount:
 				dismount(false)
-			elif Input.is_action_pressed("ui_up") and has_mount:
+			elif Input.is_action_pressed("up") and has_mount:
 				dismount(true)
 			elif not movement_locked and is_on_floor():
 				jump()

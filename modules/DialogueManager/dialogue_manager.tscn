@@ -17,7 +17,10 @@ metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 process_mode = 1
 script = ExtResource("1_jbixp")
 characters = Dictionary[String, ExtResource("2_507jh")]({
-"Hahn": SubResource("Resource_kgemy")
+"Esel": null,
+"Hahn": SubResource("Resource_kgemy"),
+"Hund": null,
+"Katze": null
 })
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
