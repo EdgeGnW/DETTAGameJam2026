@@ -1,5 +1,5 @@
+class_name Player2D
 extends CharacterBody2D
-
 
 @export var speed: float = 300.0
 @export var jump_velocity: float = -400.0
@@ -15,6 +15,7 @@ var dir: int
 
 @export var animal_state: AnimalState.Animal_state
 var has_mount: bool = false
+var mount: Player2D
 
 func _physics_process(delta: float) -> void:
 	if animal_state == AnimalState.Animal_state.RIDING:
@@ -31,6 +32,12 @@ func _physics_process(delta: float) -> void:
 		direction = Input.get_axis("ui_left", "ui_right")
 	if direction != 0:
 		dir = int(direction)
+		var flip_h = dir < 0
+		if sprite_2d.flip_h != flip_h:
+			flip_mount()
+		sprite_2d.flip_h = flip_h
+		
+		
 	
 	if movement_locked:
 		move_and_slide()
@@ -69,6 +76,7 @@ func dismount(jump_start: bool) -> void:
 		mounter.jump()
 	await get_tree().create_timer(1).timeout
 	has_mount = false
+	mount = null
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -80,3 +88,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				dismount(true)
 			elif not movement_locked and is_on_floor():
 				jump()
+				
+func flip_mount():
+	if not has_mount: return
+	mount.sprite_2d.flip_h = !mount.sprite_2d.flip_h
+	mount.flip_mount()
+	
