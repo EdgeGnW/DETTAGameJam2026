@@ -24,7 +24,7 @@ jump_velocity = 0.0
 height = 64.0
 animal_state = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="OwnCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")

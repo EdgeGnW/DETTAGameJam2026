@@ -21,3 +21,12 @@ func attach(body):
 	#body.global_position = pos
 	body.global_position.x = global_position.x
 	body.global_position.y = global_position.y - body.height / 2
+	var temp_mount = body
+	while temp_mount != null:
+		var collision_shape = temp_mount.get_child(0).duplicate()
+		var pos = temp_mount.global_position
+		get_parent().add_child(collision_shape)
+		collision_shape.global_position = pos
+		print(pos)
+		temp_mount = temp_mount.mount
+		print(temp_mount)

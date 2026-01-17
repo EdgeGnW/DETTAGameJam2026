@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnxxdeo3sdwlw"]
+[gd_scene load_steps=9 format=3 uid="uid://cnxxdeo3sdwlw"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_rordu"]
 [ext_resource type="Texture2D" uid="uid://d2r8k3ejo64v" path="res://modules/Player/Rooster/Hahn_Basis.png" id="2_oop5y"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://modules/Player/idle.gd" id="4_v7642"]
 [ext_resource type="Script" path="res://modules/Player/walking.gd" id="5_q05bg"]
 [ext_resource type="Script" uid="uid://ddi714nnvvybl" path="res://modules/Player/jumping.gd" id="6_8r7gw"]
+[ext_resource type="Script" uid="uid://bjdk6je6da4bv" path="res://modules/Player/camera_2d.gd" id="7_6gvkf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
 radius = 8.0
@@ -19,7 +20,7 @@ gravity = Vector2(0, 400)
 max_fall_speed = 200.0
 height = 30.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="OwnCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ycsqo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -38,3 +39,6 @@ script = ExtResource("5_q05bg")
 
 [node name="Jumping" type="Node" parent="StateMachine"]
 script = ExtResource("6_8r7gw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("7_6gvkf")
