@@ -13,7 +13,7 @@ radius = 16.0
 height = 44.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_188by"]
-size = Vector2(10, 11)
+size = Vector2(24, 11)
 
 [node name="Dog" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1

@@ -59,8 +59,8 @@ func set_animal_state(new_state: AnimalState.Animal_state) -> void:
 		$StateMachine.set_active(false)
 
 func dismount(jump_start: bool) -> void:
-	var mounter = get_child(3).get_child(1)
-	get_child(3).remove_child(mounter)
+	var mounter = $Mount.get_child(1)
+	$Mount.remove_child(mounter)
 	get_parent().add_child(mounter)
 	animal_state = AnimalState.Animal_state.ALONE
 	mounter.set_animal_state(AnimalState.Animal_state.ACTIVE)
