@@ -24,6 +24,7 @@ AnimalState="*res://modules/Player/animal_state.gd"
 
 Animal=""
 switches="switches that open doors"
+movables=""
 
 [input]
 
@@ -77,3 +78,4 @@ roll={
 2d_physics/layer_3="Cat"
 2d_physics/layer_4="Dog"
 2d_physics/layer_5="Donkey"
+2d_physics/layer_6="Movables"

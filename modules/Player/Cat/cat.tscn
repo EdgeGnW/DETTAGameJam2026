@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ckbe0vvra4kp2"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_hkbnf"]
-[ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/textures/2D_player.png" id="2_hkbnf"]
+[ext_resource type="Texture2D" uid="uid://dti2dmn20r2w8" path="res://modules/Player/Cat/mieze_blau.png" id="2_xxla7"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_xxla7"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/idle.gd" id="4_5djog"]
 [ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/walking.gd" id="5_pg68p"]
@@ -11,29 +11,28 @@
 [ext_resource type="Script" uid="uid://fl6rvi6impgo" path="res://modules/Player/Donkey/mount.gd" id="9_xxla7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
-radius = 8.0
-height = 32.0
+radius = 9.5
+height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5djog"]
-size = Vector2(12, 8)
+size = Vector2(18, 5.5)
 
 [node name="Cat" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
 script = ExtResource("1_hkbnf")
-jump_velocity = -500.0
-gravity = Vector2(0, 1200)
+gravity = Vector2(0, 1000)
 max_fall_speed = 600.0
-height = 32.0
+height = 19.0
 animal_state = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_hkbnf")
+texture = ExtResource("2_xxla7")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_xxla7")]
 current_state = NodePath("Idle")
@@ -59,12 +58,14 @@ one_shot = true
 script = ExtResource("8_hkbnf")
 
 [node name="Mount" type="Area2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -9.5)
 collision_layer = 0
+collision_mask = 2
 input_pickable = false
 script = ExtResource("9_xxla7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mount"]
+position = Vector2(0, 1.25)
 shape = SubResource("RectangleShape2D_5djog")
 
 [connection signal="timeout" from="StateMachine/WallJumping/Timer" to="StateMachine/WallJumping" method="_on_timer_timeout"]
