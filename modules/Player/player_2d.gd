@@ -25,6 +25,7 @@ var mount: Player2D
 func _ready():
 	add_child(raycast)
 	raycast.target_position = Vector2(RAYCAST_LENGTH, 0)
+	if name != "Cat": raycast.enabled = false
 
 func _physics_process(delta: float) -> void:
 	if animal_state == AnimalState.Animal_state.RIDING:

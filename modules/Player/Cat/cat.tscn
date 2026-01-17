@@ -21,6 +21,7 @@ size = Vector2(18, 5.5)
 texture_filter = 1
 collision_layer = 4
 script = ExtResource("1_hkbnf")
+speed = null
 jump_height = 250.0
 max_fall_speed = 600.0
 height = 19.0
