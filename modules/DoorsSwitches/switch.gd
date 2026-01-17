@@ -9,7 +9,8 @@ signal updated()
 func _on_body_entered(_body: Node2D) -> void:
 	if not pressed:
 		pressed = true
-		$Sprite2D.scale.y = 0.5
+		$Default.hide()
+		$Pressed.show()
 		updated.emit()
 		
 
@@ -19,6 +20,7 @@ func _on_body_exited(_body: Node2D) -> void:
 	var bodies = get_overlapping_bodies()
 	if len(bodies) < 1:
 		pressed = false
-		$Sprite2D.scale.y = 1.0
+		$Default.show()
+		$Pressed.hide()
 		updated.emit()
 	
