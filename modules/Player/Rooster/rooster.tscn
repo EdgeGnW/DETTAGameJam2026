@@ -16,9 +16,9 @@ texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_rordu")
 jump_height = 150.0
-max_fall_speed = 50.0
+max_fall_speed = 70.0
 height = 30.0
-camera_zoom = 3.0
+camera_zoom = 2.6
 
 [node name="OwnCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ycsqo")

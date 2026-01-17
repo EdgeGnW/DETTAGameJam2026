@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=4 uid="uid://djm4ymgtlofq"]
+
+[ext_resource type="Texture2D" uid="uid://spyvk0vjwisd" path="res://modules/Test/2D/textures/2D_test_tileset.png" id="1_jcqcl"]
+[ext_resource type="PackedScene" uid="uid://cbg2y3go636fc" path="res://modules/DialogueManager/dialogue_trigger_2d.tscn" id="2_ex2d3"]
+[ext_resource type="PackedScene" uid="uid://ckbe0vvra4kp2" path="res://modules/Player/Cat/cat.tscn" id="3_chnqv"]
+[ext_resource type="PackedScene" uid="uid://d2k3smpp8hlt5" path="res://modules/Player/Donkey/donkey.tscn" id="4_0olbj"]
+[ext_resource type="PackedScene" uid="uid://cnxxdeo3sdwlw" path="res://modules/Player/Rooster/rooster.tscn" id="5_lhad1"]
+[ext_resource type="PackedScene" uid="uid://tccsja70bqmy" path="res://modules/Player/Dog/dog.tscn" id="6_1je2t"]
+[ext_resource type="PackedScene" uid="uid://c3ogc5f178133" path="res://modules/MoveableBlock/stone.tscn" id="8_pwhik"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oyfwt"]
+texture = ExtResource("1_jcqcl")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_fafsv"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/1 = SubResource("TileSetAtlasSource_oyfwt")
+
+[node name="2DTest" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+light_mask = 15
+visibility_layer = 15
+position = Vector2(11, -2)
+tile_map_data = PackedByteArray("AAAJACMAAQAAAAAAAAAKACMAAQAAAAAAAAALACMAAQAAAAAAAAAMACMAAQAAAAAAAAANACMAAQAAAAAAAAAOACMAAQAAAAAAAAAPACMAAQAAAAAAAAAQACMAAQAAAAAAAAARACMAAQAAAAAAAAASACMAAQAAAAAAAAATACMAAQAAAAAAAAAUACMAAQAAAAAAAAAVACMAAQAAAAAAAAAWACMAAQAAAAAAAAAXACMAAQAAAAAAAAAYACMAAQAAAAAAAAAZACMAAQAAAAAAAAAaACMAAQAAAAAAAAAbACMAAQAAAAAAAAAcACMAAQAAAAAAAAAdACMAAQAAAAAAAAAeACMAAQAAAAAAAAAfACMAAQAAAAAAAAAgACMAAQAAAAAAAAAhACMAAQAAAAAAAAAiACMAAQAAAAAAAAAjACMAAQAAAAAAAAAkACMAAQAAAAAAAAAlACMAAQAAAAAAAAAmACMAAQAAAAAAAAAnACMAAQAAAAAAAAAoACMAAQAAAAAAAAApACMAAQAAAAAAAAAqACMAAQAAAAAAAABGACMAAQAAAAAAAABHACMAAQAAAAAAAAAIACMAAQAAAAAAAAAHACMAAQAAAAAAAAAGACMAAQAAAAAAAAAFACMAAQAAAAAAAAAEACMAAQAAAAAAAAADACMAAQAAAAAAAAACACMAAQAAAAAAAAABACMAAQAAAAAAAAAAACMAAQAAAAAAAAAAACIAAQAAAAAAAAAAACEAAQAAAAAAAAAAACAAAQAAAAAAAAAAAB8AAQAAAAAAAAAAAB4AAQAAAAAAAAAAAB0AAQAAAAAAAAAAABwAAQAAAAAAAAAAABsAAQAAAAAAAAAAABoAAQAAAAAAAAAAABkAAQAAAAAAAAAAABgAAQAAAAAAAAAAABcAAQAAAAAAAAAAABYAAQAAAAAAAAAAABUAAQAAAAAAAAAAABQAAQAAAAAAAAAAABMAAQAAAAAAAAAAABIAAQAAAAAAAAAAABEAAQAAAAAAAAAAABAAAQAAAAAAAAAAAA8AAQAAAAAAAAAAAA4AAQAAAAAAAABHACIAAQAAAAAAAABHACEAAQAAAAAAAABHACAAAQAAAAAAAABHAB8AAQAAAAAAAABHAB4AAQAAAAAAAABHAB0AAQAAAAAAAABHABwAAQAAAAAAAABHABsAAQAAAAAAAABHABoAAQAAAAAAAABHABkAAQAAAAAAAABHABgAAQAAAAAAAABHABcAAQAAAAAAAABHABYAAQAAAAAAAABHABUAAQAAAAAAAABHABQAAQAAAAAAAABHABMAAQAAAAAAAABHABIAAQAAAAAAAABHABEAAQAAAAAAAABHABAAAQAAAAAAAABHAA8AAQAAAAAAAABHAA4AAQAAAAAAAABHAA0AAQAAAAAAAAAcABwAAQAAAAAAAAAcABsAAQAAAAAAAAAcABoAAQAAAAAAAAAcABkAAQAAAAAAAAAcABgAAQAAAAAAAAAcABcAAQAAAAAAAAAcABYAAQAAAAAAAAAcABMAAQAAAAAAAAAcABIAAQAAAAAAAAAcABEAAQAAAAAAAAAbABEAAQAAAAAAAAAaABEAAQAAAAAAAAAZABEAAQAAAAAAAAAdABwAAQAAAAAAAAAeABwAAQAAAAAAAAAfABwAAQAAAAAAAAAgABwAAQAAAAAAAAAhABwAAQAAAAAAAAAiABwAAQAAAAAAAAAjABwAAQAAAAAAAAAkABwAAQAAAAAAAAAlABwAAQAAAAAAAAAmABwAAQAAAAAAAAAnABwAAQAAAAAAAABFACMAAQABAAEAAABEACMAAQABAAEAAABDACMAAQABAAEAAABCACMAAQABAAEAAABBACMAAQABAAEAAAAcABQAAQABAAEAAAAcABUAAQABAAEAAAATABwAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_fafsv")
+
+[node name="DialogueTrigger2D" parent="." instance=ExtResource("2_ex2d3")]
+position = Vector2(403, 423)
+type = 1
+dialogue_text = "LMAO du SPast
+Dinora: hey..."
+
+[node name="Cat" parent="." instance=ExtResource("3_chnqv")]
+position = Vector2(299, 481)
+speed = 300.0
+
+[node name="Donkey" parent="." instance=ExtResource("4_0olbj")]
+position = Vector2(207, 448)
+
+[node name="Rooster" parent="." instance=ExtResource("5_lhad1")]
+position = Vector2(559, 536)
+
+[node name="Dog" parent="." instance=ExtResource("6_1je2t")]
+position = Vector2(263, 372)
+
+[node name="Stone" parent="." instance=ExtResource("8_pwhik")]
+position = Vector2(474, 527)
