@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://l1thpy5w485p"]
+[gd_scene load_steps=5 format=3 uid="uid://l1thpy5w485p"]
 
 [ext_resource type="Script" uid="uid://cc4je4kek1fbf" path="res://modules/DoorsSwitches/switch.gd" id="1_x66yt"]
 [ext_resource type="Texture2D" uid="uid://b0xh00eey328k" path="res://modules/DoorsSwitches/Plate.png" id="2_vfxbp"]
+[ext_resource type="Texture2D" uid="uid://k7gg8w403315" path="res://modules/DoorsSwitches/PlatePressed.png" id="3_uqiuq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nu3ou"]
 
@@ -13,6 +14,7 @@ monitorable = false
 script = ExtResource("1_x66yt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
 shape = SubResource("CircleShape2D_nu3ou")
 
 [node name="Default" type="Sprite2D" parent="."]
@@ -20,7 +22,7 @@ texture = ExtResource("2_vfxbp")
 
 [node name="Pressed" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("2_vfxbp")
+texture = ExtResource("3_uqiuq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
