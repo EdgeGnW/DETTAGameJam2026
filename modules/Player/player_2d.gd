@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var gravity: Vector2 = Vector2(0, 900)
 @export var max_fall_speed: float = 1000
 @export var height: float
+@export var camera_zoom: float = 1.0
 const MAX_VELOCITY: float = 80
 
 var movement_locked := false
@@ -62,6 +63,7 @@ func set_animal_state(new_state: AnimalState.Animal_state) -> void:
 	animal_state = new_state
 	if animal_state == AnimalState.Animal_state.ACTIVE:
 		$StateMachine.set_active(true)
+		get_viewport().get_camera_2d().zoom = Vector2(camera_zoom, camera_zoom)
 	else:
 		$StateMachine.set_active(false)
 
