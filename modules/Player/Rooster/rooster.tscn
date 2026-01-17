@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnxxdeo3sdwlw"]
+[gd_scene load_steps=8 format=3 uid="uid://cnxxdeo3sdwlw"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/2D/player_2d.gd" id="1_rordu"]
 [ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/2D/textures/2D_player.png" id="2_y0jqs"]
@@ -10,8 +10,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
 radius = 8.0
 height = 32.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oop5y"]
 
 [node name="Rooster" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
@@ -39,9 +37,3 @@ script = ExtResource("5_q05bg")
 
 [node name="Jumping" type="Node" parent="StateMachine"]
 script = ExtResource("6_8r7gw")
-
-[node name="Feet" type="Area2D" parent="."]
-position = Vector2(0, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
-shape = SubResource("RectangleShape2D_oop5y")

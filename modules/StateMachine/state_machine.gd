@@ -38,6 +38,6 @@ func on_child_transition(new_state_name: StringName) -> void:
 	else:
 		push_warning("State does not exist")
 		
-func deactivate() -> void:
-	active = false
+func set_active(new_active: bool) -> void:
+	active = new_active
 	on_child_transition("Idle")

@@ -17,7 +17,7 @@ func physics_update(_delta):
 
 func enter():
 	normal = subject.get_wall_normal()
-	subject.velocity.x = sign(normal.x) * subject.SPEED
+	subject.velocity.x = sign(normal.x) * subject.speed
 	subject.jump()
 	subject.movement_locked = true
 	$Timer.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://tccsja70bqmy"]
+[gd_scene load_steps=10 format=3 uid="uid://tccsja70bqmy"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/2D/player_2d.gd" id="1_c2sop"]
 [ext_resource type="Texture2D" uid="uid://bswcxwwsonggn" path="res://modules/Player/2D/textures/2D_player.png" id="2_ptn7w"]
@@ -6,13 +6,18 @@
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/2D/idle.gd" id="4_t567j"]
 [ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/2D/walking.gd" id="5_6uw0d"]
 [ext_resource type="Script" uid="uid://ddi714nnvvybl" path="res://modules/Player/2D/jumping.gd" id="6_diexe"]
+[ext_resource type="Script" uid="uid://fl6rvi6impgo" path="res://modules/Player/Donkey/mount.gd" id="7_ptn7w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ycsqo"]
 radius = 8.0
 height = 32.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_188by"]
+
 [node name="Dog" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_c2sop")
 jump_velocity = -500.0
 gravity = Vector2(0, 800)
@@ -37,3 +42,15 @@ script = ExtResource("5_6uw0d")
 
 [node name="Jumping" type="Node" parent="StateMachine"]
 script = ExtResource("6_diexe")
+
+[node name="Mount" type="Area2D" parent="."]
+position = Vector2(0, -10)
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+script = ExtResource("7_ptn7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mount"]
+shape = SubResource("RectangleShape2D_188by")
+
+[connection signal="body_entered" from="Mount" to="Mount" method="_on_body_entered"]

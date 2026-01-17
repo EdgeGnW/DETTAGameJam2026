@@ -15,6 +15,8 @@ height = 32.0
 
 [node name="Donkey" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_mhh0p")
 speed = 100.0
 jump_velocity = 0.0
@@ -39,6 +41,8 @@ script = ExtResource("5_3bw2j")
 
 [node name="Mount" type="Area2D" parent="."]
 position = Vector2(0, -10)
+collision_layer = 0
+collision_mask = 7
 input_pickable = false
 script = ExtResource("6_64bre")
 
