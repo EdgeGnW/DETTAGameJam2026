@@ -33,7 +33,7 @@ speed = 300.0
 position = Vector2(192, -80)
 
 [node name="Dog" parent="." instance=ExtResource("6_0jr60")]
-position = Vector2(2000, -264)
+position = Vector2(1040, -80)
 
 [node name="Door" parent="." instance=ExtResource("8_dq2ak")]
 position = Vector2(512, -112)

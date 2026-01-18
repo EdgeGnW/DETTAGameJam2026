@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://busdhk8ltwy51"]
+[gd_scene load_steps=64 format=3 uid="uid://busdhk8ltwy51"]
 
 [ext_resource type="Script" uid="uid://cahglj70ihcqn" path="res://main_menu/main_menu.gd" id="1_oa53l"]
 [ext_resource type="Texture2D" uid="uid://4kvtmpvr8uwu" path="res://main_menu/Titelmenu_Feld_Beenden.png" id="2_3f7m4"]
@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b8fn6f7s74mhi" path="res://main_menu/Titelmenu_Feld_Abspann_hover.png" id="3_ia84y"]
 [ext_resource type="Texture2D" uid="uid://nby5ptlnbmvn" path="res://main_menu/Titelmenu_Feld_2_Einstellungen_hover.png" id="3_og6xe"]
 [ext_resource type="Texture2D" uid="uid://bfxhl6cuqdcbx" path="res://main_menu/Titelmenu_Feld_1_Spielen_hover.png" id="3_qvn4f"]
-[ext_resource type="Script" path="res://main_menu/credit_text.gd" id="4_bws42"]
-[ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="12_qvn4f"]
+[ext_resource type="Script" uid="uid://cp5sigvju2anu" path="res://main_menu/credit_text.gd" id="4_bws42"]
+[ext_resource type="Texture2D" uid="uid://cw1amvmpg3uai" path="res://modules/Player/Donkey/Esel_Animationen_.png" id="12_vj6np"]
 [ext_resource type="Texture2D" uid="uid://c8ysink5chpb6" path="res://modules/Player/Rooster/Hahns_Charakter_Animation.png" id="13_g1omr"]
-[ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="14_kwfav"]
+[ext_resource type="Texture2D" uid="uid://b0rqevj17ri42" path="res://modules/Player/Dog/Hund_Animationen.png" id="14_vj6np"]
 [ext_resource type="Texture2D" uid="uid://4bhfh51bclpp" path="res://modules/Player/Cat/Selection.png" id="15_n70vs"]
 [ext_resource type="Texture2D" uid="uid://4r60kgv2hhyh" path="res://modules/Background/Background.png" id="16_vj6np"]
 [ext_resource type="Texture2D" uid="uid://ch2tf1r2ea2m2" path="res://modules/Finish/HouseOff.png" id="17_iri28"]
@@ -71,15 +71,32 @@ bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3f7m4"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_64bre"]
-atlas = ExtResource("12_qvn4f")
-region = Rect2(0, 0, 88, 57)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iri28"]
+atlas = ExtResource("12_vj6np")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq33v"]
+atlas = ExtResource("12_vj6np")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie3af"]
+atlas = ExtResource("12_vj6np")
+region = Rect2(192, 0, 96, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g1omr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_64bre")
+"texture": SubResource("AtlasTexture_iri28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq33v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie3af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq33v")
 }],
 "loop": true,
 "name": &"idle",
@@ -187,15 +204,32 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptn7w"]
-atlas = ExtResource("14_kwfav")
-region = Rect2(0, 0, 55, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifnh7"]
+atlas = ExtResource("14_vj6np")
+region = Rect2(0, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f1p5"]
+atlas = ExtResource("14_vj6np")
+region = Rect2(60, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ombju"]
+atlas = ExtResource("14_vj6np")
+region = Rect2(120, 0, 60, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n70vs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ptn7w")
+"texture": SubResource("AtlasTexture_ifnh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f1p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ombju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f1p5")
 }],
 "loop": true,
 "name": &"idle",
