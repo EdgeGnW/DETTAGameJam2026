@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c7c7koyqjnh3w"]
+[gd_scene load_steps=23 format=4 uid="uid://c7c7koyqjnh3w"]
 
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="1_f8r0v"]
 [ext_resource type="Texture2D" uid="uid://b5c0nfluss4t8" path="res://modules/TileSet/Decorations.png" id="2_ayubr"]
@@ -10,7 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://d2k3smpp8hlt5" path="res://modules/Player/Donkey/donkey.tscn" id="8_ce0r5"]
 [ext_resource type="PackedScene" uid="uid://tccsja70bqmy" path="res://modules/Player/Dog/dog.tscn" id="9_m2do3"]
 [ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="10_p3u6l"]
-[ext_resource type="PackedScene" path="res://modules/Test/Level4.tscn" id="11_8cwvh"]
+[ext_resource type="PackedScene" uid="uid://bqvpntft0l5hl" path="res://modules/Test/Level4.tscn" id="11_8cwvh"]
+[ext_resource type="Script" uid="uid://cmco8xvvb7im8" path="res://modules/Test/menu.gd" id="12_mibna"]
+[ext_resource type="Texture2D" uid="uid://bw6w8rvp37b2e" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts.png" id="13_o80n6"]
+[ext_resource type="Texture2D" uid="uid://spti8l666p07" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts_1.png" id="14_wapen"]
+[ext_resource type="Texture2D" uid="uid://csmrvmjfja7tc" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen.png" id="15_7hq27"]
+[ext_resource type="Texture2D" uid="uid://q5gqjx1j87ej" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen_ausgewahlt_.png" id="16_12uyd"]
+[ext_resource type="Texture2D" uid="uid://cruqukd8qbtoy" path="res://modules/Finish/Titelmenu_Feld_3_Hauptmenu.png" id="17_f4jsr"]
+[ext_resource type="Texture2D" uid="uid://c5rxfx3pyowrb" path="res://modules/Finish/Titelmenu_Feld_3_Haupmenu_ausgefullt.png" id="18_mt18y"]
+[ext_resource type="Texture2D" uid="uid://4kvtmpvr8uwu" path="res://main_menu/Titelmenu_Feld_Beenden.png" id="19_e3qon"]
+[ext_resource type="Texture2D" uid="uid://b7h8xtoal4lp6" path="res://main_menu/Titelmenu_Feld_Beenden_hover.png" id="20_kvnj8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqmcy"]
 texture = ExtResource("2_ayubr")
@@ -77,3 +86,47 @@ position = Vector2(1326, -880)
 [node name="Finish" parent="." instance=ExtResource("10_p3u6l")]
 position = Vector2(1483, -704)
 next_level = ExtResource("11_8cwvh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("12_mibna")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -136.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Next" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_o80n6")
+texture_pressed = ExtResource("14_wapen")
+texture_hover = ExtResource("14_wapen")
+
+[node name="Retry" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_7hq27")
+texture_pressed = ExtResource("16_12uyd")
+texture_hover = ExtResource("16_12uyd")
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("17_f4jsr")
+texture_pressed = ExtResource("18_mt18y")
+texture_hover = ExtResource("18_mt18y")
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_e3qon")
+texture_pressed = ExtResource("20_kvnj8")
+texture_hover = ExtResource("20_kvnj8")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Next" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Retry" to="CanvasLayer" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Menu" to="CanvasLayer" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]

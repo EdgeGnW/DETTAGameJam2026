@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bvh82klw0yb20"]
+[gd_scene load_steps=22 format=4 uid="uid://bvh82klw0yb20"]
 
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="2_qaf5c"]
 [ext_resource type="TileSet" uid="uid://disn7ip04wg7u" path="res://modules/TileSet/Decorations.tres" id="2_t1taw"]
@@ -12,6 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://l1thpy5w485p" path="res://modules/DoorsSwitches/switch.tscn" id="9_lyofx"]
 [ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="10_qaf5c"]
 [ext_resource type="PackedScene" uid="uid://c7c7koyqjnh3w" path="res://modules/Test/Level3.tscn" id="12_km8s1"]
+[ext_resource type="Script" uid="uid://cmco8xvvb7im8" path="res://modules/Test/menu.gd" id="13_0ijo2"]
+[ext_resource type="Texture2D" uid="uid://bw6w8rvp37b2e" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts.png" id="14_gq3yp"]
+[ext_resource type="Texture2D" uid="uid://spti8l666p07" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts_1.png" id="15_rykgo"]
+[ext_resource type="Texture2D" uid="uid://csmrvmjfja7tc" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen.png" id="16_q5lyv"]
+[ext_resource type="Texture2D" uid="uid://q5gqjx1j87ej" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen_ausgewahlt_.png" id="17_jh1ah"]
+[ext_resource type="Texture2D" uid="uid://cruqukd8qbtoy" path="res://modules/Finish/Titelmenu_Feld_3_Hauptmenu.png" id="18_l3k36"]
+[ext_resource type="Texture2D" uid="uid://c5rxfx3pyowrb" path="res://modules/Finish/Titelmenu_Feld_3_Haupmenu_ausgefullt.png" id="19_ve1of"]
+[ext_resource type="Texture2D" uid="uid://4kvtmpvr8uwu" path="res://main_menu/Titelmenu_Feld_Beenden.png" id="20_2k1th"]
+[ext_resource type="Texture2D" uid="uid://b7h8xtoal4lp6" path="res://main_menu/Titelmenu_Feld_Beenden_hover.png" id="21_xfahu"]
 
 [node name="LevelPascal" type="Node2D"]
 
@@ -122,3 +131,47 @@ Hahn: Keine Sorge, wir wollen hier nur durch."
 [node name="Finish" parent="." instance=ExtResource("10_qaf5c")]
 position = Vector2(2784, -192)
 next_level = ExtResource("12_km8s1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("13_0ijo2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -136.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Next" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_gq3yp")
+texture_pressed = ExtResource("15_rykgo")
+texture_hover = ExtResource("15_rykgo")
+
+[node name="Retry" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_q5lyv")
+texture_pressed = ExtResource("17_jh1ah")
+texture_hover = ExtResource("17_jh1ah")
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("18_l3k36")
+texture_pressed = ExtResource("19_ve1of")
+texture_hover = ExtResource("19_ve1of")
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("20_2k1th")
+texture_pressed = ExtResource("21_xfahu")
+texture_hover = ExtResource("21_xfahu")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Next" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Retry" to="CanvasLayer" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Menu" to="CanvasLayer" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]

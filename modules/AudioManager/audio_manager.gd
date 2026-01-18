@@ -21,6 +21,7 @@ var sound_index: int = 0
 #	play_sound(load("res://assets/sound/sfx/default_text_voice.wav"), 1)
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	add_child(music_player)
 	music_player.bus = "Music"

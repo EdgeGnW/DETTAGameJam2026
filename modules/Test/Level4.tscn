@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bqvpntft0l5hl"]
+[gd_scene load_steps=23 format=4 uid="uid://bqvpntft0l5hl"]
 
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="1_vyjl8"]
 [ext_resource type="PackedScene" uid="uid://ckbe0vvra4kp2" path="res://modules/Player/Cat/cat.tscn" id="2_34tr4"]
@@ -12,6 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="10_rgmcf"]
 [ext_resource type="PackedScene" uid="uid://bf5uq0sgh8k20" path="res://main_menu/end_screen.tscn" id="11_34tr4"]
 [ext_resource type="TileSet" uid="uid://disn7ip04wg7u" path="res://modules/TileSet/Decorations.tres" id="12_v54jk"]
+[ext_resource type="Script" uid="uid://cmco8xvvb7im8" path="res://modules/Test/menu.gd" id="13_c0nlg"]
+[ext_resource type="Texture2D" uid="uid://bw6w8rvp37b2e" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts.png" id="14_gpwj7"]
+[ext_resource type="Texture2D" uid="uid://spti8l666p07" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts_1.png" id="15_k5mhx"]
+[ext_resource type="Texture2D" uid="uid://csmrvmjfja7tc" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen.png" id="16_a3dnj"]
+[ext_resource type="Texture2D" uid="uid://q5gqjx1j87ej" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen_ausgewahlt_.png" id="17_sk7fk"]
+[ext_resource type="Texture2D" uid="uid://cruqukd8qbtoy" path="res://modules/Finish/Titelmenu_Feld_3_Hauptmenu.png" id="18_ruob1"]
+[ext_resource type="Texture2D" uid="uid://c5rxfx3pyowrb" path="res://modules/Finish/Titelmenu_Feld_3_Haupmenu_ausgefullt.png" id="19_7fgv5"]
+[ext_resource type="Texture2D" uid="uid://4kvtmpvr8uwu" path="res://main_menu/Titelmenu_Feld_Beenden.png" id="20_gnnbc"]
+[ext_resource type="Texture2D" uid="uid://b7h8xtoal4lp6" path="res://main_menu/Titelmenu_Feld_Beenden_hover.png" id="21_nibce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo3xl"]
 size = Vector2(20, 126)
@@ -137,3 +146,47 @@ position = Vector2(2271, -417)
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AABDAN3/AAABAAEAAABLAN3/AAABAAAAAABJAN3/AAAAAAEAAAAvANH/AAAAAAIAAAAsANH/AAABAAAAAAAkANP/AAABAAEAAAAyAMr/AAAAAAAAAAAxAMr/AAABAAEAAAA3AMr/AAAAAAEAAAAdAMH/AAAAAAEAAAAeAMH/AAAAAAIAAAAfAMH/AAAAAAAAAAARALz/AAABAAEAAAASALz/AAAAAAIAAAAHAMD/AAAAAAAAAAAIAMD/AAABAAEAAAAIANH/AAAAAAIAAAANANf/AAABAAEAAAASANr/AAAAAAIAAAAWANz/AAAAAAIAAAAXANz/AAAAAAIAAAAvAOv/AAAAAAAAAAAwAOv/AAABAAEAAAA1AOz/AAAAAAAAAAA6AO7/AAABAAAAAAA7AO7/AAABAAEAAABFAOv/AAABAAAAAABGAOv/AAAAAAAAAABHAOv/AAAAAAAAAABIAOv/AAAAAAEAAABJAOv/AAABAAEAAABKAOv/AAABAAEAAABLAOv/AAAAAAEAAABMAOv/AAABAAEAAABNAOv/AAAAAAAAAABkAOn/AAABAAEAAABXANf/AAAAAAAAAABNANL/AAABAAEAAABSANX/AAAAAAAAAABMAND/AAAAAAEAAABNAMj/AAABAAAAAABDAMP/AAAAAAAAAABFAMP/AAABAAAAAAA/AMX/AAAAAAEAAAAqAMb/AAAAAAEAAABkAMr/AAAAAAMAAABYANf/AAAAAAMAAAA4AMz/AAAAAAMAAAAVAMH/AAAAAAMAAAAHALv/AAAAAAMAAAAJALr/AAAAAAMAAAAGANH/AAAAAAMAAAAOAND/AAAAAAMAAAAoAN//AAAAAAMAAABaAO//AAAAAAMAAABYAPb/AAADAAEAAABPAPb/AAACAAEAAABQAPb/AAADAAEAAABRAPb/AAACAAEAAABSAPb/AAADAAEAAABTAPb/AAACAAEAAABUAPb/AAADAAEAAABVAPb/AAACAAEAAABWAPb/AAADAAEAAABXAPb/AAACAAEAAABWAMz/AAACAAMAAABEAPP/AAACAAMAAAA8ANz/AAACAAMAAAA0AMr/AAACAAAAAAA1AMr/AAADAAAAAAAWAMr/AAACAAAAAAAXAMr/AAADAAAAAAAKAMH/AAACAAAAAAALAMH/AAADAAAAAAAgAOP/AAACAAAAAAAhAOP/AAADAAAAAABQAOv/AAACAAAAAABRAOv/AAADAAAAAABDAOv/AAACAAAAAABEAOv/AAADAAAAAABLAPP/AAACAAAAAABMAPP/AAADAAAAAABbAPP/AAABAAIAAABbAPT/AAABAAMAAABaAPT/AAABAAIAAABaAPX/AAABAAMAAAA/APH/AAABAAIAAAA/APL/AAABAAMAAAAlANf/AAABAAIAAAAlANj/AAABAAMAAAAeANf/AAABAAIAAAAeANj/AAABAAMAAAAcANj/AAAAAAIAAAAdANj/AAAAAAIAAAAfANj/AAAAAAIAAAAkANj/AAAAAAIAAAAEAOL/AAAAAAAAAAASAOP/AAACAAMAAAAPAOv/AAACAAAAAAAQAOv/AAADAAAAAAAoAOz/AAABAAAAAAAcAO3/AAADAAEAAAATAOz/AAABAAAAAAAUAOz/AAAAAAAAAAAdAO3/AAACAAEAAAAiAO3/AAACAAEAAAAhAO3/AAADAAEAAAAfAO3/AAADAAEAAAAgAO3/AAACAAEAAAAeAO3/AAADAAEAAAAaAO3/AAADAAEAAAAYAO3/AAADAAEAAAAZAO3/AAACAAEAAAAbAO3/AAACAAEAAAAnAOz/AAABAAEAAAAmAOz/AAAAAAIAAAAWAOz/AAABAAMAAAAWAOv/AAABAAIAAAAOAOD/AAAAAAMAAAA=")
 tile_set = ExtResource("12_v54jk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("13_c0nlg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -136.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Next" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_gpwj7")
+texture_pressed = ExtResource("15_k5mhx")
+texture_hover = ExtResource("15_k5mhx")
+
+[node name="Retry" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_a3dnj")
+texture_pressed = ExtResource("17_sk7fk")
+texture_hover = ExtResource("17_sk7fk")
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("18_ruob1")
+texture_pressed = ExtResource("19_7fgv5")
+texture_hover = ExtResource("19_7fgv5")
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("20_gnnbc")
+texture_pressed = ExtResource("21_nibce")
+texture_hover = ExtResource("21_nibce")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Next" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Retry" to="CanvasLayer" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Menu" to="CanvasLayer" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_pressed"]
