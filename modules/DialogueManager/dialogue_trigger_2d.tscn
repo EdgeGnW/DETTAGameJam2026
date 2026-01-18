@@ -19,6 +19,7 @@ script = ExtResource("1_nu3ou")
 shape = SubResource("CircleShape2D_nu3ou")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("PlaceholderTexture2D_s8iow")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

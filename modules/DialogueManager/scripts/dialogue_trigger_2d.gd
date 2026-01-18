@@ -27,7 +27,8 @@ func _display_text():
 		DialogueManager.add_dialogue_string(dialogue_text)
 
 # make sure player has own collision layer
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
+	if body.name != "Rooster": return
 	match type:
 		Type.Enter:
 			_display_text()

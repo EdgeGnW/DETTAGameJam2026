@@ -145,7 +145,7 @@ func lure(pos: Vector2):
 	if sprite_2d.flip_h != flip_h:
 		flip_character()
 	
-	velocity = Vector2(d * speed, 0)
+	velocity.x = Vector2(d * speed, 0).x
 	
 	move_and_slide()
 	
