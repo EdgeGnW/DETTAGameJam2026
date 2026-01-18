@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://rlqfmp2u1484"]
+[gd_scene load_steps=16 format=4 uid="uid://rlqfmp2u1484"]
 
 [ext_resource type="PackedScene" uid="uid://cbg2y3go636fc" path="res://modules/DialogueManager/dialogue_trigger_2d.tscn" id="3_6rqt4"]
 [ext_resource type="PackedScene" uid="uid://cnxxdeo3sdwlw" path="res://modules/Player/Rooster/rooster.tscn" id="3_fkea0"]
@@ -8,12 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://tccsja70bqmy" path="res://modules/Player/Dog/dog.tscn" id="7_dhvk3"]
 [ext_resource type="Texture2D" uid="uid://b5c0nfluss4t8" path="res://modules/TileSet/Decorations.png" id="7_xq5vf"]
 [ext_resource type="PackedScene" uid="uid://bkok7cmswbpge" path="res://modules/DoorsSwitches/Door.tscn" id="8_d1je4"]
+[ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="8_dh4as"]
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="8_jbcf8"]
 [ext_resource type="PackedScene" uid="uid://l1thpy5w485p" path="res://modules/DoorsSwitches/switch.tscn" id="9_8saqu"]
+[ext_resource type="PackedScene" uid="uid://btf72lomgygf6" path="res://modules/Test/Tutorial.tscn" id="9_krft5"]
 [ext_resource type="PackedScene" uid="uid://djuq8uvkc654o" path="res://modules/Test/karotte.tscn" id="10_8saqu"]
-[ext_resource type="Script" uid="uid://bbg10214bh0q7" path="res://modules/Finish/finish.gd" id="12_67xdn"]
-[ext_resource type="Texture2D" uid="uid://ch2tf1r2ea2m2" path="res://modules/Finish/HouseOff.png" id="12_krft5"]
-[ext_resource type="Texture2D" uid="uid://bfye1bxg0437e" path="res://modules/Finish/HouseOn.png" id="13_67xdn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2ueg"]
 texture = ExtResource("7_xq5vf")
@@ -36,9 +35,6 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_c2ueg")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qgtd"]
-size = Vector2(47, 139)
-
 [node name="2DTest" type="Node2D"]
 
 [node name="DialogueTrigger2D" parent="." instance=ExtResource("3_6rqt4")]
@@ -49,6 +45,7 @@ Dinora: hey..."
 
 [node name="Stone" parent="." instance=ExtResource("4_dhvk3")]
 position = Vector2(647, 505)
+collision_mask = 1
 
 [node name="Ground" type="TileMapLayer" parent="."]
 light_mask = 15
@@ -70,22 +67,9 @@ position = Vector2(761, 526)
 [node name="Karotte" parent="." instance=ExtResource("10_8saqu")]
 position = Vector2(940, 522)
 
-[node name="Finish" type="Area2D" parent="."]
+[node name="Finish" parent="." instance=ExtResource("8_dh4as")]
 position = Vector2(1552, -514)
-collision_layer = 0
-collision_mask = 30
-script = ExtResource("12_67xdn")
-
-[node name="LightsOff" type="Sprite2D" parent="Finish"]
-texture = ExtResource("12_krft5")
-
-[node name="LightsOn" type="Sprite2D" parent="Finish"]
-visible = false
-texture = ExtResource("13_67xdn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
-position = Vector2(-0.5, -5.5)
-shape = SubResource("RectangleShape2D_0qgtd")
+next_level = ExtResource("9_krft5")
 
 [node name="Dog" parent="." instance=ExtResource("7_dhvk3")]
 position = Vector2(1026, -503)
@@ -98,5 +82,3 @@ position = Vector2(1253, -512)
 
 [node name="Rooster" parent="." instance=ExtResource("3_fkea0")]
 position = Vector2(1147, -267)
-
-[connection signal="body_entered" from="Finish" to="Finish" method="_on_body_entered"]

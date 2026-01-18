@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://busdhk8ltwy51"]
+[gd_scene load_steps=60 format=3 uid="uid://busdhk8ltwy51"]
 
 [ext_resource type="Script" uid="uid://cahglj70ihcqn" path="res://main_menu/main_menu.gd" id="1_oa53l"]
 [ext_resource type="Texture2D" uid="uid://4kvtmpvr8uwu" path="res://main_menu/Titelmenu_Feld_Beenden.png" id="2_3f7m4"]
@@ -10,11 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://b8fn6f7s74mhi" path="res://main_menu/Titelmenu_Feld_Abspann_hover.png" id="3_ia84y"]
 [ext_resource type="Texture2D" uid="uid://nby5ptlnbmvn" path="res://main_menu/Titelmenu_Feld_2_Einstellungen_hover.png" id="3_og6xe"]
 [ext_resource type="Texture2D" uid="uid://bfxhl6cuqdcbx" path="res://main_menu/Titelmenu_Feld_1_Spielen_hover.png" id="3_qvn4f"]
-[ext_resource type="Script" uid="uid://cp5sigvju2anu" path="res://main_menu/credit_text.gd" id="4_bws42"]
+[ext_resource type="Script" path="res://main_menu/credit_text.gd" id="4_bws42"]
 [ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="12_qvn4f"]
 [ext_resource type="Texture2D" uid="uid://c8ysink5chpb6" path="res://modules/Player/Rooster/Hahns_Charakter_Animation.png" id="13_g1omr"]
 [ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="14_kwfav"]
 [ext_resource type="Texture2D" uid="uid://4bhfh51bclpp" path="res://modules/Player/Cat/Selection.png" id="15_n70vs"]
+[ext_resource type="Texture2D" uid="uid://4r60kgv2hhyh" path="res://modules/Background/Background.png" id="16_vj6np"]
+[ext_resource type="Texture2D" uid="uid://ch2tf1r2ea2m2" path="res://modules/Finish/HouseOff.png" id="17_iri28"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0.31011435, 0.5842033, 0.28522006, 1)
@@ -356,6 +358,7 @@ script = ExtResource("1_oa53l")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" type="Panel" parent="CanvasLayer"]
+z_index = -2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -672,7 +675,7 @@ autoplay = "idle"
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(1293, 135)
+position = Vector2(1610, 372)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_kwfav")
 animation = &"idle"
@@ -696,6 +699,16 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_tr6y3")
 animation = &"wall_slide"
 autoplay = "wall_slide"
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(983, 894)
+texture = ExtResource("16_vj6np")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1623, 691)
+scale = Vector2(4, 4)
+texture = ExtResource("17_iri28")
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/settings" to="." method="_on_settings_pressed"]

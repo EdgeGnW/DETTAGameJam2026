@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnxxdeo3sdwlw"]
+[gd_scene load_steps=22 format=3 uid="uid://cnxxdeo3sdwlw"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_rordu"]
 [ext_resource type="AudioStream" uid="uid://cgovhfwi01duv" path="res://modules/Player/Rooster/hahn.wav" id="2_hunxe"]
