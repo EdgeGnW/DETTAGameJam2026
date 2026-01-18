@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dn0gjuuesrnpb"]
+[gd_scene load_steps=13 format=4 uid="uid://bqvpntft0l5hl"]
 
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="1_vyjl8"]
 [ext_resource type="PackedScene" uid="uid://ckbe0vvra4kp2" path="res://modules/Player/Cat/cat.tscn" id="2_34tr4"]
@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bkok7cmswbpge" path="res://modules/DoorsSwitches/Door.tscn" id="7_y2c4n"]
 [ext_resource type="PackedScene" uid="uid://y88ywyed8jjy" path="res://modules/Carrot/carrot.tscn" id="8_b53jn"]
 [ext_resource type="PackedScene" uid="uid://c3ogc5f178133" path="res://modules/MoveableBlock/stone.tscn" id="9_ffkx1"]
-[ext_resource type="PackedScene" path="res://modules/Finish/finish.tscn" id="10_rgmcf"]
+[ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="10_rgmcf"]
+[ext_resource type="PackedScene" path="res://main_menu/end_screen.tscn" id="11_34tr4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo3xl"]
 size = Vector2(20, 126)
@@ -55,7 +56,6 @@ door_index = 17
 [node name="Door2" parent="." instance=ExtResource("7_y2c4n")]
 position = Vector2(1611, -1520)
 door_index = 17
-switch_threshold = 1
 stay_once_opened = false
 
 [node name="Stone" parent="." instance=ExtResource("9_ffkx1")]
@@ -109,7 +109,6 @@ door_index = 20
 [node name="Door6" parent="." instance=ExtResource("7_y2c4n")]
 position = Vector2(410, -976)
 door_index = 54
-switch_threshold = 1
 stay_once_opened = false
 
 [node name="Switch8" parent="." instance=ExtResource("6_i3naa")]
@@ -118,6 +117,7 @@ door_index = 54
 
 [node name="Finish" parent="." instance=ExtResource("10_rgmcf")]
 position = Vector2(2677, -353)
+next_level = ExtResource("11_34tr4")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 collision_layer = 32

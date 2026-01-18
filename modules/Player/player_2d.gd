@@ -105,9 +105,8 @@ func dismount(jump_start: bool) -> void:
 	await get_tree().create_timer(1).timeout
 	has_mount = false
 	mount = null
-	print("deleting")
 	for i in range (1,get_child_count()-1):
-		if get_child(i).is_class("CollisionShape2D") or get_child(i).is_in_group("Collision"):
+		if get_child(i) and get_child(i).is_class("CollisionShape2D"):
 			remove_child(get_child(i))
 
 

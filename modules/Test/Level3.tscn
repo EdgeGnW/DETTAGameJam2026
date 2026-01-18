@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c7c7koyqjnh3w"]
+[gd_scene load_steps=14 format=4 uid="uid://c7c7koyqjnh3w"]
 
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="1_f8r0v"]
 [ext_resource type="Texture2D" uid="uid://b5c0nfluss4t8" path="res://modules/TileSet/Decorations.png" id="2_ayubr"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d2k3smpp8hlt5" path="res://modules/Player/Donkey/donkey.tscn" id="8_ce0r5"]
 [ext_resource type="PackedScene" uid="uid://tccsja70bqmy" path="res://modules/Player/Dog/dog.tscn" id="9_m2do3"]
 [ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="10_p3u6l"]
+[ext_resource type="PackedScene" path="res://modules/Test/Level4.tscn" id="11_8cwvh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqmcy"]
 texture = ExtResource("2_ayubr")
@@ -75,3 +76,4 @@ position = Vector2(1326, -880)
 
 [node name="Finish" parent="." instance=ExtResource("10_p3u6l")]
 position = Vector2(1483, -704)
+next_level = ExtResource("11_8cwvh")

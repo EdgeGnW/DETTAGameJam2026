@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bkok7cmswbpge" path="res://modules/DoorsSwitches/Door.tscn" id="8_gs331"]
 [ext_resource type="PackedScene" uid="uid://l1thpy5w485p" path="res://modules/DoorsSwitches/switch.tscn" id="9_l3gid"]
 [ext_resource type="PackedScene" uid="uid://y88ywyed8jjy" path="res://modules/Carrot/carrot.tscn" id="10_l3gid"]
-[ext_resource type="PackedScene" path="res://modules/Finish/finish.tscn" id="11_xul5q"]
+[ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="11_xul5q"]
 [ext_resource type="TileSet" uid="uid://disn7ip04wg7u" path="res://modules/TileSet/Decorations.tres" id="12_oujej"]
-[ext_resource type="PackedScene" path="res://modules/Test/Level1.tscn" id="12_x1c2s"]
+[ext_resource type="PackedScene" uid="uid://bvh82klw0yb20" path="res://modules/Test/Pascal.tscn" id="12_x1c2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs331"]
 size = Vector2(20, 126)
