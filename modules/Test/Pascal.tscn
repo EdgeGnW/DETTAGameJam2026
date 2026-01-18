@@ -104,20 +104,20 @@ position = Vector2(1872, -272)
 scale = Vector2(4.035, 4.035)
 dialogue_text = "Esel: Hallo?... Hilfe, ich stecke hier fest!
 Esel: Warte... Rieche ich da etwa eine Karotte?
-Katze: Wir haben nur eine Möre.
-Esel: Ist auch egal,  holt mich einfach raus. Bitte knallt aber nicht die Türen T_T"
+Katze: Wir haben nur eine Möhre.
+Esel: Ist auch egal, holt mich einfach raus. Aber bitte knallt nicht die Türen T_T"
 
 [node name="DialogueTrigger2D2" parent="." instance=ExtResource("9_kll5o")]
 position = Vector2(200, -112)
 scale = Vector2(4.035, 4.035)
-dialogue_text = "Hahn: Wir müssen einen weg hier raus finden.
-Katze: Mir fehlt die Katzenklappe."
+dialogue_text = "Hahn: Wir müssen einen Weg hier raus finden.
+Katze: Mir fehlt die Katzenklappe..."
 
 [node name="DialogueTrigger2D3" parent="." instance=ExtResource("9_kll5o")]
 position = Vector2(880, -104)
 scale = Vector2(4.035, 4.035)
-dialogue_text = "Hund: Stop, finger weg von meiner Möre!
-Hahn: Keine Sorge, wir wollen nur passieren."
+dialogue_text = "Hund: Stop, Finger weg von meiner Möhre!
+Hahn: Keine Sorge, wir wollen hier nur durch."
 
 [node name="Finish" parent="." instance=ExtResource("10_qaf5c")]
 position = Vector2(2784, -192)
