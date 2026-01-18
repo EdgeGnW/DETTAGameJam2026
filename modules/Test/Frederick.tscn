@@ -48,6 +48,7 @@ stay_once_opened = false
 
 [node name="Switch" parent="." instance=ExtResource("9_8saqu")]
 position = Vector2(592, 369)
+type = 1
 
 [node name="Karotte" parent="." instance=ExtResource("10_8saqu")]
 position = Vector2(940, 522)

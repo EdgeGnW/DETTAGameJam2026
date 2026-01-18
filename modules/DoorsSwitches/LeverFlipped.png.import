@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dighnrpvapfg3"
-path="res://.godot/imported/Switch.png-edbfdd337bbfe191b62864d0c7b41340.ctex"
+uid="uid://cjpp22h7didwu"
+path="res://.godot/imported/LeverFlipped.png-20f3431deb6dd175c167702d60073e85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/DoorsSwitches/Switch.png"
-dest_files=["res://.godot/imported/Switch.png-edbfdd337bbfe191b62864d0c7b41340.ctex"]
+source_file="res://modules/DoorsSwitches/LeverFlipped.png"
+dest_files=["res://.godot/imported/LeverFlipped.png-20f3431deb6dd175c167702d60073e85.ctex"]
 
 [params]
 
