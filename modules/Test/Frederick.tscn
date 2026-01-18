@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bkok7cmswbpge" path="res://modules/DoorsSwitches/Door.tscn" id="8_d1je4"]
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="8_jbcf8"]
 [ext_resource type="PackedScene" uid="uid://l1thpy5w485p" path="res://modules/DoorsSwitches/switch.tscn" id="9_8saqu"]
-[ext_resource type="PackedScene" uid="uid://canmiikq8abdf" path="res://modules/Test/karotte.tscn" id="10_8saqu"]
+[ext_resource type="PackedScene" path="res://modules/Test/karotte.tscn" id="10_8saqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2ueg"]
 texture = ExtResource("7_xq5vf")

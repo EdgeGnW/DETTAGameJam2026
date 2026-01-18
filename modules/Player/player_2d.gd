@@ -129,13 +129,13 @@ func lure(pos: Vector2):
 	
 	var v := pos - global_position
 	
-	var dir := int(sign(v.x))
+	var d := int(sign(v.x))
 	
-	var flip_h = dir < 0
+	var flip_h = d < 0
 	if sprite_2d.flip_h != flip_h:
 		flip_character()
 	
-	velocity = Vector2(dir * speed, 0)
+	velocity = Vector2(d * speed, 0)
 	
 	move_and_slide()
 	

@@ -13,11 +13,11 @@ func _physics_process(_delta: float) -> void:
 		position.x = abs(position.x)
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	$Label.show()
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	var bodies = get_overlapping_bodies()
 	if len(bodies) < 1:
 		$Label.hide()
