@@ -63,6 +63,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+	if global_position.y > 100:
+		get_tree().reload_current_scene()
+	
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i)
 		var collision = collider.get_collider()
@@ -111,7 +114,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if animal_state == AnimalState.Animal_state.ACTIVE:
 		if event.is_action_pressed("jump"):
 			free_falling = false
-			if name != "Rooster" and has_mount and (name == "Donkey" or not is_on_floor()) and (name != "Cat" or not is_on_wall()):
+			#if name != "Rooster" and has_mount and (name == "Donkey" or not is_on_floor()) and (name != "Cat" or not is_on_wall()):
+			#	dismount(true)
+			if Input.is_action_pressed("up") and has_mount:
 				dismount(true)
 			elif not wall_jumped and is_on_floor():
 				jump()
