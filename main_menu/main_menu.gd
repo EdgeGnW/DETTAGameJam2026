@@ -5,10 +5,11 @@ extends Control
 @onready var credits: Panel = $CanvasLayer/Credits
 @onready var game_title: Label = $CanvasLayer/game_title
 
-const KATZE = preload("uid://djbi10kuadd34")
-const HUND = preload("uid://cfe586nnfgtx3")
-const ESEL = preload("uid://ntumue2i3av")
-const HAHN = preload("uid://cgovhfwi01duv")
+const KATZE = preload("res://modules/Player/Cat/katze.wav")
+const HUND = preload("res://modules/Player/Dog/hund.wav")
+const ESEL = preload("res://modules/Player/Donkey/esel.wav")
+const HAHN = preload("res://modules/Player/Rooster/hahn.wav")
+
 
 const MUSIC = preload("uid://bbb6wmbg84tcu")
 
