@@ -29,12 +29,13 @@ func _ready():
 		open = true
 		$Closed.hide()
 		$Open.show()
-	$Label.text = str(switch_threshold)
+	$Label.text = "0/" + str(switch_threshold)
 		
 func check_switches():
 	var sum = 0
 	for switch in switches:
 		sum += int(switch.pressed)
+	$Label.text = str(sum) + "/" + str(switch_threshold)
 	#print(sum, switch_threshold, open, sum >= switch_threshold)
 	if sum >= switch_threshold:
 		if invert:
