@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://c33l4cwd3q5ta" path="res://modules/DialogueManager/scripts/character.gd" id="2_507jh"]
 [ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="3_gue62"]
 [ext_resource type="AudioStream" uid="uid://bx5xiiehfqxlu" path="res://modules/DialogueManager/sfx/ia.ogg" id="3_h8qnj"]
-[ext_resource type="Texture2D" uid="uid://d2r8k3ejo64v" path="res://modules/Player/Rooster/Hahn_Basis.png" id="3_ps80s"]
 [ext_resource type="AudioStream" uid="uid://jun72wwocb4j" path="res://modules/DialogueManager/sfx/wuff.ogg" id="4_4h1og"]
 [ext_resource type="Texture2D" uid="uid://pp8e3iooqhlt" path="res://modules/DialogueManager/resources/Textbox_720_mal_180.png" id="4_kgemy"]
 [ext_resource type="Texture2D" uid="uid://bqtu761xxw33" path="res://modules/DialogueManager/resources/Dialog_Char_Box_grun.webp" id="4_ps80s"]
 [ext_resource type="AudioStream" uid="uid://bwmb02kevvu2m" path="res://modules/DialogueManager/sfx/ki.ogg" id="4_x6bvr"]
 [ext_resource type="AudioStream" uid="uid://dj58bpi4cfqy0" path="res://modules/DialogueManager/sfx/miau.ogg" id="5_eay7n"]
+[ext_resource type="Texture2D" uid="uid://cc267myuucorx" path="res://modules/DialogueManager/resources/rooster.png" id="5_gue62"]
 [ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="7_s4t7b"]
-[ext_resource type="Texture2D" uid="uid://dti2dmn20r2w8" path="res://modules/Player/Cat/mieze_blau.png" id="9_m4msv"]
+[ext_resource type="Texture2D" uid="uid://cs1yn67cmgin5" path="res://modules/DialogueManager/resources/katze.png" id="9_gue62"]
 
 [sub_resource type="Resource" id="Resource_jaug2"]
 script = ExtResource("2_507jh")
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 [sub_resource type="Resource" id="Resource_kgemy"]
 script = ExtResource("2_507jh")
 name = &"Hahn"
-picture = ExtResource("3_ps80s")
+picture = ExtResource("5_gue62")
 voice = ExtResource("4_x6bvr")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 
@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 [sub_resource type="Resource" id="Resource_x6bvr"]
 script = ExtResource("2_507jh")
 name = &"Katze"
-picture = ExtResource("9_m4msv")
+picture = ExtResource("9_gue62")
 voice = ExtResource("5_eay7n")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 
