@@ -3,14 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cib2v1qh7a8c8" path="res://modules/MoveableBlock/StoneV3.png" id="1_gasgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkea0"]
-size = Vector2(37, 36)
+size = Vector2(62, 62)
 
 [node name="Stone" type="RigidBody2D" groups=["movables"]]
 mass = 1.5
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_gasgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
