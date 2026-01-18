@@ -31,6 +31,9 @@ func check_switches():
 			open = true
 			$Closed.hide()
 			$Open.show()
+			if stay_once_opened:
+				for switch in self.switches:
+					switch.press_permanently()
 	elif open and not stay_once_opened:
 		collision_shape_2d.set_deferred("disabled", false)
 		open = false

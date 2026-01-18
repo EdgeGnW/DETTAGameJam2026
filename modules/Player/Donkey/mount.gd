@@ -5,7 +5,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if get_parent().has_mount: return
 	if body.is_in_group("Animal") and body.name != get_parent().name:
 		if body.animal_state == AnimalState.Animal_state.ACTIVE:
-			if body.velocity.y > 0:
+			if body.velocity.y > 0 and body.global_position.y < get_parent().global_position.y - get_parent().height / 2 + 5:
 				get_parent().has_mount = true
 				get_parent().mount = body
 				get_parent().set_animal_state(AnimalState.Animal_state.ACTIVE)

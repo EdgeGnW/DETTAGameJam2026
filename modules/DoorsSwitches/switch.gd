@@ -4,6 +4,7 @@ class_name Switch
 @export var door_index: int
 @export var type: Type = Type.PLATE
 var pressed = false
+var active = true
 signal updated()
 
 var default_plate = load("res://modules/DoorsSwitches/Plate.png")
@@ -37,7 +38,7 @@ func _on_body_exited(_body: Node2D) -> void:
 	if type == Type.PLATE:
 		if not pressed: return
 		var bodies = get_overlapping_bodies()
-		if len(bodies) < 1:
+		if len(bodies) < 1 and active:
 			pressed = false
 			$Sprite.texture = default_plate
 			updated.emit()
@@ -52,3 +53,9 @@ func _input(event: InputEvent) -> void:
 			$Sprite.texture = flipped_lever
 		else:
 			$Sprite.texture = default_lever
+
+func press_permanently():
+	if type == Type.PLATE:
+		$Sprite.texture = pressed_plate
+		active = false
+		pressed = true

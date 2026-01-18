@@ -48,12 +48,8 @@ func _physics_process(delta: float) -> void:
 		dir = int(direction)
 		var flip_h = dir < 0
 		if sprite_2d.flip_h != flip_h:
-			flip_mount()
-		sprite_2d.flip_h = flip_h
-		raycast.target_position.x = dir * RAYCAST_LENGTH
+			flip_character()
 		
-		
-	
 	if wall_jumped and sign(direction) == -wall_jumped:
 		velocity.x += direction * speed * delta * 4
 		if sign(velocity.x) != wall_jumped and abs(velocity.x) >= speed:
@@ -71,6 +67,11 @@ func _physics_process(delta: float) -> void:
 		var collision = collider.get_collider()
 		if collision.is_in_group("movables") and name == "Donkey" and abs(collision.get_linear_velocity().x) < MAX_VELOCITY:
 			collision.apply_central_impulse(collider.get_normal() * -speed)
+
+func flip_character():
+	flip_mount()
+	sprite_2d.flip_h = !sprite_2d.flip_h
+	raycast.target_position.x *= -1
 	
 func jump() -> void:
 	velocity.y = -sqrt(1000 * jump_height)
@@ -115,7 +116,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			free_falling = true
 			if velocity.y < 0:
 				velocity.y *= 0.5
-		elif name != "Rooster" and event.is_action("dismount"):
+		elif name != "Rooster" and event.is_action_pressed("dismount"):
 			dismount(false)
 				
 func flip_mount():

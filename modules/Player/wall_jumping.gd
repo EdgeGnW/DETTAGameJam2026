@@ -22,6 +22,7 @@ func enter():
 	subject.velocity.x = sign(normal.x) * subject.speed
 	subject.jump()
 	subject.wall_jumped = sign(normal.x)
+	subject.flip_character()
 	$Timer.start()
 	rotation = sign(subject.velocity.x)
 
