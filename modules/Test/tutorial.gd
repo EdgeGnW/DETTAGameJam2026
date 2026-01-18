@@ -73,11 +73,17 @@ func _process(delta: float) -> void:
 		if rooster.global_position.x < 1500:
 			finish_step(14)
 	elif step == 14:
+		if rooster.global_position.x < 1000:
+			$Step16.show()
+		if $Switch5.pressed:
+			finish_step(16)
+	elif step == 16:
 		if rooster.global_position.x < 1500 and rooster.global_position.y > -1500:
 			finish_step(15)
 	elif step == 15:
 		if rooster.global_position.x < 1000:
-			$Step16.show()
+			$Step17.show()
+		
 
 
 func _unhandled_key_input(event: InputEvent) -> void:

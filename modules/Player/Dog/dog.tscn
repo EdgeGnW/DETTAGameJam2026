@@ -184,12 +184,13 @@ shape = SubResource("CircleShape2D_ptn7w")
 
 [node name="Label" type="Label" parent="GrabArea"]
 visible = false
-offset_left = -34.945
-offset_top = -42.855
-offset_right = 41.055
-offset_bottom = -19.855
+offset_left = -57.945
+offset_top = 18.145
+offset_right = 18.055
+offset_bottom = 41.145
 theme_override_constants/outline_size = 3
-text = "Aufheben"
+text = "(E)"
+horizontal_alignment = 1
 
 [node name="Node2D" type="Node2D" parent="GrabArea"]
 position = Vector2(6.625, -12.695)

@@ -22,10 +22,10 @@ texture = ExtResource("2_vfxbp")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
 offset_left = -20.0
-offset_top = -24.0
+offset_top = 19.0
 offset_right = 20.0
-offset_bottom = 16.0
-text = "Flip"
+offset_bottom = 59.0
+text = "(E)"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
