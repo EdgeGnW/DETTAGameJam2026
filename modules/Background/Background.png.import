@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://84gsocuiqpfv"
-path="res://.godot/imported/Titelmenu_Feld_Katze.png-8d355aad084bc3a729422a119b1448c6.ctex"
+uid="uid://4r60kgv2hhyh"
+path="res://.godot/imported/Background.png-8238eb96bcfa13f4a1e29a359d4a68c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main_menu/Titelmenu_Feld_Katze.png"
-dest_files=["res://.godot/imported/Titelmenu_Feld_Katze.png-8d355aad084bc3a729422a119b1448c6.ctex"]
+source_file="res://modules/Background/Background.png"
+dest_files=["res://.godot/imported/Background.png-8238eb96bcfa13f4a1e29a359d4a68c9.ctex"]
 
 [params]
 

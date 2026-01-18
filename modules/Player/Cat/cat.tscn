@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://ckbe0vvra4kp2"]
+[gd_scene load_steps=29 format=3 uid="uid://ckbe0vvra4kp2"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_hkbnf"]
+[ext_resource type="AudioStream" uid="uid://djbi10kuadd34" path="res://modules/Player/Cat/katze.wav" id="2_5djog"]
 [ext_resource type="Texture2D" uid="uid://4bhfh51bclpp" path="res://modules/Player/Cat/Selection.png" id="2_xxla7"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_xxla7"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/idle.gd" id="4_5djog"]
@@ -166,6 +167,7 @@ jump_height = 220.0
 max_fall_speed = 800.0
 height = 19.0
 camera_zoom = 3.5
+animal_sound = ExtResource("2_5djog")
 animal_state = 2
 
 [node name="OwnCollision" type="CollisionShape2D" parent="."]

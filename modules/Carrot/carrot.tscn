@@ -19,8 +19,8 @@ texture = ExtResource("2_23bws")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(-500, 0)
-collision_mask = 16
+collision_mask = 17
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 target_position = Vector2(500, 0)
-collision_mask = 16
+collision_mask = 17
