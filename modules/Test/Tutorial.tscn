@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bkok7cmswbpge" path="res://modules/DoorsSwitches/Door.tscn" id="8_gs331"]
 [ext_resource type="PackedScene" uid="uid://l1thpy5w485p" path="res://modules/DoorsSwitches/switch.tscn" id="9_l3gid"]
 [ext_resource type="PackedScene" uid="uid://y88ywyed8jjy" path="res://modules/Carrot/carrot.tscn" id="10_l3gid"]
-[ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="11_xul5q"]
-[ext_resource type="TileSet" uid="uid://bwmci64agwl12" path="res://modules/TileSet/Decorations.tres" id="12_oujej"]
+[ext_resource type="PackedScene" path="res://modules/Finish/finish.tscn" id="11_xul5q"]
+[ext_resource type="TileSet" uid="uid://disn7ip04wg7u" path="res://modules/TileSet/Decorations.tres" id="12_oujej"]
 [ext_resource type="PackedScene" path="res://modules/Test/Level1.tscn" id="12_x1c2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs331"]
@@ -235,7 +235,6 @@ horizontal_alignment = 1
 
 [node name="Door" parent="." instance=ExtResource("8_gs331")]
 position = Vector2(4123, -496)
-switch_threshold = 1
 
 [node name="Switch" parent="." instance=ExtResource("9_l3gid")]
 position = Vector2(3972, -464)
@@ -243,7 +242,6 @@ position = Vector2(3972, -464)
 [node name="Door2" parent="." instance=ExtResource("8_gs331")]
 position = Vector2(5014, -624)
 door_index = 1
-switch_threshold = 1
 
 [node name="Switch2" parent="." instance=ExtResource("9_l3gid")]
 position = Vector2(4885, -432)
