@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 			flip_character()
 		
 	if wall_jumped and sign(direction) == -wall_jumped:
-		velocity.x += direction * speed * delta * 4
+		velocity.x += direction * speed * delta * 2
 		if sign(velocity.x) != wall_jumped and abs(velocity.x) >= speed:
 			velocity.x = sign(velocity.x) * speed
 			wall_jumped = 0
@@ -126,6 +126,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				velocity.y *= 0.5
 		elif name != "Rooster" and event.is_action_pressed("dismount"):
 			dismount(false)
+		elif event.is_action_pressed("restart"):
+			get_tree().reload_current_scene()
 				
 func flip_mount():
 	if not has_mount: return

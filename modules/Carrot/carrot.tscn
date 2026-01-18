@@ -7,6 +7,7 @@
 size = Vector2(16, 8)
 
 [node name="Carrot" type="CharacterBody2D"]
+z_index = 4
 collision_layer = 32
 script = ExtResource("1_4c7am")
 

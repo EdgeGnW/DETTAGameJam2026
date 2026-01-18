@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 func _physics_process(_delta: float) -> void:
 	
+	if position.y > 0:
+		get_tree().reload_current_scene()
+	
 	velocity += get_gravity() * 0.8
 	velocity.y = clamp(velocity.y, -500, 500)
 	

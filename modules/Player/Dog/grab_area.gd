@@ -9,8 +9,10 @@ func _physics_process(_delta: float) -> void:
 	
 	if dog.sprite_2d.flip_h:
 		position.x = -abs(position.x)
+		scale.x = -1
 	else:
 		position.x = abs(position.x)
+		scale.x = 1
 
 
 func _on_body_entered(_body: Node2D) -> void:

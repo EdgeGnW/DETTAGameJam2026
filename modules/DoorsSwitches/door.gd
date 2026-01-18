@@ -27,6 +27,7 @@ func check_switches():
 	var sum = 0
 	for switch in switches:
 		sum += int(switch.pressed)
+	#print(sum, switch_threshold, open, sum >= switch_threshold)
 	if sum >= switch_threshold:
 		if not open:
 			collision_shape_2d.set_deferred("disabled", true)

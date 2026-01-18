@@ -10,6 +10,7 @@ const HUND = preload("uid://cfe586nnfgtx3")
 const ESEL = preload("uid://ntumue2i3av")
 const HAHN = preload("uid://cgovhfwi01duv")
 
+const MUSIC = preload("uid://bbb6wmbg84tcu")
 
 
 
@@ -20,6 +21,7 @@ func _ready() -> void:
 	credits.visible = false
 	fade_in(game_title, 1.5)
 	fade_in(main_buttons, 1.5)
+	AudioManager.play_music(MUSIC)
 
 func fade_in(node: Node, duration: float) -> void:
 	node.modulate.a = 0
@@ -32,6 +34,7 @@ func fade_in(node: Node, duration: float) -> void:
 func _on_settings_pressed() -> void:
 	AudioManager.play_sound(KATZE)
 	main_buttons.visible = false
+	%Animals.hide()
 	setting_menu.visible = true
 
 func _on_end_pressed() -> void:
@@ -46,6 +49,7 @@ func _on_back_pressed() -> void:
 	credits.visible = false
 	game_title.visible = true
 	main_buttons.get_parent().visible = true
+	%Animals.show()
 
 
 func _on_credits_pressed() -> void:
@@ -54,7 +58,7 @@ func _on_credits_pressed() -> void:
 	main_buttons.get_parent().visible = false
 	credits.visible = true
 	game_title.visible = false
-
+	%Animals.hide()
 
 func _on_start_pressed() -> void:
 	AudioManager.play_sound(HAHN)

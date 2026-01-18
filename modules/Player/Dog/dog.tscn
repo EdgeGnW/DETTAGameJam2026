@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://tccsja70bqmy"]
+[gd_scene load_steps=25 format=3 uid="uid://tccsja70bqmy"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_c2sop"]
-[ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="2_ptn7w"]
 [ext_resource type="AudioStream" uid="uid://cfe586nnfgtx3" path="res://modules/Player/Dog/hund.wav" id="2_t567j"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_188by"]
+[ext_resource type="Texture2D" uid="uid://b0rqevj17ri42" path="res://modules/Player/Dog/Hund_Animationen.png" id="3_t567j"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/idle.gd" id="4_t567j"]
 [ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/walking.gd" id="5_6uw0d"]
 [ext_resource type="Script" uid="uid://ddi714nnvvybl" path="res://modules/Player/jumping.gd" id="6_diexe"]
@@ -14,24 +14,107 @@
 radius = 16.0
 height = 44.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptn7w"]
-atlas = ExtResource("2_ptn7w")
-region = Rect2(0, 0, 55, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uw0d"]
+atlas = ExtResource("3_t567j")
+region = Rect2(0, 120, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diexe"]
+atlas = ExtResource("3_t567j")
+region = Rect2(60, 120, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkp43"]
+atlas = ExtResource("3_t567j")
+region = Rect2(0, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b12sf"]
+atlas = ExtResource("3_t567j")
+region = Rect2(60, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yohm"]
+atlas = ExtResource("3_t567j")
+region = Rect2(120, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulj4w"]
+atlas = ExtResource("3_t567j")
+region = Rect2(0, 80, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x5r5"]
+atlas = ExtResource("3_t567j")
+region = Rect2(60, 80, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v70bi"]
+atlas = ExtResource("3_t567j")
+region = Rect2(0, 40, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u518"]
+atlas = ExtResource("3_t567j")
+region = Rect2(60, 40, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65mj4"]
+atlas = ExtResource("3_t567j")
+region = Rect2(120, 40, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyxgn"]
+atlas = ExtResource("3_t567j")
+region = Rect2(180, 40, 60, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_188by"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ptn7w")
+"texture": SubResource("AtlasTexture_6uw0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diexe")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkp43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b12sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yohm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b12sf")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulj4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x5r5")
+}],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v70bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u518")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65mj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyxgn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_188by"]
@@ -59,9 +142,11 @@ shape = SubResource("CapsuleShape2D_ycsqo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 z_index = 3
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_188by")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.049071405
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_188by")]
 current_state = NodePath("Idle")

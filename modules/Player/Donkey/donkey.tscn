@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d2k3smpp8hlt5"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_mhh0p"]
-[ext_resource type="AudioStream" uid="uid://ntumue2i3av" path="res://modules/Player/Donkey/esel.wav" id="2_63wvj"]
+[ext_resource type="AudioStream" uid="uid://bibe6jf6esteb" path="res://modules/Player/Donkey/esel.wav" id="2_63wvj"]
 [ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="2_64bre"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_52hi8"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/idle.gd" id="4_ac7i3"]
@@ -61,7 +61,7 @@ shape = SubResource("CapsuleShape2D_ycsqo")
 unique_name_in_owner = true
 z_index = 2
 sprite_frames = SubResource("SpriteFrames_63wvj")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_52hi8")]
