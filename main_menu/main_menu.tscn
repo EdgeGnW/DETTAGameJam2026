@@ -217,7 +217,7 @@ theme_override_styles/slider = SubResource("StyleBoxLine_oa53l")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_d3a7t")
 value = 50.0
 script = ExtResource("2_d3a7t")
-audio_bus_name = "Music"
+audio_bus_name = "Ambience"
 
 [node name="Label3" type="Label" parent="CanvasLayer/SettingMenu/GridContainer"]
 layout_mode = 2
@@ -234,7 +234,7 @@ theme_override_styles/slider = SubResource("StyleBoxLine_oa53l")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_d3a7t")
 value = 50.0
 script = ExtResource("2_d3a7t")
-audio_bus_name = "Music"
+audio_bus_name = "SoundEffects"
 
 [node name="Credits" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -262,19 +262,16 @@ text = "Credits
 Programmierung
 
 	Max Mustermann - Entwickler
-	Max Mustermann - Entwickler
-	Max Mustermann - Entwickler
+	Pascal Ritzenfeld - Entwickler
 	Max Mustermann - Hauptmenü
 
 Grafikdesign
 
-    Max Mustermann - Grafiken und Animationen
-    Max Mustermann - UI-Design
+    Dinora Naomi Dechêne - Grafiken, Animationen und UI-Design
 
 Musik und Sound
 
-    [Musiker Name] - Originalmusik
-    [Sounddesigner Name] - Soundeffekte
+    Simon Sack - Originalmusik und Soundeffekte
 
 Besondere Dank
 
