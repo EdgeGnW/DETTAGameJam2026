@@ -90,6 +90,7 @@ func set_animal_state(new_state: AnimalState.Animal_state) -> void:
 
 func dismount(jump_start: bool) -> void:
 	var mounter = $Mount.get_child(1)
+	AudioManager.play_sound(mounter.animal_sound)
 	$Mount.remove_child(mounter)
 	get_parent().add_child(mounter)
 	animal_state = AnimalState.Animal_state.ALONE

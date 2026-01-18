@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://tccsja70bqmy"]
+[gd_scene load_steps=15 format=3 uid="uid://tccsja70bqmy"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_c2sop"]
 [ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="2_ptn7w"]
+[ext_resource type="AudioStream" uid="uid://cfe586nnfgtx3" path="res://modules/Player/Dog/hund.wav" id="2_t567j"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_188by"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/idle.gd" id="4_t567j"]
 [ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/walking.gd" id="5_6uw0d"]
@@ -47,6 +48,7 @@ script = ExtResource("1_c2sop")
 jump_height = 200.0
 height = 32.0
 camera_zoom = 1.85
+animal_sound = ExtResource("2_t567j")
 animal_state = 2
 
 [node name="OwnCollision" type="CollisionShape2D" parent="."]
