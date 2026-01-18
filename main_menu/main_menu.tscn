@@ -549,7 +549,7 @@ die das hier lesen. Vielen Dank fürs Spielen
 
 Verwendung
 
-Dieses Projekt wurde mit Godot Engine entwickelt."
+Dieses Projekt wurde mit Godot Engine entwickelt. Alle Inhalte außer dem Ambient-Sound sind selbstgemacht."
 script = ExtResource("4_bws42")
 
 [node name="UntereGrenze" type="Panel" parent="CanvasLayer/Credits"]
