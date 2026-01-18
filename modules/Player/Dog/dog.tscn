@@ -134,7 +134,7 @@ camera_zoom = 1.85
 animal_sound = ExtResource("2_t567j")
 animal_state = 2
 
-[node name="OwnCollision" type="CollisionShape2D" parent="."]
+[node name="OwnCollision" type="CollisionShape2D" parent="." groups=["Collision"]]
 position = Vector2(2, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")

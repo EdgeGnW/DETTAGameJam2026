@@ -115,7 +115,7 @@ height = 30.0
 camera_zoom = 5.0
 animal_sound = ExtResource("2_hunxe")
 
-[node name="OwnCollision" type="CollisionShape2D" parent="."]
+[node name="OwnCollision" type="CollisionShape2D" parent="." groups=["Collision"]]
 shape = SubResource("CapsuleShape2D_ycsqo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

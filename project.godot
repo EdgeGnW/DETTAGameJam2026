@@ -37,6 +37,7 @@ window/stretch/mode="viewport"
 Animal=""
 switches="switches that open doors"
 movables=""
+Collision=""
 
 [input]
 

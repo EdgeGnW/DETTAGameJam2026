@@ -52,7 +52,7 @@ height = 64.0
 animal_sound = ExtResource("2_63wvj")
 animal_state = 2
 
-[node name="OwnCollision" type="CollisionShape2D" parent="."]
+[node name="OwnCollision" type="CollisionShape2D" parent="." groups=["Collision"]]
 position = Vector2(0, 1.5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ycsqo")
