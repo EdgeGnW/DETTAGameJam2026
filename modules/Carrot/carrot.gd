@@ -11,12 +11,14 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	var body: Player2D
-	if ray_cast_2d.is_colliding():
+	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() is Player2D:
 		body = ray_cast_2d.get_collider()
-	elif ray_cast_2d_2.is_colliding():
+	elif ray_cast_2d_2.is_colliding() and ray_cast_2d_2.get_collider() is Player2D:
 		body = ray_cast_2d_2.get_collider()
 	else:
+		print("nein")
 		return
+	print("ja")
 	
 	body.lure(global_position)
 	

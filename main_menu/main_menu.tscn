@@ -1,7 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://busdhk8ltwy51"]
+[gd_scene load_steps=23 format=3 uid="uid://busdhk8ltwy51"]
 
 [ext_resource type="Script" uid="uid://cahglj70ihcqn" path="res://main_menu/main_menu.gd" id="1_oa53l"]
+[ext_resource type="Texture2D" uid="uid://4kvtmpvr8uwu" path="res://main_menu/Titelmenu_Feld_Beenden.png" id="2_3f7m4"]
+[ext_resource type="Texture2D" uid="uid://cjwmsfe1g0fpe" path="res://main_menu/Titelmenu_Feld_2_Einstellungen.png" id="2_6at21"]
 [ext_resource type="Script" uid="uid://fp6ak861wpmc" path="res://main_menu/h_slider.gd" id="2_d3a7t"]
+[ext_resource type="Texture2D" uid="uid://h3g4hai1v4y4" path="res://main_menu/Titelmenu_Feld_1_Spielen.png" id="2_mvfl2"]
+[ext_resource type="Texture2D" uid="uid://chwtlk4jgqw1j" path="res://main_menu/Titelmenu_Feld_Abspann.png" id="2_t6bnd"]
+[ext_resource type="Texture2D" uid="uid://b7h8xtoal4lp6" path="res://main_menu/Titelmenu_Feld_Beenden_hover.png" id="3_6tl50"]
+[ext_resource type="Texture2D" uid="uid://b8fn6f7s74mhi" path="res://main_menu/Titelmenu_Feld_Abspann_hover.png" id="3_ia84y"]
+[ext_resource type="Texture2D" uid="uid://nby5ptlnbmvn" path="res://main_menu/Titelmenu_Feld_2_Einstellungen_hover.png" id="3_og6xe"]
+[ext_resource type="Texture2D" uid="uid://bfxhl6cuqdcbx" path="res://main_menu/Titelmenu_Feld_1_Spielen_hover.png" id="3_qvn4f"]
 [ext_resource type="Script" uid="uid://cp5sigvju2anu" path="res://main_menu/credit_text.gd" id="4_bws42"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
@@ -84,59 +92,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -168.125
-offset_top = -97.5
-offset_right = 168.125
-offset_bottom = 197.5
+offset_left = -177.0
+offset_top = -113.0
+offset_right = 177.0
+offset_bottom = 426.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 9
 
-[node name="start" type="Button" parent="CanvasLayer/MainMenu/MainButtons"]
+[node name="start" type="TextureButton" parent="CanvasLayer/MainMenu/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_186t8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Spiel starten"
+texture_normal = ExtResource("2_mvfl2")
+texture_hover = ExtResource("3_qvn4f")
 
-[node name="settings" type="Button" parent="CanvasLayer/MainMenu/MainButtons"]
+[node name="settings" type="TextureButton" parent="CanvasLayer/MainMenu/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_186t8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Einstellung"
+texture_normal = ExtResource("2_6at21")
+texture_hover = ExtResource("3_og6xe")
 
-[node name="credits" type="Button" parent="CanvasLayer/MainMenu/MainButtons"]
+[node name="credits" type="TextureButton" parent="CanvasLayer/MainMenu/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_186t8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Credits"
+texture_normal = ExtResource("2_t6bnd")
+texture_hover = ExtResource("3_ia84y")
 
-[node name="end" type="Button" parent="CanvasLayer/MainMenu/MainButtons"]
+[node name="end" type="TextureButton" parent="CanvasLayer/MainMenu/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_186t8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Beenden"
+texture_normal = ExtResource("2_3f7m4")
+texture_hover = ExtResource("3_6tl50")
 
 [node name="SettingMenu" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -237,6 +226,7 @@ script = ExtResource("2_d3a7t")
 audio_bus_name = "SoundEffects"
 
 [node name="Credits" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -261,9 +251,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3shxk")
 text = "Credits
 Programmierung
 
-	Max Mustermann - Entwickler
+	Frederick OPP - Entwickler
 	Pascal Ritzenfeld - Entwickler
-	Max Mustermann - Hauptmenü
+	MAydin Yildiz - Hauptmenü
 
 Grafikdesign
 
@@ -377,9 +367,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -355.5
-offset_top = -231.5
+offset_top = -286.0
 offset_right = 355.5
-offset_bottom = -136.5
+offset_bottom = -191.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0.05490196, 0.05490196, 0.05490196, 1)

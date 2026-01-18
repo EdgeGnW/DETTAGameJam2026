@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var max_fall_speed: float = 1000
 @export var height: float
 @export var camera_zoom: float = 1.0
+@export var animal_sound: AudioStream
 var gravity: Vector2 = Vector2(0, 1000)
 const MAX_VELOCITY: float = 80
 var free_falling: bool = false

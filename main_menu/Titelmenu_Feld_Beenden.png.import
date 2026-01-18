@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgnayetisi8k5"
-path="res://.godot/imported/Titelmenu_Feld_Hahn.png-9274a1116d2966fb1542711005e51cce.ctex"
+uid="uid://4kvtmpvr8uwu"
+path="res://.godot/imported/Titelmenu_Feld_Beenden.png-574f317d4bfb3fdb81de8520d6faff29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main_menu/Titelmenu_Feld_Hahn.png"
-dest_files=["res://.godot/imported/Titelmenu_Feld_Hahn.png-9274a1116d2966fb1542711005e51cce.ctex"]
+source_file="res://main_menu/Titelmenu_Feld_Beenden.png"
+dest_files=["res://.godot/imported/Titelmenu_Feld_Beenden.png-574f317d4bfb3fdb81de8520d6faff29.ctex"]
 
 [params]
 
