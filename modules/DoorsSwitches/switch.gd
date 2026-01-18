@@ -13,6 +13,10 @@ var default_lever = load("res://modules/DoorsSwitches/Lever.png")
 var flipped_lever = load("res://modules/DoorsSwitches/LeverFlipped.png")
 var final_plate = load("res://modules/DoorsSwitches/PlateFinal.png")
 
+const FLICK_OFF = preload("uid://dyn16v41bjgvh")
+const FLICK_ON = preload("uid://d0xlopomy2a3q")
+
+
 enum Type {
 	PLATE,
 	LEVER
@@ -28,6 +32,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	if type == Type.PLATE:
 		if not pressed:
 			pressed = true
+			AudioManager.play_sound(FLICK_ON)
 			$Sprite.texture = load("res://modules/DoorsSwitches/PlatePressed.png")
 			updated.emit()
 	else:
@@ -41,6 +46,7 @@ func _on_body_exited(_body: Node2D) -> void:
 		var bodies = get_overlapping_bodies()
 		if len(bodies) < 1 and active:
 			pressed = false
+			AudioManager.play_sound(FLICK_OFF)
 			$Sprite.texture = default_plate
 			updated.emit()
 	else:

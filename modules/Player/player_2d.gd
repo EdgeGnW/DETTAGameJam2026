@@ -124,3 +124,18 @@ func flip_mount():
 	mount.sprite_2d.flip_h = !mount.sprite_2d.flip_h
 	mount.flip_mount()
 	
+func lure(pos: Vector2):
+	if animal_state != AnimalState.Animal_state.ALONE: return
+	
+	var v := pos - global_position
+	
+	var dir := int(sign(v.x))
+	
+	var flip_h = dir < 0
+	if sprite_2d.flip_h != flip_h:
+		flip_character()
+	
+	velocity = Vector2(dir * speed, 0)
+	
+	move_and_slide()
+	

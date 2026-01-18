@@ -118,7 +118,7 @@ shape = SubResource("CapsuleShape2D_ycsqo")
 unique_name_in_owner = true
 z_index = 5
 sprite_frames = SubResource("SpriteFrames_1l2jn")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_ljd5q")]
