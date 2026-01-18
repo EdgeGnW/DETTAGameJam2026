@@ -29,6 +29,4 @@ func attach(body: Player2D):
 		var pos = temp_mount.global_position
 		get_parent().add_child(collision_shape)
 		collision_shape.global_position = pos
-		print(pos)
 		temp_mount = temp_mount.mount
-		print(temp_mount)
