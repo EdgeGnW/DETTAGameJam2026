@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://7j3vkcdhxwrb"]
 
 [ext_resource type="Texture2D" uid="uid://fw0887ri650o" path="res://modules/TileSet/Tile_Set_Final.png" id="1_n8ao7"]
-[ext_resource type="Texture2D" uid="uid://b5c0nfluss4t8" path="res://modules/TileSet/Decorations.png" id="2_a05eo"]
+[ext_resource type="Texture2D" uid="uid://cn18h4xy42kip" path="res://modules/TileSet/BackGroundTiles.png" id="2_a05eo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1je4"]
 resource_name = "Ground"
@@ -492,54 +492,15 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/terrain_set = 0
 0:0/0/terrain = 2
 0:0/0/terrains_peering_bit/right_side = 2
+0:0/0/terrains_peering_bit/left_side = 2
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 2
-1:0/0/terrains_peering_bit/bottom_side = 2
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 2
-2:0/0/terrains_peering_bit/left_side = 2
-3:0/0 = 0
-3:0/0/terrain_set = 0
-3:0/0/terrain = 2
-3:0/0/terrains_peering_bit/top_side = 2
+1:0/0/terrains_peering_bit/right_side = 2
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/terrain = 2
-0:1/0/terrains_peering_bit/top_right_corner = 2
-1:1/0 = 0
-1:1/0/terrain_set = 0
-1:1/0/terrain = 2
-1:1/0/terrains_peering_bit/bottom_right_corner = 2
-2:1/0 = 0
-2:1/0/terrain_set = 0
-2:1/0/terrain = 2
-2:1/0/terrains_peering_bit/bottom_left_corner = 2
-3:1/0 = 0
-3:1/0/terrain_set = 0
-3:1/0/terrain = 2
-3:1/0/terrains_peering_bit/top_left_corner = 2
-0:2/0 = 0
-0:2/0/terrain_set = 0
-0:2/0/terrain = 2
-0:2/0/terrains_peering_bit/top_left_corner = 2
-0:2/0/terrains_peering_bit/top_side = 2
-1:2/0 = 0
-1:2/0/terrain_set = 0
-1:2/0/terrain = 2
-1:2/0/terrains_peering_bit/top_side = 2
-1:2/0/terrains_peering_bit/top_right_corner = 2
-0:3/0 = 0
-0:3/0/terrain_set = 0
-0:3/0/terrain = 2
-0:3/0/terrains_peering_bit/left_side = 2
-0:3/0/terrains_peering_bit/top_left_corner = 2
-1:3/0 = 0
-1:3/0/terrain_set = 0
-1:3/0/terrain = 2
-1:3/0/terrains_peering_bit/right_side = 2
-1:3/0/terrains_peering_bit/top_right_corner = 2
+0:1/0/terrains_peering_bit/left_side = 2
 
 [resource]
 tile_size = Vector2i(32, 32)
@@ -550,7 +511,7 @@ terrain_set_0/terrain_0/name = "Full"
 terrain_set_0/terrain_0/color = Color(0.9372549, 0.14117648, 0.24313726, 1)
 terrain_set_0/terrain_1/name = "Slim"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
-terrain_set_0/terrain_2/name = "Terrain 2"
-terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
+terrain_set_0/terrain_2/name = "Back"
+terrain_set_0/terrain_2/color = Color(0.746735, 0.4903257, 0.9518042, 1)
 sources/1 = SubResource("TileSetAtlasSource_d1je4")
-sources/6 = SubResource("TileSetAtlasSource_7hi2n")
+sources/7 = SubResource("TileSetAtlasSource_7hi2n")

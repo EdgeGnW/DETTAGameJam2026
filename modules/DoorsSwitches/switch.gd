@@ -11,6 +11,7 @@ var default_plate = load("res://modules/DoorsSwitches/Plate.png")
 var pressed_plate = load("res://modules/DoorsSwitches/PlatePressed.png")
 var default_lever = load("res://modules/DoorsSwitches/Lever.png")
 var flipped_lever = load("res://modules/DoorsSwitches/LeverFlipped.png")
+var final_plate = load("res://modules/DoorsSwitches/PlateFinal.png")
 
 enum Type {
 	PLATE,
@@ -56,6 +57,6 @@ func _input(event: InputEvent) -> void:
 
 func press_permanently():
 	if type == Type.PLATE:
-		$Sprite.texture = pressed_plate
+		$Sprite.texture = final_plate
 		active = false
 		pressed = true

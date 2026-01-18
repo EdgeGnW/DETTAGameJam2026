@@ -117,7 +117,7 @@ unique_name_in_owner = true
 z_index = 4
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_5djog")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("current_state", "subject") instance=ExtResource("3_xxla7")]
@@ -144,7 +144,7 @@ one_shot = true
 script = ExtResource("8_hkbnf")
 
 [node name="Mount" type="Area2D" parent="."]
-position = Vector2(0, -9.5)
+position = Vector2(0, -11)
 collision_layer = 0
 collision_mask = 2
 input_pickable = false
