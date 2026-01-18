@@ -8,13 +8,13 @@ func physics_update(_delta):
 	elif not subject.is_on_floor():
 		if subject.is_on_wall() and subject.name == "Cat" and subject.raycast.is_colliding():
 			transition.emit("WallSliding")
+		if subject.sprite_2d.animation == "jump" and subject.velocity.y > 0:
+			subject.sprite_2d.play("fall")
 	elif subject.velocity.x != 0.0:
 		transition.emit("Walking")
 	else:
 		transition.emit("Idle")
 		
-#func update(delta):
-#	subject.sprite_2d.rotate(delta * 10 * rotation)
 
 func enter():
 	subject.sprite_2d.play("jump")

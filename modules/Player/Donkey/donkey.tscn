@@ -38,6 +38,7 @@ size = Vector2(37, 8)
 texture_filter = 1
 collision_layer = 16
 collision_mask = 33
+floor_snap_length = 20.0
 script = ExtResource("1_mhh0p")
 speed = 100.0
 jump_height = 0.0

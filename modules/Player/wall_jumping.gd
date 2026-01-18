@@ -18,6 +18,7 @@ func physics_update(_delta):
 #	subject.sprite_2d.rotate(delta * 10 * rotation)
 
 func enter():
+	subject.sprite_2d.play("jump")
 	normal = subject.get_wall_normal()
 	subject.velocity.x = sign(normal.x) * subject.speed
 	subject.jump()

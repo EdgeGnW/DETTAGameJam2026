@@ -14,3 +14,6 @@ func physics_update(_delta):
 		transition.emit("Idle")
 	
 	subject.velocity.y = clamp(subject.velocity.y, -1000, MAX_SLIDE_SPEED)
+	
+func enter():
+	subject.sprite_2d.play("wall_slide")
