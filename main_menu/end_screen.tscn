@@ -1,22 +1,39 @@
-[gd_scene load_steps=39 format=3 uid="uid://bf5uq0sgh8k20"]
+[gd_scene load_steps=43 format=3 uid="uid://bf5uq0sgh8k20"]
 
 [ext_resource type="Script" uid="uid://mvfxc5p1ki4f" path="res://main_menu/end_screen.gd" id="1_rpm6e"]
-[ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="12_xgap3"]
+[ext_resource type="Texture2D" uid="uid://cw1amvmpg3uai" path="res://modules/Player/Donkey/Esel_Animationen_.png" id="2_rpm6e"]
+[ext_resource type="Texture2D" uid="uid://b0rqevj17ri42" path="res://modules/Player/Dog/Hund_Animationen.png" id="4_rpm6e"]
 [ext_resource type="Texture2D" uid="uid://c8ysink5chpb6" path="res://modules/Player/Rooster/Hahns_Charakter_Animation.png" id="13_v3cs3"]
-[ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="14_fsvit"]
 [ext_resource type="Texture2D" uid="uid://4bhfh51bclpp" path="res://modules/Player/Cat/Selection.png" id="15_p6p0j"]
 [ext_resource type="Texture2D" uid="uid://4r60kgv2hhyh" path="res://modules/Background/Background.png" id="16_a104k"]
 [ext_resource type="Texture2D" uid="uid://ch2tf1r2ea2m2" path="res://modules/Finish/HouseOff.png" id="17_4ewfg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_64bre"]
-atlas = ExtResource("12_xgap3")
-region = Rect2(0, 0, 88, 57)
+[sub_resource type="AtlasTexture" id="AtlasTexture_krwan"]
+atlas = ExtResource("2_rpm6e")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uwxo"]
+atlas = ExtResource("2_rpm6e")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdqf1"]
+atlas = ExtResource("2_rpm6e")
+region = Rect2(192, 0, 96, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g1omr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_64bre")
+"texture": SubResource("AtlasTexture_krwan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uwxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdqf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uwxo")
 }],
 "loop": true,
 "name": &"idle",
@@ -124,15 +141,32 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptn7w"]
-atlas = ExtResource("14_fsvit")
-region = Rect2(0, 0, 55, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_65q77"]
+atlas = ExtResource("4_rpm6e")
+region = Rect2(0, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5qb8"]
+atlas = ExtResource("4_rpm6e")
+region = Rect2(60, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6gjf"]
+atlas = ExtResource("4_rpm6e")
+region = Rect2(120, 0, 60, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n70vs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ptn7w")
+"texture": SubResource("AtlasTexture_65q77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5qb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6gjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5qb8")
 }],
 "loop": true,
 "name": &"idle",
