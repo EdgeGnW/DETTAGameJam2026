@@ -41,7 +41,7 @@ collision_layer = 8
 script = ExtResource("1_c2sop")
 jump_height = 200.0
 height = 32.0
-camera_zoom = 1.2
+camera_zoom = 1.85
 animal_state = 2
 
 [node name="OwnCollision" type="CollisionShape2D" parent="."]

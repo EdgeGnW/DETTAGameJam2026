@@ -109,7 +109,7 @@ script = ExtResource("1_rordu")
 jump_height = 150.0
 max_fall_speed = 70.0
 height = 30.0
-camera_zoom = 2.6
+camera_zoom = 5.0
 
 [node name="OwnCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ycsqo")
@@ -136,6 +136,8 @@ script = ExtResource("5_q05bg")
 script = ExtResource("6_8r7gw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_bottom = 0
 script = ExtResource("7_6gvkf")
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
