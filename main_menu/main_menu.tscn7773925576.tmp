@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://busdhk8ltwy51"]
+[gd_scene load_steps=16 format=3 uid="uid://busdhk8ltwy51"]
 
 [ext_resource type="Script" uid="uid://cahglj70ihcqn" path="res://main_menu/main_menu.gd" id="1_oa53l"]
 [ext_resource type="Script" uid="uid://fp6ak861wpmc" path="res://main_menu/h_slider.gd" id="2_d3a7t"]
+[ext_resource type="Script" uid="uid://c81c3v8oi31hn" path="res://main_menu/credits.gd" id="3_3shxk"]
 [ext_resource type="Script" uid="uid://cp5sigvju2anu" path="res://main_menu/credit_text.gd" id="4_bws42"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
@@ -46,15 +47,15 @@ thickness = 7
 color = Color(1, 1, 1, 1)
 thickness = 9
 
+[sub_resource type="SystemFont" id="SystemFont_rhts7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3f7m4"]
+bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3shxk"]
 bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bws42"]
-bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
-
-[sub_resource type="SystemFont" id="SystemFont_rhts7"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3f7m4"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
 
 [node name="Control" type="Control"]
@@ -69,6 +70,7 @@ script = ExtResource("1_oa53l")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -137,6 +139,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
 text = "Beenden"
 
 [node name="SettingMenu" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -240,8 +243,37 @@ audio_bus_name = "Music"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 113.0
+offset_right = -122.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_3shxk")
+
+[node name="Detta GameJam 2026" type="Label" parent="CanvasLayer/Credits"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.5
+offset_top = -328.0
+offset_right = 450.5
+offset_bottom = -185.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.05490196, 0.05490196, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_rhts7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_3f7m4")
+text = "Detta GameJam 2026"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="credit_text" type="RichTextLabel" parent="CanvasLayer/Credits"]
 z_index = 1
@@ -252,9 +284,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -283.5
-offset_top = 204.5
+offset_top = 201.5
 offset_right = 306.0
-offset_bottom = 877.5
+offset_bottom = 874.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_3shxk")
@@ -286,84 +318,13 @@ Verwendung
 Dieses Projekt wurde mit Godot Engine entwickelt."
 script = ExtResource("4_bws42")
 
-[node name="UntereGrenze" type="Panel" parent="CanvasLayer/Credits"]
+[node name="back" type="Button" parent="CanvasLayer/Credits"]
 z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -451.0
-offset_top = 195.0
-offset_right = 488.0
-offset_bottom = 551.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bws42")
-
-[node name="ObereSchranke" type="Panel" parent="CanvasLayer/Credits"]
-z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -451.0
-offset_top = -610.0
-offset_right = 488.0
-offset_bottom = -254.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bws42")
-
-[node name="Detta GameJam 2026" type="Label" parent="CanvasLayer/Credits/ObereSchranke"]
-z_index = 3
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -329.25
-offset_top = -193.0
-offset_right = 329.25
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_shadow_color = Color(0.05490196, 0.05490196, 0.05490196, 1)
-theme_override_constants/line_spacing = 0
-theme_override_constants/shadow_offset_x = 10
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = SubResource("SystemFont_rhts7")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_3f7m4")
-text = "Detta GameJam 2026"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Inbox" type="Panel" parent="CanvasLayer/Credits"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -426.0
-offset_top = -256.0
-offset_right = 442.0
-offset_bottom = 206.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="back_credits" type="Button" parent="CanvasLayer/Credits"]
-z_index = 3
 layout_mode = 0
-offset_left = 800.0
-offset_top = 803.0
-offset_right = 1135.0
-offset_bottom = 876.0
+offset_left = 293.0
+offset_top = 555.0
+offset_right = 628.0
+offset_bottom = 628.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -373,7 +334,38 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
 text = "Zurück"
 
+[node name="Panel" type="Panel" parent="CanvasLayer/Credits"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.5
+offset_top = 184.0
+offset_right = 447.5
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bws42")
+
+[node name="UntereGrenze" type="Panel" parent="CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -186.0
+offset_right = 326.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="game_title" type="Label" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -406,4 +398,4 @@ text = "Die Bremer Stadtmusikanten"
 [connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider" to="CanvasLayer/SettingMenu/GridContainer/volume_slider" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider2" to="CanvasLayer/SettingMenu/GridContainer/volume_slider2" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider3" to="CanvasLayer/SettingMenu/GridContainer/volume_slider3" method="_on_value_changed"]
-[connection signal="pressed" from="CanvasLayer/Credits/back_credits" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Credits/back" to="." method="_on_back_pressed"]

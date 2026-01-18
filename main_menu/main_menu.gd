@@ -24,8 +24,6 @@ func fade_in(node: Node, duration: float) -> void:
 func _on_settings_pressed() -> void:
 	main_buttons.visible = false
 	setting_menu.visible = true
-	
-
 
 func _on_end_pressed() -> void:
 	get_tree().quit()
@@ -36,9 +34,11 @@ func _on_back_pressed() -> void:
 	setting_menu.visible = false
 	credits.visible = false
 	game_title.visible = true
+	main_buttons.get_parent().visible = true
 
 
 func _on_credits_pressed() -> void:
 	main_buttons.visible = false
+	main_buttons.get_parent().visible = false
 	credits.visible = true
 	game_title.visible = false
