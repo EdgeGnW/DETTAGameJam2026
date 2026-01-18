@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://br0le1q11h5vm"]
+[gd_scene load_steps=10 format=4 uid="uid://btf72lomgygf6"]
 
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="1_36eyr"]
-[ext_resource type="Script" uid="uid://btn2h2jlk5k4x" path="res://modules/Test/tutorial.gd" id="1_g4i6a"]
+[ext_resource type="Script" path="res://modules/Test/tutorial.gd" id="1_g4i6a"]
 [ext_resource type="PackedScene" uid="uid://ckbe0vvra4kp2" path="res://modules/Player/Cat/cat.tscn" id="3_gs331"]
 [ext_resource type="PackedScene" uid="uid://d2k3smpp8hlt5" path="res://modules/Player/Donkey/donkey.tscn" id="4_l3gid"]
 [ext_resource type="PackedScene" uid="uid://cnxxdeo3sdwlw" path="res://modules/Player/Rooster/rooster.tscn" id="5_xul5q"]
