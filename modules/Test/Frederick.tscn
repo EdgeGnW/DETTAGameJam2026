@@ -1,39 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://rlqfmp2u1484"]
+[gd_scene load_steps=14 format=4 uid="uid://rlqfmp2u1484"]
 
 [ext_resource type="PackedScene" uid="uid://cbg2y3go636fc" path="res://modules/DialogueManager/dialogue_trigger_2d.tscn" id="3_6rqt4"]
 [ext_resource type="PackedScene" uid="uid://cnxxdeo3sdwlw" path="res://modules/Player/Rooster/rooster.tscn" id="3_fkea0"]
 [ext_resource type="PackedScene" uid="uid://c3ogc5f178133" path="res://modules/MoveableBlock/stone.tscn" id="4_dhvk3"]
+[ext_resource type="TileSet" uid="uid://bwmci64agwl12" path="res://modules/TileSet/Decorations.tres" id="4_krft5"]
 [ext_resource type="PackedScene" uid="uid://ckbe0vvra4kp2" path="res://modules/Player/Cat/cat.tscn" id="4_vm8yo"]
 [ext_resource type="PackedScene" uid="uid://d2k3smpp8hlt5" path="res://modules/Player/Donkey/donkey.tscn" id="5_llujc"]
 [ext_resource type="PackedScene" uid="uid://tccsja70bqmy" path="res://modules/Player/Dog/dog.tscn" id="7_dhvk3"]
-[ext_resource type="Texture2D" uid="uid://b5c0nfluss4t8" path="res://modules/TileSet/Decorations.png" id="7_xq5vf"]
 [ext_resource type="PackedScene" uid="uid://bkok7cmswbpge" path="res://modules/DoorsSwitches/Door.tscn" id="8_d1je4"]
 [ext_resource type="PackedScene" uid="uid://ce060322cxuqq" path="res://modules/Finish/finish.tscn" id="8_dh4as"]
 [ext_resource type="TileSet" uid="uid://7j3vkcdhxwrb" path="res://modules/TileSet/Ground.tres" id="8_jbcf8"]
 [ext_resource type="PackedScene" uid="uid://l1thpy5w485p" path="res://modules/DoorsSwitches/switch.tscn" id="9_8saqu"]
-[ext_resource type="PackedScene" uid="uid://btf72lomgygf6" path="res://modules/Test/Tutorial.tscn" id="9_krft5"]
+[ext_resource type="PackedScene" uid="uid://br0le1q11h5vm" path="res://modules/Test/Tutorial.tscn" id="9_krft5"]
 [ext_resource type="PackedScene" uid="uid://djuq8uvkc654o" path="res://modules/Test/karotte.tscn" id="10_8saqu"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2ueg"]
-texture = ExtResource("7_xq5vf")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_6wiqt"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_c2ueg")
 
 [node name="2DTest" type="Node2D"]
 
@@ -55,7 +34,7 @@ tile_set = ExtResource("8_jbcf8")
 
 [node name="Decorations" type="TileMapLayer" parent="Ground"]
 tile_map_data = PackedByteArray("AAAgAAcAAAAAAAEAAAAlAAgAAAACAAAAAAAmAAgAAAADAAAAAAAiABAAAAABAAAAAAAkAPj/AAACAAEAAAAaAPj/AAABAAAAAAAhAPj/AAACAAEAAAAiAPj/AAACAAEAAAAjAPj/AAADAAEAAAAlAPj/AAADAAEAAAAeAPf/AAACAAAAAAAfAPf/AAADAAAAAAAmAPT/AAAAAAMAAAAaAPP/AAAAAAMAAAAdAPj/AAABAAEAAAAYAPT/AAABAAEAAAAmAPf/AAAAAAEAAAAgAPf/AAACAAMAAAA=")
-tile_set = SubResource("TileSet_6wiqt")
+tile_set = ExtResource("4_krft5")
 
 [node name="Door" parent="." instance=ExtResource("8_d1je4")]
 position = Vector2(860, 336)

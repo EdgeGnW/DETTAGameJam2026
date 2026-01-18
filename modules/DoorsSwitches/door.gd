@@ -29,6 +29,7 @@ func _ready():
 		open = true
 		$Closed.hide()
 		$Open.show()
+	$Label.text = str(switch_threshold)
 		
 func check_switches():
 	var sum = 0

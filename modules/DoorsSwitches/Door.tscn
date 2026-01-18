@@ -20,3 +20,10 @@ texture = ExtResource("3_hxqcw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16.5, 1)
 shape = SubResource("RectangleShape2D_rqxmw")
+
+[node name="Label" type="Label" parent="."]
+z_index = 8
+offset_left = -23.0
+offset_top = 50.0
+offset_right = 17.0
+offset_bottom = 73.0
