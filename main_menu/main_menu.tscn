@@ -680,16 +680,17 @@ theme_override_fonts/font = SubResource("SystemFont_rhts7")
 theme_override_font_sizes/font_size = 50
 text = "Die Bremer Stadtmusikanten"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="Donkey" type="AnimatedSprite2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 z_index = 2
 position = Vector2(602, 826)
-scale = Vector2(-4, 4)
+rotation = -3.1415927
+scale = Vector2(4, -4)
 sprite_frames = SubResource("SpriteFrames_g1omr")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="Rooster" type="AnimatedSprite2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 z_index = 5
 position = Vector2(1610, 372)
@@ -699,16 +700,17 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.0484316
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="Dog" type="AnimatedSprite2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 z_index = 3
 position = Vector2(706, 702)
-scale = Vector2(-4, 4)
+rotation = -3.1415927
+scale = Vector2(4, -4)
 sprite_frames = SubResource("SpriteFrames_n70vs")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="Cat" type="AnimatedSprite2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 z_index = 4
 position = Vector2(711, 603)

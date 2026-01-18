@@ -35,7 +35,9 @@ func fade_in(node: Node, duration: float) -> void:
 func _on_settings_pressed() -> void:
 	AudioManager.play_sound(KATZE)
 	main_buttons.visible = false
-	%Animals.hide()
+	%Cat.hide()
+	%Dog.hide()
+	%Donkey.hide()
 	setting_menu.visible = true
 
 func _on_end_pressed() -> void:
@@ -50,7 +52,9 @@ func _on_back_pressed() -> void:
 	credits.visible = false
 	game_title.visible = true
 	main_buttons.get_parent().visible = true
-	%Animals.show()
+	%Cat.show()
+	%Dog.show()
+	%Donkey.show()
 
 
 func _on_credits_pressed() -> void:
@@ -59,7 +63,9 @@ func _on_credits_pressed() -> void:
 	main_buttons.get_parent().visible = false
 	credits.visible = true
 	game_title.visible = false
-	%Animals.hide()
+	%Cat.hide()
+	%Dog.hide()
+	%Donkey.hide()
 
 func _on_start_pressed() -> void:
 	AudioManager.play_sound(HAHN)
