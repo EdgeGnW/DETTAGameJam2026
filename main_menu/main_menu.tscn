@@ -381,7 +381,7 @@ theme_override_fonts/font = SubResource("SystemFont_rhts7")
 theme_override_font_sizes/font_size = 50
 text = "Die Bremer Stadtmusikanten"
 
-[connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/start" to="CanvasLayer/MainMenu/MainButtons" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/settings" to="CanvasLayer/MainMenu/MainButtons" method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/credits" to="." method="_on_credits_pressed"]

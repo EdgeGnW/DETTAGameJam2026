@@ -5,6 +5,14 @@ extends Control
 @onready var credits: Panel = $CanvasLayer/Credits
 @onready var game_title: Label = $CanvasLayer/game_title
 
+const KATZE = preload("uid://djbi10kuadd34")
+const HUND = preload("uid://cfe586nnfgtx3")
+const ESEL = preload("uid://ntumue2i3av")
+const HAHN = preload("uid://cgovhfwi01duv")
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main_buttons.visible = true
@@ -22,10 +30,13 @@ func fade_in(node: Node, duration: float) -> void:
 	tween.kill()
 
 func _on_settings_pressed() -> void:
+	AudioManager.play_sound(KATZE)
 	main_buttons.visible = false
 	setting_menu.visible = true
 
 func _on_end_pressed() -> void:
+	AudioManager.play_sound(ESEL)
+	await get_tree().create_timer(1).timeout
 	get_tree().quit()
 
 
@@ -38,7 +49,14 @@ func _on_back_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
+	AudioManager.play_sound(HUND)
 	main_buttons.visible = false
 	main_buttons.get_parent().visible = false
 	credits.visible = true
 	game_title.visible = false
+
+
+func _on_start_pressed() -> void:
+	AudioManager.play_sound(HAHN)
+	await get_tree().create_timer(1).timeout
+	
