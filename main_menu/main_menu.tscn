@@ -552,6 +552,7 @@ Programmierung
 
 	Frederick Opp - Entwickler
 	Pascal Ritzenfeld - Entwickler
+	Florian Wittbold - Entwickler
 	Maydin Yildiz - Hauptmenü
 
 Grafikdesign
@@ -562,6 +563,12 @@ Musik und Sound
 
     Simon Sack - Originalmusik und Soundeffekte
 
+Level-Design
+
+	Frederick Opp - Level 2
+	Pascal Ritzenfeld - Level 3
+	Florian Wittbold - Tutorial & Level 4
+
 Besondere Dank
 
 Ein besonderer Dank geht an das DettaGameJam 2026 und an alle, 
@@ -570,6 +577,7 @@ die das hier lesen. Vielen Dank fürs Spielen
 Verwendung
 
 Dieses Projekt wurde mit Godot Engine entwickelt. Alle Inhalte außer dem Ambient-Sound sind selbstgemacht."
+fit_content = true
 script = ExtResource("4_bws42")
 
 [node name="UntereGrenze" type="Panel" parent="CanvasLayer/Credits"]
