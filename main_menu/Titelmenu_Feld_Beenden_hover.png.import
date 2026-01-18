@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bew1wfe8prrim"
-path="res://.godot/imported/Titelmenu_Feld_Hund.png-e7a9afb06cfb7e1f6cd59fa11d082705.ctex"
+uid="uid://b7h8xtoal4lp6"
+path="res://.godot/imported/Titelmenu_Feld_Beenden_hover.png-fdc2b0532287ed89d399a28a7e29d9be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main_menu/Titelmenu_Feld_Hund.png"
-dest_files=["res://.godot/imported/Titelmenu_Feld_Hund.png-e7a9afb06cfb7e1f6cd59fa11d082705.ctex"]
+source_file="res://main_menu/Titelmenu_Feld_Beenden_hover.png"
+dest_files=["res://.godot/imported/Titelmenu_Feld_Beenden_hover.png-fdc2b0532287ed89d399a28a7e29d9be.ctex"]
 
 [params]
 

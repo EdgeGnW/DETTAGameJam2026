@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cnxxdeo3sdwlw"]
 
 [ext_resource type="Script" uid="uid://c10vumdibvibr" path="res://modules/Player/player_2d.gd" id="1_rordu"]
+[ext_resource type="AudioStream" uid="uid://cgovhfwi01duv" path="res://modules/Player/Rooster/hahn.wav" id="2_hunxe"]
 [ext_resource type="PackedScene" uid="uid://81ptk0c258x7" path="res://modules/StateMachine/state_machine.tscn" id="3_ljd5q"]
 [ext_resource type="Script" uid="uid://dkl3fgy0mnm3g" path="res://modules/Player/idle.gd" id="4_v7642"]
 [ext_resource type="Script" uid="uid://drwn22ge53ks" path="res://modules/Player/walking.gd" id="5_q05bg"]
@@ -112,6 +113,7 @@ jump_height = 150.0
 max_fall_speed = 70.0
 height = 30.0
 camera_zoom = 5.0
+animal_sound = ExtResource("2_hunxe")
 
 [node name="OwnCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ycsqo")
