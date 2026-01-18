@@ -21,18 +21,42 @@ func _process(delta: float) -> void:
 		if rooster.global_position.x > 800:
 			$Step2.show()
 		if rooster.global_position.x > 1700:
-			finish_step_2()
+			finish_step(2)
 	elif step == 2:
 		if rooster.global_position.x > 2550:
 			$Step3.show()
 		if rooster.animal_state == AnimalState.Animal_state.RIDING:
-			finish_step_3()
+			finish_step(3)
 	elif step == 3:
 		if rooster.global_position.x > 3100:
-			finish_step_4()
+			finish_step(4)
 	elif step == 4:
 		if rooster.global_position.x > 3550:
 			$Step5.show()
+		if rooster.global_position.x > 4100:
+			finish_step(5)
+	elif step == 5:
+		if rooster.global_position.x > 4300:
+			$Step6.show()
+	elif step == 6:
+		if rooster.global_position.x > 5200:
+			$Step7.show()
+		if rooster.global_position.y < -1500:
+			finish_step(7)
+	elif step == 7:
+		if rooster.global_position.x < 5000:
+			$Step8.show()
+		if dog.animal_state == AnimalState.Animal_state.ACTIVE:
+			finish_step(8)
+	elif step == 8:
+		if dog.animal_state == AnimalState.Animal_state.ACTIVE and cat.animal_state == AnimalState.Animal_state.RIDING:
+			finish_step(9)
+	elif step == 9:
+		if rooster.global_position.x < 4000:
+			$Step10.show()
+		print(dog.get_children(), dog.has_node("Carrot"))
+		if dog.has_node("Carrot"):
+			finish_step(10)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -44,26 +68,19 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		pressed_jump = true
 
 	if pressed_left and pressed_right and pressed_jump and step == 0:
-		finish_step_1()
+		finish_step(1)
+	if step == 5 and event.is_action("dismount"):
+		finish_step(6)
 
-func finish_step_1():
-	step = 1
-	$Step1.hide()
-	for n in range(-12, -6):
-		$TileMapLayer.set_cell(Vector2i(5, n))
-	$TileMapLayer.set_cell(Vector2i(5, -6), 1, Vector2i(1, 0))
-
-
-func finish_step_2():
-	step = 2
-	$Step2.hide()
-
-func finish_step_3():
-	step = 3
-	$Step3.hide()
-	$Step4.show()
-
-func finish_step_4():
-	step = 4
-	$Step4.hide()
+func finish_step(s: int):
+	step = s
+	get_node("Step" + str(s)).hide()
+	if s == 1:
+		for n in range(-12, -6):
+			$TileMapLayer.set_cell(Vector2i(5, n))
+		$TileMapLayer.set_cell(Vector2i(5, -6), 1, Vector2i(1, 0))
+	elif s == 3:
+		$Step4.show()
+	elif s == 8:
+		$Step9.show()
 	

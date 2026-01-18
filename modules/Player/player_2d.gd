@@ -67,6 +67,7 @@ func _physics_process(delta: float) -> void:
 		var collision = collider.get_collider()
 		if collision.is_in_group("movables") and name == "Donkey" and abs(collision.get_linear_velocity().x) < MAX_VELOCITY:
 			collision.apply_central_impulse(collider.get_normal() * -speed)
+			collision.move_and_collide(collider.get_normal() * -speed)
 
 func flip_character():
 	flip_mount()
