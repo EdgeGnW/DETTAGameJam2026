@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bbg10214bh0q7" path="res://modules/Finish/finish.gd" id="1_uqlg2"]
 [ext_resource type="Texture2D" uid="uid://ch2tf1r2ea2m2" path="res://modules/Finish/HouseOff.png" id="2_lekut"]
 [ext_resource type="Texture2D" uid="uid://bfye1bxg0437e" path="res://modules/Finish/HouseOn.png" id="3_clxda"]
-[ext_resource type="Texture2D" uid="uid://h3g4hai1v4y4" path="res://main_menu/Titelmenu_Feld_1_Spielen.png" id="4_xvlkr"]
-[ext_resource type="Texture2D" uid="uid://cjwmsfe1g0fpe" path="res://main_menu/Titelmenu_Feld_2_Einstellungen.png" id="5_byc5u"]
-[ext_resource type="Texture2D" uid="uid://bfxhl6cuqdcbx" path="res://main_menu/Titelmenu_Feld_1_Spielen_hover.png" id="5_ycw6q"]
-[ext_resource type="Texture2D" uid="uid://chwtlk4jgqw1j" path="res://main_menu/Titelmenu_Feld_Abspann.png" id="6_lekut"]
+[ext_resource type="Texture2D" uid="uid://bw6w8rvp37b2e" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts.png" id="4_uo7ek"]
+[ext_resource type="Texture2D" uid="uid://spti8l666p07" path="res://modules/Finish/Titelmenu_Feld_1_Auf_gehts_1.png" id="5_r2g3b"]
+[ext_resource type="Texture2D" uid="uid://csmrvmjfja7tc" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen.png" id="6_4pw5m"]
 [ext_resource type="Texture2D" uid="uid://b7h8xtoal4lp6" path="res://main_menu/Titelmenu_Feld_Beenden_hover.png" id="6_uo7ek"]
-[ext_resource type="Texture2D" uid="uid://nby5ptlnbmvn" path="res://main_menu/Titelmenu_Feld_2_Einstellungen_hover.png" id="7_lekut"]
-[ext_resource type="Texture2D" uid="uid://b8fn6f7s74mhi" path="res://main_menu/Titelmenu_Feld_Abspann_hover.png" id="9_uo7ek"]
+[ext_resource type="Texture2D" uid="uid://q5gqjx1j87ej" path="res://modules/Finish/Titelmenu_Feld_2_Wiederholen_ausgewahlt_.png" id="7_h7dts"]
+[ext_resource type="Texture2D" uid="uid://cruqukd8qbtoy" path="res://modules/Finish/Titelmenu_Feld_3_Hauptmenu.png" id="8_o8eun"]
+[ext_resource type="Texture2D" uid="uid://c5rxfx3pyowrb" path="res://modules/Finish/Titelmenu_Feld_3_Haupmenu_ausgefullt.png" id="9_4momw"]
 [ext_resource type="Texture2D" uid="uid://4kvtmpvr8uwu" path="res://main_menu/Titelmenu_Feld_Beenden.png" id="10_r2g3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qgtd"]
@@ -47,23 +47,21 @@ grow_vertical = 0
 
 [node name="Next" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_xvlkr")
-texture_pressed = ExtResource("5_ycw6q")
-texture_hover = ExtResource("5_ycw6q")
-texture_disabled = ExtResource("5_ycw6q")
-texture_focused = ExtResource("5_ycw6q")
+texture_normal = ExtResource("4_uo7ek")
+texture_pressed = ExtResource("5_r2g3b")
+texture_hover = ExtResource("5_r2g3b")
 
 [node name="Retry" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("5_byc5u")
-texture_pressed = ExtResource("7_lekut")
-texture_hover = ExtResource("7_lekut")
+texture_normal = ExtResource("6_4pw5m")
+texture_pressed = ExtResource("7_h7dts")
+texture_hover = ExtResource("7_h7dts")
 
 [node name="Menu" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_lekut")
-texture_pressed = ExtResource("9_uo7ek")
-texture_hover = ExtResource("9_uo7ek")
+texture_normal = ExtResource("8_o8eun")
+texture_pressed = ExtResource("9_4momw")
+texture_hover = ExtResource("9_4momw")
 
 [node name="Quit" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2

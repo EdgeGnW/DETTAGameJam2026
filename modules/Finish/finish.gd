@@ -15,6 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print(camera)
 		tween.tween_property(camera, "zoom", Vector2(4,4), 2.0).set_trans(Tween.TRANS_CUBIC)
 		$CanvasLayer.show()
+		SceneManager.current_scene = next_level
 
 
 func _on_button_pressed() -> void:

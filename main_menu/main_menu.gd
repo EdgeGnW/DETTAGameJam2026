@@ -63,4 +63,8 @@ func _on_credits_pressed() -> void:
 func _on_start_pressed() -> void:
 	AudioManager.play_sound(HAHN)
 	await get_tree().create_timer(1).timeout
-	
+	get_tree().change_scene_to_packed(SceneManager.current_scene)
+
+
+func _on_reset_pressed() -> void:
+	SceneManager.reset_progress()

@@ -21,6 +21,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0.31011435, 0.5842033, 0.28522006, 1)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oa53l"]
+thickness = 7
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_d3a7t"]
+color = Color(1, 1, 1, 1)
+thickness = 9
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_186t8"]
 bg_color = Color(0.7107411, 0.71074116, 0.7107411, 1)
 corner_radius_top_left = 16
@@ -52,13 +59,6 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhts7"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_oa53l"]
-thickness = 7
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_d3a7t"]
-color = Color(1, 1, 1, 1)
-thickness = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3shxk"]
 bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
@@ -408,6 +408,7 @@ texture_hover = ExtResource("3_6tl50")
 
 [node name="SettingMenu" type="Panel" parent="CanvasLayer"]
 visible = false
+z_index = 6
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -416,9 +417,10 @@ anchor_bottom = 0.5
 offset_left = -383.0
 offset_top = -130.0
 offset_right = 385.0
-offset_bottom = 212.0
+offset_bottom = 265.55
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0026159, 1.0646636)
 
 [node name="Titel" type="Label" parent="CanvasLayer/SettingMenu"]
 layout_mode = 1
@@ -432,21 +434,6 @@ text = "Einstellungen
 "
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="back" type="Button" parent="CanvasLayer/SettingMenu"]
-layout_mode = 0
-offset_left = 216.0
-offset_top = 254.0
-offset_right = 551.0
-offset_bottom = 327.0
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_186t8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Zurück"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/SettingMenu"]
 layout_mode = 0
@@ -506,6 +493,36 @@ theme_override_styles/grabber_area = SubResource("StyleBoxLine_d3a7t")
 value = 100.0
 script = ExtResource("2_d3a7t")
 audio_bus_name = "SoundEffects"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SettingMenu"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 254.0
+offset_right = 467.0
+offset_bottom = 331.0
+
+[node name="reset" type="Button" parent="CanvasLayer/SettingMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_186t8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
+text = "Fortschritt
+zurücksetzen"
+
+[node name="back" type="Button" parent="CanvasLayer/SettingMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_186t8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
+text = "Zurück"
 
 [node name="Credits" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -717,9 +734,10 @@ texture = ExtResource("17_iri28")
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/credits" to="CanvasLayer/MainMenu/MainButtons" method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/end" to="." method="_on_end_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainButtons/end" to="CanvasLayer/MainMenu/MainButtons" method="_on_end_pressed"]
-[connection signal="pressed" from="CanvasLayer/SettingMenu/back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider" to="CanvasLayer/SettingMenu/GridContainer/volume_slider" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider2" to="CanvasLayer/SettingMenu/GridContainer/volume_slider2" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/SettingMenu/GridContainer/volume_slider3" to="CanvasLayer/SettingMenu/GridContainer/volume_slider3" method="_on_value_changed"]
+[connection signal="pressed" from="CanvasLayer/SettingMenu/VBoxContainer/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingMenu/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Credits/back_credits" to="." method="_on_back_pressed"]
