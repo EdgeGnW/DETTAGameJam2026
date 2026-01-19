@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 @onready var i: int = 0
-@onready var tween: Tween = get_tree().create_tween()
+#@onready var tween: Tween = get_tree().create_tween()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

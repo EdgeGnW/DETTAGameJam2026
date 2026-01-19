@@ -116,7 +116,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhh0p"]
-size = Vector2(37, 8)
+size = Vector2(42, 8)
 
 [node name="Donkey" type="CharacterBody2D" groups=["Animal"]]
 texture_filter = 1
@@ -154,14 +154,13 @@ script = ExtResource("4_ac7i3")
 script = ExtResource("5_3bw2j")
 
 [node name="Mount" type="Area2D" parent="."]
-position = Vector2(0, -16.5)
+position = Vector2(-5, -14)
 collision_layer = 0
 collision_mask = 46
 input_pickable = false
 script = ExtResource("6_64bre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mount"]
-position = Vector2(-4.5, 0)
 shape = SubResource("RectangleShape2D_mhh0p")
 
 [connection signal="body_entered" from="Mount" to="Mount" method="_on_body_entered"]

@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		direction = Input.get_axis("left", "right")
 	if direction != 0:
 		dir = int(direction)
+		raycast.target_position = Vector2(RAYCAST_LENGTH * dir, 0)
 		var flip_h = dir < 0
 		if sprite_2d.flip_h != flip_h:
 			flip_character()

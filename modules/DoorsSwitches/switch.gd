@@ -58,8 +58,10 @@ func _input(event: InputEvent) -> void:
 		updated.emit()
 		if pressed:
 			$Sprite.texture = flipped_lever
+			AudioManager.play_sound(FLICK_ON)
 		else:
 			$Sprite.texture = default_lever
+			AudioManager.play_sound(FLICK_OFF)
 
 func press_permanently():
 	if type == Type.PLATE:

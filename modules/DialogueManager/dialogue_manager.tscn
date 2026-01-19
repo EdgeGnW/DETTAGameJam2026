@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bwmb02kevvu2m" path="res://modules/DialogueManager/sfx/ki.ogg" id="4_x6bvr"]
 [ext_resource type="AudioStream" uid="uid://dj58bpi4cfqy0" path="res://modules/DialogueManager/sfx/miau.ogg" id="5_eay7n"]
 [ext_resource type="Texture2D" uid="uid://cc267myuucorx" path="res://modules/DialogueManager/resources/rooster.png" id="5_gue62"]
-[ext_resource type="Texture2D" uid="uid://ckuc516ca0oj3" path="res://modules/Player/Dog/Kleffer_gut.png" id="7_s4t7b"]
+[ext_resource type="Texture2D" uid="uid://cby1ay4r5tqu7" path="res://modules/Player/Dog/Hund.png" id="7_gue62"]
 [ext_resource type="Texture2D" uid="uid://cs1yn67cmgin5" path="res://modules/DialogueManager/resources/katze.png" id="9_gue62"]
 
 [sub_resource type="Resource" id="Resource_jaug2"]
@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 [sub_resource type="Resource" id="Resource_eay7n"]
 script = ExtResource("2_507jh")
 name = &"Hund"
-picture = ExtResource("7_s4t7b")
+picture = ExtResource("7_gue62")
 voice = ExtResource("4_4h1og")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 
@@ -56,7 +56,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -212.0
+offset_top = -220.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0

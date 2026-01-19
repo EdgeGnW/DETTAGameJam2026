@@ -29,8 +29,6 @@ func fade_in(node: Node, duration: float) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(node, "modulate:a", 1, duration) 
 	tween.play()
-	await tween.finished
-	tween.kill()
 
 func _on_settings_pressed() -> void:
 	AudioManager.play_sound(KATZE)

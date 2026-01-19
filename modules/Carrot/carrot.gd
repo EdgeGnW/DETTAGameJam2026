@@ -19,9 +19,7 @@ func _physics_process(_delta: float) -> void:
 	elif ray_cast_2d_2.is_colliding() and ray_cast_2d_2.get_collider() is Player2D:
 		body = ray_cast_2d_2.get_collider()
 	else:
-		print("nein")
 		return
-	print("ja")
 	
 	body.lure(global_position)
 	

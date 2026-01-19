@@ -14,6 +14,8 @@ enum DialogueState {
 	Done
 }
 
+signal finished()
+
 var text_sound = preload("res://modules/DialogueManager/sfx/default.wav")
 
 var state = DialogueState.Disabled
@@ -67,6 +69,8 @@ func change_state(new_state: DialogueState):
 		DialogueState.Disabled:
 			hide()
 			process_mode = Node.PROCESS_MODE_DISABLED
+			fade_out($MarginContainer, 1)
+			fade_out($MarginContainer2, 1)
 		DialogueState.Reading:
 			visible_characters = 0
 			process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -76,6 +80,8 @@ func change_state(new_state: DialogueState):
 			text_tween.tween_property(%DialogueText, "visible_ratio", 1, tween_ratio)
 			text_tween.tween_callback(start_cooldown)
 			show()
+			fade_in($MarginContainer, 1)
+			fade_in($MarginContainer2, 1)
 		DialogueState.Done:
 			process_mode = Node.PROCESS_MODE_PAUSABLE
 			%DialogueText.visible_ratio = 1
@@ -128,6 +134,7 @@ func add_dialogue_file(path: String):
 func next_line():
 	if not dialogue:
 		change_state(DialogueState.Disabled)
+		finished.emit()
 		return
 	var line: DialogueLine = dialogue.pop_front()
 	current_character = characters.get(line.character, default_character)
@@ -156,3 +163,15 @@ func _input(event: InputEvent) -> void:
 			DialogueState.Done:
 				next_line()
 		get_viewport().set_input_as_handled()
+
+func fade_in(node: Node, duration: float) -> void:
+	node.modulate.a = 0
+	var tween = get_tree().create_tween()
+	tween.tween_property(node, "modulate:a", 1, duration) 
+	tween.play()
+	
+func fade_out(node: Node, duration: float) -> void:
+	node.modulate.a = 1
+	var tween = get_tree().create_tween()
+	tween.tween_property(node, "modulate:a", 0, duration) 
+	tween.play()
