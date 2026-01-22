@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cib2v1qh7a8c8" path="res://modules/MoveableBlock/StoneV3.png" id="1_gasgx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkea0"]
-size = Vector2(62, 62)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_gasgx"]
+points = PackedVector2Array(-31, 28, -28, 31, 28, 31, 31, 28, 31, -26, 28, -30, -27, -30, -31, -25)
 
 [node name="Stone" type="RigidBody2D" groups=["movables"]]
 collision_mask = 33
@@ -15,4 +15,4 @@ texture = ExtResource("1_gasgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_fkea0")
+shape = SubResource("ConvexPolygonShape2D_gasgx")

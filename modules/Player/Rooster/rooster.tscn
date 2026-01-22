@@ -109,11 +109,13 @@ texture_filter = 1
 collision_layer = 2
 floor_snap_length = 20.0
 script = ExtResource("1_rordu")
+speed = null
 jump_height = 150.0
 max_fall_speed = 70.0
 height = 30.0
 camera_zoom = 5.0
 animal_sound = ExtResource("2_hunxe")
+animal_state = null
 
 [node name="OwnCollision" type="CollisionShape2D" parent="." groups=["Collision"]]
 shape = SubResource("CapsuleShape2D_ycsqo")

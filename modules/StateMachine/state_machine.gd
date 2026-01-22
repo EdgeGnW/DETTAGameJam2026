@@ -20,11 +20,6 @@ func _ready():
 			push_warning("State machine contains incompatible child node")
 	current_state.enter()
 	
-	for child in get_children():
-		if child is State:
-			print(child.get_signal_connection_list("transition"))
-	
-	
 	
 func _process(delta: float) -> void:
 	if active:

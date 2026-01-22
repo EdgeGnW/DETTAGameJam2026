@@ -5,10 +5,6 @@ func physics_update(_delta):
 		transition.emit("Jumping")
 	elif subject.velocity.x == 0.0:
 		transition.emit("Idle")
-	#elif Input.is_action_pressed("roll"):
-	#	transition.emit("Rolling")
-	#else:
-		#subject.sprite_2d.rotation = 0.25 * sign(subject.velocity.x)
 		
 func enter():
 	subject.sprite_2d.play("walk")

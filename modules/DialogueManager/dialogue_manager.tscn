@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b27s4u1ga6ilh" path="res://modules/DialogueManager/scripts/dialogue_manager.gd" id="1_jbixp"]
 [ext_resource type="Script" uid="uid://c33l4cwd3q5ta" path="res://modules/DialogueManager/scripts/character.gd" id="2_507jh"]
-[ext_resource type="Texture2D" uid="uid://1ljamxn4srot" path="res://modules/Player/Donkey/Esel.png" id="3_gue62"]
+[ext_resource type="Texture2D" uid="uid://bbhch606c4g4i" path="res://modules/Player/Donkey/Donkey.png" id="3_gue62"]
 [ext_resource type="AudioStream" uid="uid://bx5xiiehfqxlu" path="res://modules/DialogueManager/sfx/ia.ogg" id="3_h8qnj"]
 [ext_resource type="AudioStream" uid="uid://jun72wwocb4j" path="res://modules/DialogueManager/sfx/wuff.ogg" id="4_4h1og"]
 [ext_resource type="Texture2D" uid="uid://pp8e3iooqhlt" path="res://modules/DialogueManager/resources/Textbox_720_mal_180.png" id="4_kgemy"]
 [ext_resource type="Texture2D" uid="uid://bqtu761xxw33" path="res://modules/DialogueManager/resources/Dialog_Char_Box_grun.webp" id="4_ps80s"]
 [ext_resource type="AudioStream" uid="uid://bwmb02kevvu2m" path="res://modules/DialogueManager/sfx/ki.ogg" id="4_x6bvr"]
 [ext_resource type="AudioStream" uid="uid://dj58bpi4cfqy0" path="res://modules/DialogueManager/sfx/miau.ogg" id="5_eay7n"]
-[ext_resource type="Texture2D" uid="uid://cc267myuucorx" path="res://modules/DialogueManager/resources/rooster.png" id="5_gue62"]
-[ext_resource type="Texture2D" uid="uid://cby1ay4r5tqu7" path="res://modules/Player/Dog/Hund.png" id="7_gue62"]
-[ext_resource type="Texture2D" uid="uid://cs1yn67cmgin5" path="res://modules/DialogueManager/resources/katze.png" id="9_gue62"]
+[ext_resource type="Texture2D" uid="uid://cafdcoy8g8d5i" path="res://modules/Player/Rooster/Rooster.png" id="5_s4t7b"]
+[ext_resource type="Texture2D" uid="uid://ijwelehi8oia" path="res://modules/Player/Dog/Dog.png" id="7_m4msv"]
+[ext_resource type="Texture2D" uid="uid://dnqjsve6r8o3q" path="res://modules/Player/Cat/Cat.png" id="13_s4t7b"]
 
 [sub_resource type="Resource" id="Resource_jaug2"]
 script = ExtResource("2_507jh")
@@ -23,21 +23,21 @@ metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 [sub_resource type="Resource" id="Resource_kgemy"]
 script = ExtResource("2_507jh")
 name = &"Hahn"
-picture = ExtResource("5_gue62")
+picture = ExtResource("5_s4t7b")
 voice = ExtResource("4_x6bvr")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 
 [sub_resource type="Resource" id="Resource_eay7n"]
 script = ExtResource("2_507jh")
 name = &"Hund"
-picture = ExtResource("7_gue62")
+picture = ExtResource("7_m4msv")
 voice = ExtResource("4_4h1og")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 
 [sub_resource type="Resource" id="Resource_x6bvr"]
 script = ExtResource("2_507jh")
 name = &"Katze"
-picture = ExtResource("9_gue62")
+picture = ExtResource("13_s4t7b")
 voice = ExtResource("5_eay7n")
 metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
 
@@ -92,6 +92,7 @@ offset_right = 323.0
 offset_bottom = 880.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+visible = false
 layout_mode = 2
 texture = ExtResource("4_ps80s")
 
@@ -99,6 +100,7 @@ texture = ExtResource("4_ps80s")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+texture = ExtResource("13_s4t7b")
 expand_mode = 1
 
 [node name="CharacterName" type="RichTextLabel" parent="MarginContainer2/Portrait"]
