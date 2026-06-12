@@ -1,11 +1,21 @@
 extends Node
 
-enum Direction { Left, UpLeft, UpRight, Right, DownRight, DownLeft }
+enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
 
-@onready var player: CanvasItem = $Karotte
+@onready var player: Node2D = $"../Player"
+@onready var rays: Node2D = $"../Player/Rays"
+
 var playerScreenPosition: Vector2
 var mousePosition: Vector2
 var screenResolution: Vector2
+var directionVectors: Dictionary = {
+	Direction.Left: Vector2(-1, 0),
+	Direction.UpLeft: Vector2(-0.5, -0.866),
+	Direction.UpRight: Vector2(0.5, -0.866),
+	Direction.Right: Vector2(1, 0),
+	Direction.DownRight: Vector2(0.5, 0.866),
+	Direction.DownLeft: Vector2(-0.5, 0.866),
+}
 
 func getRelativeMousePosition() -> Vector2:
 	var x = mousePosition.x / screenResolution.x
@@ -37,4 +47,4 @@ func _process(delta: float) -> void:
 	playerScreenPosition = player.get_global_transform_with_canvas().origin
 	var vectorToMouse = (mousePosition - playerScreenPosition).normalized();
 	var direction = getDirection(vectorToMouse.angle())
-	print(Direction.keys()[direction])
+	rays.highlight_ray(direction)

@@ -1,12 +1,27 @@
 [gd_scene format=3 uid="uid://c245atcb8hk12"]
 
 [ext_resource type="Script" uid="uid://cdijoxieusniv" path="res://modules/MouseInput/MouseInput.gd" id="1_coh8n"]
-[ext_resource type="Texture2D" uid="uid://bmefgpqwwtuip" path="res://modules/Carrot/Karotte.png" id="2_coh8n"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t1saj"]
+size = Vector2(10, 10)
+
+[sub_resource type="Gradient" id="Gradient_t1saj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_coh8n"]
 
 [node name="MouseInputTest" type="Node2D" unique_id=800993626]
 script = ExtResource("1_coh8n")
 
-[node name="Karotte" type="Sprite2D" parent="." unique_id=481291103]
-position = Vector2(1099, 513)
+[node name="Player" type="Sprite2D" parent="." unique_id=481291103]
+position = Vector2(1098.4, 513)
 scale = Vector2(10, 10)
-texture = ExtResource("2_coh8n")
+texture = SubResource("PlaceholderTexture2D_t1saj")
+
+[node name="Line2D" type="Line2D" parent="Player" unique_id=720267047]
+position = Vector2(0.05999756, 0)
+scale = Vector2(0.99999994, 0.99999994)
+points = PackedVector2Array(0, 0, 36.399994, 15.900002)
+width = 5.0
+gradient = SubResource("Gradient_t1saj")
+texture = SubResource("PlaceholderTexture2D_coh8n")
+end_cap_mode = 2
