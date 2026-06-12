@@ -1,57 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://dikp2c2s7v3l1"]
+[gd_scene format=3 uid="uid://dikp2c2s7v3l1"]
 
 [ext_resource type="Script" uid="uid://b27s4u1ga6ilh" path="res://modules/DialogueManager/scripts/dialogue_manager.gd" id="1_jbixp"]
-[ext_resource type="Script" uid="uid://c33l4cwd3q5ta" path="res://modules/DialogueManager/scripts/character.gd" id="2_507jh"]
-[ext_resource type="Texture2D" uid="uid://bbhch606c4g4i" path="res://modules/Player/Donkey/Donkey.png" id="3_gue62"]
-[ext_resource type="AudioStream" uid="uid://bx5xiiehfqxlu" path="res://modules/DialogueManager/sfx/ia.ogg" id="3_h8qnj"]
-[ext_resource type="AudioStream" uid="uid://jun72wwocb4j" path="res://modules/DialogueManager/sfx/wuff.ogg" id="4_4h1og"]
 [ext_resource type="Texture2D" uid="uid://pp8e3iooqhlt" path="res://modules/DialogueManager/resources/Textbox_720_mal_180.png" id="4_kgemy"]
 [ext_resource type="Texture2D" uid="uid://bqtu761xxw33" path="res://modules/DialogueManager/resources/Dialog_Char_Box_grun.webp" id="4_ps80s"]
-[ext_resource type="AudioStream" uid="uid://bwmb02kevvu2m" path="res://modules/DialogueManager/sfx/ki.ogg" id="4_x6bvr"]
-[ext_resource type="AudioStream" uid="uid://dj58bpi4cfqy0" path="res://modules/DialogueManager/sfx/miau.ogg" id="5_eay7n"]
-[ext_resource type="Texture2D" uid="uid://cafdcoy8g8d5i" path="res://modules/Player/Rooster/Rooster.png" id="5_s4t7b"]
-[ext_resource type="Texture2D" uid="uid://ijwelehi8oia" path="res://modules/Player/Dog/Dog.png" id="7_m4msv"]
-[ext_resource type="Texture2D" uid="uid://dnqjsve6r8o3q" path="res://modules/Player/Cat/Cat.png" id="13_s4t7b"]
 
-[sub_resource type="Resource" id="Resource_jaug2"]
-script = ExtResource("2_507jh")
-name = &"Esel"
-picture = ExtResource("3_gue62")
-voice = ExtResource("3_h8qnj")
-metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
-
-[sub_resource type="Resource" id="Resource_kgemy"]
-script = ExtResource("2_507jh")
-name = &"Hahn"
-picture = ExtResource("5_s4t7b")
-voice = ExtResource("4_x6bvr")
-metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
-
-[sub_resource type="Resource" id="Resource_eay7n"]
-script = ExtResource("2_507jh")
-name = &"Hund"
-picture = ExtResource("7_m4msv")
-voice = ExtResource("4_4h1og")
-metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
-
-[sub_resource type="Resource" id="Resource_x6bvr"]
-script = ExtResource("2_507jh")
-name = &"Katze"
-picture = ExtResource("13_s4t7b")
-voice = ExtResource("5_eay7n")
-metadata/_custom_type_script = "uid://c33l4cwd3q5ta"
-
-[node name="DialogueManager" type="CanvasLayer"]
+[node name="DialogueManager" type="CanvasLayer" unique_id=207405372]
 process_mode = 1
 script = ExtResource("1_jbixp")
-characters = Dictionary[String, ExtResource("2_507jh")]({
-"Esel": SubResource("Resource_jaug2"),
-"Hahn": SubResource("Resource_kgemy"),
-"Hund": SubResource("Resource_eay7n"),
-"Katze": SubResource("Resource_x6bvr")
-})
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=818560340]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -65,18 +22,18 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=984048864]
 layout_mode = 2
 texture = ExtResource("4_kgemy")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=932801816]
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
-[node name="DialogueText" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+[node name="DialogueText" type="RichTextLabel" parent="MarginContainer/MarginContainer" unique_id=1394956383]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 4
@@ -85,25 +42,24 @@ bbcode_enabled = true
 text = "AAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 scroll_active = false
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=437120276]
 offset_left = 123.0
 offset_top = 680.0
 offset_right = 323.0
 offset_bottom = 880.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2" unique_id=62205967]
 visible = false
 layout_mode = 2
 texture = ExtResource("4_ps80s")
 
-[node name="Portrait" type="TextureRect" parent="MarginContainer2"]
+[node name="Portrait" type="TextureRect" parent="MarginContainer2" unique_id=1627680209]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("13_s4t7b")
 expand_mode = 1
 
-[node name="CharacterName" type="RichTextLabel" parent="MarginContainer2/Portrait"]
+[node name="CharacterName" type="RichTextLabel" parent="MarginContainer2/Portrait" unique_id=306815092]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 31.0
@@ -119,7 +75,7 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="ReadCooldown" type="Timer" parent="."]
+[node name="ReadCooldown" type="Timer" parent="." unique_id=856865978]
 unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true
