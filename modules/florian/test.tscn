@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dfexrt8qq7ei2"]
+
+[ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="1_ppyta"]
+
+[sub_resource type="TileSet" id="TileSet_ehkex"]
+tile_shape = 3
+tile_size = Vector2i(31, 36)
+
+[sub_resource type="Gradient" id="Gradient_37kl0"]
+offsets = PackedFloat32Array(0, 0.9939759)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8uh7m"]
+gradient = SubResource("Gradient_37kl0")
+
+[sub_resource type="Gradient" id="Gradient_6uqi0"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ppyta"]
+gradient = SubResource("Gradient_6uqi0")
+
+[sub_resource type="Gradient" id="Gradient_ykrsh"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g14j6"]
+gradient = SubResource("Gradient_ykrsh")
+
+[sub_resource type="Gradient" id="Gradient_vbegm"]
+colors = PackedColorArray(1, 0.4627451, 0, 1, 1, 0.4627451, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ehkex"]
+gradient = SubResource("Gradient_vbegm")
+
+[sub_resource type="Gradient" id="Gradient_xersf"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_00tp4"]
+gradient = SubResource("Gradient_xersf")
+
+[sub_resource type="Gradient" id="Gradient_77dp3"]
+colors = PackedColorArray(0.41960785, 0, 0.6392157, 1, 0.41960785, 0, 0.6392157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5tkv4"]
+gradient = SubResource("Gradient_77dp3")
+
+[sub_resource type="Gradient" id="Gradient_0m0f1"]
+offsets = PackedFloat32Array(0.006024096, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b0q6j"]
+gradient = SubResource("Gradient_0m0f1")
+
+[node name="Node2D" type="Node2D" unique_id=1358172966]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2076781868]
+tile_set = SubResource("TileSet_ehkex")
+script = ExtResource("1_ppyta")
+red_pos = Vector2i(3, 1)
+yellow_pos = Vector2i(2, 4)
+blue_pos = Vector2i(2, 2)
+
+[node name="Red" type="Node2D" parent="TileMapLayer" unique_id=984506956]
+position = Vector2(50, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red" unique_id=1411492492]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_8uh7m")
+
+[node name="Yellow" type="Node2D" parent="TileMapLayer" unique_id=1945867071]
+position = Vector2(20, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow" unique_id=513920142]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_ppyta")
+
+[node name="Blue" type="Node2D" parent="TileMapLayer" unique_id=1766673801]
+position = Vector2(10, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue" unique_id=1889698083]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_g14j6")
+
+[node name="Orange" type="Node2D" parent="TileMapLayer" unique_id=2026559907]
+position = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Orange" unique_id=1219144608]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_ehkex")
+
+[node name="Green" type="Node2D" parent="TileMapLayer" unique_id=1785569746]
+position = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Green" unique_id=1333303033]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_00tp4")
+
+[node name="Violet" type="Node2D" parent="TileMapLayer" unique_id=1170575005]
+position = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Violet" unique_id=115784200]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_5tkv4")
+
+[node name="White" type="Node2D" parent="TileMapLayer" unique_id=1497747112]
+position = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=822024467]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_b0q6j")
