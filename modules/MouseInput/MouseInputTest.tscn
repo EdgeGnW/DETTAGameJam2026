@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c245atcb8hk12"]
+
+[ext_resource type="Script" uid="uid://cdijoxieusniv" path="res://modules/MouseInput/MouseInput.gd" id="1_coh8n"]
+[ext_resource type="Texture2D" uid="uid://bmefgpqwwtuip" path="res://modules/Carrot/Karotte.png" id="2_coh8n"]
+
+[node name="MouseInputTest" type="Node2D" unique_id=800993626]
+script = ExtResource("1_coh8n")
+
+[node name="Karotte" type="Sprite2D" parent="." unique_id=481291103]
+position = Vector2(1099, 513)
+scale = Vector2(10, 10)
+texture = ExtResource("2_coh8n")
