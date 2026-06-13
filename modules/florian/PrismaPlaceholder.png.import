@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://basi6t5ps3kfp"
-path="res://.godot/imported/MirrorPlaceholder12.png-b95190d1258cb720e33338af1052bdd8.ctex"
+uid="uid://cs5lgxbatrl8a"
+path="res://.godot/imported/PrismaPlaceholder.png-424ea3f7177589dbf2951e670cbcc508.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/florian/MirrorPlaceholder12.png"
-dest_files=["res://.godot/imported/MirrorPlaceholder12.png-b95190d1258cb720e33338af1052bdd8.ctex"]
+source_file="res://modules/florian/PrismaPlaceholder.png"
+dest_files=["res://.godot/imported/PrismaPlaceholder.png-424ea3f7177589dbf2951e670cbcc508.ctex"]
 
 [params]
 

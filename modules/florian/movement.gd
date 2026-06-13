@@ -153,20 +153,19 @@ func is_wall(position: Vector2i) -> bool:
 	return tile_type(position) == 1
 
 func is_mirror(position: Vector2i) -> bool:
-	var type = tile_type(position)
-	return type > 1 and type < 20
+	return tile_type(position) == 2
 	
 func is_prism(position: Vector2i) -> bool:
-	return tile_type(position) == 20
+	return tile_type(position) == 3
 
 func reflect(position: Vector2i, direction: int, color: int) -> int:
-	var mirror_type = tile_type(position) - 2 # Value between 0 - 17
-	var double_sided = mirror_type < 6
-	var new_direction = (9 - direction + mirror_type) % 6
+	var mirror_type = get_cell_atlas_coords(position) # Value between 0 - 17
+	var double_sided = mirror_type.y == 0
+	var new_direction = (9 - direction + mirror_type.x) % 6
 	if new_direction == direction:
 		print("Hit mirror's edge")
 		return -1
-	elif (not double_sided and abs(direction - (mirror_type-6)/2) in [0, 1, 5]):
+	elif (not double_sided and abs(direction - mirror_type.y + 1) in [0, 1, 5]):
 		print("Hit mirror's backside")
 		return -1
 	return new_direction
