@@ -26,7 +26,9 @@ buses/default_bus_layout="res://modules/default_bus_layout.tres"
 
 AudioManager="*res://modules/AudioManager/audio_manager.gd"
 DialogueManager="*res://modules/DialogueManager/dialogue_manager.tscn"
+AnimalState="*res://modules/Player/animal_state.gd"
 SceneManager="*res://SceneManager.gd"
+ProgressManager="*uid://dujo5ou2cqb5f"
 Globals="*uid://x7rx25bok48o"
 
 [display]
