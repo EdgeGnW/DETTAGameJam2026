@@ -1,3 +1,4 @@
+class_name Rays
 extends Node2D
 
 var rays: Array[Line2D]
@@ -15,13 +16,33 @@ var rays: Array[Line2D]
 
 var current_highlight: int = 0
 
+var active = false
+
 var tween: Tween
 
 func _ready() -> void:
 	rays.assign(find_children("*", "Line2D", false, false))
 	print(len(rays))
+	deactivate()
+	
+func deactivate():
+	for ray in rays:
+		if ray == rays[current_highlight]: continue
+		ray.points[1].x = low_length
+		ray.width = low_width
+		ray.gradient.colors[0].a = low_intensity/255
+	active = false
+		
+func activate():
+	for ray in rays:
+		ray.points[1].x = high_length
+		ray.width = high_width
+		ray.gradient.colors[0].a = high_intensity/255
+	active = true
+	
 	
 func highlight_ray(index: int) -> void:
+	if not active: return
 
 	if index == current_highlight:
 		return

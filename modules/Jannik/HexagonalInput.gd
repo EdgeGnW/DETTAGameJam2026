@@ -1,6 +1,7 @@
 class_name HexagonalInput extends Node
 
 signal confirmSelection
+signal go
 
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
 enum RelativeDirection { Right, Up, Left, Down }
@@ -45,6 +46,9 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("confirmDirection"):
 		confirmSelection.emit()
+		
+	if event.is_action_pressed("go"):
+		go.emit()
 		
 
 func getRelativeDirection(startingDirection: Direction, modifier: RelativeDirection) -> Direction:
