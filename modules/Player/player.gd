@@ -7,9 +7,10 @@ const SPEED = 1000.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 @onready var rays: Node2D = %Rays
-@export var texture: Texture2D:
-	set(value):
-		sprite_2d.texture = texture
+@export var texture: Texture2D
+
+func _ready():
+	sprite_2d.texture = texture
 
 
 func _physics_process(delta: float) -> void:
