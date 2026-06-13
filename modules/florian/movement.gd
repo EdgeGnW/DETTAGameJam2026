@@ -89,7 +89,7 @@ func _ready() -> void:
 	var wrongDirection = wrongDirectionsDict.get(newDirection)
 	
 	inputManager.reactToInput(false)
-	move(Vector3i(wrongDirection, wrongDirection, wrongDirection))
+	move_in_directions(Vector3i(wrongDirection, wrongDirection, wrongDirection))
 
 func update_colors():
 	red.visible = false
@@ -163,14 +163,12 @@ func reflect(position: Vector2i, direction: int, color: int) -> int:
 	var mirror_type = tile_type(position) - 2 # Value between 0 - 17
 	var double_sided = mirror_type < 6
 	var new_direction = (9 - direction + mirror_type) % 6
-	print(mirror_type, " ", direction, " ", new_direction)
 	if new_direction == direction:
 		print("Hit mirror's edge")
 		return -1
-	# TODO: Only out due to testing purposes
-	#elif (not double_sided and abs(direction - (mirror_type-6)/2) in [0, 1, 5]):
-	#	print("Hit mirror's backside")
-	#	return -1
+	elif (not double_sided and abs(direction - (mirror_type-6)/2) in [0, 1, 5]):
+		print("Hit mirror's backside")
+		return -1
 	return new_direction
 
 func tile_type(position: Vector2i) -> int:
@@ -178,7 +176,7 @@ func tile_type(position: Vector2i) -> int:
 		return get_cell_source_id(position)
 	return 0;
 
-func move(directions: Vector3i):
+func move_in_directions(directions: Vector3i):
 	red_path = compute_movement_path(local_to_map(red.position), directions.x, RED)
 	yellow_path = compute_movement_path(local_to_map(yellow.position), directions.y, YELLOW)
 	blue_path = compute_movement_path(local_to_map(blue.position), directions.z, BLUE)
@@ -254,5 +252,5 @@ func _process(delta: float) -> void:
 			var wrongDirection = wrongDirectionsDict.get(newDirection)
 			
 			inputManager.reactToInput(false)
-			move(Vector3i(wrongDirection, wrongDirection, wrongDirection))
+			move_in_directions(Vector3i(wrongDirection, wrongDirection, wrongDirection))
 			
