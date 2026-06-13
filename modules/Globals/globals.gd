@@ -1,3 +1,5 @@
+extends Node
+
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
 
 # Called when the node enters the scene tree for the first time.
