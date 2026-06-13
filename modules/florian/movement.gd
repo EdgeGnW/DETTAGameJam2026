@@ -7,18 +7,10 @@ const TWEEN_TIME = 0.1
 
 var players: Array[Player]
 var player_paths := {}
+var player_directions := {}
 var player_index: int = 0
 
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
-
-static var Neighbor: Dictionary = {
-	Direction.Left: Vector2i(-1, 0),
-	Direction.UpLeft: Vector2i(0, -1),
-	Direction.UpRight: Vector2i(1, -1),
-	Direction.Right: Vector2i(1, 0),
-	Direction.DownRight: Vector2i(1, 1),
-	Direction.DownLeft: Vector2i(0, 1),
-}
 
 func _ready():
 	players.assign(find_children("*", "Player", false, false))
@@ -32,18 +24,72 @@ func _ready():
 	input_manager.reactToInput(true)
 
 func plan_path(player: Player, direction: Direction):
-	var old_position = player.grid_position
+	var path_to = player.grid_position
 	for i in range(MAX_SEGMENT_LENGTH):
-		var new_position = next_tile(old_position, direction)
-		print(old_position)
+		var new_position = next_tile(path_to, direction)
 		if get_cell_tile_data(new_position):
 			if is_wall(new_position):
 				break
-			elif is_mirror(new_position):
-				old_position = new_position
-				break
-		old_position = new_position
-	player_paths[player] = old_position
+			if is_mirror(new_position):
+				var mirror_type = get_cell_atlas_coords(new_position)
+				var new_direction = (9 - direction - mirror_type.x) % 6
+				if new_direction == direction:
+					# Hit mirror's edge -> Act as wall
+					break
+			path_to = new_position
+			break
+		path_to = new_position
+	player_paths[player] = path_to
+	player_directions[player] = direction
+	
+func check_final_position(player: Player):
+	var grid_position = player_paths[player]
+	var direction = player_directions[player]
+	assert(local_to_map(player.position) == grid_position, "We did not arrive at the planned final position")
+	player.grid_position = grid_position
+	if get_cell_tile_data(grid_position):
+		if is_mirror(grid_position):
+			var mirror_type = get_cell_atlas_coords(grid_position)
+			var new_direction = (9 - direction - mirror_type.x) % 6
+			if mirror_type.y > 0 and (direction + (mirror_type.x + 6 * (mirror_type.y - 1)) / 2) % 6 in [5, 0, 1]:
+				# Hit one-way mirror's backside -> Go through
+				new_direction = direction
+			else:
+				# Hit mirror -> Reflect
+				direction = new_direction
+			plan_path(player, direction)
+			var final_position = map_to_local(player_paths[player])
+			var distance = (map_to_local(player.grid_position)-final_position).length()
+			player.skip_tween()
+			player.tween = create_tween()
+			player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
+			player.tween.tween_callback(check_final_position.bind(player))
+		elif is_prism(grid_position):
+			var colors = []
+			if player == $White:
+				player.visible = false
+				colors = [[$Blue, -1], [$Yellow, 0], [$Red, 1]]
+			elif player == $Orange:
+				player.visible = false
+				colors = [[$Yellow, 0], [$Red, 1]]
+			elif player == $Green:
+				player.visible = false
+				colors = [[$Blue, -1], [$Yellow, 0]]
+			elif player == $Violet:
+				player.visible = false
+				colors = [[$Blue, -1], [$Red, 1]]
+			for color in colors:
+				color[0].visible = true
+				var color_direction = (6 + direction + color[1]) % 6
+				plan_path(color[0], color_direction)
+				if color[0].tween:
+					color[0].skip_tween()
+				color[0].tween = create_tween()
+				var final_position = map_to_local(player_paths[color[0]])
+				var distance = (map_to_local(color[0].grid_position)-final_position).length()
+				color[0].tween.tween_property(color[0], "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
+				color[0].tween.tween_callback(check_final_position.bind(color[0]))
+				
 	
 func receive_direction(direction: Direction):
 	print(players)
@@ -68,11 +114,10 @@ func move_players():
 		if player.tween:
 			player.skip_tween()
 		player.tween = create_tween()
-		var value = player_paths[player]
-		var final_position = map_to_local(value)
+		var final_position = map_to_local(player_paths[player])
 		var distance = (map_to_local(player.grid_position)-final_position).length()
 		player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
-		player.grid_position = value
+		player.tween.tween_callback(check_final_position.bind(player))
 
 func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	if direction == Direction.Right:
