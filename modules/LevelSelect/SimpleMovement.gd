@@ -12,4 +12,4 @@ func _ready() -> void:
 func _selectedDirection(direction: HexagonalInput.Direction):
 	inputManager.reactToInput(false)
 	print(HexagonalInput.directionVectors.get(direction))
-	player.velocity = 1000 * HexagonalInput.directionVectors.get(direction)
+	player.move(HexagonalInput.directionVectors.get(direction))

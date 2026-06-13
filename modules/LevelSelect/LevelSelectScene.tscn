@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkdh3mwxrrxn8"]
 
-[ext_resource type="PackedScene" uid="uid://krlekeg0pfb0" path="res://modules/LevelSelect/TestPlayer.tscn" id="1_xu506"]
+[ext_resource type="PackedScene" uid="uid://krlekeg0pfb0" path="res://modules/Player/Player.tscn" id="1_xu506"]
 [ext_resource type="PackedScene" uid="uid://bwnl065t80bq4" path="res://modules/LevelSelect/LevelEnterTrigger.tscn" id="2_cyp66"]
 [ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="3_cyp66"]
 [ext_resource type="Script" uid="uid://dv5bh0vqd5tgq" path="res://modules/LevelSelect/SimpleMovement.gd" id="4_mesty"]

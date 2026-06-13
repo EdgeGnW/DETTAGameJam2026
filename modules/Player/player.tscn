@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://krlekeg0pfb0"]
+[gd_scene format=3 uid="uid://exulgvu6ki71"]
 
-[ext_resource type="Script" uid="uid://dcsrhhfgww5wy" path="res://modules/Pascal/player.gd" id="1_4fq60"]
+[ext_resource type="Script" uid="uid://dcsrhhfgww5wy" path="res://modules/Player/player.gd" id="1_4fq60"]
 [ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="2_5h1i8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlt4d"]
-size = Vector2(50, 50)
+size = Vector2(25, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fq60"]
 
@@ -15,6 +15,7 @@ script = ExtResource("1_4fq60")
 texture = SubResource("PlaceholderTexture2D_tlt4d")
 
 [node name="Rays" parent="." unique_id=698268212 instance=ExtResource("2_5h1i8")]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1472466070]
 shape = SubResource("CircleShape2D_4fq60")
