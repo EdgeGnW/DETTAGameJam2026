@@ -1,6 +1,7 @@
 extends Node
 
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
+enum PlayerColor { Red, Yellow, Blue}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

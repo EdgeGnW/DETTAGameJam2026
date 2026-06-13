@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://c4tscucy8khe7"]
 
-[node name="SceneCollection" type="Node" unique_id=1319887222]
+[ext_resource type="Script" uid="uid://db3r361ttujw1" path="res://modules/Frederick/mirror.gd" id="1_1x56m"]
+[ext_resource type="Script" uid="uid://d2vnxokui13wg" path="res://modules/Frederick/prism.gd" id="2_afdcv"]
+[ext_resource type="Script" uid="uid://bxpjew42m7xdb" path="res://modules/Frederick/goal.gd" id="3_jgjm8"]
+
+[node name="SceneObjects" type="Node" unique_id=1319887222]
+
+[node name="Mirror" type="Node" parent="." unique_id=1842485184]
+script = ExtResource("1_1x56m")
+angle = null
+
+[node name="Prism" type="Node" parent="." unique_id=45456001]
+script = ExtResource("2_afdcv")
+
+[node name="Goal" type="Node" parent="." unique_id=554846239]
+script = ExtResource("3_jgjm8")
