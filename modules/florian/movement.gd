@@ -37,9 +37,6 @@ var wrongDirectionsDict = {
 }
 
 
-# TODO: Just for testing purposes
-var grid: Array[Array]
-
 func _ready() -> void:
 	red.position = map_to_local(red_pos)
 	yellow.position = map_to_local(yellow_pos)
@@ -54,34 +51,6 @@ func _ready() -> void:
 	moving = false
 	update_colors()
 	
-	# TODO: Just for testing purposes - Creating grid (should be read from the tilemap)
-	grid.append([])
-	for j in range(32):
-		grid[-1].append(0)
-	grid[-1].append(1)
-	for i in range(50):
-		grid.append([])
-		grid[-1].append(0)
-		for j in range(30):
-			if get_cell_tile_data(Vector2i(i,j)):
-				if (get_cell_source_id(Vector2i(i,j))==1):
-					grid[-1].append(1)
-				elif (get_cell_source_id(Vector2i(i,j))==2):
-					grid[-1].append(randi() % 19 + 2)
-				print("Tile: ", Vector2i(i,j), get_cell_source_id(Vector2i(i,j)))
-			else:
-				grid[-1].append(0)
-		grid[-1].append(0)
-		grid[-1].append(1)
-	grid.append([])
-	for j in range(32):
-		grid[-1].append(0)
-	grid[-1].append(1)
-	grid.append([])
-	for j in range(33):
-		grid[-1].append(1)
-	await get_tree().create_timer(2).timeout
-	#move(Vector3i(0, 0, 0))
 	
 	inputManager.reactToInput(true)
 	var newDirection = await inputManager.selectedDirection
