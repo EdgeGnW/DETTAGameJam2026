@@ -3,14 +3,6 @@ class_name MouseInput extends HexagonalInput
 var playerScreenPosition: Vector2
 var mousePosition: Vector2
 var screenResolution: Vector2
-var directionVectors: Dictionary = {
-	Direction.Left: Vector2(-1, 0),
-	Direction.UpLeft: Vector2(-0.5, -0.866),
-	Direction.UpRight: Vector2(0.5, -0.866),
-	Direction.Right: Vector2(1, 0),
-	Direction.DownRight: Vector2(0.5, 0.866),
-	Direction.DownLeft: Vector2(-0.5, 0.866),
-}
 
 func getRelativeMousePosition() -> Vector2:
 	var x: float = mousePosition.x / screenResolution.x

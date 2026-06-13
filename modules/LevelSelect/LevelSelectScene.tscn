@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dkdh3mwxrrxn8"]
+
+[ext_resource type="PackedScene" uid="uid://krlekeg0pfb0" path="res://modules/LevelSelect/TestPlayer.tscn" id="1_xu506"]
+[ext_resource type="PackedScene" uid="uid://bwnl065t80bq4" path="res://modules/LevelSelect/LevelEnterTrigger.tscn" id="2_cyp66"]
+[ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="3_cyp66"]
+[ext_resource type="Script" uid="uid://dv5bh0vqd5tgq" path="res://modules/LevelSelect/SimpleMovement.gd" id="4_mesty"]
+
+[node name="LevelSelectScene" type="Control" unique_id=1139140295]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" parent="." unique_id=957936608 instance=ExtResource("1_xu506")]
+unique_name_in_owner = true
+
+[node name="Pivot" type="Node2D" parent="." unique_id=61559999]
+rotation = -1.0471977
+
+[node name="LevelEnterTrigger" parent="Pivot" unique_id=1143325814 instance=ExtResource("2_cyp66")]
+position = Vector2(249.99997, 433.0127)
+rotation = 1.0471977
+
+[node name="LevelEnterTrigger2" parent="Pivot" unique_id=1572961361 instance=ExtResource("2_cyp66")]
+position = Vector2(-250.00003, 433.0127)
+rotation = 2.0943952
+
+[node name="LevelEnterTrigger3" parent="Pivot" unique_id=1190833356 instance=ExtResource("2_cyp66")]
+position = Vector2(-499.99997, 0)
+rotation = -3.1415925
+
+[node name="LevelEnterTrigger4" parent="Pivot" unique_id=2126452840 instance=ExtResource("2_cyp66")]
+position = Vector2(-249.9999, -433.0127)
+rotation = -2.094395
+
+[node name="LevelEnterTrigger5" parent="Pivot" unique_id=1823675173 instance=ExtResource("2_cyp66")]
+position = Vector2(250.00009, -433.0125)
+rotation = -1.0471973
+scale = Vector2(1.9999999, 1.9999999)
+
+[node name="LevelEnterTrigger6" parent="Pivot" unique_id=1849521028 instance=ExtResource("2_cyp66")]
+position = Vector2(500.00003, 0.00012207031)
+
+[node name="InputManager" parent="." unique_id=384199129 node_paths=PackedStringArray("player") instance=ExtResource("3_cyp66")]
+unique_name_in_owner = true
+player = NodePath("../Player")
+
+[node name="Node" type="Node" parent="." unique_id=4842509]
+script = ExtResource("4_mesty")

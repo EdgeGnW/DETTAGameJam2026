@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://1yysst286774" path="res://modules/Frederick/HexfeldPlaceholder.png" id="1_cr72f"]
 [ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="1_ppyta"]
 [ext_resource type="Texture2D" uid="uid://di85brbbi8i77" path="res://modules/Frederick/HexfeldPlaceholder2.png" id="2_5y7du"]
-[ext_resource type="Script" uid="uid://bvdqrebadqxcp" path="res://modules/Rays/rays.gd" id="4_1yqx5"]
 [ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="5_bbjcb"]
-[ext_resource type="Script" uid="uid://blgi8cy58oiog" path="res://modules/Jannik/InputManager.gd" id="6_3imvn"]
+[ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="6_1yqx5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5y7du"]
 texture = ExtResource("1_cr72f")
@@ -122,7 +121,6 @@ texture = SubResource("GradientTexture2D_5tkv4")
 
 [node name="White" type="Node2D" parent="TileMapLayer" unique_id=634880963]
 position = Vector2(5, 5)
-script = ExtResource("4_1yqx5")
 
 [node name="Rays" parent="TileMapLayer/White" unique_id=698268212 instance=ExtResource("5_bbjcb")]
 scale = Vector2(0.2, 0.2)
@@ -131,8 +129,6 @@ scale = Vector2(0.2, 0.2)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_b0q6j")
 
-[node name="InputManager" type="Node" parent="." unique_id=585786166 node_paths=PackedStringArray("player", "rays")]
+[node name="InputManager" parent="." unique_id=384199129 node_paths=PackedStringArray("player") instance=ExtResource("6_1yqx5")]
 unique_name_in_owner = true
-script = ExtResource("6_3imvn")
 player = NodePath("../TileMapLayer/White")
-rays = NodePath("../TileMapLayer/White/Rays")

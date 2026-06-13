@@ -6,9 +6,10 @@ var mouseInput: MouseInput
 var keyboardInput: KeyboardInput
 var controllerInput: ControllerInput
 @export var player: Node2D
-@export var rays: Node2D
+var rays: Node2D
 
 func _ready() -> void:
+	rays = player.rays
 	mouseInput = MouseInput.new()
 	mouseInput.setProperties(player, rays)
 	mouseInput.confirmSelection.connect(confirmSelectionMouse)

@@ -22,7 +22,6 @@ texture = SubResource("PlaceholderTexture2D_tlt4d")
 
 [node name="Rays" parent="Player" unique_id=698268212 instance=ExtResource("3_to5mh")]
 
-[node name="Input" type="Node" parent="." unique_id=1599628944 node_paths=PackedStringArray("player", "rays")]
+[node name="Input" type="Node" parent="." unique_id=1599628944 node_paths=PackedStringArray("player")]
 script = ExtResource("1_jqwj1")
 player = NodePath("../Player")
-rays = NodePath("../Player/Rays")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://3wpb2gnx7enk"]
+
+[ext_resource type="Script" uid="uid://blgi8cy58oiog" path="res://modules/Jannik/InputManager.gd" id="1_447yb"]
+
+[node name="InputManager" type="Node" unique_id=384199129 node_paths=PackedStringArray("player", "rays")]
+script = ExtResource("1_447yb")
+player = NodePath("")
+rays = NodePath("")

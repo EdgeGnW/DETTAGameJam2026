@@ -11,6 +11,15 @@ var currentDirection: Direction
 var player: Node2D
 var rays: Node2D
 
+static var directionVectors: Dictionary = {
+	Direction.Left: Vector2(-1, 0),
+	Direction.UpLeft: Vector2(-0.5, -0.866),
+	Direction.UpRight: Vector2(0.5, -0.866),
+	Direction.Right: Vector2(1, 0),
+	Direction.DownRight: Vector2(0.5, 0.866),
+	Direction.DownLeft: Vector2(-0.5, 0.866),
+}
+
 func setProperties(player: Node2D, rays: Node2D) -> void:
 	print('set properties')
 	self.player = player
