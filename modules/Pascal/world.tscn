@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cckxqmqffuu24"]
 
+[ext_resource type="Script" uid="uid://blgi8cy58oiog" path="res://modules/Jannik/InputManager.gd" id="1_jqwj1"]
 [ext_resource type="Script" uid="uid://dcsrhhfgww5wy" path="res://modules/Pascal/player.gd" id="1_tlt4d"]
 [ext_resource type="PackedScene" uid="uid://cac8gpndpiw2y" path="res://modules/Trail/trail.tscn" id="1_to5mh"]
 [ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="3_to5mh"]
-[ext_resource type="Script" uid="uid://cdijoxieusniv" path="res://modules/MouseInput/MouseInput.gd" id="4_to5mh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlt4d"]
 size = Vector2(50, 50)
@@ -13,6 +13,7 @@ size = Vector2(50, 50)
 [node name="Trail" parent="." unique_id=1762604018 instance=ExtResource("1_to5mh")]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=230990626]
+unique_name_in_owner = true
 position = Vector2(933, 645)
 script = ExtResource("1_tlt4d")
 
@@ -21,5 +22,7 @@ texture = SubResource("PlaceholderTexture2D_tlt4d")
 
 [node name="Rays" parent="Player" unique_id=698268212 instance=ExtResource("3_to5mh")]
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1780504431]
-script = ExtResource("4_to5mh")
+[node name="Input" type="Node" parent="." unique_id=1599628944 node_paths=PackedStringArray("player", "rays")]
+script = ExtResource("1_jqwj1")
+player = NodePath("../Player")
+rays = NodePath("../Player/Rays")

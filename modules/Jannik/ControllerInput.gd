@@ -1,25 +1,20 @@
-extends Node
-
-enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
-var lastPressedDirection: Direction
+class_name ControllerInput extends HexagonalInput
 
 func _input(event: InputEvent) -> void:
-	var joystickDirection = Input.get_vector("left", "right", "up", "down")
-	if joystickDirection.length() < 0.5:
+	if event is InputEventJoypadMotion:
+		var joystickDirection: Vector2 = Input.get_vector("left", "right", "controllerUp", "controllerDown")
+		if joystickDirection.length() >= 0.5:
+			currentDirection = angleToDirection(joystickDirection.angle())
+	elif event is not InputEventJoypadButton:
 		return
-	lastPressedDirection = getDirection(joystickDirection.angle())
-
-func getDirection(angle: float) -> Direction:
-	if (-PI/6 <= angle && angle <= PI/6):
-		return Direction.Right
-	if (PI/6 <= angle && angle <= PI/2):
-		return Direction.DownRight
-	if (PI/2 <= angle && angle <= PI*5/6):
-		return Direction.DownLeft
-	if (PI*5/6 <= angle || angle <= -PI*5/6):
-		return Direction.Left
-	if (-PI*5/6 <= angle && angle <= -PI*3/6):
-		return Direction.UpLeft
-	if (-PI*3/6 <= angle && angle <= -PI/6):
-		return Direction.UpRight
-	return Direction.Left
+		
+	if event.is_action_pressed("relativeRight"):
+		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Right)
+	elif event.is_action_pressed("relativeUp"):
+		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Up)
+	elif event.is_action_pressed("relativeLeft"):
+		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Left)
+	elif event.is_action_pressed("relativeDown"):
+		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Down)
+		
+	super._input(event)
