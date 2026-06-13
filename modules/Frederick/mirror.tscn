@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cxevmx5bx6rwp"]
+
+[ext_resource type="Script" uid="uid://db3r361ttujw1" path="res://modules/Frederick/mirror.gd" id="1_hpd3l"]
+[ext_resource type="Texture2D" uid="uid://brp6p3l56l7od" path="res://modules/TileSet/K_Spiegel_KZuK_Einseitig.png" id="2_ggtip"]
+
+[node name="Mirror" type="Node2D" unique_id=972863884]
+script = ExtResource("1_hpd3l")
+angle = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1512658768]
+texture = ExtResource("2_ggtip")
