@@ -4,15 +4,14 @@ extends TileMapLayer
 
 @onready var inputManager = %InputManager
 
-@onready var red: Node2D = $Red
-@onready var orange: Node2D = $Orange
-@onready var white: Node2D = $White
+@onready var red: Player = $"../Red"
+@onready var blue: Player = $"../Blue"
+@onready var yellow: Player = $"../Yellow"
+@onready var green: Player = $"../Green"
+@onready var violet: Player = $"../Violet"
+@onready var white: Player = $"../White"
+@onready var orange: Player = $"../Orange"
 
-@onready var yellow: Node2D = $Yellow
-@onready var green: Node2D = $Green
-
-@onready var blue: Node2D = $Blue
-@onready var violet: Node2D = $Violet
 
 @export var red_pos: Vector2i
 @export var yellow_pos: Vector2i

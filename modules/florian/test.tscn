@@ -98,25 +98,32 @@ script = ExtResource("1_ppyta")
 
 [node name="InputManager" parent="." unique_id=384199129 node_paths=PackedStringArray("player") instance=ExtResource("6_1yqx5")]
 unique_name_in_owner = true
-player = NodePath("")
+player = NodePath("../Red")
 
 [node name="Blue" parent="." unique_id=957936608 instance=ExtResource("5_3imvn")]
+position = Vector2(439, 139)
 texture = SubResource("GradientTexture2D_1yqx5")
 
 [node name="Yellow" parent="." unique_id=1183135846 instance=ExtResource("5_3imvn")]
+position = Vector2(502, 175)
 texture = SubResource("GradientTexture2D_3imvn")
 
 [node name="Orange" parent="." unique_id=1184779690 instance=ExtResource("5_3imvn")]
+position = Vector2(390, 387)
 texture = SubResource("GradientTexture2D_436w1")
 
 [node name="Green" parent="." unique_id=359594138 instance=ExtResource("5_3imvn")]
+position = Vector2(504, 263)
 texture = SubResource("GradientTexture2D_tc3qr")
 
 [node name="Violet" parent="." unique_id=1959410651 instance=ExtResource("5_3imvn")]
+position = Vector2(491, 326)
 texture = SubResource("GradientTexture2D_81yih")
 
 [node name="White" parent="." unique_id=1400842219 instance=ExtResource("5_3imvn")]
+position = Vector2(320, 248)
 texture = SubResource("GradientTexture2D_5k10g")
 
 [node name="Red" parent="." unique_id=1878474126 instance=ExtResource("5_3imvn")]
+position = Vector2(230, 165)
 texture = SubResource("GradientTexture2D_qkp3l")
