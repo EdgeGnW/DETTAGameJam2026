@@ -82,16 +82,16 @@ func update_colors():
 	green.visible = false
 	violet.visible = false
 	white.visible = false
-	if red_pos == yellow_pos:
-		if red_pos == blue_pos:
+	if red.position.distance_to(yellow.position) < 0.1:
+		if red.position.distance_to(blue.position) < 0.1:
 			white.visible = true
 		else:
 			orange.visible = true
 			blue.visible = true
-	elif red_pos == blue_pos:
+	elif red.position.distance_to(blue.position) < 0.1:
 		violet.visible = true
 		yellow.visible = true
-	elif yellow_pos == blue_pos:
+	elif yellow.position.distance_to(blue.position) < 0.1:
 		green.visible = true
 		red.visible = true
 	else:
@@ -122,6 +122,7 @@ func compute_movement_path(source: Vector2i, direction: int, color: int, path_le
 		return path
 	
 	if is_mirror(next_tile):
+		print("Hit mirror", next_tile)
 		direction = reflect(next_tile, direction, color)
 		if direction == -1:
 			return path
@@ -189,6 +190,7 @@ func _move_blue(move: Vector2):
 
 func _process(delta: float) -> void:
 	if moving:
+		var is_next_move = false
 		var red_local_pos = map_to_local(red_pos)
 		var red_move = red_local_pos - red.position
 		if red_move.length() <= delta*speed and not red_path.is_empty():
@@ -224,9 +226,10 @@ func _process(delta: float) -> void:
 		
 		update_colors()
 		
-		if red_path.is_empty() and yellow_path.is_empty() and blue_path.is_empty():
+		if red_move.length() + yellow_move.length() + blue_move.length() == 0 and red_path.is_empty() and yellow_path.is_empty() and blue_path.is_empty():
 			moving = false
 			
+			# TODO: Only for testing purposes
 			await get_tree().create_timer(2).timeout
 			var dir = randi() % 6
 			move(Vector3i(dir, dir, dir))

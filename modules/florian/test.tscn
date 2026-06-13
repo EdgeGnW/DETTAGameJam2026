@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dfexrt8qq7ei2"]
+[gd_scene load_steps=21 format=4 uid="uid://dfexrt8qq7ei2"]
 
 [ext_resource type="Texture2D" uid="uid://1yysst286774" path="res://modules/Frederick/HexfeldPlaceholder.png" id="1_cr72f"]
 [ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="1_ppyta"]
@@ -64,9 +64,9 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_b0q6j"]
 gradient = SubResource("Gradient_0m0f1")
 
-[node name="Node2D" type="Node2D" unique_id=357472966]
+[node name="Node2D" type="Node2D"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1369887126]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAACAAUAAQAAAAAAAAADAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAPAAIAAQAAAAAAAAARAAUAAQAAAAAAAAARAAgAAQAAAAAAAAAFAAwAAQAAAAAAAAAEAAwAAQAAAAAAAAADAAsAAQAAAAAAAAAEAAoAAQAAAAAAAAADAAoAAQAAAAAAAAADAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAgAAQAAAAAAAAACAAgAAQAAAAAAAAACAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAYAAQAAAAAAAAABAAUAAQAAAAAAAAABAAQAAQAAAAAAAAABAAMAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAAKAP//AQAAAAAAAAALAP//AQAAAAAAAAAMAP//AQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAQAAAAAAAAASAAIAAgAAAAAAAAATAAIAAQAAAAAAAAATAAMAAQAAAAAAAAAUAAQAAQAAAAAAAAAUAAUAAQAAAAAAAAAVAAYAAQAAAAAAAAAVAAcAAQAAAAAAAAAWAAgAAQAAAAAAAAAWAAkAAQAAAAAAAAAXAAoAAQAAAAAAAAAXAAsAAQAAAAAAAAANAAYAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAUAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAQAAQAAAAAAAAAIAAgAAQAAAAAAAAAEAAUAAgAAAAAAAAAEAAYAAgAAAAAAAAAEAAcAAgAAAAAAAAAQAAcAAgAAAAAAAAANAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAGAAoAAgAAAAAAAAAUAAYAAgAAAAAAAAAMAAEAAgAAAAAAAAANAAgAAgAAAAAAAAAJAAgAAgAAAAAAAAAIAAkAAgAAAAAAAAAKAAgAAgAAAAAAAAAFAA4AAgAAAAAAAAAFAA8AAgAAAAAAAAAGABEAAQAAAAAAAAAHABIAAgAAAAAAAAAHABMAAgAAAAAAAAAFAA0AAQAAAAAAAAAHABAAAQAAAAAAAAAHABEAAQAAAAAAAAAGAA0AAQAAAAAAAAAGAA4AAQAAAAAAAAAHAA4AAQAAAAAAAAAGAA8AAQAAAAAAAAAEAA0AAQAAAAAAAAAIABIAAQAAAAAAAAAJABIAAQAAAAAAAAAJABMAAQAAAAAAAAAKABMAAQAAAAAAAAALABMAAQAAAAAAAAAMABMAAQAAAAAAAAANABMAAQAAAAAAAAAOABMAAQAAAAAAAAAPABMAAQAAAAAAAAAQABMAAQAAAAAAAAARABMAAQAAAAAAAAASABMAAQAAAAAAAAATABMAAQAAAAAAAAAUABMAAQAAAAAAAAAVABIAAQAAAAAAAAAVABMAAQAAAAAAAAAWABIAAQAAAAAAAAAXABIAAQAAAAAAAAAYABIAAQAAAAAAAAAYABEAAQAAAAAAAAAYABAAAQAAAAAAAAAYAA8AAQAAAAAAAAAYAA4AAQAAAAAAAAAYAA0AAQAAAAAAAAAYAAwAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ehkex")
 script = ExtResource("1_ppyta")
@@ -75,51 +75,51 @@ red_pos = Vector2i(10, 10)
 yellow_pos = Vector2i(10, 10)
 blue_pos = Vector2i(10, 10)
 
-[node name="Red" type="Node2D" parent="TileMapLayer" unique_id=1581846338]
+[node name="Red" type="Node2D" parent="TileMapLayer"]
 position = Vector2(50, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red" unique_id=1209262816]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red"]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_8uh7m")
 
-[node name="Yellow" type="Node2D" parent="TileMapLayer" unique_id=130754687]
+[node name="Yellow" type="Node2D" parent="TileMapLayer"]
 position = Vector2(20, 20)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow" unique_id=939803758]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow"]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_ppyta")
 
-[node name="Blue" type="Node2D" parent="TileMapLayer" unique_id=547451631]
+[node name="Blue" type="Node2D" parent="TileMapLayer"]
 position = Vector2(10, 10)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue" unique_id=551541504]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue"]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_g14j6")
 
-[node name="Orange" type="Node2D" parent="TileMapLayer" unique_id=1901741462]
+[node name="Orange" type="Node2D" parent="TileMapLayer"]
 position = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Orange" unique_id=1602819935]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Orange"]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_ehkex")
 
-[node name="Green" type="Node2D" parent="TileMapLayer" unique_id=1412254088]
+[node name="Green" type="Node2D" parent="TileMapLayer"]
 position = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Green" unique_id=1051286708]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Green"]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_00tp4")
 
-[node name="Violet" type="Node2D" parent="TileMapLayer" unique_id=551778984]
+[node name="Violet" type="Node2D" parent="TileMapLayer"]
 position = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Violet" unique_id=505062516]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Violet"]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_5tkv4")
 
-[node name="White" type="Node2D" parent="TileMapLayer" unique_id=731513408]
+[node name="White" type="Node2D" parent="TileMapLayer"]
 position = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=2113158244]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White"]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_b0q6j")
