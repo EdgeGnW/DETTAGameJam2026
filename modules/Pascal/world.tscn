@@ -11,7 +11,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.314741, 1), -0.20796682, -0.20
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_0faou"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.78431374)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.40784314)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlt4d"]
 size = Vector2(50, 50)
@@ -56,6 +56,7 @@ script = ExtResource("1_tlt4d")
 texture = SubResource("PlaceholderTexture2D_tlt4d")
 
 [node name="Rays" type="Node2D" parent="Player" unique_id=1653200645]
+show_behind_parent = true
 script = ExtResource("3_0faou")
 
 [node name="RayRight" type="Line2D" parent="Player/Rays" unique_id=975978728]
