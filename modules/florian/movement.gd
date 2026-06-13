@@ -54,8 +54,12 @@ func _ready() -> void:
 		grid.append([])
 		grid[-1].append(0)
 		for j in range(30):
-			if randi() % 100 < 10:
-				grid[-1].append(randi() % 19 + 2)
+			if get_cell_tile_data(Vector2i(i,j)):
+				if (get_cell_source_id(Vector2i(i,j))==1):
+					grid[-1].append(1)
+				elif (get_cell_source_id(Vector2i(i,j))==2):
+					grid[-1].append(randi() % 19 + 2)
+				print("Tile: ", Vector2i(i,j), get_cell_source_id(Vector2i(i,j)))
 			else:
 				grid[-1].append(0)
 		grid[-1].append(0)
@@ -129,7 +133,7 @@ func compute_movement_path(source: Vector2i, direction: int, color: int, path_le
 
 func is_wall(position: Vector2i) -> bool:
 	# TODO: Only for testing purposes
-	return position.x < 0 or position.x > 50 or position.y < 0 or position.y > 30 #or grid[position.x][position.y] == 1
+	return position.x < 0 or position.x > 50 or position.y < 0 or position.y > 30 or tyle_type(position) == 1 #or grid[position.x][position.y] == 1
 
 func is_mirror(position: Vector2i) -> bool:
 	# TODO: Only for testing purposes
@@ -152,6 +156,10 @@ func reflect(position: Vector2i, direction: int, color: int) -> int:
 	#	return -1
 	return new_direction
 
+func tyle_type(position: Vector2i) -> int:
+	if get_cell_tile_data(position):
+		return get_cell_source_id(position)
+	return 0;
 
 func move(directions: Vector3i):
 	red_path = compute_movement_path(local_to_map(red.position), directions.x, RED)
