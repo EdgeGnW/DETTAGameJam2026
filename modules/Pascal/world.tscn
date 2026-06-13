@@ -1,52 +1,16 @@
 [gd_scene format=3 uid="uid://cckxqmqffuu24"]
 
-[ext_resource type="Script" uid="uid://brqj6uvmrjjkx" path="res://modules/Pascal/trail.gd" id="1_rfy5o"]
 [ext_resource type="Script" uid="uid://dcsrhhfgww5wy" path="res://modules/Pascal/player.gd" id="1_tlt4d"]
-[ext_resource type="Script" uid="uid://bvdqrebadqxcp" path="res://modules/Pascal/rays.gd" id="3_0faou"]
+[ext_resource type="PackedScene" uid="uid://cac8gpndpiw2y" path="res://modules/Trail/trail.tscn" id="1_to5mh"]
+[ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="3_to5mh"]
 [ext_resource type="Script" uid="uid://cdijoxieusniv" path="res://modules/MouseInput/MouseInput.gd" id="4_to5mh"]
-
-[sub_resource type="Curve" id="Curve_0faou"]
-_limits = [0.0, 1.0, 0.0, 1.314741]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.314741, 1), -0.20796682, -0.20796682, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_0faou"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.40784314)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlt4d"]
 size = Vector2(50, 50)
 
-[sub_resource type="Curve" id="Curve_rfy5o"]
-_limits = [0.0, 1.0, 0.0, 1.314741]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1.314741, 0), -0.20796682, -0.20796682, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_to5mh"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_jqwj1"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_uy15k"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_8iocx"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_ebj5k"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_rfy5o"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
 [node name="World" type="Node2D" unique_id=1657246351]
 
-[node name="Trail" type="Line2D" parent="." unique_id=1200085236 node_paths=PackedStringArray("node2d")]
-width = 30.0
-width_curve = SubResource("Curve_0faou")
-gradient = SubResource("Gradient_0faou")
-script = ExtResource("1_rfy5o")
-node2d = NodePath("../Player")
+[node name="Trail" parent="." unique_id=1762604018 instance=ExtResource("1_to5mh")]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=230990626]
 position = Vector2(933, 645)
@@ -55,50 +19,7 @@ script = ExtResource("1_tlt4d")
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1702139762]
 texture = SubResource("PlaceholderTexture2D_tlt4d")
 
-[node name="Rays" type="Node2D" parent="Player" unique_id=1653200645]
-show_behind_parent = true
-script = ExtResource("3_0faou")
-
-[node name="RayRight" type="Line2D" parent="Player/Rays" unique_id=975978728]
-show_behind_parent = true
-points = PackedVector2Array(0, 0, 554, -1)
-width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_to5mh")
-
-[node name="RayUpRight" type="Line2D" parent="Player/Rays" unique_id=1955098952]
-show_behind_parent = true
-rotation = -1.0471977
-points = PackedVector2Array(0, 0, 554, -1)
-width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_jqwj1")
-
-[node name="RayUpLeft" type="Line2D" parent="Player/Rays" unique_id=1731960410]
-show_behind_parent = true
-rotation = -2.094395
-points = PackedVector2Array(0, 0, 554, -1)
-width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_uy15k")
-
-[node name="RayLeft" type="Line2D" parent="Player/Rays" unique_id=2032303939]
-show_behind_parent = true
-rotation = -3.1415925
-points = PackedVector2Array(0, 0, 554, -1)
-width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_8iocx")
-
-[node name="RayDownLeft" type="Line2D" parent="Player/Rays" unique_id=1508021826]
-show_behind_parent = true
-rotation = 2.0943952
-points = PackedVector2Array(0, 0, 554, -1)
-width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_ebj5k")
-
-[node name="RayDownRight" type="Line2D" parent="Player/Rays" unique_id=1457186152]
-show_behind_parent = true
-rotation = 1.0471976
-points = PackedVector2Array(0, 0, 554, -1)
-width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_rfy5o")
+[node name="Rays" parent="Player" unique_id=698268212 instance=ExtResource("3_to5mh")]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1780504431]
 script = ExtResource("4_to5mh")
