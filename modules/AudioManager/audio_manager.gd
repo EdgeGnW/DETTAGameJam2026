@@ -49,3 +49,8 @@ func play_sound(sound: AudioStream, pitch_scale := 1.0):
 	player.pitch_scale = pitch_scale 
 	player.play()
 	sound_index = (sound_index + 1) % len(sound_players)
+	
+func set_volume(bus_name, percentage: float):
+	var index = AudioServer.get_bus_index(bus_name)
+	var db_value = linear_to_db(percentage / 100)
+	AudioServer.set_bus_volume_db(index, db_value)

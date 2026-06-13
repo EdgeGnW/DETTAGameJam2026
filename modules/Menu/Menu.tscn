@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://bepbupuhgejv"]
+
+[ext_resource type="Script" uid="uid://2cnipmg2n1ds" path="res://modules/Menu/menu.gd" id="1_lyg7a"]
+
+[node name="Pause" type="Control" unique_id=773685659]
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lyg7a")
+
+[node name="Menu" type="PanelContainer" parent="." unique_id=464908632]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -479.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1346279704]
+layout_mode = 2
+alignment = 1
+
+[node name="Controls" type="Button" parent="Menu/VBoxContainer" unique_id=1207053338]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Steuerung"
+
+[node name="Options" type="Button" parent="Menu/VBoxContainer" unique_id=1484196575]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Einstellungen"
+
+[node name="Leave" type="Button" parent="Menu/VBoxContainer" unique_id=757337443]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Verlassen"
+
+[node name="Options" type="PanelContainer" parent="." unique_id=1841669139]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=1583651919]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label3" type="Label" parent="Options/VBoxContainer" unique_id=252807440]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Einstellungen"
+
+[node name="Label" type="Label" parent="Options/VBoxContainer" unique_id=1257508680]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Musik"
+
+[node name="Music" type="HSlider" parent="Options/VBoxContainer" unique_id=1485625449]
+layout_mode = 2
+value = 100.0
+
+[node name="Label2" type="Label" parent="Options/VBoxContainer" unique_id=1570766346]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Effekte"
+
+[node name="Sound" type="HSlider" parent="Options/VBoxContainer" unique_id=1871616337]
+layout_mode = 2
+value = 100.0
+
+[node name="Label4" type="Label" parent="Options/VBoxContainer" unique_id=1206019537]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Ambiente"
+
+[node name="Ambience" type="HSlider" parent="Options/VBoxContainer" unique_id=2115441560]
+layout_mode = 2
+value = 100.0
+
+[node name="HideOptions" type="Button" parent="Options" unique_id=907400145]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 128
+text = "Zurück"
+
+[node name="Controls" type="PanelContainer" parent="." unique_id=1330235559]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls" unique_id=44797624]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Controls/VBoxContainer" unique_id=1441740811]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 128
+text = "Controls"
+
+[node name="Label" type="Label" parent="Controls/VBoxContainer" unique_id=2130736980]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 43
+text = "
+1. Richtung einsteillen:
+Maus, Joystick, Pfeiltasten oder WEADYX
+
+2. Richtung bestätigen:
+linke Maustaste, unterer Facebutton, Space
+
+3. Engel wechseln:
+Mausrad, Schulterknöpfe oder Tab
+
+4. Engel losschicken:
+rechte Maustaste, rechter Facebutton, Enter
+"
+
+[node name="HideControls" type="Button" parent="Controls/VBoxContainer" unique_id=1553559041]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 128
+text = "Zurück"
+
+[connection signal="pressed" from="Menu/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="value_changed" from="Options/VBoxContainer/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Options/VBoxContainer/Sound" to="." method="_on_sound_value_changed"]
+[connection signal="value_changed" from="Options/VBoxContainer/Ambience" to="." method="_on_ambient_value_changed"]
+[connection signal="pressed" from="Options/HideOptions" to="." method="_on_hide_options_pressed"]
+[connection signal="pressed" from="Controls/VBoxContainer/HideControls" to="." method="_on_hide_controls_pressed"]
