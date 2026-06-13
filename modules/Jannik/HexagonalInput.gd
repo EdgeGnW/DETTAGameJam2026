@@ -41,10 +41,11 @@ func angleToDirection(angle: float) -> Direction:
 	return Direction.Left
 
 func _input(event: InputEvent) -> void:
-	rays.highlight_ray(currentDirection)
+	if rays:
+		rays.highlight_ray(currentDirection)
 	
-	if event.is_action_pressed("confirmDirection"):
-		confirmSelection.emit()
+		if event.is_action_pressed("confirmDirection"):
+			confirmSelection.emit()
 		
 
 func getRelativeDirection(startingDirection: Direction, modifier: RelativeDirection) -> Direction:
