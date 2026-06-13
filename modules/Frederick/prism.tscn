@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cr3dp41cuhsm4"]
+
+[ext_resource type="Script" uid="uid://d2vnxokui13wg" path="res://modules/Frederick/prism.gd" id="1_vgf5u"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vgf5u"]
+
+[node name="Prism" type="Node2D" unique_id=2068912372]
+script = ExtResource("1_vgf5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1417316498]
+texture = SubResource("PlaceholderTexture2D_vgf5u")

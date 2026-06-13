@@ -1,17 +1,13 @@
 [gd_scene format=3 uid="uid://c4tscucy8khe7"]
 
-[ext_resource type="Script" uid="uid://db3r361ttujw1" path="res://modules/Frederick/mirror.gd" id="1_1x56m"]
-[ext_resource type="Script" uid="uid://d2vnxokui13wg" path="res://modules/Frederick/prism.gd" id="2_afdcv"]
-[ext_resource type="Script" uid="uid://bxpjew42m7xdb" path="res://modules/Frederick/goal.gd" id="3_jgjm8"]
+[ext_resource type="PackedScene" uid="uid://cxevmx5bx6rwp" path="res://modules/Frederick/mirror.tscn" id="1_jgjm8"]
+[ext_resource type="PackedScene" uid="uid://cr3dp41cuhsm4" path="res://modules/Frederick/prism.tscn" id="2_o6wtx"]
+[ext_resource type="PackedScene" uid="uid://3piq0ldckrc0" path="res://modules/Frederick/goal.tscn" id="3_bfqfn"]
 
 [node name="SceneObjects" type="Node" unique_id=1319887222]
 
-[node name="Mirror" type="Node" parent="." unique_id=1842485184]
-script = ExtResource("1_1x56m")
-angle = null
+[node name="Mirror" parent="." unique_id=14930671 instance=ExtResource("1_jgjm8")]
 
-[node name="Prism" type="Node" parent="." unique_id=45456001]
-script = ExtResource("2_afdcv")
+[node name="Prism" parent="." unique_id=787331561 instance=ExtResource("2_o6wtx")]
 
-[node name="Goal" type="Node" parent="." unique_id=554846239]
-script = ExtResource("3_jgjm8")
+[node name="Goal" parent="." unique_id=1823565556 instance=ExtResource("3_bfqfn")]

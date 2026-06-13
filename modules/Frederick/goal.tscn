@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://3piq0ldckrc0"]
+
+[ext_resource type="Script" uid="uid://bxpjew42m7xdb" path="res://modules/Frederick/goal.gd" id="1_bk7g4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bk7g4"]
+
+[node name="Goal" type="Node2D" unique_id=1632995338]
+script = ExtResource("1_bk7g4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1365637337]
+texture = SubResource("PlaceholderTexture2D_bk7g4")
