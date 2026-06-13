@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ccpeyeby41jyj" path="res://modules/florian/MirrorPlaceholder11.png" id="3_17d33"]
 [ext_resource type="Texture2D" uid="uid://b53owkx4wit18" path="res://modules/florian/MirrorPlaceholder3.png" id="3_tc3qr"]
 [ext_resource type="Texture2D" uid="uid://basi6t5ps3kfp" path="res://modules/florian/MirrorPlaceholder12.png" id="4_jue26"]
-[ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="5_bbjcb"]
 [ext_resource type="Texture2D" uid="uid://d17us4mhtw3l6" path="res://modules/florian/MirrorPlaceholder13.png" id="5_i5tny"]
 [ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="6_1yqx5"]
 [ext_resource type="Texture2D" uid="uid://8ctt8yagn1yy" path="res://modules/florian/MirrorPlaceholder14.png" id="6_eh72v"]
@@ -22,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cuew642tfplql" path="res://modules/florian/MirrorPlaceholder7.png" id="17_6spyt"]
 [ext_resource type="Texture2D" uid="uid://6dn0rpnbmu5q" path="res://modules/florian/MirrorPlaceholder8.png" id="18_tjycx"]
 [ext_resource type="Texture2D" uid="uid://b2kuskur5pria" path="res://modules/florian/MirrorPlaceholder9.png" id="19_akjwa"]
+[ext_resource type="PackedScene" uid="uid://exulgvu6ki71" path="res://modules/Player/player.tscn" id="22_17d33"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5y7du"]
 texture = ExtResource("1_cr72f")
@@ -178,13 +178,6 @@ colors = PackedColorArray(0.41960785, 0, 0.6392157, 1, 0.41960785, 0, 0.6392157,
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5tkv4"]
 gradient = SubResource("Gradient_77dp3")
 
-[sub_resource type="Gradient" id="Gradient_0m0f1"]
-offsets = PackedFloat32Array(0.006024096, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b0q6j"]
-gradient = SubResource("Gradient_0m0f1")
-
 [node name="Node2D" type="Node2D" unique_id=1260480120]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=792776706]
@@ -238,15 +231,7 @@ position = Vector2(5, 5)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_5tkv4")
 
-[node name="White" type="Node2D" parent="TileMapLayer" unique_id=634880963]
-position = Vector2(5, 5)
-
-[node name="Rays" parent="TileMapLayer/White" unique_id=698268212 instance=ExtResource("5_bbjcb")]
-scale = Vector2(0.2, 0.2)
-
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=570416656]
-scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_b0q6j")
+[node name="White" parent="TileMapLayer" unique_id=957936608 instance=ExtResource("22_17d33")]
 
 [node name="InputManager" parent="." unique_id=384199129 node_paths=PackedStringArray("player") instance=ExtResource("6_1yqx5")]
 unique_name_in_owner = true
