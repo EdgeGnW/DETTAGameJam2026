@@ -136,11 +136,11 @@ func compute_movement_path(source: Vector2i, direction: int, color: int, path_le
 		next_tile = Vector2i(source.x+(1 if source.y%2 == 1 else 0), source.y-1)
 		
 	if is_wall(next_tile) or path_length > 500:
-		print("Hit wall", next_tile)
+		print("Hit wall")
 		return path
 	
 	if is_mirror(next_tile):
-		print("Hit mirror", next_tile)
+		print("Hit mirror")
 		direction = reflect(next_tile, direction, color)
 		if direction == -1:
 			return path
@@ -151,21 +151,20 @@ func compute_movement_path(source: Vector2i, direction: int, color: int, path_le
 
 
 func is_wall(position: Vector2i) -> bool:
-	# TODO: Only for testing purposes
-	return position.x < 0 or position.x > 50 or position.y < 0 or position.y > 30 or tyle_type(position) == 1 #or grid[position.x][position.y] == 1
+	return tile_type(position) == 1
 
 func is_mirror(position: Vector2i) -> bool:
-	# TODO: Only for testing purposes
-	return grid[position.x][position.y] > 1 and grid[position.x][position.y] < 20
+	var type = tile_type(position)
+	return type > 1 and type < 20
 	
 func is_prism(position: Vector2i) -> bool:
-	# TODO: Only for testing purposes
-	return grid[position.x][position.y] == 20
+	return tile_type(position) == 20
 
 func reflect(position: Vector2i, direction: int, color: int) -> int:
-	var mirror_type = grid[position.x][position.y] - 2 # Value between 0 - 17
+	var mirror_type = tile_type(position) - 2 # Value between 0 - 17
 	var double_sided = mirror_type < 6
-	var new_direction = 9 - direction + (mirror_type % 6)
+	var new_direction = (9 - direction + mirror_type) % 6
+	print(mirror_type, " ", direction, " ", new_direction)
 	if new_direction == direction:
 		print("Hit mirror's edge")
 		return -1
@@ -175,7 +174,7 @@ func reflect(position: Vector2i, direction: int, color: int) -> int:
 	#	return -1
 	return new_direction
 
-func tyle_type(position: Vector2i) -> int:
+func tile_type(position: Vector2i) -> int:
 	if get_cell_tile_data(position):
 		return get_cell_source_id(position)
 	return 0;
@@ -208,7 +207,6 @@ func _move_blue(move: Vector2):
 
 func _process(delta: float) -> void:
 	if moving:
-		var is_next_move = false
 		var red_local_pos = map_to_local(red_pos)
 		var red_move = red_local_pos - red.position
 		if red_move.length() <= delta*speed and not red_path.is_empty():
