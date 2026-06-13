@@ -33,8 +33,9 @@ func confirmSelectionController():
 	selectedDirection.emit(controllerInput.currentDirection)
 	
 func reactToInput(active: bool):
-	if rays:
-		rays.visible = active
+	if not rays:
+		return
+	rays.visible = active
 	mouseInput.currentlyProcessingInput = active
 	keyboardInput.currentlyProcessingInput = active
 	controllerInput.currentlyProcessingInput = active
