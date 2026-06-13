@@ -1,6 +1,8 @@
 class_name ControllerInput extends HexagonalInput
 
 func _input(event: InputEvent) -> void:
+	if not currentlyProcessingInput:
+		return
 	if event is InputEventJoypadMotion:
 		var joystickDirection: Vector2 = Input.get_vector("left", "right", "controllerUp", "controllerDown")
 		if joystickDirection.length() >= 0.5:

@@ -23,7 +23,11 @@ func _ready() -> void:
 	print(player)
 
 func _input(event: InputEvent) -> void:
-	if event is not InputEventMouseMotion:
+	if not currentlyProcessingInput:
+		return
+	if event is not InputEventMouseMotion and event is not InputEventMouseButton:
+		return
+	if Input.is_anything_pressed() and event is not InputEventMouseButton:
 		return
 	mousePosition = get_viewport().get_mouse_position()
 	playerScreenPosition = player.get_global_transform_with_canvas().origin

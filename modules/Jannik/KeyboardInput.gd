@@ -8,6 +8,8 @@ func rotateDirection(direction: Direction, right: bool) -> Direction:
 
 
 func _input(event: InputEvent) -> void:
+	if not currentlyProcessingInput:
+		return
 	if event is not InputEventKey:
 		return
 		

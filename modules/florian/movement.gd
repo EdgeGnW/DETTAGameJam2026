@@ -2,6 +2,8 @@ extends TileMapLayer
 
 @export var speed: float
 
+@onready var inputManager = %InputManager
+
 @onready var red: Node2D = $Red
 @onready var orange: Node2D = $Orange
 @onready var white: Node2D = $White
@@ -25,6 +27,15 @@ var YELLOW = 1
 var BLUE = 2
 
 var moving: bool
+
+var wrongDirectionsDict = {
+	HexagonalInput.Direction.Right: 0,
+	HexagonalInput.Direction.DownRight: 1,
+	HexagonalInput.Direction.DownLeft: 2,
+	HexagonalInput.Direction.Left: 3,
+	HexagonalInput.Direction.UpLeft: 4,
+	HexagonalInput.Direction.UpRight: 5,
+}
 
 
 # TODO: Just for testing purposes
@@ -72,7 +83,14 @@ func _ready() -> void:
 	for j in range(33):
 		grid[-1].append(1)
 	await get_tree().create_timer(2).timeout
-	move(Vector3i(0, 0, 0))
+	#move(Vector3i(0, 0, 0))
+	
+	inputManager.reactToInput(true)
+	var newDirection = await inputManager.selectedDirection
+	var wrongDirection = wrongDirectionsDict.get(newDirection)
+	
+	inputManager.reactToInput(false)
+	move(Vector3i(wrongDirection, wrongDirection, wrongDirection))
 
 func update_colors():
 	red.visible = false
@@ -230,6 +248,14 @@ func _process(delta: float) -> void:
 			moving = false
 			
 			# TODO: Only for testing purposes
-			await get_tree().create_timer(2).timeout
-			var dir = randi() % 6
-			move(Vector3i(dir, dir, dir))
+			#await get_tree().create_timer(2).timeout
+			#var dir = randi() % 6
+			#move(Vector3i(dir, dir, dir))
+			
+			inputManager.reactToInput(true)
+			var newDirection = await inputManager.selectedDirection
+			var wrongDirection = wrongDirectionsDict.get(newDirection)
+			
+			inputManager.reactToInput(false)
+			move(Vector3i(wrongDirection, wrongDirection, wrongDirection))
+			

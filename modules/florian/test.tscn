@@ -1,8 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://dfexrt8qq7ei2"]
+[gd_scene format=4 uid="uid://dfexrt8qq7ei2"]
 
 [ext_resource type="Texture2D" uid="uid://1yysst286774" path="res://modules/Frederick/HexfeldPlaceholder.png" id="1_cr72f"]
 [ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="1_ppyta"]
 [ext_resource type="Texture2D" uid="uid://di85brbbi8i77" path="res://modules/Frederick/HexfeldPlaceholder2.png" id="2_5y7du"]
+[ext_resource type="Script" uid="uid://bvdqrebadqxcp" path="res://modules/Rays/rays.gd" id="4_1yqx5"]
+[ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="5_bbjcb"]
+[ext_resource type="Script" uid="uid://blgi8cy58oiog" path="res://modules/Jannik/InputManager.gd" id="6_3imvn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5y7du"]
 texture = ExtResource("1_cr72f")
@@ -64,9 +67,9 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_b0q6j"]
 gradient = SubResource("Gradient_0m0f1")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=1260480120]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=792776706]
 tile_map_data = PackedByteArray("AAACAAUAAQAAAAAAAAADAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAPAAIAAQAAAAAAAAARAAUAAQAAAAAAAAARAAgAAQAAAAAAAAAFAAwAAQAAAAAAAAAEAAwAAQAAAAAAAAADAAsAAQAAAAAAAAAEAAoAAQAAAAAAAAADAAoAAQAAAAAAAAADAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAgAAQAAAAAAAAACAAgAAQAAAAAAAAACAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAYAAQAAAAAAAAABAAUAAQAAAAAAAAABAAQAAQAAAAAAAAABAAMAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAAKAP//AQAAAAAAAAALAP//AQAAAAAAAAAMAP//AQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAQAAAAAAAAASAAIAAgAAAAAAAAATAAIAAQAAAAAAAAATAAMAAQAAAAAAAAAUAAQAAQAAAAAAAAAUAAUAAQAAAAAAAAAVAAYAAQAAAAAAAAAVAAcAAQAAAAAAAAAWAAgAAQAAAAAAAAAWAAkAAQAAAAAAAAAXAAoAAQAAAAAAAAAXAAsAAQAAAAAAAAANAAYAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAUAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAQAAQAAAAAAAAAIAAgAAQAAAAAAAAAEAAUAAgAAAAAAAAAEAAYAAgAAAAAAAAAEAAcAAgAAAAAAAAAQAAcAAgAAAAAAAAANAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAGAAoAAgAAAAAAAAAUAAYAAgAAAAAAAAAMAAEAAgAAAAAAAAANAAgAAgAAAAAAAAAJAAgAAgAAAAAAAAAIAAkAAgAAAAAAAAAKAAgAAgAAAAAAAAAFAA4AAgAAAAAAAAAFAA8AAgAAAAAAAAAGABEAAQAAAAAAAAAHABIAAgAAAAAAAAAHABMAAgAAAAAAAAAFAA0AAQAAAAAAAAAHABAAAQAAAAAAAAAHABEAAQAAAAAAAAAGAA0AAQAAAAAAAAAGAA4AAQAAAAAAAAAHAA4AAQAAAAAAAAAGAA8AAQAAAAAAAAAEAA0AAQAAAAAAAAAIABIAAQAAAAAAAAAJABIAAQAAAAAAAAAJABMAAQAAAAAAAAAKABMAAQAAAAAAAAALABMAAQAAAAAAAAAMABMAAQAAAAAAAAANABMAAQAAAAAAAAAOABMAAQAAAAAAAAAPABMAAQAAAAAAAAAQABMAAQAAAAAAAAARABMAAQAAAAAAAAASABMAAQAAAAAAAAATABMAAQAAAAAAAAAUABMAAQAAAAAAAAAVABIAAQAAAAAAAAAVABMAAQAAAAAAAAAWABIAAQAAAAAAAAAXABIAAQAAAAAAAAAYABIAAQAAAAAAAAAYABEAAQAAAAAAAAAYABAAAQAAAAAAAAAYAA8AAQAAAAAAAAAYAA4AAQAAAAAAAAAYAA0AAQAAAAAAAAAYAAwAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ehkex")
 script = ExtResource("1_ppyta")
@@ -75,51 +78,61 @@ red_pos = Vector2i(10, 10)
 yellow_pos = Vector2i(10, 10)
 blue_pos = Vector2i(10, 10)
 
-[node name="Red" type="Node2D" parent="TileMapLayer"]
+[node name="Red" type="Node2D" parent="TileMapLayer" unique_id=1842441103]
 position = Vector2(50, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red"]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red" unique_id=1475674793]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_8uh7m")
 
-[node name="Yellow" type="Node2D" parent="TileMapLayer"]
+[node name="Yellow" type="Node2D" parent="TileMapLayer" unique_id=463051480]
 position = Vector2(20, 20)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow"]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow" unique_id=2034969420]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_ppyta")
 
-[node name="Blue" type="Node2D" parent="TileMapLayer"]
+[node name="Blue" type="Node2D" parent="TileMapLayer" unique_id=219189319]
 position = Vector2(10, 10)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue"]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue" unique_id=1989086487]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_g14j6")
 
-[node name="Orange" type="Node2D" parent="TileMapLayer"]
+[node name="Orange" type="Node2D" parent="TileMapLayer" unique_id=529303773]
 position = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Orange"]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Orange" unique_id=542600158]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_ehkex")
 
-[node name="Green" type="Node2D" parent="TileMapLayer"]
+[node name="Green" type="Node2D" parent="TileMapLayer" unique_id=1860181347]
 position = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Green"]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Green" unique_id=1086832411]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_00tp4")
 
-[node name="Violet" type="Node2D" parent="TileMapLayer"]
+[node name="Violet" type="Node2D" parent="TileMapLayer" unique_id=1528511179]
 position = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Violet"]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Violet" unique_id=952333903]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_5tkv4")
 
-[node name="White" type="Node2D" parent="TileMapLayer"]
+[node name="White" type="Node2D" parent="TileMapLayer" unique_id=634880963]
 position = Vector2(5, 5)
+script = ExtResource("4_1yqx5")
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White"]
+[node name="Rays" parent="TileMapLayer/White" unique_id=698268212 instance=ExtResource("5_bbjcb")]
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=570416656]
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_b0q6j")
+
+[node name="InputManager" type="Node" parent="." unique_id=585786166 node_paths=PackedStringArray("player", "rays")]
+unique_name_in_owner = true
+script = ExtResource("6_3imvn")
+player = NodePath("../TileMapLayer/White")
+rays = NodePath("../TileMapLayer/White/Rays")

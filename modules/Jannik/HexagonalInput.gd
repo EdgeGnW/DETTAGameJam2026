@@ -1,7 +1,12 @@
 class_name HexagonalInput extends Node
 
+signal confirmSelection
+
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
 enum RelativeDirection { Right, Up, Left, Down }
+enum InputMode { Mouse, Keyboard, Controller }
+
+var currentlyProcessingInput: bool = false
 var currentDirection: Direction
 var player: Node2D
 var rays: Node2D
@@ -28,6 +33,10 @@ func angleToDirection(angle: float) -> Direction:
 
 func _input(event: InputEvent) -> void:
 	rays.highlight_ray(currentDirection)
+	
+	if event.is_action_pressed("confirmDirection"):
+		confirmSelection.emit()
+		
 
 func getRelativeDirection(startingDirection: Direction, modifier: RelativeDirection) -> Direction:
 	match currentDirection:
