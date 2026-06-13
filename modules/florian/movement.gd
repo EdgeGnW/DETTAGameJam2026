@@ -55,7 +55,6 @@ func _ready() -> void:
 	moving = false
 	update_colors()
 	
-	
 	# TODO: Just for testing purposes - Creating grid (should be read from the tilemap)
 	grid.append([])
 	for j in range(32):
@@ -122,15 +121,15 @@ func compute_movement_path(source: Vector2i, direction: int, color: int, path_le
 	var path: Array[Vector2i] = [source]
 	
 	var next_tile = Vector2i(source)
-	if direction == 0:
+	if direction == Globals.Direction.Right:
 		next_tile = Vector2i(source.x+1, source.y)
-	elif direction == 1:
+	elif direction == Globals.Direction.UpRight:
 		next_tile = Vector2i(source.x+(1 if source.y%2 == 1 else 0), source.y+1)
-	elif direction == 2:
+	elif direction == Globals.Direction.UpLeft:
 		next_tile = Vector2i(source.x-(1 if source.y%2 == 0 else 0), source.y+1)
-	elif direction == 3:
+	elif direction == Globals.Direction.Left:
 		next_tile = Vector2i(source.x-1, source.y)
-	elif direction == 4:
+	elif direction == Globals.Direction.DownLeft:
 		next_tile = Vector2i(source.x-(1 if source.y%2 == 0 else 0), source.y-1)
 	else:
 		next_tile = Vector2i(source.x+(1 if source.y%2 == 1 else 0), source.y-1)

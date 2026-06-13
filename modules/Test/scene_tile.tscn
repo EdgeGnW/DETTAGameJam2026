@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bggnxxa7sf6n5"]
+
+[ext_resource type="Script" uid="uid://btk7t7vp4gac6" path="res://modules/Test/scene_tile.gd" id="1_qn8jx"]
+
+[node name="SceneTile" type="Node" unique_id=1912426663]
+script = ExtResource("1_qn8jx")

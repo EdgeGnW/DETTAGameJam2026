@@ -28,6 +28,7 @@ AudioManager="*res://modules/AudioManager/audio_manager.gd"
 DialogueManager="*res://modules/DialogueManager/dialogue_manager.tscn"
 AnimalState="*res://modules/Player/animal_state.gd"
 SceneManager="*res://SceneManager.gd"
+Globals="*uid://x7rx25bok48o"
 
 [display]
 
