@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b2qoug16dp2q4" path="res://modules/TileSet/Spiegel.png" id="2_4bpwj"]
 [ext_resource type="PackedScene" uid="uid://bggnxxa7sf6n5" path="res://modules/Test/scene_tile.tscn" id="2_8qil4"]
 [ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="4_i3ntd"]
+[ext_resource type="Texture2D" uid="uid://d33ywpfccm522" path="res://modules/Frederick/Hintergrund.png" id="4_rnwyp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1b5w"]
 texture = ExtResource("4_i3ntd")
@@ -84,3 +85,14 @@ tile_set = SubResource("TileSet_4bpwj")
 script = null
 
 [node name="Player" type="Node" parent="." unique_id=1832618040]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=634799807]
+layer = -3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1298027898]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rnwyp")

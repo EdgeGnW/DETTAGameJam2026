@@ -42,11 +42,15 @@ var merge_arr := [
 ]
 const WALL := preload("uid://mdqugeutjoq6")
 const WON := preload("uid://bt265jl41dxhh")
+const BACKGROUND = preload("uid://cyxjd7iirwu10")
 
 var black_holes := {}
 var close_to_black_holes := {}
 
 func _ready():
+	var background = BACKGROUND.instantiate()
+	add_child.call_deferred(background)
+	
 	players.assign(find_children("*", "Player", false, false))
 	
 	for player in players:

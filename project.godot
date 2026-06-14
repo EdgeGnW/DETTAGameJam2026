@@ -17,6 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Templates"
 run/main_scene="uid://busdhk8ltwy51"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://d33ywpfccm522"
+config/icon="uid://c2qlvp18fjfei"
 
 [audio]
 
@@ -238,4 +240,5 @@ reset={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.5019608, 0.12941177, 0.36078432, 0)
 2d/snap/snap_2d_transforms_to_pixel=true
