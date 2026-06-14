@@ -18,13 +18,6 @@ colors = PackedColorArray(1, 0.31666666, 0, 1, 1, 0.31764707, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3eibe"]
 gradient = SubResource("Gradient_xwojb")
 
-[sub_resource type="Gradient" id="Gradient_75ew4"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 0.9333334, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3gyb"]
-gradient = SubResource("Gradient_75ew4")
-
 [sub_resource type="Gradient" id="Gradient_3d6fr"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.19999993, 1, 0, 1)
@@ -92,10 +85,6 @@ texture = SubResource("GradientTexture2D_3eibe")
 [node name="Yellow" parent="TileMapLayer" unique_id=1300895002 instance=ExtResource("4_ko61p")]
 visible = false
 color = Vector3i(0, 1, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow" unique_id=1654881411]
-scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_t3gyb")
 
 [node name="Green" parent="TileMapLayer" unique_id=2138476322 instance=ExtResource("4_ko61p")]
 visible = false

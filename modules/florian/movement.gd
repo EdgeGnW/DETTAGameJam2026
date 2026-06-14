@@ -138,7 +138,6 @@ func plan_path(player: Player, direction: Direction):
 			close_to_black_holes.erase(player)
 	player_paths[player] = path_to
 	player_directions[player] = direction
-	print("Test", player_paths)
 	
 	
 func check_final_position(player: Player):
