@@ -40,15 +40,15 @@ func angleToDirection(angle: float) -> Direction:
 		return Direction.UpRight
 	return Direction.Left
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	player.rays.highlight_ray(currentDirection)
 	
 	if event.is_action_pressed("confirmDirection"):
 		confirmSelection.emit()
 		
 	if event.is_action_pressed("go"):
-		#if not Input.is_action_just_pressed("go"):
-			#return
+		if not Input.is_action_just_pressed("go"):
+			return
 		go.emit()
 		
 	if event.is_action_pressed("switchPlayerRight"):
