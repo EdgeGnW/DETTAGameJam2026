@@ -1,6 +1,7 @@
 extends Node
 
 #var tutorial = load("res://modules/Test/Tutorial.tscn")
+const MUSIC = preload("uid://3jyij0xiadq6")
 
 var current_scene: PackedScene = null # load("res://modules/Test/Tutorial.tscn")
 
@@ -10,6 +11,7 @@ var scene_stack: Array[PackedScene] = []
 
 func _ready() -> void:
 	current_scene = load("res://modules/LevelSelect/Main_World.tscn")
+	AudioManager.play_music(MUSIC)
 
 func update_current_scene(new_scene: PackedScene) -> void:
 	scene_stack.push_back(current_scene)
