@@ -14,7 +14,7 @@ var rays: Array[Line2D]
 @export var selected_length := 900
 @export var tween_time := 0.2
 
-var highlight_index: int = 0
+var highlight_index: int = -1
 var has_highlight := false
 var selected_index: int = -1
 var has_selection := false
