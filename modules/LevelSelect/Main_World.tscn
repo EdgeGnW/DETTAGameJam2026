@@ -13,6 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://cv7a0b2o7j5c0" path="res://modules/LevelSelect/World_5.tscn" id="11_hw51s"]
 [ext_resource type="PackedScene" uid="uid://bfhgg4ryucgag" path="res://modules/LevelSelect/World_6.tscn" id="12_c2emt"]
 [ext_resource type="Script" uid="uid://ceseppo523yjs" path="res://modules/LevelSelect/ShardLayer.gd" id="13_52b8d"]
+[ext_resource type="Texture2D" uid="uid://bhcxfs223ohxb" path="res://modules/Frederick/kif_leer.png" id="13_mtujk"]
+[ext_resource type="Texture2D" uid="uid://gxgjeyvkl0bh" path="res://modules/Frederick/kif_rot.png" id="14_661nf"]
+[ext_resource type="Texture2D" uid="uid://cikskque2ebsf" path="res://modules/Frederick/kif_orange.png" id="16_8wrxp"]
+[ext_resource type="Texture2D" uid="uid://c373viysa7ugf" path="res://modules/Frederick/kif_g.png" id="17_rxf4y"]
+[ext_resource type="Texture2D" uid="uid://b672in2q7krkm" path="res://modules/Frederick/kif_grn.png" id="18_dtdj2"]
+[ext_resource type="Texture2D" uid="uid://8okplfljbxuc" path="res://modules/Frederick/kif_blu.png" id="19_iww81"]
+[ext_resource type="Texture2D" uid="uid://juu04clqxv41" path="res://modules/Frederick/kif_lil.png" id="20_amci7"]
 
 [sub_resource type="Gradient" id="Gradient_frquf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -174,6 +181,7 @@ position = Vector2(1150.5454, 1445.0303)
 sceneToLoad = ExtResource("12_c2emt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=895764970]
+layer = -1
 
 [node name="Window" type="Node" parent="CanvasLayer" unique_id=1065440527]
 
@@ -183,149 +191,169 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -329.0
+offset_top = -329.0
+offset_right = 695.0
+offset_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_mtujk")
 
 [node name="Red" type="TextureRect" parent="CanvasLayer/Window" unique_id=708572507]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -329.0
+offset_top = -329.0
+offset_right = 695.0
+offset_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_661nf")
 script = ExtResource("13_52b8d")
 
 [node name="Orange" type="TextureRect" parent="CanvasLayer/Window" unique_id=521978812]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -329.0
+offset_top = -329.0
+offset_right = 695.0
+offset_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_8wrxp")
 script = ExtResource("13_52b8d")
 
 [node name="Yellow" type="TextureRect" parent="CanvasLayer/Window" unique_id=979378421]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -329.0
+offset_top = -329.0
+offset_right = 695.0
+offset_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_rxf4y")
 script = ExtResource("13_52b8d")
 
 [node name="Green" type="TextureRect" parent="CanvasLayer/Window" unique_id=1219911923]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -329.0
+offset_top = -329.0
+offset_right = 695.0
+offset_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_dtdj2")
 script = ExtResource("13_52b8d")
 
 [node name="Blue" type="TextureRect" parent="CanvasLayer/Window" unique_id=1344611647]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -329.0
+offset_top = -329.0
+offset_right = 695.0
+offset_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_iww81")
 script = ExtResource("13_52b8d")
 
 [node name="Purple" type="TextureRect" parent="CanvasLayer/Window" unique_id=1265653717]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -329.0
+offset_top = -329.0
+offset_right = 695.0
+offset_bottom = 695.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_amci7")
 script = ExtResource("13_52b8d")
 
 [node name="Labels" type="Node" parent="CanvasLayer" unique_id=359243920]
 
 [node name="Label" type="Label" parent="CanvasLayer/Labels" unique_id=1965821702]
-offset_left = 578.0
-offset_top = 422.0
-offset_right = 618.0
-offset_bottom = 510.0
+offset_left = 282.0
+offset_top = 425.0
+offset_right = 322.0
+offset_bottom = 513.0
 text = "1"
 label_settings = SubResource("LabelSettings_c2emt")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="CanvasLayer/Labels" unique_id=49077961]
-offset_left = 728.0
-offset_top = 169.0
-offset_right = 768.0
-offset_bottom = 257.0
+offset_left = 504.0
+offset_top = 34.0
+offset_right = 544.0
+offset_bottom = 122.0
 text = "2"
 label_settings = SubResource("LabelSettings_c2emt")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="CanvasLayer/Labels" unique_id=1601081817]
-offset_left = 1030.0
-offset_top = 171.0
-offset_right = 1070.0
-offset_bottom = 259.0
+offset_left = 1256.0
+offset_top = 38.0
+offset_right = 1296.0
+offset_bottom = 126.0
 text = "3"
 label_settings = SubResource("LabelSettings_c2emt")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="CanvasLayer/Labels" unique_id=557173689]
-offset_left = 1174.0
-offset_top = 424.0
-offset_right = 1214.0
-offset_bottom = 512.0
+offset_left = 1471.0
+offset_top = 420.0
+offset_right = 1511.0
+offset_bottom = 508.0
 text = "4"
 label_settings = SubResource("LabelSettings_c2emt")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label5" type="Label" parent="CanvasLayer/Labels" unique_id=1177466825]
-offset_left = 1031.0
-offset_top = 689.0
-offset_right = 1071.0
-offset_bottom = 777.0
+offset_left = 1253.0
+offset_top = 809.0
+offset_right = 1293.0
+offset_bottom = 897.0
 text = "5"
 label_settings = SubResource("LabelSettings_c2emt")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label6" type="Label" parent="CanvasLayer/Labels" unique_id=1948802219]
-offset_left = 726.0
-offset_top = 689.0
-offset_right = 766.0
-offset_bottom = 777.0
+offset_left = 503.0
+offset_top = 809.0
+offset_right = 543.0
+offset_bottom = 897.0
 text = "6"
 label_settings = SubResource("LabelSettings_c2emt")
 metadata/_edit_use_anchors_ = true
