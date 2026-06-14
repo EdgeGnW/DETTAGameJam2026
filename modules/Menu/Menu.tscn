@@ -124,6 +124,7 @@ theme_override_font_sizes/font_size = 128
 text = "Zurück"
 
 [node name="Controls" type="PanelContainer" parent="." unique_id=1330235559]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
