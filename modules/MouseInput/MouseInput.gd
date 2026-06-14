@@ -25,4 +25,4 @@ func _input(event: InputEvent) -> void:
 	playerScreenPosition = player.get_global_transform_with_canvas().origin
 	var vectorToMouse: Vector2 = (mousePosition - playerScreenPosition).normalized();
 	currentDirection = angleToDirection(vectorToMouse.angle())
-	super._unhandled_input(event)
+	super._input(event)
