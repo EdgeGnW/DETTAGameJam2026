@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bth8yccouojot" path="res://modules/LevelSelect/World_4.tscn" id="10_52b8d"]
 [ext_resource type="PackedScene" uid="uid://cv7a0b2o7j5c0" path="res://modules/LevelSelect/World_5.tscn" id="11_hw51s"]
 [ext_resource type="PackedScene" uid="uid://bfhgg4ryucgag" path="res://modules/LevelSelect/World_6.tscn" id="12_c2emt"]
+[ext_resource type="Script" uid="uid://ceseppo523yjs" path="res://modules/LevelSelect/ShardLayer.gd" id="13_52b8d"]
 
 [sub_resource type="Gradient" id="Gradient_frquf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -201,6 +202,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("13_52b8d")
 
 [node name="Orange" type="TextureRect" parent="CanvasLayer/Window" unique_id=521978812]
 anchors_preset = 8
@@ -214,6 +216,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("13_52b8d")
 
 [node name="Yellow" type="TextureRect" parent="CanvasLayer/Window" unique_id=979378421]
 anchors_preset = 8
@@ -227,6 +230,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("13_52b8d")
 
 [node name="Green" type="TextureRect" parent="CanvasLayer/Window" unique_id=1219911923]
 anchors_preset = 8
@@ -240,6 +244,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("13_52b8d")
 
 [node name="Blue" type="TextureRect" parent="CanvasLayer/Window" unique_id=1344611647]
 anchors_preset = 8
@@ -253,6 +258,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("13_52b8d")
 
 [node name="Purple" type="TextureRect" parent="CanvasLayer/Window" unique_id=1265653717]
 anchors_preset = 8
@@ -266,6 +272,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("13_52b8d")
 
 [node name="Labels" type="Node" parent="CanvasLayer" unique_id=359243920]
 
@@ -322,3 +329,10 @@ offset_bottom = 777.0
 text = "6"
 label_settings = SubResource("LabelSettings_c2emt")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="isComplete" from="LevelEnterTrigger" to="CanvasLayer/Window/Yellow" method="_on_corresponding_level_complete"]
+[connection signal="isComplete" from="LevelEnterTrigger2" to="CanvasLayer/Window/Green" method="_on_corresponding_level_complete"]
+[connection signal="isComplete" from="LevelEnterTrigger3" to="CanvasLayer/Window/Blue" method="_on_corresponding_level_complete"]
+[connection signal="isComplete" from="LevelEnterTrigger4" to="CanvasLayer/Window/Purple" method="_on_corresponding_level_complete"]
+[connection signal="isComplete" from="LevelEnterTrigger5" to="CanvasLayer/Window/Red" method="_on_corresponding_level_complete"]
+[connection signal="isComplete" from="LevelEnterTrigger6" to="CanvasLayer/Window/Orange" method="_on_corresponding_level_complete"]
