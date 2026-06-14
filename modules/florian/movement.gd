@@ -3,14 +3,27 @@ extends TileMapLayer
 const MAX_SEGMENT_LENGTH = 30
 const TWEEN_TIME = 0.1
 
+signal gameover
+
 @onready var input_manager: InputManager = %InputManager
 
 var players: Array[Player]
+var player_by_color: Dictionary[Vector3i, Player]
 var player_paths := {}
 var player_directions := {}
+var states = []
 var player_index: int = 0
 
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
+
+var crystal_dict = {
+	Vector2i(0, 0): Vector3i(1, 0, 0),
+	Vector2i(1, 0): Vector3i(0, 1, 0),
+	Vector2i(2, 0): Vector3i(0, 0, 1),
+	Vector2i(0, 1): Vector3i(1, 1, 0),
+	Vector2i(1, 1): Vector3i(0, 1, 1),
+	Vector2i(2, 1): Vector3i(1, 0, 1)
+}
 
 func _ready():
 	players.assign(find_children("*", "Player", false, false))
@@ -18,10 +31,28 @@ func _ready():
 	for player in players:
 		player.grid_position = local_to_map(player.position)
 		player.position = map_to_local(player.grid_position)
-
+		player_by_color[player.color] = player
+	
 	input_manager.go.connect(move_players)
 	input_manager.selectedDirection.connect(receive_direction)
+	input_manager.back.connect(load_last_state)
 	activate_input()
+
+func save_state():
+	var state = []
+	for player in active_players():
+		state.append([player, player.grid_position])
+	states.append(state)
+
+func load_last_state():
+	if states:
+		for player in players:
+			player.visible = false
+		var state = states.pop_back()
+		for player in state:
+			player[0].visible = true
+			player[0].grid_position = player[1]
+			player[0].position = map_to_local(player[1])
 
 func plan_path(player: Player, direction: Direction):
 	var path_to = player.grid_position
@@ -58,47 +89,38 @@ func check_final_position(player: Player):
 				# Hit mirror -> Reflect
 				direction = new_direction
 			plan_path(player, direction)
-			var final_position = map_to_local(player_paths[player])
-			var distance = (map_to_local(player.grid_position)-final_position).length()
-			player.tween.kill()
-			player.tween = create_tween()
-			player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
-			player.tween.tween_callback(check_final_position.bind(player))
-			player.tween.tween_callback(finish_path.bind(player))
+			move_player(player)
 		elif is_prism(grid_position):
 			var colors = []
-			if player == $White:
-				player.visible = false
-				colors = [[$Blue, -1], [$Yellow, 0], [$Red, 1]]
-			elif player == $Orange:
-				player.visible = false
-				colors = [[$Yellow, 0], [$Red, 1]]
-			elif player == $Green:
-				player.visible = false
-				colors = [[$Blue, -1], [$Yellow, 0]]
-			elif player == $Violet:
-				player.visible = false
-				colors = [[$Blue, -1], [$Red, 1]]
-			elif player == $Blue:
-				colors = [[$Blue, -1]]
-			elif player == $Yellow:
-				colors = [[$Yellow, 0]]
-			elif player == $Red:
-				colors = [[$Red, 1]]
+			player.visible = false
+			if player.color.x == 1:
+				colors.append([player_by_color[Vector3i(1, 0, 0)], 1])
+			if player.color.y == 1:
+				colors.append([player_by_color[Vector3i(0, 1, 0)], 0])
+			if player.color.z == 1:
+				colors.append([player_by_color[Vector3i(0, 0, 1)], -1])
 			for color in colors:
 				color[0].visible = true
 				color[0].grid_position = player.grid_position
 				color[0].position = player.position
 				var color_direction = (6 + direction + color[1]) % 6
 				plan_path(color[0], color_direction)
-				if color[0].tween:
-					color[0].tween.kill()
-				color[0].tween = create_tween()
-				var final_position = map_to_local(player_paths[color[0]])
-				var distance = (map_to_local(color[0].grid_position)-final_position).length()
-				color[0].tween.tween_property(color[0], "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
-				color[0].tween.tween_callback(check_final_position.bind(color[0]))
-				color[0].tween.tween_callback(finish_path.bind(color[0]))
+				move_player(color[0])
+		elif is_crystal(grid_position):
+			var filter = crystal_dict[get_cell_atlas_coords(grid_position)]
+			var color = filter * player.color
+			if color != player.color:
+				# Color got absorbed
+				player.visible = false
+				var new_player = player_by_color[color]
+				new_player.visible = true
+				new_player.grid_position = player.grid_position
+				new_player.position = player.position
+				plan_path(new_player, direction)
+				move_player(new_player)
+			else:
+				plan_path(player, direction)
+				move_player(player)
 
 
 func finish_path(player: Player):
@@ -107,21 +129,15 @@ func finish_path(player: Player):
 		if p != player and not player_paths.has(p) and player.grid_position == p.grid_position:
 			p.visible = false
 			player.visible = false
-			var joined_color = p
-			if (p == $Blue and player == $Yellow) or (p == $Yellow and player == $Blue):
-				joined_color = $Green
-			elif (p == $Blue and player == $Red) or (p == $Red and player == $Blue):
-				joined_color = $Violet
-			elif (p == $Red and player == $Yellow) or (p == $Yellow and player == $Red):
-				joined_color = $Orange
-			else:
-				joined_color = $White
+			var joined_color = player_by_color[(p.color + player.color).mini(1)]
 			joined_color.visible = true
 			joined_color.grid_position = p.grid_position
 			joined_color.position = p.position
 			break
 	if player_paths.is_empty():
 		activate_input()
+		if players.any(is_off_grid) or lost_color():
+			gameover.emit()
 	
 func receive_direction(direction: Direction):
 	var current_player = active_players()[player_index]
@@ -141,16 +157,21 @@ func active_players() -> Array[Player]:
 
 func move_players():
 	if player_paths.size() == active_players().size():
+		save_state()
 		deactivate_input()
 		for player in player_paths:
-			if player.tween:
-				player.skip_tween()
-			player.tween = create_tween()
-			var final_position = map_to_local(player_paths[player])
-			var distance = (map_to_local(player.grid_position)-final_position).length()
-			player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
-			player.tween.tween_callback(check_final_position.bind(player))
-			player.tween.tween_callback(finish_path.bind(player))
+			move_player(player)
+
+func move_player(player: Player):
+	if player.tween:
+		player.skip_tween()
+	player.tween = create_tween()
+	var final_position = map_to_local(player_paths[player])
+	var distance = (map_to_local(player.grid_position)-final_position).length()
+	player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
+	player.tween.tween_callback(check_final_position.bind(player))
+	player.tween.tween_callback(finish_path.bind(player))
+	
 
 func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	if direction == Direction.Right:
@@ -167,6 +188,22 @@ func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 		return Vector2i(source.x+(1 if abs(source.y%2) == 1 else 0), source.y-1)
 
 
+func is_off_grid(player: Player):
+	return not get_viewport().get_visible_rect().has_point(player.global_position)
+
+func lost_color():
+	var color = Vector3i(0, 0, 0)
+	for player in active_players():
+		color += player.color
+	return color != Vector3i(1, 1, 1)
+
+
+func get_player_of_color(color: Vector3i):
+	for player in players:
+		if player.color == color:
+			return player
+
+
 func deactivate_input():
 	print("deactivate input")
 	input_manager.reactToInput(false)
@@ -178,7 +215,8 @@ func activate_input():
 	player_index = 0
 	active_players()[player_index].rays.activate()
 
-#TODO richtige Werte für Mirrors, Walls, etc.
+
+
 func tile_type(pos: Vector2i) -> int:
 	if get_cell_tile_data(pos):
 		return get_cell_source_id(pos)
@@ -192,3 +230,6 @@ func is_mirror(pos: Vector2i) -> bool:
 
 func is_prism(pos: Vector2i) -> bool:
 	return tile_type(pos) == 3
+	
+func is_crystal(pos: Vector2i) -> bool:
+	return tile_type(pos) == 4

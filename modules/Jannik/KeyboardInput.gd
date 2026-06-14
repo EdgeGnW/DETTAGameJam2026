@@ -1,6 +1,8 @@
 class_name KeyboardInput extends HexagonalInput
 
 
+signal back
+
 func rotateDirection(direction: Direction, right: bool) -> Direction:
 	var tempDirection = direction + (-1 if right else 1)
 	return tempDirection % len(Direction.keys())
@@ -39,5 +41,8 @@ func _input(event: InputEvent) -> void:
 		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Left)
 	elif event.is_action_pressed("relativeDown"):
 		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Down)
+	
+	elif event.is_action_pressed("back"):
+		back.emit()
 	
 	super._input(event)
