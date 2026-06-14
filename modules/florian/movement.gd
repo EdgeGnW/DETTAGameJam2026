@@ -86,6 +86,7 @@ func load_last_state():
 		color_in_goal = state.pop_front()
 		close_to_black_holes = {}
 		for player in state:
+			player[0].clean_effects()
 			player[0].visible = true
 			player[0].grid_position = player[1]
 			player[0].position = map_to_local(player[1])
@@ -98,6 +99,7 @@ func load_first_state():
 		color_in_goal = state.pop_front()
 		close_to_black_holes = {}
 		for player in state:
+			player[0].clean_effects()
 			player[0].visible = true
 			player[0].grid_position = player[1]
 			player[0].position = map_to_local(player[1])
@@ -113,16 +115,11 @@ func plan_path(player: Player, direction: Direction):
 	for i in range(MAX_SEGMENT_LENGTH):
 		var new_position = next_tile(path_to, direction)
 		if get_cell_tile_data(new_position):
-			if is_wall(new_position):
+			if is_wall(new_position, direction):
 				break
-			if is_mirror(new_position):
-				var mirror_type = get_cell_atlas_coords(new_position)
-				var new_direction = (15 - direction - mirror_type.x) % 6
-				if new_direction == direction:
-					# Hit mirror's edge -> Act as wall
-					break
-				AudioManager.play_random_sound(mirror_prism_arr)
 			path_to = new_position
+			if path_to not in black_holes.keys():
+				close_to_black_holes.erase(player)
 			break
 		path_to = new_position
 		if path_to in black_holes.keys():
@@ -141,6 +138,7 @@ func check_final_position(player: Player):
 	player.grid_position = grid_position
 	if get_cell_tile_data(grid_position):
 		if is_mirror(grid_position):
+			AudioManager.play_random_sound(mirror_prism_arr)
 			var mirror_type = get_cell_atlas_coords(grid_position)
 			var new_direction = (15 - direction - mirror_type.x) % 6
 			if mirror_type.y > 0 and (direction + (mirror_type.x + 6 * (mirror_type.y - 1)) / 2) % 6 in [5, 0, 1]:
@@ -201,9 +199,11 @@ func check_final_position(player: Player):
 			var new_direction = direction
 			if black_hole[0] >= 1 and (6 + direction - black_hole[1]) % 6 in [2, 3, 4]:
 				new_direction = (6 + 2 * direction - ((3 + black_hole[1]) % 6)) % 6
-				print(player, black_hole, direction, new_direction, close_to_black_holes.get(player, 0))
 				close_to_black_holes[player] = close_to_black_holes.get(player, 0) + 1
 				plan_path(player, new_direction)
+				move_player(player)
+			elif is_wall(next_tile(grid_position, direction), direction): # TODO: Mirror's Edge
+				player_paths[player] = black_hole[2]
 				move_player(player)
 			else:
 				plan_path(player, direction)
@@ -343,8 +343,8 @@ func tile_type(pos: Vector2i) -> int:
 		return get_cell_source_id(pos)
 	return 0;
 
-func is_wall(pos: Vector2i) -> bool:
-	return tile_type(pos) == 1
+func is_wall(pos: Vector2i, direction: Direction) -> bool:
+	return tile_type(pos) == 1 or (is_mirror(pos) and (15 - direction - get_cell_atlas_coords(pos).x) % 6 == direction)
 
 func is_mirror(pos: Vector2i) -> bool:
 	return tile_type(pos) == 2
