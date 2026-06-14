@@ -215,6 +215,7 @@ func finish_path(player: Player):
 		if color_in_goal == Vector3i(1, 1, 1):
 			win.emit()
 			animate_goal(true)
+			get_player_of_color(Vector3i(1,1,1)).hide()
 		elif active_players().any(is_off_grid) or lost_color():
 			gameover.emit()
 		else:

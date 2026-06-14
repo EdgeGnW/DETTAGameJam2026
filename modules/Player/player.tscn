@@ -2,8 +2,57 @@
 
 [ext_resource type="Script" uid="uid://dcsrhhfgww5wy" path="res://modules/Player/player.gd" id="1_4fq60"]
 [ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="2_5h1i8"]
+[ext_resource type="Texture2D" uid="uid://dr2g7amqsxpcq" path="res://modules/Player/Art/URIEL.webp" id="3_1sdsl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fq60"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt278"]
+atlas = ExtResource("3_1sdsl")
+region = Rect2(0, 0, 256, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrear"]
+atlas = ExtResource("3_1sdsl")
+region = Rect2(256, 0, 256, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxgpv"]
+atlas = ExtResource("3_1sdsl")
+region = Rect2(512, 0, 256, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q1q0"]
+atlas = ExtResource("3_1sdsl")
+region = Rect2(768, 0, 256, 296)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktano"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt278")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrear")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxgpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q1q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q1q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxgpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrear")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt278")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="Area2D" unique_id=472444114]
 script = ExtResource("1_4fq60")
@@ -13,3 +62,7 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1472466070]
 shape = SubResource("CircleShape2D_4fq60")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=481680422]
+sprite_frames = SubResource("SpriteFrames_ktano")
+frame_progress = 0.51315147
