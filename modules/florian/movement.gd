@@ -43,13 +43,13 @@ func _ready():
 		for j in range(30):
 			var cell = Vector2i(i, j)
 			if get_cell_source_id(cell) == 6:
-				black_holes[cell] = [0, 0]
+				black_holes[cell] = [0, 0, cell]
 				for direction in range(6):
 					var next_cell = next_tile(cell, direction)
 					var inverse_direction = (3 + direction)%6
-					black_holes[next_cell] = [1, inverse_direction]
-					black_holes[next_tile(next_cell, direction)] = [2, inverse_direction]
-					black_holes[next_tile(next_cell, (direction + 1)%6)] = [3, inverse_direction]
+					black_holes[next_cell] = [1, inverse_direction, cell]
+					black_holes[next_tile(next_cell, direction)] = [2, inverse_direction, cell]
+					black_holes[next_tile(next_cell, (direction + 1)%6)] = [3, inverse_direction, cell]
 	
 	win.connect(Menu._on_level_complete)
 	Menu.undo_last_move.connect(load_last_state_and_activate_input)
@@ -74,6 +74,7 @@ func load_last_state():
 			player.visible = false
 		var state = states.pop_back()
 		color_in_goal = state.pop_front()
+		close_to_black_holes = {}
 		for player in state:
 			player[0].visible = true
 			player[0].grid_position = player[1]
@@ -85,6 +86,7 @@ func load_first_state():
 			player.visible = false
 		var state = states.pop_front()
 		color_in_goal = state.pop_front()
+		close_to_black_holes = {}
 		for player in state:
 			player[0].visible = true
 			player[0].grid_position = player[1]
@@ -152,6 +154,8 @@ func check_final_position(player: Player):
 				color[0].visible = true
 				color[0].grid_position = player.grid_position
 				color[0].position = player.position
+				if player in close_to_black_holes.keys():
+					close_to_black_holes[color[0]] = close_to_black_holes[player]
 				var color_direction = (6 + direction + color[1]) % 6
 				plan_path(color[0], color_direction)
 				move_player(color[0])
@@ -166,6 +170,8 @@ func check_final_position(player: Player):
 					new_player.visible = true
 					new_player.grid_position = player.grid_position
 					new_player.position = player.position
+					if player in close_to_black_holes.keys():
+						close_to_black_holes[new_player] = close_to_black_holes[player]
 					plan_path(new_player, direction)
 					move_player(new_player)
 			else:
@@ -178,14 +184,19 @@ func check_final_position(player: Player):
 			player.visible = false
 	elif grid_position in black_holes.keys():
 		var black_hole = black_holes[grid_position]
-		var new_direction = direction
-		if black_hole[0] >= 1 and (6 + direction - black_hole[1]) % 6 in [2, 3, 4]:
-			new_direction = (6 + 2 * direction - ((3 + black_hole[1]) % 6)) % 6
-			close_to_black_holes[player] = close_to_black_holes.get(player, 0) + 1
-			plan_path(player, new_direction)
-			move_player(player)
+		if close_to_black_holes.get(player, 0) + black_hole[0] < 3:
+			var new_direction = direction
+			if black_hole[0] >= 1 and (6 + direction - black_hole[1]) % 6 in [2, 3, 4]:
+				new_direction = (6 + 2 * direction - ((3 + black_hole[1]) % 6)) % 6
+				print(player, black_hole, direction, new_direction, close_to_black_holes.get(player, 0))
+				close_to_black_holes[player] = close_to_black_holes.get(player, 0) + 1
+				plan_path(player, new_direction)
+				move_player(player)
+			else:
+				plan_path(player, direction)
+				move_player(player)
 		else:
-			plan_path(player, direction)
+			player_paths[player] = black_hole[2]
 			move_player(player)
 
 
