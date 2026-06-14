@@ -14,7 +14,7 @@ func _ready() -> void:
 	screenResolution = get_viewport().get_visible_rect().size
 	print(player)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if not currentlyProcessingInput:
 		return
 	if event is not InputEventMouseMotion and event is not InputEventMouseButton:

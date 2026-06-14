@@ -47,6 +47,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		confirmSelection.emit()
 		
 	if event.is_action_pressed("go"):
+		#if not Input.is_action_just_pressed("go"):
+			#return
 		go.emit()
 		
 	if event.is_action_pressed("switchPlayerRight"):
