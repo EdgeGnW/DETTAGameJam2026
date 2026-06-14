@@ -2,6 +2,7 @@ class_name LevelEnterTrigger extends Area2D
 
 @export var sceneToLoad: PackedScene
 @onready var tile_map_layer: TileMapLayer = $"../TileMapLayer"
+@onready var label: Label = $Label
 signal isComplete
 
 func _ready() -> void:
@@ -12,12 +13,16 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is not Player:
 		return
-	(area as Player).sceneToEnter = sceneToLoad
+	var player = area as Player
+	player.sceneToEnter = sceneToLoad
+	label.visible = true
+	
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is not Player:
 		return
 	(area as Player).sceneToEnter = null
+	label.visible = false
 
 func check_complete():
 	if not ProgressManager.isLevelCompleted(sceneToLoad):
