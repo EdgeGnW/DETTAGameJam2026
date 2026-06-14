@@ -28,6 +28,9 @@ var crystal_dict = {
 	Vector2i(2, 1): Vector3i(1, 0, 1)
 }
 
+var black_holes := []
+var close_to_black_holes := {}
+
 func _ready():
 	players.assign(find_children("*", "Player", false, false))
 	
@@ -35,7 +38,12 @@ func _ready():
 		player.grid_position = local_to_map(player.position)
 		player.position = map_to_local(player.grid_position)
 		player_by_color[player.color] = player
-		
+	
+	for i in range(30):
+		for j in range(30):
+			if get_cell_source_id(Vector2i(i, j)) == 6:
+				black_holes.append(Vector2i(i, j))
+	
 	win.connect(Menu._on_level_complete)
 	Menu.undo_last_move.connect(load_last_state_and_activate_input)
 	gameover.connect(Menu._on_game_over)
@@ -43,6 +51,7 @@ func _ready():
 	input_manager.go.connect(move_players)
 	input_manager.selectedDirection.connect(receive_direction)
 	input_manager.back.connect(load_last_state)
+	input_manager.reset.connect(load_first_state)
 	input_manager.switchPlayer.connect(switch_player_index)
 	activate_input()
 
@@ -62,6 +71,19 @@ func load_last_state():
 			player[0].visible = true
 			player[0].grid_position = player[1]
 			player[0].position = map_to_local(player[1])
+
+func load_first_state():
+	if states:
+		for player in players:
+			player.visible = false
+		var state = states.pop_front()
+		color_in_goal = state.pop_front()
+		for player in state:
+			player[0].visible = true
+			player[0].grid_position = player[1]
+			player[0].position = map_to_local(player[1])
+		states = []
+		activate_input()
 
 func load_last_state_and_activate_input():
 	load_last_state()
@@ -83,8 +105,13 @@ func plan_path(player: Player, direction: Direction):
 			path_to = new_position
 			break
 		path_to = new_position
+	if black_holes.any(func(bh): return distance(bh, path_to) < 3):
+		pass
 	player_paths[player] = path_to
 	player_directions[player] = direction
+	
+func distance(grid_pos1: Vector2i, grid_pos2: Vector2i):
+	return 0
 	
 func check_final_position(player: Player):
 	var grid_position = player_paths[player]

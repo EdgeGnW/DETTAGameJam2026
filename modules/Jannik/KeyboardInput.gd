@@ -2,6 +2,7 @@ class_name KeyboardInput extends HexagonalInput
 
 
 signal back
+signal reset
 
 func rotateDirection(direction: Direction, right: bool) -> Direction:
 	var tempDirection = direction + (-1 if right else 1)
@@ -44,5 +45,7 @@ func _input(event: InputEvent) -> void:
 	
 	elif event.is_action_pressed("back"):
 		back.emit()
+	elif event.is_action_pressed("reset"):
+		reset.emit()
 	
 	super._input(event)
