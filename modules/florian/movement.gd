@@ -3,6 +3,7 @@ extends TileMapLayer
 const MAX_SEGMENT_LENGTH = 30
 const TWEEN_TIME = 0.1
 
+signal win
 signal gameover
 
 @onready var input_manager: InputManager = %InputManager
@@ -13,6 +14,8 @@ var player_paths := {}
 var player_directions := {}
 var states = []
 var player_index: int = 0
+
+var color_in_goal: Vector3i = Vector3i(0, 0, 0)
 
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
 
@@ -39,7 +42,7 @@ func _ready():
 	activate_input()
 
 func save_state():
-	var state = []
+	var state = [color_in_goal]
 	for player in active_players():
 		state.append([player, player.grid_position])
 	states.append(state)
@@ -49,6 +52,7 @@ func load_last_state():
 		for player in players:
 			player.visible = false
 		var state = states.pop_back()
+		color_in_goal = state.pop_front()
 		for player in state:
 			player[0].visible = true
 			player[0].grid_position = player[1]
@@ -121,6 +125,9 @@ func check_final_position(player: Player):
 			else:
 				plan_path(player, direction)
 				move_player(player)
+		elif is_goal(grid_position):
+			color_in_goal += player.color
+			print(player.color, " in goal (", color_in_goal, ")")
 
 
 func finish_path(player: Player):
@@ -135,9 +142,13 @@ func finish_path(player: Player):
 			joined_color.position = p.position
 			break
 	if player_paths.is_empty():
-		activate_input()
-		if players.any(is_off_grid) or lost_color():
+		if color_in_goal == Vector3i(1, 1, 1):
+			win.emit()
+		elif active_players().any(is_off_grid) or lost_color():
 			gameover.emit()
+		else:
+			activate_input()
+		
 	
 func receive_direction(direction: Direction):
 	var current_player = active_players()[player_index]
@@ -152,8 +163,11 @@ func advance_player_index(direction: int):
 	input_manager.switchToPlayer(current_player)
 	
 	
-func active_players() -> Array[Player]:
+func visible_players() -> Array[Player]:
 	return players.filter(func(player): return player.visible)
+	
+func active_players() -> Array[Player]:
+	return visible_players().filter(func(player): return player.color != color_in_goal)
 
 func move_players():
 	if player_paths.size() == active_players().size():
@@ -193,7 +207,7 @@ func is_off_grid(player: Player):
 
 func lost_color():
 	var color = Vector3i(0, 0, 0)
-	for player in active_players():
+	for player in visible_players():
 		color += player.color
 	return color != Vector3i(1, 1, 1)
 
@@ -233,3 +247,6 @@ func is_prism(pos: Vector2i) -> bool:
 	
 func is_crystal(pos: Vector2i) -> bool:
 	return tile_type(pos) == 4
+	
+func is_goal(pos: Vector2i) -> bool:
+	return tile_type(pos) == 5

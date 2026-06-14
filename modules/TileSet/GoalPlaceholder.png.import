@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4i11tvwray7o"
-path="res://.godot/imported/HexagonTileVertical.png-92a60dfe8bc8e0cc26fd7f7bd7deacc1.ctex"
+path="res://.godot/imported/GoalPlaceholder.png-d010eee435a0496a6dd86971b625f5fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/TileSet/HexagonTileVertical.png"
-dest_files=["res://.godot/imported/HexagonTileVertical.png-92a60dfe8bc8e0cc26fd7f7bd7deacc1.ctex"]
+source_file="res://modules/TileSet/GoalPlaceholder.png"
+dest_files=["res://.godot/imported/GoalPlaceholder.png-d010eee435a0496a6dd86971b625f5fe.ctex"]
 
 [params]
 
