@@ -74,10 +74,12 @@ func highlight_ray(index: int) -> void:
 		
 	tween = create_tween()
 	tween.set_parallel()
-	
+	#stop if theres nothing to tween
+	var kill_tween = true
 	#reset old ray
 	if has_highlight and (highlight_index != selected_index or not has_selection):
 		var old_line = rays[highlight_index]
+		kill_tween = false
 		tween.tween_property(old_line, "width", normal_width, tween_time)
 		tween.tween_method(tween_length.bind(old_line),
 			highlight_length,
@@ -92,7 +94,10 @@ func highlight_ray(index: int) -> void:
 	highlight_index = index
 	if highlight_index == selected_index and has_selection:
 		has_highlight = false
+		if kill_tween: tween.kill()
 		return
+	
+	kill_tween = false
 	has_highlight = true
 	var new_line = rays[highlight_index]
 	tween.tween_property(new_line, "width", highlight_width, tween_time)
@@ -104,6 +109,7 @@ func highlight_ray(index: int) -> void:
 		normal_intensity,
 		highlight_intensity,
 		tween_time)
+	if kill_tween: tween.kill()
 		
 func select_ray() -> void:
 	
