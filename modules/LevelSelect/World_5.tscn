@@ -10,9 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cc1l8k4uygr4g" path="res://modules/Levels/World 2/Level_2-2.tscn" id="8_oaylh"]
 [ext_resource type="PackedScene" uid="uid://dfwvnjrdqln61" path="res://modules/Levels/World 2/Level_2-3.tscn" id="9_6xtr5"]
 [ext_resource type="PackedScene" uid="uid://dcemsuycc63h1" path="res://modules/Levels/World 2/Level_2-4.tscn" id="10_50yk4"]
-[ext_resource type="PackedScene" uid="uid://c4f727lh33ja1" path="res://modules/Levels/World 2/Level_2-5.tscn" id="11_70hj4"]
-[ext_resource type="PackedScene" uid="uid://bqd1qxferghdv" path="res://modules/Levels/World 2/Level_2-6.tscn" id="12_aa35s"]
-[ext_resource type="PackedScene" uid="uid://bo7w43y7vkkmu" path="res://modules/Levels/World 2/Level_2-7.tscn" id="13_8rov1"]
 
 [sub_resource type="Gradient" id="Gradient_frquf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -74,7 +71,7 @@ sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 scale = Vector2(0.55, 0.55)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
-tile_map_data = PackedByteArray("AAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAADAAEAAAAAAAAAAAADAAcAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAcAAAAAAAAAAAAEAAIAAgADAAAAAAAEAAEAAgADAAAAAAACAAUAAgAAAAAAAAAGAAIAAgAEAAAAAAAFAAUAAgAEAAAAAAAGAAAAAgACAAAAAAAJAAAAAgAEAAAAAAALAAQAAgABAAAAAAAIAAQAAgAEAAAAAAAEAAYAAgAFAAAAAAAHAAYAAgACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAcAAQAAAAEAAAABAAEAAAAAAAAAAAADAAQAAQAAAAAAAAADAAMABgAAAAAAAAAFAAAAAQABAAAAAAAGAAQAAAAAAAAAAAAFAAUAAgADAAAAAAAIAAIABgAAAAAAAAAIAAYAAAAAAAAAAAAKAAQAAAAAAAAAAAA=")
 tile_set = ExtResource("1_eluco")
 script = ExtResource("2_4ngb8")
 
@@ -82,7 +79,7 @@ script = ExtResource("2_4ngb8")
 unique_name_in_owner = true
 
 [node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("4_4lsdg")]
-position = Vector2(1040, 358.18182)
+position = Vector2(527.2727, 380)
 color = Vector3i(1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=1311493772]
@@ -145,29 +142,17 @@ tile_map_data = PackedByteArray("AAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD7////AAAAAAA
 tile_set = SubResource("TileSet_ig76o")
 
 [node name="LevelEnterTrigger" parent="." unique_id=1143325814 instance=ExtResource("6_vmvc3")]
-position = Vector2(1012.72723, 341.81818)
+position = Vector2(536.3635, 383.63635)
 sceneToLoad = ExtResource("7_jk7wn")
 
 [node name="LevelEnterTrigger2" parent="." unique_id=688753184 instance=ExtResource("6_vmvc3")]
-position = Vector2(1665.4545, 1030.909)
+position = Vector2(1674.5453, 1034.5454)
 sceneToLoad = ExtResource("8_oaylh")
 
 [node name="LevelEnterTrigger3" parent="." unique_id=306693025 instance=ExtResource("6_vmvc3")]
-position = Vector2(1376.3636, 1038.1818)
+position = Vector2(2707.2725, 1049.0908)
 sceneToLoad = ExtResource("9_6xtr5")
 
 [node name="LevelEnterTrigger4" parent="." unique_id=94856952 instance=ExtResource("6_vmvc3")]
-position = Vector2(1161.8181, 1045.4545)
+position = Vector2(2187.2725, 1465.4545)
 sceneToLoad = ExtResource("10_50yk4")
-
-[node name="LevelEnterTrigger5" parent="." unique_id=688547261 instance=ExtResource("6_vmvc3")]
-position = Vector2(1027.2727, 1705.4545)
-sceneToLoad = ExtResource("11_70hj4")
-
-[node name="LevelEnterTrigger6" parent="." unique_id=856115865 instance=ExtResource("6_vmvc3")]
-position = Vector2(1761.8181, 1698.1818)
-sceneToLoad = ExtResource("12_aa35s")
-
-[node name="LevelEnterTrigger7" parent="." unique_id=672672272 instance=ExtResource("6_vmvc3")]
-position = Vector2(1783.6364, 370.9091)
-sceneToLoad = ExtResource("13_8rov1")
