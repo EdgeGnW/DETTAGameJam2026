@@ -12,7 +12,7 @@ var ryb2rgb := {
 	Vector3i(0, 1, 0): Color(1,1,0),
 	Vector3i(0, 1, 1): Color(0,1,0),
 	Vector3i(1, 0, 0): Color(1,0,0),
-	Vector3i(1, 0, 1): Color(0.5,0,1),
+	Vector3i(1, 0, 1): Color(0.75,0,1),
 	Vector3i(1, 1, 0): Color(1,0.5,0),
 	Vector3i(1, 1, 1): Color(1,1,1),
 }

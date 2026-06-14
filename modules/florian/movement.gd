@@ -72,7 +72,7 @@ func _ready():
 	
 	input_manager.go.connect(move_players)
 	input_manager.selectedDirection.connect(receive_direction)
-	input_manager.back.connect(load_last_state)
+	input_manager.back.connect(load_last_state_and_activate_input)
 	input_manager.reset.connect(load_first_state)
 	input_manager.switchPlayer.connect(switch_player_index)
 	activate_input()
@@ -341,6 +341,7 @@ func activate_input():
 	input_manager.reactToInput(true)
 	player_index = 0
 	active_players()[player_index].rays.activate()
+	print("Test")
 
 
 
