@@ -27,14 +27,17 @@ func _on_hide_options_pressed() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu"):
-		menu.visible = not menu.visible
+		toggle_menu()
 			
-		if not menu.visible:
-			options.hide()
-			controls.hide()
-		else:
-			menu.get_child(0).get_child(0).grab_focus()
-
+		
+func toggle_menu():
+	menu.visible = not menu.visible
+			
+	if not menu.visible:
+		options.hide()
+		controls.hide()
+	else:
+		menu.get_child(0).get_child(0).grab_focus()
 
 func _on_controls_pressed() -> void:
 	controls.show()
@@ -82,3 +85,7 @@ func getSceneName(scene: PackedScene) -> String:
 
 func _on_reset_progress_pressed() -> void:
 	ProgressManager.resetProgress()
+
+
+func _on_back_pressed() -> void:
+	toggle_menu()
