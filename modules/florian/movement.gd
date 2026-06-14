@@ -35,6 +35,11 @@ var move_arr := [preload("uid://bq7wgbobex3th"),
 var mirror_prism_arr := [preload("uid://boc8t2s3ewshq"),
 	preload("uid://chkdh7h52v6d4"),
 	preload("uid://dkrffrl7cfo6t")]
+var merge_arr := [
+	preload("uid://vb31rogtjk0r"),
+	preload("uid://bfak6j8wujqr0"),
+	preload("uid://b2yhtid1jn54o")
+]
 const WALL := preload("uid://mdqugeutjoq6")
 const WON := preload("uid://bt265jl41dxhh")
 
@@ -219,6 +224,7 @@ func finish_path(player: Player):
 	player_paths.erase(player)
 	for p in active_players():
 		if p != player and not player_paths.has(p) and player.grid_position == p.grid_position:
+			AudioManager.play_random_sound(merge_arr)
 			p.visible = false
 			player.visible = false
 			var joined_color = player_by_color[(p.color + player.color).mini(1)]
