@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bgyf7tbtqsm0j" path="res://modules/TileSet/Spiegel_Geordnet.png" id="2_c1oiq"]
 [ext_resource type="Texture2D" uid="uid://kwykmd7rf3c0" path="res://modules/TileSet/Prisma/Prisma_mit_Animation.png" id="3_bvxvo"]
 [ext_resource type="Texture2D" uid="uid://d25qp6oasq26a" path="res://modules/TileSet/Filter.png" id="4_bvxvo"]
-[ext_resource type="Texture2D" uid="uid://4i11tvwray7o" path="res://modules/TileSet/GoalPlaceholder.png" id="6_v41r6"]
+[ext_resource type="Texture2D" uid="uid://boxbfed3iiela" path="res://modules/TileSet/Swz_Loch_animiert_.png" id="6_v41r6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvxvo"]
 resource_name = "Level"
@@ -102,6 +102,12 @@ texture_region_size = Vector2i(256, 296)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v41r6"]
 texture = ExtResource("6_v41r6")
 texture_region_size = Vector2i(256, 294)
+0:0/animation_columns = 4
+0:0/animation_speed = 5.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
 0:0/0 = 0
 
 [resource]
