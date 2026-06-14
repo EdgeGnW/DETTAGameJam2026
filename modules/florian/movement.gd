@@ -144,12 +144,21 @@ func finish_path(player: Player):
 	if player_paths.is_empty():
 		if color_in_goal == Vector3i(1, 1, 1):
 			win.emit()
+			animate_goal(true)
 		elif active_players().any(is_off_grid) or lost_color():
 			gameover.emit()
 		else:
 			activate_input()
 		
 	
+func animate_goal(active: bool) -> void:
+	if active:
+		var pos = players.get(0).grid_position
+		set_cell(pos, 5, Vector2i(0,1))
+		await get_tree().create_timer(0.39).timeout
+		set_cell(pos, 5, Vector2i(0,2))
+	
+
 func receive_direction(direction: Direction):
 	var current_player = active_players()[player_index]
 	current_player.rays.deactivate()
@@ -250,3 +259,6 @@ func is_crystal(pos: Vector2i) -> bool:
 	
 func is_goal(pos: Vector2i) -> bool:
 	return tile_type(pos) == 5
+
+func is_level(pos: Vector2i) -> bool:
+	return tile_type(pos) == 0

@@ -66,6 +66,7 @@ sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 scale = Vector2(0.55, 0.55)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
+tile_map_data = PackedByteArray("AAAEAAcAAQAAAAAAAAAIAAYAAQAAAAAAAAAHAAUAAQAAAAEAAAAGAAEAAQAAAAAAAAAEAAQAAwAAAAAAAAAFAAMAAwAAAAAAAAABAAMAAgAAAAAAAAADAAYAAgADAAAAAAAEAAEAAgABAAAAAAACAAEABQAAAAAAAAA=")
 tile_set = ExtResource("1_ur6ix")
 script = ExtResource("2_itp41")
 
@@ -73,7 +74,7 @@ script = ExtResource("2_itp41")
 unique_name_in_owner = true
 
 [node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("4_eb4et")]
-position = Vector2(264.99997, 804.99994)
+position = Vector2(761.8181, 805.4545)
 color = Vector3i(1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=346850687]

@@ -29,6 +29,7 @@ DialogueManager="*res://modules/DialogueManager/dialogue_manager.tscn"
 SceneManager="*res://SceneManager.gd"
 ProgressManager="*uid://dujo5ou2cqb5f"
 Globals="*uid://x7rx25bok48o"
+AnimalState="*res://modules/Player/animal_state.gd"
 Menu="*uid://bepbupuhgejv"
 
 [display]
