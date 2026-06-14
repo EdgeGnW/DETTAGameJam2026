@@ -1,59 +1,59 @@
-[gd_scene format=4 uid="uid://bnrmtgqf8mycb"]
+[gd_scene format=4 uid="uid://csnklcc4c4vwy"]
 
-[ext_resource type="TileSet" uid="uid://co6p8q7xfd6cb" path="res://level_tile_set.tres" id="1_frquf"]
-[ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="4_t3gyb"]
-[ext_resource type="PackedScene" uid="uid://exulgvu6ki71" path="res://modules/Player/player.tscn" id="5_3d6fr"]
-[ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="6_52c7v"]
-[ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="7_uesq4"]
+[ext_resource type="TileSet" uid="uid://co6p8q7xfd6cb" path="res://level_tile_set.tres" id="1_qtw36"]
+[ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="2_6q5qn"]
+[ext_resource type="PackedScene" uid="uid://exulgvu6ki71" path="res://modules/Player/player.tscn" id="3_wtuu8"]
+[ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="4_2hd8v"]
+[ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="5_n51f5"]
 
-[sub_resource type="Gradient" id="Gradient_frquf"]
+[sub_resource type="Gradient" id="Gradient_17d33"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cjs54"]
-gradient = SubResource("Gradient_frquf")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sph7k"]
+gradient = SubResource("Gradient_17d33")
 
-[sub_resource type="Gradient" id="Gradient_xwojb"]
+[sub_resource type="Gradient" id="Gradient_i5tny"]
 colors = PackedColorArray(1, 0.31666666, 0, 1, 1, 0.31764707, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3eibe"]
-gradient = SubResource("Gradient_xwojb")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nnqmc"]
+gradient = SubResource("Gradient_i5tny")
 
-[sub_resource type="Gradient" id="Gradient_75ew4"]
+[sub_resource type="Gradient" id="Gradient_eh72v"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(1, 0.9333334, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3gyb"]
-gradient = SubResource("Gradient_75ew4")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k5g7i"]
+gradient = SubResource("Gradient_eh72v")
 
-[sub_resource type="Gradient" id="Gradient_3d6fr"]
+[sub_resource type="Gradient" id="Gradient_d0q8i"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.19999993, 1, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_52c7v"]
-gradient = SubResource("Gradient_3d6fr")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yu3n1"]
+gradient = SubResource("Gradient_d0q8i")
 
-[sub_resource type="Gradient" id="Gradient_uesq4"]
+[sub_resource type="Gradient" id="Gradient_f25kv"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0.29999995, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8h5pj"]
-gradient = SubResource("Gradient_uesq4")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8s588"]
+gradient = SubResource("Gradient_f25kv")
 
-[sub_resource type="Gradient" id="Gradient_p41a4"]
+[sub_resource type="Gradient" id="Gradient_20pwh"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.8166666, 0, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cbks8"]
-gradient = SubResource("Gradient_p41a4")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l3wdv"]
+gradient = SubResource("Gradient_20pwh")
 
-[sub_resource type="Gradient" id="Gradient_bfrat"]
+[sub_resource type="Gradient" id="Gradient_jue26"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sph7k"]
-gradient = SubResource("Gradient_bfrat")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4tsdk"]
+gradient = SubResource("Gradient_jue26")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wlpl"]
-texture = ExtResource("7_uesq4")
+texture = ExtResource("5_n51f5")
 texture_region_size = Vector2i(256, 296)
 0:0/0 = 0
 
@@ -62,74 +62,74 @@ tile_shape = 3
 tile_size = Vector2i(256, 294)
 sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 
-[node name="Level1_1" type="Node2D" unique_id=1618690172]
-scale = Vector2(0.7, 0.7)
+[node name="Level" type="Node2D" unique_id=1618690172]
+scale = Vector2(0.6, 0.6)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
-tile_map_data = PackedByteArray("AAAGAAMABQAAAAAAAAADAAQAAQAAAAAAAAAFAAEAAQAAAAAAAAA=")
-tile_set = ExtResource("1_frquf")
-script = ExtResource("4_t3gyb")
+tile_map_data = PackedByteArray("AAAFAAEAAgAFAAAAAAAEAAQAAgAFAAAAAAAIAAQAAwAAAAAAAAA=")
+tile_set = ExtResource("1_qtw36")
+script = ExtResource("2_6q5qn")
 
-[node name="InputManager" parent="TileMapLayer" unique_id=384199129 instance=ExtResource("6_52c7v")]
-unique_name_in_owner = true
-
-[node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("5_3d6fr")]
-position = Vector2(252.85718, 375.71432)
+[node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("3_wtuu8")]
+position = Vector2(278.57144, 364.28574)
 color = Vector3i(1, 1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=1311493772]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=1786799422]
 scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_cjs54")
+texture = SubResource("GradientTexture2D_sph7k")
 
-[node name="Orange" parent="TileMapLayer" unique_id=143121022 instance=ExtResource("5_3d6fr")]
+[node name="Orange" parent="TileMapLayer" unique_id=403355879 instance=ExtResource("3_wtuu8")]
 visible = false
 color = Vector3i(1, 1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Orange" unique_id=536212180]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Orange" unique_id=549916112]
 scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_3eibe")
+texture = SubResource("GradientTexture2D_nnqmc")
 
-[node name="Yellow" parent="TileMapLayer" unique_id=1300895002 instance=ExtResource("5_3d6fr")]
+[node name="Yellow" parent="TileMapLayer" unique_id=1173638810 instance=ExtResource("3_wtuu8")]
 visible = false
 color = Vector3i(0, 1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow" unique_id=1654881411]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Yellow" unique_id=973362428]
 scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_t3gyb")
+texture = SubResource("GradientTexture2D_k5g7i")
 
-[node name="Green" parent="TileMapLayer" unique_id=2138476322 instance=ExtResource("5_3d6fr")]
+[node name="Green" parent="TileMapLayer" unique_id=160504272 instance=ExtResource("3_wtuu8")]
 visible = false
 color = Vector3i(0, 1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Green" unique_id=2076812275]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Green" unique_id=1909388291]
 scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_52c7v")
+texture = SubResource("GradientTexture2D_yu3n1")
 
-[node name="Blue" parent="TileMapLayer" unique_id=899701965 instance=ExtResource("5_3d6fr")]
+[node name="Blue" parent="TileMapLayer" unique_id=712181832 instance=ExtResource("3_wtuu8")]
 visible = false
 position = Vector2(368, 296)
 color = Vector3i(0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue" unique_id=2039413689]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue" unique_id=2013741513]
 scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_8h5pj")
+texture = SubResource("GradientTexture2D_8s588")
 
-[node name="Violet" parent="TileMapLayer" unique_id=1619179560 instance=ExtResource("5_3d6fr")]
+[node name="Violet" parent="TileMapLayer" unique_id=1452776914 instance=ExtResource("3_wtuu8")]
 visible = false
 color = Vector3i(1, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Violet" unique_id=1155216938]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Violet" unique_id=1247423599]
 scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_cbks8")
+texture = SubResource("GradientTexture2D_l3wdv")
 
-[node name="Red" parent="TileMapLayer" unique_id=368244653 instance=ExtResource("5_3d6fr")]
+[node name="Red" parent="TileMapLayer" unique_id=1322953786 instance=ExtResource("3_wtuu8")]
 visible = false
 position = Vector2(594, 340)
 color = Vector3i(1, 0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red" unique_id=2126648893]
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red" unique_id=941522910]
 scale = Vector2(0.2, 0.2)
-texture = SubResource("GradientTexture2D_sph7k")
+texture = SubResource("GradientTexture2D_4tsdk")
+
+[node name="InputManager" parent="TileMapLayer" unique_id=384199129 instance=ExtResource("4_2hd8v")]
+unique_name_in_owner = true
 
 [node name="Grid" type="TileMapLayer" parent="." unique_id=189547047]
 modulate = Color(0.601223, 0.601223, 0.60122293, 0.3764706)

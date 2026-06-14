@@ -1,6 +1,6 @@
 extends TileMapLayer
 
-const MAX_SEGMENT_LENGTH = 30
+const MAX_SEGMENT_LENGTH = 16
 const TWEEN_TIME = 0.1
 
 signal win

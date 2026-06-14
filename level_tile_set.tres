@@ -1,0 +1,75 @@
+[gd_resource type="TileSet" format=3 uid="uid://co6p8q7xfd6cb"]
+
+[ext_resource type="Texture2D" uid="uid://bgemliehf1otg" path="res://modules/TileSet/Hindernissteine_Variationen.png" id="1_sl7sm"]
+[ext_resource type="Texture2D" uid="uid://bgyf7tbtqsm0j" path="res://modules/TileSet/Spiegel_Geordnet.png" id="2_c1oiq"]
+[ext_resource type="Texture2D" uid="uid://kwykmd7rf3c0" path="res://modules/TileSet/Prisma/Prisma_mit_Animation.png" id="3_bvxvo"]
+[ext_resource type="Texture2D" uid="uid://bjpiojdbhvwfw" path="res://modules/TileSet/Crystals.png" id="4_bvxvo"]
+[ext_resource type="Texture2D" uid="uid://4i11tvwray7o" path="res://modules/TileSet/GoalPlaceholder.png" id="5_v41r6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8h5pj"]
+texture = ExtResource("1_sl7sm")
+texture_region_size = Vector2i(256, 296)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p41a4"]
+texture = ExtResource("2_c1oiq")
+texture_region_size = Vector2i(256, 296)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlxj7"]
+texture = ExtResource("3_bvxvo")
+texture_region_size = Vector2i(256, 296)
+0:0/animation_columns = 4
+0:0/animation_speed = 1.3
+0:0/animation_frame_0/duration = 1.5
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/animation_frame_5/duration = 0.2
+0:0/animation_frame_6/duration = 0.2
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuj6f"]
+texture = ExtResource("4_bvxvo")
+texture_region_size = Vector2i(256, 296)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e86qm"]
+texture = ExtResource("5_v41r6")
+texture_region_size = Vector2i(256, 296)
+0:0/0 = 0
+
+[resource]
+tile_shape = 3
+tile_size = Vector2i(256, 294)
+sources/1 = SubResource("TileSetAtlasSource_8h5pj")
+sources/2 = SubResource("TileSetAtlasSource_p41a4")
+sources/3 = SubResource("TileSetAtlasSource_jlxj7")
+sources/4 = SubResource("TileSetAtlasSource_fuj6f")
+sources/5 = SubResource("TileSetAtlasSource_e86qm")
