@@ -9,7 +9,7 @@ var scene_stack: Array[PackedScene] = []
 	#current_scene = tutorial
 
 func _ready() -> void:
-	current_scene = load("res://modules/Levels/World 1/Level_1-1.tscn")
+	current_scene = load("res://modules/LevelSelect/Main_World.tscn")
 
 func update_current_scene(new_scene: PackedScene) -> void:
 	scene_stack.push_back(current_scene)
@@ -25,3 +25,6 @@ func go_back():
 		get_tree().quit()
 	current_scene = scene_stack.pop_back()
 	get_tree().change_scene_to_packed(current_scene)
+	await get_tree().create_timer(0.1).timeout
+	ProgressManager.checkProgress()
+	

@@ -295,11 +295,9 @@ func get_player_of_color(color: Vector3i):
 
 
 func deactivate_input():
-	print("deactivate input")
 	input_manager.reactToInput(false)
 
 func activate_input():
-	print("activate input")
 	input_manager.switchToPlayer(active_players()[0])
 	input_manager.reactToInput(true)
 	player_index = 0

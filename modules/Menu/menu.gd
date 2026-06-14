@@ -55,7 +55,7 @@ func _on_ambient_value_changed(value: float) -> void:
 func _on_level_complete() -> void:
 	await get_tree().create_timer(2).timeout
 	level_complete.show()
-	ProgressManager.completeLevel(SceneManager.current_scene.resource_path.split('/')[-1])
+	ProgressManager.completeLevel(SceneManager.current_scene)
 	ProgressManager.saveProgress()
 	
 func _on_game_over():
@@ -68,3 +68,10 @@ func _on_restart_level_pressed() -> void:
 func _on_undo_last_move_pressed() -> void:
 	game_over.hide()
 	undo_last_move.emit()
+
+func getSceneName(scene: PackedScene) -> String:
+	return scene.resource_path.split('/')[-1]
+
+
+func _on_reset_progress_pressed() -> void:
+	ProgressManager.resetProgress()
