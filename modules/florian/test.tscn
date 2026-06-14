@@ -100,7 +100,6 @@ tile_set = SubResource("TileSet_ehkex")
 script = ExtResource("1_ppyta")
 
 [node name="White" parent="TileMapLayer" unique_id=957936608 instance=ExtResource("22_17d33")]
-visible = false
 position = Vector2(465, 351)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=40983152]
@@ -129,6 +128,7 @@ scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_f25kv")
 
 [node name="Blue" parent="TileMapLayer" unique_id=181258696 instance=ExtResource("22_17d33")]
+visible = false
 position = Vector2(368, 296)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Blue" unique_id=609514357]
@@ -143,6 +143,7 @@ scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_17d33")
 
 [node name="Red" parent="TileMapLayer" unique_id=1458248842 instance=ExtResource("22_17d33")]
+visible = false
 position = Vector2(594, 340)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Red" unique_id=704450500]

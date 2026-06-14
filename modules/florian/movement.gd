@@ -64,6 +64,7 @@ func check_final_position(player: Player):
 			player.tween = create_tween()
 			player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
 			player.tween.tween_callback(check_final_position.bind(player))
+			player.tween.tween_callback(finish_path.bind(player))
 		elif is_prism(grid_position):
 			var colors = []
 			if player == $White:
@@ -78,6 +79,12 @@ func check_final_position(player: Player):
 			elif player == $Violet:
 				player.visible = false
 				colors = [[$Blue, -1], [$Red, 1]]
+			elif player == $Blue:
+				colors = [[$Blue, -1]]
+			elif player == $Yellow:
+				colors = [[$Yellow, 0]]
+			elif player == $Red:
+				colors = [[$Red, 1]]
 			for color in colors:
 				color[0].visible = true
 				color[0].grid_position = player.grid_position
@@ -91,25 +98,30 @@ func check_final_position(player: Player):
 				var distance = (map_to_local(color[0].grid_position)-final_position).length()
 				color[0].tween.tween_property(color[0], "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
 				color[0].tween.tween_callback(check_final_position.bind(color[0]))
-	else:
-		player_paths.erase(player)
-		for p in active_players():
-			if p != player and not player_paths.has(p) and player.grid_position == p.grid_position:
-				p.visible = false
-				player.visible = false
-				var joined_color = p
-				if (p == $Blue and player == $Yellow) or (p == $Yellow and player == $Blue):
-					joined_color = $Green
-				elif (p == $Blue and player == $Red) or (p == $Red and player == $Blue):
-					joined_color = $Violet
-				elif (p == $Red and player == $Yellow) or (p == $Yellow and player == $Red):
-					joined_color = $Orange
-				else:
-					joined_color = $White
-				joined_color.visible = true
-				joined_color.grid_position = p.grid_position
-				joined_color.position = p.position
-				break
+				color[0].tween.tween_callback(finish_path.bind(color[0]))
+
+
+func finish_path(player: Player):
+	player_paths.erase(player)
+	for p in active_players():
+		if p != player and not player_paths.has(p) and player.grid_position == p.grid_position:
+			p.visible = false
+			player.visible = false
+			var joined_color = p
+			if (p == $Blue and player == $Yellow) or (p == $Yellow and player == $Blue):
+				joined_color = $Green
+			elif (p == $Blue and player == $Red) or (p == $Red and player == $Blue):
+				joined_color = $Violet
+			elif (p == $Red and player == $Yellow) or (p == $Yellow and player == $Red):
+				joined_color = $Orange
+			else:
+				joined_color = $White
+			joined_color.visible = true
+			joined_color.grid_position = p.grid_position
+			joined_color.position = p.position
+			break
+	if player_paths.is_empty():
+		activate_input()
 	
 func receive_direction(direction: Direction):
 	var current_player = active_players()[player_index]
@@ -136,13 +148,8 @@ func move_players():
 		var final_position = map_to_local(player_paths[player])
 		var distance = (map_to_local(player.grid_position)-final_position).length()
 		player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
-		var value = player_paths[player]
-		player.grid_position = value
-		player.tween.tween_callback(func():
-			player_paths.erase(player)
-			if player_paths.is_empty():
-				activate_input()
-		)
+		player.tween.tween_callback(check_final_position.bind(player))
+		player.tween.tween_callback(finish_path.bind(player))
 
 func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	if direction == Direction.Right:
