@@ -60,7 +60,7 @@ func check_final_position(player: Player):
 			plan_path(player, direction)
 			var final_position = map_to_local(player_paths[player])
 			var distance = (map_to_local(player.grid_position)-final_position).length()
-			player.skip_tween()
+			player.tween.kill()
 			player.tween = create_tween()
 			player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
 			player.tween.tween_callback(check_final_position.bind(player))
@@ -92,7 +92,7 @@ func check_final_position(player: Player):
 				var color_direction = (6 + direction + color[1]) % 6
 				plan_path(color[0], color_direction)
 				if color[0].tween:
-					color[0].skip_tween()
+					color[0].tween.kill()
 				color[0].tween = create_tween()
 				var final_position = map_to_local(player_paths[color[0]])
 				var distance = (map_to_local(color[0].grid_position)-final_position).length()
