@@ -2,15 +2,21 @@ extends Node
 
 #var tutorial = load("res://modules/Test/Tutorial.tscn")
 
-var current_scene = null # load("res://modules/Test/Tutorial.tscn")
+var current_scene: PackedScene = null # load("res://modules/Test/Tutorial.tscn")
 
 var scene_stack: Array[PackedScene] = []
 #func reset_progress() -> void:
 	#current_scene = tutorial
 
+func _ready() -> void:
+	current_scene = load("res://modules/Levels/World 1/Level_1-1.tscn")
+
 func update_current_scene(new_scene: PackedScene) -> void:
 	scene_stack.push_back(current_scene)
 	current_scene = new_scene
+	get_tree().change_scene_to_packed(current_scene)
+	
+func reload_current_scene():
 	get_tree().change_scene_to_packed(current_scene)
 	
 func go_back():

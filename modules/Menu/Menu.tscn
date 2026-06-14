@@ -137,6 +137,74 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 128
 text = "Zurück"
 
+[node name="LevelComplete" type="PanelContainer" parent="." unique_id=426381109]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelComplete" unique_id=481648211]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label3" type="Label" parent="LevelComplete/VBoxContainer" unique_id=1292474769]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 128
+text = "Level geschafft!"
+
+[node name="BackToLevelSelection" type="Button" parent="LevelComplete/VBoxContainer" unique_id=1933008950]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "Zurück zur Levelauswahl"
+
+[node name="GameOver" type="PanelContainer" parent="." unique_id=1462305487]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver" unique_id=1904799516]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label3" type="Label" parent="GameOver/VBoxContainer" unique_id=1757160796]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 128
+text = "Game Over"
+
+[node name="UndoLastMove" type="Button" parent="GameOver/VBoxContainer" unique_id=1732905263]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "Letzten Zug rückgängig machen"
+
+[node name="RestartLevel" type="Button" parent="GameOver/VBoxContainer" unique_id=1640836698]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "Level neu starten"
+
+[node name="BackToLevelSelection" type="Button" parent="GameOver/VBoxContainer" unique_id=1231436447]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "Verlassen"
+
 [connection signal="pressed" from="Menu/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
@@ -145,3 +213,7 @@ text = "Zurück"
 [connection signal="value_changed" from="Options/VBoxContainer/Ambience" to="." method="_on_ambient_value_changed"]
 [connection signal="pressed" from="Options/HideOptions" to="." method="_on_hide_options_pressed"]
 [connection signal="pressed" from="Controls/VBoxContainer/HideControls" to="." method="_on_hide_controls_pressed"]
+[connection signal="pressed" from="LevelComplete/VBoxContainer/BackToLevelSelection" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/UndoLastMove" to="." method="_on_undo_last_move_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/RestartLevel" to="." method="_on_restart_level_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/BackToLevelSelection" to="." method="_on_leave_pressed"]

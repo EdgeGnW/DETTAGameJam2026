@@ -3,9 +3,15 @@ extends Control
 @onready var options: PanelContainer = $Options
 @onready var menu: PanelContainer = $Menu
 @onready var controls: PanelContainer = $Controls
+@onready var level_complete: PanelContainer = $LevelComplete
+@onready var game_over: PanelContainer = $GameOver
+
+signal undo_last_move
 
 
 func _on_leave_pressed() -> void:
+	level_complete.hide()
+	game_over.hide()
 	SceneManager.go_back()
 
 
@@ -45,3 +51,19 @@ func _on_sound_value_changed(value: float) -> void:
 
 func _on_ambient_value_changed(value: float) -> void:
 	AudioManager.set_volume("Ambience", value)
+
+func _on_level_complete() -> void:
+	level_complete.show()
+	ProgressManager.completeLevel(SceneManager.current_scene.resource_path.split('/')[-1])
+	ProgressManager.saveProgress()
+	
+func _on_game_over():
+	game_over.show()
+
+func _on_restart_level_pressed() -> void:
+	game_over.hide()
+	SceneManager.reload_current_scene()
+
+func _on_undo_last_move_pressed() -> void:
+	game_over.hide()
+	undo_last_move.emit()

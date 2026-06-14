@@ -35,6 +35,10 @@ func _ready():
 		player.grid_position = local_to_map(player.position)
 		player.position = map_to_local(player.grid_position)
 		player_by_color[player.color] = player
+		
+	win.connect(Menu._on_level_complete)
+	Menu.undo_last_move.connect(load_last_state_and_activate_input)
+	gameover.connect(Menu._on_game_over)
 	
 	input_manager.go.connect(move_players)
 	input_manager.selectedDirection.connect(receive_direction)
@@ -58,6 +62,10 @@ func load_last_state():
 			player[0].visible = true
 			player[0].grid_position = player[1]
 			player[0].position = map_to_local(player[1])
+
+func load_last_state_and_activate_input():
+	load_last_state()
+	activate_input()
 
 func plan_path(player: Player, direction: Direction):
 	var path_to = player.grid_position
@@ -147,6 +155,7 @@ func finish_path(player: Player):
 			win.emit()
 			animate_goal(true)
 		elif active_players().any(is_off_grid) or lost_color():
+			print('gameover')
 			gameover.emit()
 		else:
 			activate_input()
