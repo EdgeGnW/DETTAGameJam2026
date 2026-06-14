@@ -2,6 +2,7 @@ class_name LevelEnterTrigger extends Area2D
 
 @export var sceneToLoad: PackedScene
 @onready var tile_map_layer: TileMapLayer = $"../TileMapLayer"
+signal isComplete
 
 func _ready() -> void:
 	position = tile_map_layer.map_to_local(tile_map_layer.local_to_map(position))
@@ -24,3 +25,5 @@ func check_complete():
 		
 	var grid_position = tile_map_layer.local_to_map(position)
 	tile_map_layer.set_cell(grid_position, 0, Vector2i(0, 2))
+	
+	isComplete.emit()

@@ -58,40 +58,54 @@ size_flags_horizontal = 4
 [node name="Label3" type="Label" parent="Options/VBoxContainer" unique_id=252807440]
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_bottom = NodePath("../Label")
 theme_override_font_sizes/font_size = 128
 text = "Einstellungen"
 
 [node name="Label" type="Label" parent="Options/VBoxContainer" unique_id=1257508680]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Label3")
+focus_neighbor_bottom = NodePath("../Music")
 theme_override_font_sizes/font_size = 64
 text = "Musik"
 
 [node name="Music" type="HSlider" parent="Options/VBoxContainer" unique_id=1485625449]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Label")
+focus_neighbor_bottom = NodePath("../Label2")
 value = 100.0
 
 [node name="Label2" type="Label" parent="Options/VBoxContainer" unique_id=1570766346]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Music")
+focus_neighbor_bottom = NodePath("../Sound")
 theme_override_font_sizes/font_size = 64
 text = "Effekte"
 
 [node name="Sound" type="HSlider" parent="Options/VBoxContainer" unique_id=1871616337]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Label2")
+focus_neighbor_bottom = NodePath("../Label4")
 value = 100.0
 
 [node name="Label4" type="Label" parent="Options/VBoxContainer" unique_id=1206019537]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Sound")
+focus_neighbor_bottom = NodePath("../Ambience")
 theme_override_font_sizes/font_size = 64
 text = "Ambiente"
 
 [node name="Ambience" type="HSlider" parent="Options/VBoxContainer" unique_id=2115441560]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Label4")
+focus_neighbor_bottom = NodePath("../ResetProgress")
 value = 100.0
 
 [node name="ResetProgress" type="Button" parent="Options/VBoxContainer" unique_id=1787498405]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../HideOptions")
 theme_override_font_sizes/font_size = 64
 text = "Fortschritt zurücksetzen"
 
@@ -99,6 +113,7 @@ text = "Fortschritt zurücksetzen"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../ResetProgress")
 theme_override_font_sizes/font_size = 128
 text = "Zurück"
 

@@ -14,7 +14,7 @@ func _ready() -> void:
 	screenResolution = get_viewport().get_visible_rect().size
 	print(player)
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not currentlyProcessingInput:
 		return
 	if event is not InputEventMouseMotion and event is not InputEventMouseButton:
@@ -25,4 +25,4 @@ func _input(event: InputEvent) -> void:
 	playerScreenPosition = player.get_global_transform_with_canvas().origin
 	var vectorToMouse: Vector2 = (mousePosition - playerScreenPosition).normalized();
 	currentDirection = angleToDirection(vectorToMouse.angle())
-	super._input(event)
+	super._unhandled_input(event)

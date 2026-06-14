@@ -10,7 +10,7 @@ func rotateDirection(direction: Direction, right: bool) -> Direction:
 	
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not currentlyProcessingInput:
 		return
 	if event is not InputEventKey:
@@ -48,4 +48,4 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("reset"):
 		reset.emit()
 	
-	super._input(event)
+	super._unhandled_input(event)
