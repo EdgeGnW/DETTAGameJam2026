@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://5e5llnxgu7bi"]
 
+[ext_resource type="Texture2D" uid="uid://b2qoug16dp2q4" path="res://modules/TileSet/Spiegel.png" id="2_4bpwj"]
 [ext_resource type="PackedScene" uid="uid://bggnxxa7sf6n5" path="res://modules/Test/scene_tile.tscn" id="2_8qil4"]
 [ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="4_i3ntd"]
-[ext_resource type="Texture2D" uid="uid://dy5ow7h3we1ln" path="res://modules/TileSet/Einseitige_Spiegel.png" id="5_m1b5w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1b5w"]
 texture = ExtResource("4_i3ntd")
@@ -44,27 +44,34 @@ texture_region_size = Vector2i(256, 296)
 6:8/0 = 0
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gj8mg"]
-texture = ExtResource("5_m1b5w")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bbjcb"]
+texture = ExtResource("2_4bpwj")
 texture_region_size = Vector2i(256, 296)
 0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
 0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
 0:2/0 = 0
+1:0/0 = 0
+1:1/0 = 0
 1:2/0 = 0
+2:0/0 = 0
+2:1/0 = 0
 2:2/0 = 0
+3:0/0 = 0
+3:1/0 = 0
 3:2/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_4bpwj"]
 tile_shape = 3
 tile_size = Vector2i(256, 294)
 sources/3 = SubResource("TileSetAtlasSource_m1b5w")
-sources/4 = SubResource("TileSetAtlasSource_gj8mg")
+sources/6 = SubResource("TileSetAtlasSource_bbjcb")
+tile_proxies/coords_level = [[4, Vector2i(0, 0)], [6, Vector2i(0, 0)], [4, Vector2i(0, 1)], [6, Vector2i(0, 1)], [4, Vector2i(0, 2)], [6, Vector2i(0, 2)], [4, Vector2i(1, 0)], [6, Vector2i(1, 0)], [4, Vector2i(1, 1)], [6, Vector2i(1, 1)], [4, Vector2i(1, 2)], [6, Vector2i(1, 2)], [4, Vector2i(2, 0)], [6, Vector2i(2, 0)], [4, Vector2i(2, 1)], [6, Vector2i(2, 1)], [4, Vector2i(2, 2)], [6, Vector2i(2, 2)], [4, Vector2i(3, 0)], [6, Vector2i(3, 0)], [4, Vector2i(3, 1)], [6, Vector2i(3, 1)], [4, Vector2i(3, 2)], [6, Vector2i(3, 2)], [5, Vector2i(0, 0)], [6, Vector2i(4, 0)], [5, Vector2i(0, 1)], [6, Vector2i(4, 1)], [5, Vector2i(0, 2)], [6, Vector2i(4, 2)], [5, Vector2i(1, 0)], [6, Vector2i(5, 0)], [5, Vector2i(1, 1)], [6, Vector2i(5, 1)], [5, Vector2i(1, 2)], [6, Vector2i(5, 2)]]
 
 [node name="Frederick Testet" type="Node2D" unique_id=875707073]
 scale = Vector2(0.65, 0.65)
