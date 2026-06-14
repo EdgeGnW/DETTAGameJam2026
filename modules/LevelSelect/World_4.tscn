@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="5_2vfpa"]
 [ext_resource type="PackedScene" uid="uid://bwnl065t80bq4" path="res://modules/LevelSelect/LevelEnterTrigger.tscn" id="6_ufi7f"]
 [ext_resource type="PackedScene" uid="uid://cano2l1v4li8e" path="res://modules/Levels/World 4/Level_4-1.tscn" id="7_6mcg0"]
-[ext_resource type="PackedScene" uid="uid://dftgcni1yx6be" path="res://modules/Levels/World 4/Level_4-2.tscn" id="8_2w20i"]
-[ext_resource type="PackedScene" uid="uid://b50jren37wyfe" path="res://modules/Levels/World 4/Level_4-3.tscn" id="9_ea7gk"]
-[ext_resource type="PackedScene" uid="uid://bqf3nf1d4qsqv" path="res://modules/Levels/World 4/Level_4-4.tscn" id="10_ptbbd"]
+[ext_resource type="PackedScene" uid="uid://dftgcni1yx6be" path="res://modules/Levels/World 4/Level_4-4.tscn" id="8_2w20i"]
+[ext_resource type="PackedScene" uid="uid://b50jren37wyfe" path="res://modules/Levels/World 4/Level_4-2.tscn" id="9_ea7gk"]
+[ext_resource type="PackedScene" uid="uid://bqf3nf1d4qsqv" path="res://modules/Levels/World 4/Level_4-3.tscn" id="10_ptbbd"]
 [ext_resource type="PackedScene" uid="uid://dwb3ofv350lg1" path="res://modules/Levels/World 4/Level_4-5.tscn" id="11_3ka03"]
+[ext_resource type="PackedScene" uid="uid://dujqvwfeltr6b" path="res://modules/Levels/World 4/Level_4-6.tscn" id="12_ea7gk"]
+[ext_resource type="PackedScene" uid="uid://jhje5qd28jya" path="res://modules/Levels/World 4/Level_4-7.tscn" id="13_ptbbd"]
 
 [sub_resource type="Gradient" id="Gradient_frquf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -148,15 +150,15 @@ sceneToLoad = ExtResource("7_6mcg0")
 
 [node name="LevelEnterTrigger2" parent="." unique_id=1785716277 groups=["LevelEnterTriggers"] instance=ExtResource("6_ufi7f")]
 position = Vector2(385.45453, 1027.2727)
-sceneToLoad = ExtResource("8_2w20i")
+sceneToLoad = ExtResource("9_ea7gk")
 
 [node name="LevelEnterTrigger3" parent="." unique_id=2043473498 groups=["LevelEnterTriggers"] instance=ExtResource("6_ufi7f")]
 position = Vector2(1274.5454, 816.3636)
-sceneToLoad = ExtResource("9_ea7gk")
+sceneToLoad = ExtResource("10_ptbbd")
 
 [node name="LevelEnterTrigger4" parent="." unique_id=1436574257 groups=["LevelEnterTriggers"] instance=ExtResource("6_ufi7f")]
 position = Vector2(2054.5454, 1247.2727)
-sceneToLoad = ExtResource("10_ptbbd")
+sceneToLoad = ExtResource("8_2w20i")
 
 [node name="LevelEnterTrigger5" parent="." unique_id=2105204455 groups=["LevelEnterTriggers"] instance=ExtResource("6_ufi7f")]
 position = Vector2(2187.2727, 1021.8181)
@@ -164,6 +166,8 @@ sceneToLoad = ExtResource("11_3ka03")
 
 [node name="LevelEnterTrigger6" parent="." unique_id=1367068513 groups=["LevelEnterTriggers"] instance=ExtResource("6_ufi7f")]
 position = Vector2(2180, 590.90906)
+sceneToLoad = ExtResource("12_ea7gk")
 
 [node name="LevelEnterTrigger7" parent="." unique_id=453019465 groups=["LevelEnterTriggers"] instance=ExtResource("6_ufi7f")]
 position = Vector2(2045.4545, 376.36362)
+sceneToLoad = ExtResource("13_ptbbd")

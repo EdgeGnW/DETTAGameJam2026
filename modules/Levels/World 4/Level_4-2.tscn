@@ -1,10 +1,10 @@
-[gd_scene format=4 uid="uid://dftgcni1yx6be"]
+[gd_scene format=4 uid="uid://b50jren37wyfe"]
 
-[ext_resource type="TileSet" uid="uid://co6p8q7xfd6cb" path="res://level_tile_set.tres" id="1_xf8wu"]
-[ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="2_rhnpk"]
-[ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="3_rms8q"]
-[ext_resource type="PackedScene" uid="uid://exulgvu6ki71" path="res://modules/Player/player.tscn" id="4_j6i0f"]
-[ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="5_jpwoo"]
+[ext_resource type="TileSet" uid="uid://co6p8q7xfd6cb" path="res://level_tile_set.tres" id="1_fwxil"]
+[ext_resource type="Script" uid="uid://cw15nmlcgsc16" path="res://modules/florian/movement.gd" id="2_5kvis"]
+[ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="3_nbba2"]
+[ext_resource type="PackedScene" uid="uid://exulgvu6ki71" path="res://modules/Player/player.tscn" id="4_n6oqm"]
+[ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="5_ufrs2"]
 
 [sub_resource type="Gradient" id="Gradient_pkfvj"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -53,7 +53,7 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 gradient = SubResource("Gradient_nq0c8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wlpl"]
-texture = ExtResource("5_jpwoo")
+texture = ExtResource("5_ufrs2")
 texture_region_size = Vector2i(256, 296)
 0:0/0 = 0
 
@@ -63,16 +63,17 @@ tile_size = Vector2i(256, 294)
 sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 
 [node name="Level" type="Node2D" unique_id=1618690172]
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.65, 0.65)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
-tile_set = ExtResource("1_xf8wu")
-script = ExtResource("2_rhnpk")
+tile_map_data = PackedByteArray("AAABAAUAAQABAAAAAAACAAAAAQABAAEAAAAGAAQAAQABAAEAAAAHAAUAAQAAAAAAAAADAAUAAgAEAAAAAAAEAAMAAgAEAAAAAAAGAAEAAgADAAAAAAACAAMAAwAAAAAAAAAEAAQABAACAAAAAAAHAAQABAAAAAEAAAAHAAMABQAAAAAAAAAFAAUAAgAEAAIAAAA=")
+tile_set = ExtResource("1_fwxil")
+script = ExtResource("2_5kvis")
 
-[node name="InputManager" parent="TileMapLayer" unique_id=384199129 instance=ExtResource("3_rms8q")]
+[node name="InputManager" parent="TileMapLayer" unique_id=384199129 instance=ExtResource("3_nbba2")]
 unique_name_in_owner = true
 
-[node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("4_j6i0f")]
+[node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("4_n6oqm")]
 position = Vector2(264.99997, 804.99994)
 color = Vector3i(1, 1, 1)
 
@@ -80,7 +81,7 @@ color = Vector3i(1, 1, 1)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_ajds0")
 
-[node name="Orange" parent="TileMapLayer" unique_id=312668295 instance=ExtResource("4_j6i0f")]
+[node name="Orange" parent="TileMapLayer" unique_id=312668295 instance=ExtResource("4_n6oqm")]
 visible = false
 color = Vector3i(1, 1, 0)
 
@@ -88,7 +89,7 @@ color = Vector3i(1, 1, 0)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_t14ll")
 
-[node name="Yellow" parent="TileMapLayer" unique_id=2011972468 instance=ExtResource("4_j6i0f")]
+[node name="Yellow" parent="TileMapLayer" unique_id=2011972468 instance=ExtResource("4_n6oqm")]
 visible = false
 color = Vector3i(0, 1, 0)
 
@@ -96,7 +97,7 @@ color = Vector3i(0, 1, 0)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_i0vfp")
 
-[node name="Green" parent="TileMapLayer" unique_id=982396545 instance=ExtResource("4_j6i0f")]
+[node name="Green" parent="TileMapLayer" unique_id=982396545 instance=ExtResource("4_n6oqm")]
 visible = false
 color = Vector3i(0, 1, 1)
 
@@ -104,7 +105,7 @@ color = Vector3i(0, 1, 1)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_okqmr")
 
-[node name="Blue" parent="TileMapLayer" unique_id=1368596741 instance=ExtResource("4_j6i0f")]
+[node name="Blue" parent="TileMapLayer" unique_id=1368596741 instance=ExtResource("4_n6oqm")]
 visible = false
 position = Vector2(368, 296)
 color = Vector3i(0, 0, 1)
@@ -113,7 +114,7 @@ color = Vector3i(0, 0, 1)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_awh86")
 
-[node name="Violet" parent="TileMapLayer" unique_id=1544141049 instance=ExtResource("4_j6i0f")]
+[node name="Violet" parent="TileMapLayer" unique_id=1544141049 instance=ExtResource("4_n6oqm")]
 visible = false
 color = Vector3i(1, 0, 1)
 
@@ -121,7 +122,7 @@ color = Vector3i(1, 0, 1)
 scale = Vector2(0.2, 0.2)
 texture = SubResource("GradientTexture2D_6h2uu")
 
-[node name="Red" parent="TileMapLayer" unique_id=1257344248 instance=ExtResource("4_j6i0f")]
+[node name="Red" parent="TileMapLayer" unique_id=1257344248 instance=ExtResource("4_n6oqm")]
 visible = false
 position = Vector2(594, 340)
 color = Vector3i(1, 0, 0)
