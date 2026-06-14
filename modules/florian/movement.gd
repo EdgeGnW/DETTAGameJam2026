@@ -46,8 +46,10 @@ func _ready():
 				black_holes[cell] = [0, 0]
 				for direction in range(6):
 					var next_cell = next_tile(cell, direction)
-					black_holes[next_cell] = [1, (3 + direction)%6]
-					black_holes[next_tile(next_cell, direction)] = [2, (3 + direction)%6]
+					var inverse_direction = (3 + direction)%6
+					black_holes[next_cell] = [1, inverse_direction]
+					black_holes[next_tile(next_cell, direction)] = [2, inverse_direction]
+					black_holes[next_tile(next_cell, (direction + 1)%6)] = [3, inverse_direction]
 	
 	win.connect(Menu._on_level_complete)
 	Menu.undo_last_move.connect(load_last_state_and_activate_input)
@@ -111,8 +113,10 @@ func plan_path(player: Player, direction: Direction):
 			break
 		path_to = new_position
 		if path_to in black_holes.keys():
-			if player not in close_to_black_holes.keys() or close_to_black_holes[player] + black_holes[path_to][0] < 3:
+			if close_to_black_holes.get(player, 0) + black_holes[path_to][0] < 3:
 				break
+		else:
+			close_to_black_holes.erase(player)
 	player_paths[player] = path_to
 	player_directions[player] = direction
 	
@@ -169,7 +173,6 @@ func check_final_position(player: Player):
 				move_player(player)
 		elif is_goal(grid_position):
 			color_in_goal += player.color
-			print(player.color, " in goal (", color_in_goal, ")")
 		elif is_black_hole(grid_position):
 			# Color got absorbed
 			player.visible = false
@@ -179,7 +182,6 @@ func check_final_position(player: Player):
 		if black_hole[0] >= 1 and (6 + direction - black_hole[1]) % 6 in [2, 3, 4]:
 			new_direction = (6 + 2 * direction - ((3 + black_hole[1]) % 6)) % 6
 			close_to_black_holes[player] = close_to_black_holes.get(player, 0) + 1
-			print(close_to_black_holes[player])
 			plan_path(player, new_direction)
 			move_player(player)
 		else:
