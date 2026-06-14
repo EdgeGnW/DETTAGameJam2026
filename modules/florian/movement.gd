@@ -138,6 +138,7 @@ func plan_path(player: Player, direction: Direction):
 			close_to_black_holes.erase(player)
 	player_paths[player] = path_to
 	player_directions[player] = direction
+	print("Test", player_paths)
 	
 	
 func check_final_position(player: Player):
@@ -153,6 +154,9 @@ func check_final_position(player: Player):
 			if mirror_type.y > 0 and (direction + (mirror_type.x + 6 * (mirror_type.y - 1)) / 2) % 6 in [5, 0, 1]:
 				# Hit one-way mirror's backside -> Go through
 				new_direction = direction
+				if grid_position in black_holes.keys():
+					do_black_hole_stuff(player, grid_position, direction)
+					return
 			else:
 				# Hit mirror -> Reflect
 				direction = new_direction
@@ -191,8 +195,11 @@ func check_final_position(player: Player):
 					new_player.position = player.position
 					if player in close_to_black_holes.keys():
 						close_to_black_holes[new_player] = close_to_black_holes[player]
-					plan_path(new_player, direction)
-					move_player(new_player)
+					if grid_position in black_holes.keys():
+						do_black_hole_stuff(new_player, grid_position, direction)
+					else:
+						plan_path(new_player, direction)
+						move_player(new_player)
 			else:
 				plan_path(player, direction)
 				move_player(player)
@@ -202,26 +209,29 @@ func check_final_position(player: Player):
 			# Color got absorbed
 			player.visible = false
 	elif grid_position in black_holes.keys():
-		AudioManager.play_sound(WALL)
-		var black_hole = black_holes[grid_position]
-		if close_to_black_holes.get(player, 0) + black_hole[0] < 3:
-			var new_direction = direction
-			if black_hole[0] >= 1 and (6 + direction - black_hole[1]) % 6 in [2, 3, 4]:
-				new_direction = (6 + 2 * direction - ((3 + black_hole[1]) % 6)) % 6
-				close_to_black_holes[player] = close_to_black_holes.get(player, 0) + 1
-				plan_path(player, new_direction)
-				move_player(player)
-			elif is_wall(next_tile(grid_position, direction), direction): # TODO: Mirror's Edge
-				player_paths[player] = black_hole[2]
-				move_player(player)
-			else:
-				plan_path(player, direction)
-				move_player(player)
-		else:
-			player_paths[player] = black_hole[2]
-			move_player(player)
+		do_black_hole_stuff(player, grid_position, direction)
 	else:
 		AudioManager.play_sound(WALL)
+
+func do_black_hole_stuff(player, grid_position, direction):
+	AudioManager.play_sound(WALL)
+	var black_hole = black_holes[grid_position]
+	if close_to_black_holes.get(player, 0) + black_hole[0] < 3:
+		var new_direction = direction
+		if black_hole[0] >= 1 and (6 + direction - black_hole[1]) % 6 in [2, 3, 4]:
+			new_direction = (6 + 2 * direction - ((3 + black_hole[1]) % 6)) % 6
+			close_to_black_holes[player] = close_to_black_holes.get(player, 0) + 1
+			plan_path(player, new_direction)
+			move_player(player)
+		elif is_wall(next_tile(grid_position, direction), direction): # TODO: Mirror's Edge
+			player_paths[player] = black_hole[2]
+			move_player(player)
+		else:
+			plan_path(player, direction)
+			move_player(player)
+	else:
+		player_paths[player] = black_hole[2]
+		move_player(player)
 
 
 func finish_path(player: Player):
@@ -345,7 +355,6 @@ func activate_input():
 	input_manager.reactToInput(true)
 	player_index = 0
 	active_players()[player_index].rays.activate()
-	print("Test")
 
 
 
