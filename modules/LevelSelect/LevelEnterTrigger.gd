@@ -9,8 +9,9 @@ func _ready() -> void:
 	#print(sceneToLoad)
 
 func _on_area_entered(area: Area2D) -> void:
-	SceneManager.update_current_scene(sceneToLoad)
-
+	if area is not Player:
+		return
+	(area as Player).sceneToEnter = sceneToLoad
 
 func _on_area_exited(area: Area2D) -> void:
 	if area is not Player:
