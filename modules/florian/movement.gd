@@ -42,6 +42,9 @@ var merge_arr := [
 ]
 const WALL := preload("uid://mdqugeutjoq6")
 const WON := preload("uid://bt265jl41dxhh")
+const BLACK_HOLE = preload("uid://0s0r5wyxfyt")
+const BLACK_HOLE_ORBIT = preload("uid://xuqs1bh7107p")
+
 const BACKGROUND = preload("uid://cyxjd7iirwu10")
 
 var black_holes := {}
@@ -222,15 +225,18 @@ func do_black_hole_stuff(player, grid_position, direction):
 			close_to_black_holes[player] = close_to_black_holes.get(player, 0) + 1
 			plan_path(player, new_direction)
 			move_player(player)
+			AudioManager.play_sound(BLACK_HOLE_ORBIT)
 		elif is_wall(next_tile(grid_position, direction), direction): # TODO: Mirror's Edge
 			player_paths[player] = black_hole[2]
 			move_player(player)
+			AudioManager.play_sound(BLACK_HOLE_ORBIT)
 		else:
 			plan_path(player, direction)
 			move_player(player)
 	else:
 		player_paths[player] = black_hole[2]
 		move_player(player)
+		AudioManager.play_sound(BLACK_HOLE)
 
 
 func finish_path(player: Player):
