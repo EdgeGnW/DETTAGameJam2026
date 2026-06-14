@@ -21,7 +21,7 @@ func _ready():
 
 	input_manager.go.connect(move_players)
 	input_manager.selectedDirection.connect(receive_direction)
-	input_manager.reactToInput(true)
+	activate_input()
 
 func plan_path(player: Player, direction: Direction):
 	var path_to = player.grid_position
@@ -112,8 +112,6 @@ func check_final_position(player: Player):
 				break
 	
 func receive_direction(direction: Direction):
-	print(players)
-	print(active_players())
 	var current_player = active_players()[player_index]
 	current_player.rays.deactivate()
 	plan_path(current_player, direction)
@@ -121,15 +119,16 @@ func receive_direction(direction: Direction):
 	
 func advance_player_index(direction: int):
 	player_index = (player_index + direction) % len(active_players())
-	active_players()[player_index].rays.activate()
+	var current_player = active_players()[player_index]
+	current_player.rays.activate()
+	input_manager.switchToPlayer(current_player)
+	
 	
 func active_players() -> Array[Player]:
-	#for player in players:
-		#print(player, player.visible)
 	return players.filter(func(player): return player.visible)
 
 func move_players():
-	
+	deactivate_input()
 	for player in player_paths:
 		if player.tween:
 			player.skip_tween()
@@ -137,7 +136,13 @@ func move_players():
 		var final_position = map_to_local(player_paths[player])
 		var distance = (map_to_local(player.grid_position)-final_position).length()
 		player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
-		player.tween.tween_callback(check_final_position.bind(player))
+		var value = player_paths[player]
+		player.grid_position = value
+		player.tween.tween_callback(func():
+			player_paths.erase(player)
+			if player_paths.is_empty():
+				activate_input()
+		)
 
 func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	if direction == Direction.Right:
@@ -153,6 +158,17 @@ func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	else:
 		return Vector2i(source.x+(1 if source.y%2 == 1 else 0), source.y-1)
 
+
+func deactivate_input():
+	print("deactivate input")
+	input_manager.reactToInput(false)
+
+func activate_input():
+	print("activate input")
+	input_manager.switchToPlayer(active_players()[0])
+	input_manager.reactToInput(true)
+	player_index = 0
+	active_players()[player_index].rays.activate()
 
 #TODO richtige Werte für Mirrors, Walls, etc.
 func tile_type(pos: Vector2i) -> int:

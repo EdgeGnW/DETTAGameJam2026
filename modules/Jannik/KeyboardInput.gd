@@ -39,7 +39,5 @@ func _input(event: InputEvent) -> void:
 		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Left)
 	elif event.is_action_pressed("relativeDown"):
 		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Down)
-		
-	print(event.as_text())
 	
 	super._input(event)

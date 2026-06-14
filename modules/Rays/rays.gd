@@ -22,15 +22,20 @@ var tween: Tween
 
 func _ready() -> void:
 	rays.assign(find_children("*", "Line2D", false, false))
-	print(len(rays))
+	for ray in rays:
+		ray.gradient = Gradient.new()
+		ray.gradient.colors[0] = Color.WHITE
+		ray.gradient.colors[0].a = high_intensity / 255
+		ray.gradient.colors[1] = Color.WHITE
+		ray.gradient.colors[1].a = low_intensity / 255
 	deactivate()
 	
 func deactivate():
-	for ray in rays:
-		if ray == rays[current_highlight]: continue
-		ray.points[1].x = low_length
-		ray.width = low_width
-		ray.gradient.colors[0].a = low_intensity/255
+	for i in range(len(rays)):
+		if i == current_highlight: continue
+		rays[i].points[1].x = low_length
+		rays[i].width = low_width
+		rays[i].gradient.colors[0].a = low_intensity/255
 	active = false
 		
 func activate():

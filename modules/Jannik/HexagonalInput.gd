@@ -21,10 +21,8 @@ static var directionVectors: Dictionary = {
 	Direction.DownLeft: Vector2(-0.5, 0.866),
 }
 
-func setProperties(player: Node2D, rays: Node2D) -> void:
-	print('set properties')
+func setProperties(player: Node2D) -> void:
 	self.player = player
-	self.rays = rays
 
 func angleToDirection(angle: float) -> Direction:
 	if (-PI/6 <= angle && angle <= PI/6):
@@ -42,7 +40,7 @@ func angleToDirection(angle: float) -> Direction:
 	return Direction.Left
 
 func _input(event: InputEvent) -> void:
-	rays.highlight_ray(currentDirection)
+	player.rays.highlight_ray(currentDirection)
 	
 	if event.is_action_pressed("confirmDirection"):
 		confirmSelection.emit()
