@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Templates"
-run/main_scene="uid://busdhk8ltwy51"
+run/main_scene="uid://bb761tuniolr0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://d33ywpfccm522"
 config/icon="uid://ddln7w7s8vyyu"
