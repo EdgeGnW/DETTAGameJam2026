@@ -3,15 +3,15 @@ extends Node2D
 
 var rays: Array[Line2D]
 
-@export var normal_intensity := 15
-@export var normal_width := 7
-@export var normal_length := 300
-@export var highlight_intensity := 19
-@export var highlight_width := 15
-@export var highlight_length := 600
-@export var selected_intensity := 100
-@export var selected_width := 20
-@export var selected_length := 750
+@export var normal_intensity := 30
+@export var normal_width := 10
+@export var normal_length := 400
+@export var highlight_intensity := 60
+@export var highlight_width := 20
+@export var highlight_length := 800
+@export var selected_intensity := 180
+@export var selected_width := 40
+@export var selected_length := 900
 @export var tween_time := 0.2
 
 var highlight_index: int = 0

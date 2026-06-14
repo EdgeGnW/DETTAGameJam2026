@@ -1,6 +1,6 @@
 class_name ControllerInput extends HexagonalInput
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not currentlyProcessingInput:
 		return
 	if event is InputEventJoypadMotion:
@@ -19,4 +19,4 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("relativeDown"):
 		currentDirection = getRelativeDirection(currentDirection, RelativeDirection.Down)
 		
-	super._input(event)
+	super._unhandled_input(event)

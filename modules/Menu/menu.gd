@@ -17,28 +17,33 @@ func _on_leave_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	options.show()
-	#menu.hide()
+	options.get_child(0).get_child(2).grab_focus()
 
 
 func _on_hide_options_pressed() -> void:
 	options.hide()
 	menu.show()
+	menu.get_child(0).get_child(1).grab_focus()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu"):
 		menu.visible = not menu.visible
-		
-	if not menu.visible:
-		options.hide()
-		controls.hide()
+			
+		if not menu.visible:
+			options.hide()
+			controls.hide()
+		else:
+			menu.get_child(0).get_child(0).grab_focus()
 
 
 func _on_controls_pressed() -> void:
 	controls.show()
+	controls.get_child(0).get_child(2).grab_focus()
 
 
 func _on_hide_controls_pressed() -> void:
 	controls.hide()
+	menu.get_child(0).get_child(0).grab_focus()
 
 
 func _on_music_value_changed(value: float) -> void:
@@ -55,11 +60,13 @@ func _on_ambient_value_changed(value: float) -> void:
 func _on_level_complete() -> void:
 	await get_tree().create_timer(2).timeout
 	level_complete.show()
+	level_complete.get_child(0).get_child(1).grab_focus()
 	ProgressManager.completeLevel(SceneManager.current_scene)
 	ProgressManager.saveProgress()
 	
 func _on_game_over():
 	game_over.show()
+	game_over.get_child(0).get_child(1).grab_focus()
 
 func _on_restart_level_pressed() -> void:
 	game_over.hide()
