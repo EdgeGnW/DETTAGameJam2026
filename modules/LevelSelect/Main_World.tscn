@@ -69,10 +69,10 @@ tile_size = Vector2i(256, 294)
 sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 
 [node name="World" type="Node2D" unique_id=1618690172]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.66, 0.66)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
-tile_map_data = PackedByteArray("AAABAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAEAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAA=")
 tile_set = ExtResource("1_52b8d")
 script = ExtResource("2_hw51s")
 
@@ -80,7 +80,7 @@ script = ExtResource("2_hw51s")
 unique_name_in_owner = true
 
 [node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("4_0qk5n")]
-position = Vector2(512.6667, 370)
+position = Vector2(1509.0908, 821.2121)
 color = Vector3i(1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=1311493772]
@@ -143,24 +143,24 @@ tile_map_data = PackedByteArray("AAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD7////AAAAAAA
 tile_set = SubResource("TileSet_ig76o")
 
 [node name="LevelEnterTrigger" parent="." unique_id=1143325814 groups=["LevelEnterTriggers"] instance=ExtResource("6_24vxd")]
-position = Vector2(258, 358.6667)
+position = Vector2(754.5454, 795.0303)
 sceneToLoad = ExtResource("7_52b8d")
 
 [node name="LevelEnterTrigger2" parent="." unique_id=2093469121 groups=["LevelEnterTriggers"] instance=ExtResource("6_24vxd")]
-position = Vector2(376.00003, 142)
+position = Vector2(1151.8787, 141.03033)
 sceneToLoad = ExtResource("8_j8nhp")
 
 [node name="LevelEnterTrigger3" parent="." unique_id=148081861 groups=["LevelEnterTriggers"] instance=ExtResource("6_24vxd")]
-position = Vector2(617.3333, 124.000015)
+position = Vector2(1912.5454, 136.36365)
 sceneToLoad = ExtResource("9_c2emt")
 
 [node name="LevelEnterTrigger4" parent="." unique_id=2075487603 groups=["LevelEnterTriggers"] instance=ExtResource("6_24vxd")]
-position = Vector2(752.6666, 360)
+position = Vector2(2303.2122, 803.0303)
 sceneToLoad = ExtResource("10_52b8d")
 
 [node name="LevelEnterTrigger5" parent="." unique_id=673870911 groups=["LevelEnterTriggers"] instance=ExtResource("6_24vxd")]
-position = Vector2(635.9999, 573.3333)
+position = Vector2(1914.5454, 1457.0303)
 sceneToLoad = ExtResource("11_hw51s")
 
 [node name="LevelEnterTrigger6" parent="." unique_id=700936964 groups=["LevelEnterTriggers"] instance=ExtResource("6_24vxd")]
-position = Vector2(381.99988, 592)
+position = Vector2(1150.5454, 1445.0303)
