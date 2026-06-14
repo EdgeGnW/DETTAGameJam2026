@@ -32,7 +32,7 @@ func plan_path(player: Player, direction: Direction):
 				break
 			if is_mirror(new_position):
 				var mirror_type = get_cell_atlas_coords(new_position)
-				var new_direction = (9 - direction - mirror_type.x) % 6
+				var new_direction = (15 - direction - mirror_type.x) % 6
 				if new_direction == direction:
 					# Hit mirror's edge -> Act as wall
 					break
@@ -50,7 +50,7 @@ func check_final_position(player: Player):
 	if get_cell_tile_data(grid_position):
 		if is_mirror(grid_position):
 			var mirror_type = get_cell_atlas_coords(grid_position)
-			var new_direction = (9 - direction - mirror_type.x) % 6
+			var new_direction = (15 - direction - mirror_type.x) % 6
 			if mirror_type.y > 0 and (direction + (mirror_type.x + 6 * (mirror_type.y - 1)) / 2) % 6 in [5, 0, 1]:
 				# Hit one-way mirror's backside -> Go through
 				new_direction = direction
@@ -80,6 +80,8 @@ func check_final_position(player: Player):
 				colors = [[$Blue, -1], [$Red, 1]]
 			for color in colors:
 				color[0].visible = true
+				color[0].grid_position = player.grid_position
+				color[0].position = player.position
 				var color_direction = (6 + direction + color[1]) % 6
 				plan_path(color[0], color_direction)
 				if color[0].tween:
@@ -89,7 +91,25 @@ func check_final_position(player: Player):
 				var distance = (map_to_local(color[0].grid_position)-final_position).length()
 				color[0].tween.tween_property(color[0], "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
 				color[0].tween.tween_callback(check_final_position.bind(color[0]))
-				
+	else:
+		player_paths.erase(player)
+		for p in active_players():
+			if p != player and not player_paths.has(p) and player.grid_position == p.grid_position:
+				p.visible = false
+				player.visible = false
+				var joined_color = p
+				if (p == $Blue and player == $Yellow) or (p == $Yellow and player == $Blue):
+					joined_color = $Green
+				elif (p == $Blue and player == $Red) or (p == $Red and player == $Blue):
+					joined_color = $Violet
+				elif (p == $Red and player == $Yellow) or (p == $Yellow and player == $Red):
+					joined_color = $Orange
+				else:
+					joined_color = $White
+				joined_color.visible = true
+				joined_color.grid_position = p.grid_position
+				joined_color.position = p.position
+				break
 	
 func receive_direction(direction: Direction):
 	print(players)
@@ -144,8 +164,7 @@ func is_wall(pos: Vector2i) -> bool:
 	return tile_type(pos) == 1
 
 func is_mirror(pos: Vector2i) -> bool:
-	var type = tile_type(pos)
-	return type > 1 and type < 20
+	return tile_type(pos) == 2
 
 func is_prism(pos: Vector2i) -> bool:
-	return tile_type(pos) == 20
+	return tile_type(pos) == 3
