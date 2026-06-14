@@ -28,6 +28,16 @@ var crystal_dict = {
 	Vector2i(2, 1): Vector3i(1, 0, 1)
 }
 
+const LOST_OR_STUCK := preload("uid://ca0elmi7h67j7")
+var move_arr := [preload("uid://bq7wgbobex3th"),
+	preload("uid://bey48i72g40e6"),
+	preload("uid://c8sqv02j0lmk2")]
+var mirror_prism_arr := [preload("uid://boc8t2s3ewshq"),
+	preload("uid://chkdh7h52v6d4"),
+	preload("uid://dkrffrl7cfo6t")]
+const WALL := preload("uid://mdqugeutjoq6")
+const WON := preload("uid://bt265jl41dxhh")
+
 var black_holes := {}
 var close_to_black_holes := {}
 
@@ -111,6 +121,7 @@ func plan_path(player: Player, direction: Direction):
 				if new_direction == direction:
 					# Hit mirror's edge -> Act as wall
 					break
+				AudioManager.play_random_sound(mirror_prism_arr)
 			path_to = new_position
 			break
 		path_to = new_position
@@ -142,6 +153,7 @@ func check_final_position(player: Player):
 			player.clean_effects()
 			move_player(player)
 		elif is_prism(grid_position):
+			AudioManager.play_random_sound(mirror_prism_arr)
 			var colors = []
 			player.visible = false
 			if player.color.x == 1:
@@ -183,6 +195,7 @@ func check_final_position(player: Player):
 			# Color got absorbed
 			player.visible = false
 	elif grid_position in black_holes.keys():
+		AudioManager.play_sound(WALL)
 		var black_hole = black_holes[grid_position]
 		if close_to_black_holes.get(player, 0) + black_hole[0] < 3:
 			var new_direction = direction
@@ -198,6 +211,8 @@ func check_final_position(player: Player):
 		else:
 			player_paths[player] = black_hole[2]
 			move_player(player)
+	else:
+		AudioManager.play_sound(WALL)
 
 
 func finish_path(player: Player):
@@ -214,10 +229,15 @@ func finish_path(player: Player):
 	if player_paths.is_empty():
 		if color_in_goal == Vector3i(1, 1, 1):
 			win.emit()
+			AudioManager.play_sound(WON)
 			animate_goal(true)
-			get_player_of_color(Vector3i(1,1,1)).hide()
+			player = get_player_of_color(Vector3i(1,1,1))
+			player.tween = create_tween()
+			player.tween.tween_property(player.sprite, "modulate:a", 0, 0.2)
+			
 		elif active_players().any(is_off_grid) or lost_color():
 			gameover.emit()
+			AudioManager.play_sound(LOST_OR_STUCK)
 		else:
 			activate_input()
 		
@@ -267,6 +287,7 @@ func move_player(player: Player):
 	if player.tween:
 		player.skip_tween()
 	player.tween = create_tween()
+	AudioManager.play_random_sound(move_arr)
 	var final_position = map_to_local(player_paths[player])
 	var distance = (map_to_local(player.grid_position)-final_position).length()
 	player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount

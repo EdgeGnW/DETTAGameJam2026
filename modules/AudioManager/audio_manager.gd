@@ -50,6 +50,12 @@ func play_sound(sound: AudioStream, pitch_scale := 1.0):
 	player.play()
 	sound_index = (sound_index + 1) % len(sound_players)
 	
+func play_random_sound(soundarr: Array):
+	var player = sound_players[sound_index]
+	player.stream = soundarr[randi() % len(soundarr)]
+	player.play()
+	sound_index = (sound_index + 1) % len(sound_players)
+	
 func set_volume(bus_name, percentage: float):
 	var index = AudioServer.get_bus_index(bus_name)
 	var db_value = linear_to_db(percentage / 100)
