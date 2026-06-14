@@ -1,24 +1,22 @@
 [gd_scene format=3 uid="uid://bwnl065t80bq4"]
 
 [ext_resource type="Script" uid="uid://du5d85t0kvi06" path="res://modules/LevelSelect/LevelEnterTrigger.gd" id="1_m6d7h"]
-[ext_resource type="PackedScene" uid="uid://cckxqmqffuu24" path="res://modules/Pascal/world.tscn" id="2_vcmte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6d7h"]
-radius = 36.0
+radius = 18.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k1dec"]
-size = Vector2(50, 50)
+size = Vector2(10, 10)
 
 [node name="LevelEnterTrigger" type="Area2D" unique_id=1143325814]
-scale = Vector2(2, 2)
 script = ExtResource("1_m6d7h")
-sceneToLoad = ExtResource("2_vcmte")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2111759331]
 shape = SubResource("CircleShape2D_m6d7h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1172823414]
+visible = false
 texture = SubResource("PlaceholderTexture2D_k1dec")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

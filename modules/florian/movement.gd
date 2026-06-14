@@ -191,6 +191,9 @@ func active_players() -> Array[Player]:
 	return visible_players().filter(func(player): return player.color != color_in_goal)
 
 func move_players():
+	if active_players().size() == 1 and player_paths.size() == 0 and active_players()[0].sceneToEnter:
+		SceneManager.update_current_scene(active_players()[0].sceneToEnter)
+		return
 	if player_paths.size() == active_players().size():
 		save_state()
 		deactivate_input()
