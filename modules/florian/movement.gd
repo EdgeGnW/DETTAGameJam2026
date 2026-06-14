@@ -140,16 +140,17 @@ func active_players() -> Array[Player]:
 	return players.filter(func(player): return player.visible)
 
 func move_players():
-	deactivate_input()
-	for player in player_paths:
-		if player.tween:
-			player.skip_tween()
-		player.tween = create_tween()
-		var final_position = map_to_local(player_paths[player])
-		var distance = (map_to_local(player.grid_position)-final_position).length()
-		player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
-		player.tween.tween_callback(check_final_position.bind(player))
-		player.tween.tween_callback(finish_path.bind(player))
+	if player_paths.size() == active_players().size():
+		deactivate_input()
+		for player in player_paths:
+			if player.tween:
+				player.skip_tween()
+			player.tween = create_tween()
+			var final_position = map_to_local(player_paths[player])
+			var distance = (map_to_local(player.grid_position)-final_position).length()
+			player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
+			player.tween.tween_callback(check_final_position.bind(player))
+			player.tween.tween_callback(finish_path.bind(player))
 
 func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	if direction == Direction.Right:
