@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://bvdqrebadqxcp" path="res://modules/Rays/rays.gd" id="1_vd3ly"]
 
 [sub_resource type="Curve" id="Curve_rfy5o"]
-_limits = [0.0, 1.0, 0.0, 1.314741]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1.314741, 0), -0.20796682, -0.20796682, 0, 0]
+_data = [Vector2(0, 1), 0.0, -2.6678786, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_to5mh"]
