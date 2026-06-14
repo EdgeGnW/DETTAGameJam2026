@@ -1,24 +1,22 @@
+class_name Trail
 extends Line2D
 
 # Reference to the Line2D node
-@export var node2d: Node2D
+var node2d: Node2D
 # Maximum number of points in the trail
-@export var max_points: int = 20
+var max_points: int = 20
 # Distance between points
-@export var point_spacing: float = 20
+var point_spacing: float = 40
 # Used to control the spacing between trail points
 var distance_accum: float = 0.0
 
 func _ready():
-	if node2d == null:
-		print("Error: node2d is not assigned. Please assign it in the editor.")
-		return
-	# Ensure the Line2D node is empty at the start
 	clear_points()
 	
 func _process(delta):
 	if node2d == null:
-		return
+		call_deferred("free")
+	if not node2d.visible: return
 	var start_position = node2d.position#get_viewport().get_start_position()
 	# Calculate the distance from the last point to the current mouse position
 	if get_point_count() > 0:

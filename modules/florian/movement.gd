@@ -133,6 +133,7 @@ func check_final_position(player: Player):
 				# Hit mirror -> Reflect
 				direction = new_direction
 			plan_path(player, direction)
+			player.clean_effects()
 			move_player(player)
 		elif is_prism(grid_position):
 			var colors = []
@@ -252,14 +253,12 @@ func move_player(player: Player):
 	if player.tween:
 		player.skip_tween()
 	player.tween = create_tween()
-	player.show_effects()
 	var final_position = map_to_local(player_paths[player])
 	var distance = (map_to_local(player.grid_position)-final_position).length()
 	player.tween.tween_property(player, "position", final_position, TWEEN_TIME * distance / tile_set.tile_size.x) #multiply by amount
 	player.tween.tween_callback(check_final_position.bind(player))
-	player.tween.tween_callback(player.hide_effects)
 	player.tween.tween_callback(finish_path.bind(player))
-	
+	player.tween.tween_callback(player.clean_effects)
 	
 
 func next_tile(source: Vector2i, direction: Direction) -> Vector2i:

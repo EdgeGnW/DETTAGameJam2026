@@ -61,6 +61,7 @@ func activate():
 	active = true
 	
 	
+	
 func highlight_ray(index: int) -> void:
 	if not active: return
 
