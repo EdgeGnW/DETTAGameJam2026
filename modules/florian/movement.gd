@@ -155,7 +155,6 @@ func finish_path(player: Player):
 			win.emit()
 			animate_goal(true)
 		elif active_players().any(is_off_grid) or lost_color():
-			print('gameover')
 			gameover.emit()
 		else:
 			activate_input()

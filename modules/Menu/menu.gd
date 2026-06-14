@@ -53,6 +53,7 @@ func _on_ambient_value_changed(value: float) -> void:
 	AudioManager.set_volume("Ambience", value)
 
 func _on_level_complete() -> void:
+	await get_tree().create_timer(2).timeout
 	level_complete.show()
 	ProgressManager.completeLevel(SceneManager.current_scene.resource_path.split('/')[-1])
 	ProgressManager.saveProgress()
