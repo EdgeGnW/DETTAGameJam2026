@@ -174,50 +174,151 @@ sceneToLoad = ExtResource("12_c2emt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=895764970]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1965821702]
+[node name="Window" type="Node" parent="CanvasLayer" unique_id=1065440527]
+
+[node name="Grid" type="TextureRect" parent="CanvasLayer/Window" unique_id=890274990]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Red" type="TextureRect" parent="CanvasLayer/Window" unique_id=708572507]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Orange" type="TextureRect" parent="CanvasLayer/Window" unique_id=521978812]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Yellow" type="TextureRect" parent="CanvasLayer/Window" unique_id=979378421]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Green" type="TextureRect" parent="CanvasLayer/Window" unique_id=1219911923]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blue" type="TextureRect" parent="CanvasLayer/Window" unique_id=1344611647]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Purple" type="TextureRect" parent="CanvasLayer/Window" unique_id=1265653717]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Labels" type="Node" parent="CanvasLayer" unique_id=359243920]
+
+[node name="Label" type="Label" parent="CanvasLayer/Labels" unique_id=1965821702]
 offset_left = 578.0
 offset_top = 422.0
 offset_right = 618.0
 offset_bottom = 510.0
 text = "1"
 label_settings = SubResource("LabelSettings_c2emt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="CanvasLayer" unique_id=49077961]
+[node name="Label2" type="Label" parent="CanvasLayer/Labels" unique_id=49077961]
 offset_left = 728.0
 offset_top = 169.0
 offset_right = 768.0
 offset_bottom = 257.0
 text = "2"
 label_settings = SubResource("LabelSettings_c2emt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="CanvasLayer" unique_id=1601081817]
+[node name="Label3" type="Label" parent="CanvasLayer/Labels" unique_id=1601081817]
 offset_left = 1030.0
 offset_top = 171.0
 offset_right = 1070.0
 offset_bottom = 259.0
 text = "3"
 label_settings = SubResource("LabelSettings_c2emt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label4" type="Label" parent="CanvasLayer" unique_id=557173689]
+[node name="Label4" type="Label" parent="CanvasLayer/Labels" unique_id=557173689]
 offset_left = 1174.0
 offset_top = 424.0
 offset_right = 1214.0
 offset_bottom = 512.0
 text = "4"
 label_settings = SubResource("LabelSettings_c2emt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label5" type="Label" parent="CanvasLayer" unique_id=1177466825]
+[node name="Label5" type="Label" parent="CanvasLayer/Labels" unique_id=1177466825]
 offset_left = 1031.0
 offset_top = 689.0
 offset_right = 1071.0
 offset_bottom = 777.0
 text = "5"
 label_settings = SubResource("LabelSettings_c2emt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label6" type="Label" parent="CanvasLayer" unique_id=1948802219]
+[node name="Label6" type="Label" parent="CanvasLayer/Labels" unique_id=1948802219]
 offset_left = 726.0
 offset_top = 689.0
 offset_right = 766.0
 offset_bottom = 777.0
 text = "6"
 label_settings = SubResource("LabelSettings_c2emt")
+metadata/_edit_use_anchors_ = true
