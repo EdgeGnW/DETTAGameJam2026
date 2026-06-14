@@ -67,7 +67,7 @@ func highlight_ray(index: int) -> void:
 	if index == highlight_index and has_highlight:
 		return
 	
-	if tween:
+	if tween and tween.is_valid() and tween.is_running():
 		tween.pause()
 		tween.custom_step(tween_time)
 		tween.kill()

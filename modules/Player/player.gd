@@ -8,6 +8,7 @@ var tween: Tween
 var grid_position: Vector2i
 
 func skip_tween():
-	tween.pause()
-	tween.custom_step(9999999)
-	tween.kill()
+	if tween and tween.is_valid() and tween.is_running():
+		tween.pause()
+		tween.custom_step(9999999)
+		tween.kill()
