@@ -2,6 +2,7 @@ class_name HexagonalInput extends Node
 
 signal confirmSelection
 signal go
+signal switchPlayer(direction: int)
 
 enum Direction { Right, UpRight, UpLeft, Left, DownLeft, DownRight }
 enum RelativeDirection { Right, Up, Left, Down }
@@ -47,6 +48,12 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("go"):
 		go.emit()
+		
+	if event.is_action_pressed("switchPlayerRight"):
+		switchPlayer.emit(1)
+		
+	if event.is_action_pressed("switchPlayerLeft"):
+		switchPlayer.emit(-1)
 		
 
 func getRelativeDirection(startingDirection: Direction, modifier: RelativeDirection) -> Direction:

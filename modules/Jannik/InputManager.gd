@@ -4,6 +4,7 @@ extends Node
 signal selectedDirection(direction: HexagonalInput.Direction)
 signal go
 signal back
+signal switchPlayer(direction: int)
 
 var mouseInput: MouseInput
 var keyboardInput: KeyboardInput
@@ -13,15 +14,18 @@ func _ready() -> void:
 	mouseInput = MouseInput.new()
 	mouseInput.confirmSelection.connect(confirmSelectionMouse)
 	mouseInput.go.connect(func(): go.emit())
+	mouseInput.switchPlayer.connect(func(n): switchPlayer.emit(n))
 	add_child(mouseInput)
 	keyboardInput = KeyboardInput.new()
 	keyboardInput.confirmSelection.connect(confirmSelectionKeyboard)
 	keyboardInput.go.connect(func(): go.emit())
 	keyboardInput.back.connect(func(): back.emit())
+	keyboardInput.switchPlayer.connect(func(n): switchPlayer.emit(n))
 	add_child(keyboardInput)
 	controllerInput = ControllerInput.new()
 	controllerInput.confirmSelection.connect(confirmSelectionController)
 	controllerInput.go.connect(func(): go.emit())
+	controllerInput.switchPlayer.connect(func(n): switchPlayer.emit(n))
 	add_child(controllerInput)
 
 func confirmSelectionMouse():

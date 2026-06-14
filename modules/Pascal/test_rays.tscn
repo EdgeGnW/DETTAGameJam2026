@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ta6ju657xmrs"]
+
+[ext_resource type="PackedScene" uid="uid://exulgvu6ki71" path="res://modules/Player/player.tscn" id="1_528hx"]
+[ext_resource type="Script" uid="uid://b05kmxlwjqy8l" path="res://modules/Pascal/test_rays.gd" id="1_j7wil"]
+[ext_resource type="PackedScene" uid="uid://3wpb2gnx7enk" path="res://modules/Jannik/InputManager.tscn" id="2_ij45q"]
+
+[sub_resource type="Gradient" id="Gradient_nq0c8"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ij45q"]
+gradient = SubResource("Gradient_nq0c8")
+
+[node name="TestRays" type="Node2D" unique_id=1558484633]
+script = ExtResource("1_j7wil")
+
+[node name="Red" parent="." unique_id=472444114 instance=ExtResource("1_528hx")]
+position = Vector2(594, 340)
+color = Vector3i(1, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Red" unique_id=534683148]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_ij45q")
+
+[node name="InputManager" parent="." unique_id=384199129 instance=ExtResource("2_ij45q")]
+unique_name_in_owner = true

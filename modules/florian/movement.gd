@@ -39,6 +39,7 @@ func _ready():
 	input_manager.go.connect(move_players)
 	input_manager.selectedDirection.connect(receive_direction)
 	input_manager.back.connect(load_last_state)
+	input_manager.switchPlayer.connect(switch_player_index)
 	activate_input()
 
 func save_state():
@@ -161,13 +162,16 @@ func animate_goal(active: bool) -> void:
 
 func receive_direction(direction: Direction):
 	var current_player = active_players()[player_index]
-	current_player.rays.deactivate()
+	current_player.rays.select_ray()
+	#current_player.rays.deactivate()
 	plan_path(current_player, direction)
-	advance_player_index(1)
+	#advance_player_index(1)
 	
-func advance_player_index(direction: int):
-	player_index = (player_index + direction) % len(active_players())
+func switch_player_index(direction: int):
 	var current_player = active_players()[player_index]
+	current_player.rays.deactivate()
+	player_index = (player_index + direction) % len(active_players())
+	current_player = active_players()[player_index]
 	current_player.rays.activate()
 	input_manager.switchToPlayer(current_player)
 	
@@ -186,6 +190,7 @@ func move_players():
 			move_player(player)
 
 func move_player(player: Player):
+	player.rays.reset()
 	if player.tween:
 		player.skip_tween()
 	player.tween = create_tween()

@@ -46,11 +46,11 @@ colors = PackedColorArray(0.8166666, 0, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6h2uu"]
 gradient = SubResource("Gradient_ka8ik")
 
-[sub_resource type="Gradient" id="Gradient_nq0c8"]
+[sub_resource type="Gradient" id="Gradient_8o06p"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6ejx2"]
-gradient = SubResource("Gradient_nq0c8")
+gradient = SubResource("Gradient_8o06p")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wlpl"]
 texture = ExtResource("5_ppwyt")

@@ -3,18 +3,21 @@ extends Node2D
 
 var rays: Array[Line2D]
 
-@export var low_intensity := 10
-@export var low_width := 5
-@export var low_length := 250
-@export var high_intensity := 19
-@export var high_width := 10
-@export var high_length := 500
-@export var highlighted_intensity := 60
-@export var highlighted_width := 20
-@export var highlighted_length := 750
+@export var normal_intensity := 15
+@export var normal_width := 7
+@export var normal_length := 300
+@export var highlight_intensity := 19
+@export var highlight_width := 15
+@export var highlight_length := 600
+@export var selected_intensity := 100
+@export var selected_width := 20
+@export var selected_length := 750
 @export var tween_time := 0.2
 
-var current_highlight: int = 0
+var highlight_index: int = 0
+var has_highlight := false
+var selected_index: int = -1
+var has_selection := false
 
 var active = false
 
@@ -25,37 +28,93 @@ func _ready() -> void:
 	for ray in rays:
 		ray.gradient = Gradient.new()
 		ray.gradient.colors[0] = Color.WHITE
-		ray.gradient.colors[0].a = high_intensity / 255
+		ray.gradient.colors[0].a = normal_intensity / 255.0
 		ray.gradient.colors[1] = Color.WHITE
-		ray.gradient.colors[1].a = low_intensity / 255
+		ray.gradient.colors[1].a = normal_intensity / 255.0
 	deactivate()
+	
+func reset():
+	has_selection = false
+	has_highlight = false
+	selected_index = -1
+	highlight_index = -1
+	for i in range(len(rays)):
+		rays[i].gradient.colors[0].a = 0
+		rays[i].gradient.colors[1].a = 0
 	
 func deactivate():
 	for i in range(len(rays)):
-		if i == current_highlight: continue
-		rays[i].points[1].x = low_length
-		rays[i].width = low_width
-		rays[i].gradient.colors[0].a = low_intensity/255
+		if i == selected_index and has_selection: continue
+		rays[i].gradient.colors[0].a = 0
+		rays[i].gradient.colors[1].a = 0
 	active = false
-		
+	has_highlight = false
+	
 func activate():
-	for ray in rays:
-		ray.points[1].x = high_length
-		ray.width = high_width
-		ray.gradient.colors[0].a = high_intensity/255
+	for i in range(len(rays)):
+		var ray = rays[i]
+		if i == selected_index and has_selection: continue
+		ray.points[1].x = normal_length
+		ray.width = normal_width
+		ray.gradient.colors[0].a = normal_intensity / 255.0
+		ray.gradient.colors[1].a = normal_intensity / 255.0
 	active = true
 	
 	
 func highlight_ray(index: int) -> void:
 	if not active: return
 
-	if index == current_highlight:
+	if index == highlight_index and has_highlight:
 		return
-	var tween_length = func(length: int, ray: Line2D) -> void:
-		ray.points[1].x = length
+	
+	if tween:
+		tween.pause()
+		tween.custom_step(tween_time)
+		tween.kill()
 		
-	var tween_intensity = func(intensity: float, ray: Line2D) -> void:
-		ray.gradient.colors[0].a = intensity/255
+	tween = create_tween()
+	tween.set_parallel()
+	
+	#reset old ray
+	if has_highlight and (highlight_index != selected_index or not has_selection):
+		var old_line = rays[highlight_index]
+		tween.tween_property(old_line, "width", normal_width, tween_time)
+		tween.tween_method(tween_length.bind(old_line),
+			highlight_length,
+			normal_length,
+			tween_time)
+		tween.tween_method(tween_intensity.bind(old_line),
+			highlight_intensity,
+			normal_intensity,
+			tween_time)
+	
+	#set new ray
+	highlight_index = index
+	if highlight_index == selected_index and has_selection:
+		has_highlight = false
+		return
+	has_highlight = true
+	var new_line = rays[highlight_index]
+	tween.tween_property(new_line, "width", highlight_width, tween_time)
+	tween.tween_method(tween_length.bind(new_line),
+		normal_length,
+		highlight_length,
+		tween_time)
+	tween.tween_method(tween_intensity.bind(new_line),
+		normal_intensity,
+		highlight_intensity,
+		tween_time)
+		
+func select_ray() -> void:
+	
+	if not active or not has_highlight or highlight_index == selected_index:
+		return
+	
+	var old_line = rays[selected_index]
+	
+	selected_index = highlight_index
+	
+	var new_line = rays[selected_index]
 
 	if tween:
 		tween.pause()
@@ -66,28 +125,35 @@ func highlight_ray(index: int) -> void:
 	tween.set_parallel()
 	
 	#reset old ray
-	var old_line = rays[current_highlight]
-	tween.tween_property(old_line, "width", high_width, tween_time)
-	tween.tween_method(tween_length.bind(old_line),
-		highlighted_length,
-		high_length,
-		tween_time)
-	tween.tween_method(tween_intensity.bind(old_line),
-		highlighted_intensity,
-		high_intensity,
-		tween_time)
+	if has_selection:
+		tween.tween_property(old_line, "width", normal_width, tween_time)
+		tween.tween_method(tween_length.bind(old_line),
+			selected_length,
+			normal_length,
+			tween_time)
+		tween.tween_method(tween_intensity.bind(old_line),
+			selected_intensity,
+			normal_intensity,
+			tween_time)
+	
+	has_selection = true
 	
 	#set new ray
-	current_highlight = index
-	var new_line = rays[current_highlight]
-	tween.tween_property(new_line, "width", highlighted_width, tween_time)
+	tween.tween_property(new_line, "width", selected_width, tween_time)
 	tween.tween_method(tween_length.bind(new_line),
-		high_length,
-		highlighted_length,
+		highlight_length,
+		selected_length,
 		tween_time)
 	tween.tween_method(tween_intensity.bind(new_line),
-		high_intensity,
-		highlighted_intensity,
+		highlight_intensity,
+		selected_intensity,
 		tween_time)
+		
+		
+func tween_length(length: int, ray: Line2D) -> void:
+	ray.points[1].x = length
+		
+func tween_intensity(intensity: float, ray: Line2D) -> void:
+	ray.gradient.colors[0].a = intensity/255.0
 		
 	
