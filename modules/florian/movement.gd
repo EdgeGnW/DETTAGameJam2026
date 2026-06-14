@@ -156,7 +156,7 @@ func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	if direction == Direction.Right:
 		return Vector2i(source.x+1, source.y)
 	elif direction == Direction.DownRight:
-		return Vector2i(source.x+(1 if source.y%2 == 1 else 0), source.y+1)
+		return Vector2i(source.x+(1 if abs(source.y%2) == 1 else 0), source.y+1)
 	elif direction == Direction.DownLeft:
 		return Vector2i(source.x-(1 if source.y%2 == 0 else 0), source.y+1)
 	elif direction == Direction.Left:
@@ -164,7 +164,7 @@ func next_tile(source: Vector2i, direction: Direction) -> Vector2i:
 	elif direction == Direction.UpLeft:
 		return Vector2i(source.x-(1 if source.y%2 == 0 else 0), source.y-1)
 	else:
-		return Vector2i(source.x+(1 if source.y%2 == 1 else 0), source.y-1)
+		return Vector2i(source.x+(1 if abs(source.y%2) == 1 else 0), source.y-1)
 
 
 func deactivate_input():

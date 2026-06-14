@@ -1,6 +1,6 @@
 extends Node
 
-@onready var player: CharacterBody2D = %Player
+@onready var player: Area2D = %Player
 @onready var inputManager: Node = %InputManager
 
 # Called when the node enters the scene tree for the first time.
