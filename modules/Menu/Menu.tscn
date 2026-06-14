@@ -43,7 +43,6 @@ theme_override_font_sizes/font_size = 64
 text = "Verlassen"
 
 [node name="Options" type="PanelContainer" parent="." unique_id=1841669139]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,6 +56,7 @@ size_flags_horizontal = 4
 
 [node name="Label3" type="Label" parent="Options/VBoxContainer" unique_id=252807440]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 128
 text = "Einstellungen"
 
@@ -87,10 +87,17 @@ text = "Ambiente"
 layout_mode = 2
 value = 100.0
 
-[node name="HideOptions" type="Button" parent="Options" unique_id=907400145]
+[node name="ResetProgress" type="Button" parent="Options/VBoxContainer" unique_id=1787498405]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Fortschritt zurücksetzen"
+
+[node name="HideOptions" type="Button" parent="Options/VBoxContainer" unique_id=907400145]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 128
 text = "Zurück"
 
@@ -211,7 +218,8 @@ text = "Verlassen"
 [connection signal="value_changed" from="Options/VBoxContainer/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Options/VBoxContainer/Sound" to="." method="_on_sound_value_changed"]
 [connection signal="value_changed" from="Options/VBoxContainer/Ambience" to="." method="_on_ambient_value_changed"]
-[connection signal="pressed" from="Options/HideOptions" to="." method="_on_hide_options_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/ResetProgress" to="." method="_on_reset_progress_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/HideOptions" to="." method="_on_hide_options_pressed"]
 [connection signal="pressed" from="Controls/VBoxContainer/HideControls" to="." method="_on_hide_controls_pressed"]
 [connection signal="pressed" from="LevelComplete/VBoxContainer/BackToLevelSelection" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/UndoLastMove" to="." method="_on_undo_last_move_pressed"]

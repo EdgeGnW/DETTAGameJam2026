@@ -5,19 +5,17 @@ var completedLevels: Array[String] = []
 func _ready() -> void:
 	#resetProgress()
 	loadProgress()
-	print(completedLevels)
+	#print(completedLevels)
 
-func isLevelCompleted(level: String) -> bool:
-	return completedLevels.has(level)
+func isLevelCompleted(level: PackedScene) -> bool:
+	return completedLevels.has(getSceneName(level))
 
-func completeLevel(level: String):
-	print('Saving Level ', level)
+func completeLevel(level: PackedScene):
 	if isLevelCompleted(level):
 		return
-	completedLevels.append(level)
+	completedLevels.append(getSceneName(level))
 
 func saveProgress():
-	print('save')
 	var save_file = FileAccess.open("user://lightbringer.save", FileAccess.WRITE)
 	save_file.store_string(JSON.stringify(completedLevels))
 	save_file.close()
@@ -27,10 +25,29 @@ func loadProgress():
 		print('not found')
 		return
 	
+	print('loaded progress')
 	var save_file = FileAccess.open("user://lightbringer.save", FileAccess.READ)
 	completedLevels.assign(JSON.parse_string(save_file.get_as_text()))
-	#print(save_file.get_as_text())
-	
+	print(save_file.get_as_text())
+
+func checkProgress():
+	var triggers: Array[LevelEnterTrigger]
+	var nodes = get_tree().get_nodes_in_group("LevelEnterTriggers")
+	print (len(nodes))
+	triggers.assign(nodes)
+	for trigger in triggers:
+		if not isLevelCompleted(trigger.sceneToLoad):
+			print('not all sublevels completed')
+			return
+	completeLevel(SceneManager.current_scene)
+	saveProgress()
+	print('all sublevels completed')
+
 func resetProgress():
 	completedLevels = []
 	saveProgress()
+
+func getSceneName(scene: PackedScene) -> String:
+	if scene == null:
+		return "InvalidLevel"
+	return scene.resource_path.split('/')[-1]

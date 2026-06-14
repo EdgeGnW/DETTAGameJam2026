@@ -66,6 +66,7 @@ sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 scale = Vector2(0.55, 0.55)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
+tile_map_data = PackedByteArray("AAAEAAMABQAAAAAAAAAFAAMAAgAFAAAAAAAFAAQAAgACAAAAAAAEAAQAAgAEAAAAAAADAAMAAgAAAAAAAAAEAAIAAgACAAAAAAA=")
 tile_set = ExtResource("1_pkfvj")
 script = ExtResource("2_ajds0")
 
