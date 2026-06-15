@@ -125,7 +125,6 @@ theme_override_font_sizes/font_size = 128
 text = "Zurück"
 
 [node name="Controls" type="PanelContainer" parent="." unique_id=1330235559]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,7 +150,7 @@ Mit K und L kann man Schritte rückgängig
 machen oder ein Level neu starten.
 
 1. Richtung einsteillen:
-Maus, Joystick, Pfeiltasten oder WEADYX
+Maus, Joystick, Pfeiltasten oder WEASDYX
 
 2. Richtung bestätigen:
 linke Maustaste, linker Trigger oder Space
@@ -160,8 +159,7 @@ linke Maustaste, linker Trigger oder Space
 Mausrad, Schultertasten oder Tab
 
 4. Engel losschicken:
-Rechte Maustaste, rechter Trigger oder Enter
-"
+Rechte Maustaste, rechter Trigger oder Enter"
 
 [node name="HideControls" type="Button" parent="Controls/VBoxContainer" unique_id=1553559041]
 layout_mode = 2
