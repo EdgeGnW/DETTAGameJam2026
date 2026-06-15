@@ -144,8 +144,11 @@ text = "Controls"
 [node name="Label" type="Label" parent="Controls/VBoxContainer" unique_id=2130736980]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 43
-text = "
+theme_override_font_sizes/font_size = 32
+text = "0. Esc für Menü
+Mit K und L kann man Schritte rückgängig
+machen oder ein Level neu starten.
+
 1. Richtung einsteillen:
 Maus, Joystick, Pfeiltasten oder WEADYX
 

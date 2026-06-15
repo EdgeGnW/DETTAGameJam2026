@@ -13,6 +13,11 @@ var ambience_player := AudioStreamPlayer.new()
 	AudioStreamPlayer.new(),
 	AudioStreamPlayer.new(),
 	AudioStreamPlayer.new(),
+	AudioStreamPlayer.new(),
+	AudioStreamPlayer.new(),
+	AudioStreamPlayer.new(),
+	AudioStreamPlayer.new(),
+	AudioStreamPlayer.new(),
 ]
 
 var sound_index: int = 0
