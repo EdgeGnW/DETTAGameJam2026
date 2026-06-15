@@ -10,9 +10,8 @@ signal undo_last_move
 
 
 func _on_leave_pressed() -> void:
-	level_complete.hide()
-	game_over.hide()
-	SceneManager.go_back()
+	ProgressManager.saveProgress()
+	get_tree().quit()
 
 
 func _on_options_pressed() -> void:
@@ -39,6 +38,15 @@ func toggle_menu():
 		controls.hide()
 	else:
 		menu.get_child(0).get_child(0).grab_focus()
+		if Globals.menu_position_stack.size() > 0:
+			menu.find_child("Hub").show()
+		else:
+			menu.find_child("Hub").hide()
+		if Globals.menu_position_stack.size() > 1:
+			menu.find_child("Starmap").show()
+		else:
+			menu.find_child("Starmap").hide()
+			
 
 func _on_controls_pressed() -> void:
 	controls.show()
@@ -89,4 +97,19 @@ func _on_reset_progress_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
+	toggle_menu()
+
+
+func _on_starmap_pressed() -> void:
+	level_complete.hide()
+	game_over.hide()
+	SceneManager.go_back()
+	toggle_menu()
+
+
+func _on_hub_pressed() -> void:
+	level_complete.hide()
+	game_over.hide()
+	while Globals.menu_position_stack.size() > 0:
+		await SceneManager.go_back()
 	toggle_menu()
