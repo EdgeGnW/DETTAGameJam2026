@@ -55,7 +55,10 @@ func _on_controls_pressed() -> void:
 
 func _on_hide_controls_pressed() -> void:
 	controls.hide()
-	menu.get_child(0).get_child(0).grab_focus()
+	if not menu.visible:
+		get_tree().paused = not get_tree().paused
+	else:
+		menu.get_child(0).get_child(0).grab_focus()
 
 
 func _on_music_value_changed(value: float) -> void:
@@ -113,3 +116,67 @@ func _on_hub_pressed() -> void:
 	while Globals.menu_position_stack.size() > 0:
 		await SceneManager.go_back()
 	toggle_menu()
+
+
+func _on_keyboard_pressed() -> void:
+	controls.find_child("Label").text = "Menüführung
+	   Button wechseln - WASD / Tab
+	   Button drücken - Leertaste / Enter
+	
+	Bewegung von Uriel
+	   Richtung wechseln - WEDXYA
+	   Richtung bestätigen - Leertaste
+	   Zug ausführen / Farbe wechseln / Level betreten - Enter
+	   (Farbe wechseln - Tab)
+	
+	Sonstiges
+	   Schritt rückgängig - K
+	   Level neustarten - L"
+
+
+func _on_mouse_pressed() -> void:
+	controls.find_child("Label").text = "Menüführung
+	   Button wechseln - Mausbewegung
+	   Button drücken - Linke Maustaste
+	
+	Bewegung von Uriel
+	   Richtung wechseln - Mausbewegung
+	   Richtung bestätigen - Linke Maustaste
+	   Zug ausführen / Farbe wechseln / Level betreten - Rechte Maustaste
+	   (Farbe wechseln - Mausrad)
+	
+	Sonstiges
+	   Schritt rückgängig - Mittlere Maustaste (Mausrad)
+	   Level neustarten - <>"
+
+
+func _on_controller_pressed() -> void:
+	controls.find_child("Label").text = "Menüführung
+	   Button wechseln - Joystick
+	   Button drücken - Linker Trigger
+	
+	Bewegung von Uriel
+	   Richtung wechseln - Joystick
+	   Richtung bestätigen - Linker Trigger
+	   Zug ausführen / Farbe wechseln / Level betreten - Rechter Trigger
+	   (Farbe wechseln - Schultertasten)
+	
+	Sonstiges
+	   Schritt rückgängig - Mittlere Maustaste (Mausrad)
+	   Level neustarten - <>"
+
+
+func _on_mouse_keyboard_pressed() -> void:
+	controls.find_child("Label").text = "Menüführung
+	   Button wechseln - Mausbewegung
+	   Button drücken - Linke Maustaste / Enter
+	
+	Bewegung von Uriel
+	   Richtung wechseln - Mausbewegung
+	   Richtung bestätigen - Linke Maustaste
+	   Zug ausführen / Farbe wechseln / Level betreten - Rechte Maustaste / Enter
+	   Farbe wechseln - Tab
+	
+	Sonstiges
+	   Schritt rückgängig - K / Mittlere Maustaste (Mausrad)
+	   Level neustarten - L"

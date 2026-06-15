@@ -151,31 +151,62 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 128
 text = "Controls"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBoxContainer" unique_id=1706214696]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.9
+
+[node name="Keyboard" type="Button" parent="Controls/VBoxContainer/HBoxContainer" unique_id=1779473264]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "Tastatur"
+
+[node name="Mouse" type="Button" parent="Controls/VBoxContainer/HBoxContainer" unique_id=897625883]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "Maus"
+
+[node name="MouseKeyboard" type="Button" parent="Controls/VBoxContainer/HBoxContainer" unique_id=690973565]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "Maus & Tastatur"
+
+[node name="Controller" type="Button" parent="Controls/VBoxContainer/HBoxContainer" unique_id=1192453150]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "Controller"
+
 [node name="Label" type="Label" parent="Controls/VBoxContainer" unique_id=2130736980]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
-text = "0. Esc für Menü
-Mit K und L kann man Schritte rückgängig
-machen oder ein Level neu starten.
-
-1. Richtung einsteillen:
-Maus, Joystick, Pfeiltasten oder WEASDYX
-
-2. Richtung bestätigen:
-linke Maustaste, linker Trigger oder Space
-
-3. Engel wechseln:
-Mausrad, Schultertasten oder Tab
-
-4. Engel losschicken:
-Rechte Maustaste, rechter Trigger oder Enter"
+text = "Menüführung
+	   Button wechseln - Mausbewegung
+	   Button drücken - Linke Maustaste / Enter
+	
+	Bewegung von Uriel
+	   Richtung wechseln - Mausbewegung
+	   Richtung bestätigen - Linke Maustaste
+	   Zug ausführen / Farbe wechseln / Level betreten - Rechte Maustaste / Enter
+	   Farbe wechseln - Tab
+	
+	Sonstiges
+	   Schritt rückgängig - K / Mittlere Maustaste (Mausrad)
+	   Level neustarten - L"
 
 [node name="HideControls" type="Button" parent="Controls/VBoxContainer" unique_id=1553559041]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 76
 text = "Zurück"
 
 [node name="LevelComplete" type="PanelContainer" parent="." unique_id=426381109]
@@ -257,6 +288,10 @@ text = "Verlassen"
 [connection signal="value_changed" from="Options/VBoxContainer/Ambience" to="." method="_on_ambient_value_changed"]
 [connection signal="pressed" from="Options/VBoxContainer/ResetProgress" to="." method="_on_reset_progress_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/HideOptions" to="." method="_on_hide_options_pressed"]
+[connection signal="pressed" from="Controls/VBoxContainer/HBoxContainer/Keyboard" to="." method="_on_keyboard_pressed"]
+[connection signal="pressed" from="Controls/VBoxContainer/HBoxContainer/Mouse" to="." method="_on_mouse_pressed"]
+[connection signal="pressed" from="Controls/VBoxContainer/HBoxContainer/MouseKeyboard" to="." method="_on_mouse_keyboard_pressed"]
+[connection signal="pressed" from="Controls/VBoxContainer/HBoxContainer/Controller" to="." method="_on_controller_pressed"]
 [connection signal="pressed" from="Controls/VBoxContainer/HideControls" to="." method="_on_hide_controls_pressed"]
 [connection signal="pressed" from="LevelComplete/VBoxContainer/BackToLevelSelection" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/UndoLastMove" to="." method="_on_undo_last_move_pressed"]
