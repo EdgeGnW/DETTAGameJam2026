@@ -71,7 +71,7 @@ sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 scale = Vector2(0.55, 0.55)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
-tile_map_data = PackedByteArray("AAAAAAcAAQAAAAEAAAABAAEAAAAAAAAAAAADAAMABgAAAAAAAAAFAAAAAQABAAAAAAAGAAQAAAAAAAAAAAAFAAUAAgADAAAAAAAIAAIABgAAAAAAAAAIAAYAAAAAAAAAAAAKAAQAAAAAAAAAAAAEAAAAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAcAAQAAAAEAAAABAAEAAAAAAAAAAAADAAMABgAAAAAAAAAFAAAAAQABAAAAAAAGAAQAAAAAAAAAAAAFAAUAAgADAAAAAAAIAAIABgAAAAAAAAAIAAYAAAAAAAAAAAAEAAAAAQAAAAAAAAAGAAEAAgAAAAAAAAAGAAAAAgABAAEAAAAKAAMAAAAAAAAAAAAHAAIAAgAEAAEAAAA=")
 tile_set = ExtResource("1_eluco")
 script = ExtResource("2_4ngb8")
 
@@ -144,15 +144,23 @@ tile_set = SubResource("TileSet_ig76o")
 [node name="LevelEnterTrigger" parent="." unique_id=1143325814 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
 position = Vector2(536.3635, 383.63635)
 sceneToLoad = ExtResource("7_a2e0p")
+text = "1"
+number = "1"
 
 [node name="LevelEnterTrigger2" parent="." unique_id=688753184 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
 position = Vector2(1674.5453, 1034.5454)
 sceneToLoad = ExtResource("8_a2e0p")
+text = "2"
+number = "2"
 
 [node name="LevelEnterTrigger3" parent="." unique_id=306693025 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
-position = Vector2(2707.2725, 1049.0908)
+position = Vector2(2167.2727, 1470.909)
 sceneToLoad = ExtResource("9_a2e0p")
+text = "3"
+number = "3"
 
 [node name="LevelEnterTrigger4" parent="." unique_id=94856952 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
-position = Vector2(2187.2725, 1465.4545)
+position = Vector2(2825.4546, 787.27264)
 sceneToLoad = ExtResource("10_c8g7e")
+text = "4"
+number = "4"

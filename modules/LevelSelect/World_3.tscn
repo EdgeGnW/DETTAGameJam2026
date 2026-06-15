@@ -75,7 +75,7 @@ sources/0 = SubResource("TileSetAtlasSource_8wlpl")
 scale = Vector2(0.55, 0.55)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1443370502]
-tile_map_data = PackedByteArray("AAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAcAAgAFAAAAAAAGAAUAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAYAAAAAAAAAAAACAAMAAgABAAAAAAADAAEAAAAAAAAAAAADAAUAAgAEAAIAAAAEAAAAAgABAAAAAAAEAAYAAgAAAAAAAAAFAAEAAgAFAAAAAAAFAAIAAgADAAIAAAAFAAQAAwAAAAAAAAAFAAcAAgACAAAAAAAGAAAAAAAAAAAAAAAGAAMAAwAAAAAAAAAHAAUAAgABAAAAAAAIAAIAAQAAAAAAAAAJAAYAAgABAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAcAAgAFAAAAAAAGAAUAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAYAAAAAAAAAAAACAAMAAgABAAAAAAADAAEAAAAAAAAAAAADAAUAAgAEAAIAAAAEAAAAAgABAAAAAAAEAAYAAgAAAAAAAAAFAAEAAgAFAAAAAAAFAAIAAgADAAIAAAAFAAQAAwAAAAAAAAAFAAcAAgACAAAAAAAGAAAAAAAAAAAAAAAGAAMAAwAAAAAAAAAHAAUAAgABAAAAAAAIAAIAAQAAAAAAAAAHAAYAAgAEAAIAAAACAAQAAgABAAAAAAA=")
 tile_set = ExtResource("1_on73h")
 script = ExtResource("2_k6g43")
 
@@ -148,31 +148,52 @@ tile_set = SubResource("TileSet_ig76o")
 [node name="LevelEnterTrigger" parent="." unique_id=1143325814 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(627.2727, 1452.7272)
 sceneToLoad = ExtResource("7_k6g43")
+text = "1"
+number = "1"
+label_below = true
 
 [node name="LevelEnterTrigger2" parent="." unique_id=1748805183 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(919.99994, 1458.1818)
 sceneToLoad = ExtResource("8_50tu3")
+text = "2"
+number = "2"
+label_below = true
 
 [node name="LevelEnterTrigger3" parent="." unique_id=1820377560 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(1158.1818, 1001.8182)
 sceneToLoad = ExtResource("9_qbawf")
+text = "3"
+number = "3"
 
 [node name="LevelEnterTrigger4" parent="." unique_id=1848522014 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(1038.1818, 345.45453)
 sceneToLoad = ExtResource("10_r5skm")
+text = "4"
+number = "4"
+label_below = true
 
 [node name="LevelEnterTrigger5" parent="." unique_id=287413081 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(1667.2727, 156.36363)
 sceneToLoad = ExtResource("11_h1i4w")
+text = "5"
+number = "5"
+label_below = true
 
 [node name="LevelEnterTrigger6" parent="." unique_id=1045462855 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(1929.0908, 585.4545)
 sceneToLoad = ExtResource("12_iau81")
+text = "6"
+number = "6"
 
 [node name="LevelEnterTrigger7" parent="." unique_id=903017206 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(1805.4545, 1270.909)
 sceneToLoad = ExtResource("13_abyxs")
+text = "7"
+number = "7"
 
 [node name="LevelEnterTrigger8" parent="." unique_id=22117653 groups=["LevelEnterTriggers"] instance=ExtResource("6_h1i4w")]
 position = Vector2(2196.3635, 1476.3635)
 sceneToLoad = ExtResource("14_x13rp")
+text = "8"
+number = "8"
+label_below = true

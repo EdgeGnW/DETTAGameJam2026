@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="2_5h1i8"]
 [ext_resource type="Texture2D" uid="uid://dr2g7amqsxpcq" path="res://modules/Player/Art/URIEL.webp" id="3_1sdsl"]
 [ext_resource type="Texture2D" uid="uid://b3vap1780njnd" path="res://modules/Player/Art/URIEL_SELECT_OUTLINE.webp" id="5_vrear"]
+[ext_resource type="Script" uid="uid://cihhsko55wdum" path="res://modules/Player/float_up_down.gd" id="5_wxgpv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fq60"]
 
@@ -110,13 +111,17 @@ unique_name_in_owner = true
 shape = SubResource("CircleShape2D_4fq60")
 
 [node name="UrielSelect" type="AnimatedSprite2D" parent="." unique_id=1767243307]
+process_mode = 3
 visible = false
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ktano")
 animation = &"outline"
 autoplay = "outline"
+script = ExtResource("5_wxgpv")
 
 [node name="Uriel" type="AnimatedSprite2D" parent="." unique_id=481680422]
+process_mode = 3
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ktano")
 autoplay = "default"
+script = ExtResource("5_wxgpv")

@@ -57,10 +57,6 @@ func skip_tween():
 		tween.pause()
 		tween.custom_step(9999999)
 		tween.kill()
-		
-func _process(delta: float) -> void:
-	sprite.position.y = sin(Engine.get_frames_drawn() / 10)
-	select_sprite.position.y = sin(Engine.get_frames_drawn() / 10)
 	
 func fade_in():
 	sprite.modulate.a = 0
