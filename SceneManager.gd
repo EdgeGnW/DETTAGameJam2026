@@ -27,6 +27,11 @@ func go_back():
 		get_tree().quit()
 	current_scene = scene_stack.pop_back()
 	get_tree().change_scene_to_packed(current_scene)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var tilemap = get_tree().current_scene.find_child("TileMapLayer")
+	var player = tilemap.active_players()[0]
+	player.grid_position = Globals.menu_position_stack.pop_back()
+	player.position = tilemap.map_to_local(player.grid_position)
 	ProgressManager.checkProgress()
 	

@@ -86,7 +86,7 @@ func _ready():
 
 func save_state():
 	var state = [color_in_goal]
-	for player in active_players():
+	for player in visible_players():
 		state.append([player, player.grid_position])
 	states.append(state)
 
@@ -285,9 +285,11 @@ func receive_direction(direction: Direction):
 func switch_player_index(direction: int):
 	var current_player = active_players()[player_index]
 	current_player.rays.deactivate()
+	current_player.select_sprite.hide()
 	player_index = (player_index + direction) % len(active_players())
 	current_player = active_players()[player_index]
 	current_player.rays.activate()
+	current_player.select_sprite.show()
 	input_manager.switchToPlayer(current_player)
 	
 	
@@ -299,16 +301,20 @@ func active_players() -> Array[Player]:
 
 func move_players():
 	if active_players().size() == 1 and player_paths.size() == 0 and active_players()[0].sceneToEnter:
+		Globals.menu_position_stack.append(active_players()[0].grid_position)
 		SceneManager.update_current_scene(active_players()[0].sceneToEnter)
 		return
-	if player_paths.size() == active_players().size():
+	elif player_paths.size() == active_players().size():
 		save_state()
 		deactivate_input()
 		for player in player_paths:
 			move_player(player)
+	else:
+		switch_player_index(1)
 
 func move_player(player: Player):
 	player.rays.reset()
+	player.select_sprite.hide()
 	if player.tween:
 		player.skip_tween()
 	player.tween = create_tween()
@@ -360,6 +366,7 @@ func activate_input():
 	input_manager.reactToInput(true)
 	player_index = 0
 	active_players()[player_index].rays.activate()
+	active_players()[player_index].select_sprite.show()
 
 
 

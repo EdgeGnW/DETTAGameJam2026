@@ -6,6 +6,7 @@ extends Area2D
 const TRAIL:= preload("uid://cac8gpndpiw2y")
 var trail
 @onready var sprite: AnimatedSprite2D = $Uriel
+@onready var select_sprite: AnimatedSprite2D = $UrielSelect
 
 var ryb2rgb := {
 	Vector3i(0, 0, 1): Color(0,0,1),
@@ -29,7 +30,7 @@ func clean_effects():
 
 func _ready():
 	for child in get_children():
-		if child is Sprite2D and child != sprite:
+		if child is Sprite2D and child != sprite and child != select_sprite:
 			child.queue_free.call_deferred()
 	trail = TRAIL.instantiate()
 	trail.node2d = self
@@ -40,6 +41,7 @@ func _ready():
 		a = 0.7
 	
 	sprite.modulate = Color(c.r, c.g, c.b, a)
+	select_sprite.modulate = c
 
 func skip_tween():
 	if tween and tween.is_valid() and tween.is_running():
@@ -49,6 +51,7 @@ func skip_tween():
 		
 func _process(delta: float) -> void:
 	sprite.position.y = sin(Engine.get_frames_drawn() / 10)
+	select_sprite.position.y = sin(Engine.get_frames_drawn() / 10)
 	
 
 	

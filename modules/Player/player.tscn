@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcsrhhfgww5wy" path="res://modules/Player/player.gd" id="1_4fq60"]
 [ext_resource type="PackedScene" uid="uid://bcc8x2gg56x8v" path="res://modules/Rays/rays.tscn" id="2_5h1i8"]
 [ext_resource type="Texture2D" uid="uid://dr2g7amqsxpcq" path="res://modules/Player/Art/URIEL.webp" id="3_1sdsl"]
+[ext_resource type="Texture2D" uid="uid://b3vap1780njnd" path="res://modules/Player/Art/URIEL_SELECT_OUTLINE.webp" id="5_vrear"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fq60"]
 
@@ -21,6 +22,22 @@ region = Rect2(512, 0, 256, 296)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q1q0"]
 atlas = ExtResource("3_1sdsl")
 region = Rect2(768, 0, 256, 296)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlk1m"]
+atlas = ExtResource("5_vrear")
+region = Rect2(0, 0, 270, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdtoh"]
+atlas = ExtResource("5_vrear")
+region = Rect2(270, 0, 270, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqein"]
+atlas = ExtResource("5_vrear")
+region = Rect2(540, 0, 270, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvkey"]
+atlas = ExtResource("5_vrear")
+region = Rect2(810, 0, 270, 312)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktano"]
 animations = [{
@@ -52,6 +69,35 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlk1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdtoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqein")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvkey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvkey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqein")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdtoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlk1m")
+}],
+"loop": true,
+"name": &"outline",
+"speed": 5.0
 }]
 
 [node name="Player" type="Area2D" unique_id=472444114]
@@ -63,8 +109,14 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1472466070]
 shape = SubResource("CircleShape2D_4fq60")
 
+[node name="UrielSelect" type="AnimatedSprite2D" parent="." unique_id=1767243307]
+visible = false
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_ktano")
+animation = &"outline"
+autoplay = "outline"
+
 [node name="Uriel" type="AnimatedSprite2D" parent="." unique_id=481680422]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ktano")
 autoplay = "default"
-frame_progress = 0.51315147
