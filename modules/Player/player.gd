@@ -60,6 +60,7 @@ func skip_tween():
 	
 func fade_in():
 	sprite.modulate.a = 0
+	select_sprite.modulate.a = 0
 	var alpha_tween = create_tween()
 	alpha_tween.tween_property(sprite, "modulate:a", alpha, 0.5)
 	alpha_tween.tween_callback(func(): select_sprite.modulate.a = 1)

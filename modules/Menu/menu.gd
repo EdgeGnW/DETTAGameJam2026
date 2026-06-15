@@ -120,12 +120,14 @@ func _on_hub_pressed() -> void:
 
 func _on_keyboard_pressed() -> void:
 	controls.find_child("Label").text = "Menüführung
+	   Menü aufrufen - Escape
 	   Button wechseln - WASD / Tab
 	   Button drücken - Leertaste / Enter
 	
 	Bewegung von Uriel
 	   Richtung wechseln - WEDXYA
 	   Richtung bestätigen - Leertaste
+	   Richtung lösen - S
 	   Zug ausführen / Farbe wechseln / Level betreten - Enter
 	   (Farbe wechseln - Tab)
 	
@@ -136,12 +138,14 @@ func _on_keyboard_pressed() -> void:
 
 func _on_mouse_pressed() -> void:
 	controls.find_child("Label").text = "Menüführung
+	   Menü aufrufen - <>
 	   Button wechseln - Mausbewegung
 	   Button drücken - Linke Maustaste
 	
 	Bewegung von Uriel
 	   Richtung wechseln - Mausbewegung
 	   Richtung bestätigen - Linke Maustaste
+	   Richtung lösen - Mittlere Maustaste
 	   Zug ausführen / Farbe wechseln / Level betreten - Rechte Maustaste
 	   (Farbe wechseln - Mausrad)
 	
@@ -152,31 +156,35 @@ func _on_mouse_pressed() -> void:
 
 func _on_controller_pressed() -> void:
 	controls.find_child("Label").text = "Menüführung
+	   Menü aufrufen - Menu Button
 	   Button wechseln - Joystick
-	   Button drücken - Linker Trigger
+	   Button drücken - A
 	
 	Bewegung von Uriel
 	   Richtung wechseln - Joystick
-	   Richtung bestätigen - Linker Trigger
-	   Zug ausführen / Farbe wechseln / Level betreten - Rechter Trigger
+	   Richtung bestätigen - X
+	   Richtung lösen - L3 (Linker Stick)
+	   Zug ausführen / Farbe wechseln / Level betreten - A
 	   (Farbe wechseln - Schultertasten)
 	
 	Sonstiges
-	   Schritt rückgängig - Mittlere Maustaste (Mausrad)
-	   Level neustarten - <>"
+	   Schritt rückgängig - B
+	   Level neustarten - Y"
 
 
 func _on_mouse_keyboard_pressed() -> void:
 	controls.find_child("Label").text = "Menüführung
+	   Menü aufrufen - Escape
 	   Button wechseln - Mausbewegung
 	   Button drücken - Linke Maustaste / Enter
 	
 	Bewegung von Uriel
 	   Richtung wechseln - Mausbewegung
 	   Richtung bestätigen - Linke Maustaste
+	   Richtung lösen - Mittlere Maustaste
 	   Zug ausführen / Farbe wechseln / Level betreten - Rechte Maustaste / Enter
 	   Farbe wechseln - Tab
 	
 	Sonstiges
-	   Schritt rückgängig - K / Mittlere Maustaste (Mausrad)
+	   Schritt rückgängig - K
 	   Level neustarten - L"

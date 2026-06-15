@@ -189,17 +189,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Menüführung
+	   Menü aufrufen - Escape
 	   Button wechseln - Mausbewegung
 	   Button drücken - Linke Maustaste / Enter
 	
 	Bewegung von Uriel
 	   Richtung wechseln - Mausbewegung
 	   Richtung bestätigen - Linke Maustaste
+	   Richtung lösen - Mittlere Maustaste
 	   Zug ausführen / Farbe wechseln / Level betreten - Rechte Maustaste / Enter
 	   Farbe wechseln - Tab
 	
 	Sonstiges
-	   Schritt rückgängig - K / Mittlere Maustaste (Mausrad)
+	   Schritt rückgängig - K
 	   Level neustarten - L"
 
 [node name="HideControls" type="Button" parent="Controls/VBoxContainer" unique_id=1553559041]
