@@ -66,4 +66,5 @@ shape = SubResource("CircleShape2D_4fq60")
 [node name="Uriel" type="AnimatedSprite2D" parent="." unique_id=481680422]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ktano")
+autoplay = "default"
 frame_progress = 0.51315147

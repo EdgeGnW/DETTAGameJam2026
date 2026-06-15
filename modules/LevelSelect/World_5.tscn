@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://exulgvu6ki71" path="res://modules/Player/player.tscn" id="4_4lsdg"]
 [ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="5_2vpr0"]
 [ext_resource type="PackedScene" uid="uid://bwnl065t80bq4" path="res://modules/LevelSelect/LevelEnterTrigger.tscn" id="6_vmvc3"]
-[ext_resource type="PackedScene" uid="uid://csnklcc4c4vwy" path="res://modules/Levels/World 2/Level_2-1.tscn" id="7_jk7wn"]
-[ext_resource type="PackedScene" uid="uid://cc1l8k4uygr4g" path="res://modules/Levels/World 2/Level_2-2.tscn" id="8_oaylh"]
-[ext_resource type="PackedScene" uid="uid://dfwvnjrdqln61" path="res://modules/Levels/World 2/Level_2-3.tscn" id="9_6xtr5"]
-[ext_resource type="PackedScene" uid="uid://dcemsuycc63h1" path="res://modules/Levels/World 2/Level_2-4.tscn" id="10_50yk4"]
+[ext_resource type="PackedScene" uid="uid://dlcrbw2gamde7" path="res://modules/Levels/World 5/Level_5-1.tscn" id="7_a2e0p"]
+[ext_resource type="PackedScene" uid="uid://c3c2rj8jjrdt0" path="res://modules/Levels/World 5/Level_5-2.tscn" id="8_a2e0p"]
+[ext_resource type="PackedScene" uid="uid://6xejepobnh6v" path="res://modules/Levels/World 5/Level_5-3.tscn" id="9_a2e0p"]
+[ext_resource type="PackedScene" uid="uid://d4lou7u2tyi31" path="res://modules/Levels/World 5/Level_5-4.tscn" id="10_c8g7e"]
 
 [sub_resource type="Gradient" id="Gradient_frquf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -143,16 +143,16 @@ tile_set = SubResource("TileSet_ig76o")
 
 [node name="LevelEnterTrigger" parent="." unique_id=1143325814 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
 position = Vector2(536.3635, 383.63635)
-sceneToLoad = ExtResource("7_jk7wn")
+sceneToLoad = ExtResource("7_a2e0p")
 
 [node name="LevelEnterTrigger2" parent="." unique_id=688753184 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
 position = Vector2(1674.5453, 1034.5454)
-sceneToLoad = ExtResource("8_oaylh")
+sceneToLoad = ExtResource("8_a2e0p")
 
 [node name="LevelEnterTrigger3" parent="." unique_id=306693025 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
 position = Vector2(2707.2725, 1049.0908)
-sceneToLoad = ExtResource("9_6xtr5")
+sceneToLoad = ExtResource("9_a2e0p")
 
 [node name="LevelEnterTrigger4" parent="." unique_id=94856952 groups=["LevelEnterTriggers"] instance=ExtResource("6_vmvc3")]
 position = Vector2(2187.2725, 1465.4545)
-sceneToLoad = ExtResource("10_50yk4")
+sceneToLoad = ExtResource("10_c8g7e")
