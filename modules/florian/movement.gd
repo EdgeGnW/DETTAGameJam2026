@@ -323,6 +323,7 @@ func move_player(player: Player):
 	if player.tween:
 		player.skip_tween()
 	player.tween = create_tween()
+	player.show_effects()
 	AudioManager.play_random_sound(move_arr)
 	var final_position = map_to_local(player_paths[player])
 	var distance = (map_to_local(player.grid_position)-final_position).length()

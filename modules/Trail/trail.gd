@@ -6,9 +6,11 @@ var node2d: Node2D
 # Maximum number of points in the trail
 var max_points: int = 20
 # Distance between points
-var point_spacing: float = 40
+var point_spacing: float = 100
 # Used to control the spacing between trail points
 var distance_accum: float = 0.0
+
+var random_offset: float = 2.5
 
 func _ready():
 	clear_points()
@@ -18,7 +20,12 @@ func _process(delta):
 		call_deferred("free")
 	if not node2d.visible: return
 	var start_position = node2d.position#get_viewport().get_start_position()
-	# Calculate the distance from the last point to the current mouse position
+	
+	for i in range(len(points)):
+		var rand_vec = Vector2(randf_range(0,random_offset), 0).rotated(randf_range(0,PI*2))
+		points[i] += rand_vec
+	
+	# Calculate the distance from the last point to the current position
 	if get_point_count() > 0:
 		var last_point = get_point_position(get_point_count() - 1)
 		var distance = start_position.distance_to(last_point)

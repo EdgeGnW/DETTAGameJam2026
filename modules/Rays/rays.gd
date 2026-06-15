@@ -44,6 +44,7 @@ func clear_selection():
 	has_selection = false
 	
 func reset():
+	skip_tween()
 	has_selection = false
 	has_highlight = false
 	selected_index = -1
@@ -117,10 +118,7 @@ func select_ray() -> void:
 	
 	var new_line = rays[selected_index]
 
-	if tween:
-		tween.pause()
-		tween.custom_step(tween_time)
-		tween.kill()
+	skip_tween()
 		
 	tween = create_tween()
 	tween.set_parallel()
@@ -152,3 +150,8 @@ func tween_ray(ray: Line2D, from_properties: rayProperies, to_properties: rayPro
 		to_properties.intensity,
 		tween_time)
 	
+func skip_tween():
+	if tween:
+		tween.pause()
+		tween.custom_step(999999)
+		tween.kill()

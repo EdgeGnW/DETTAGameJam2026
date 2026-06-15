@@ -28,6 +28,10 @@ var grid_position: Vector2i
 
 func clean_effects():
 	trail.reset_trail()
+	trail.hide()
+	
+func show_effects():
+	trail.show()
 
 func _ready():
 	for child in get_children():
@@ -44,6 +48,7 @@ func _ready():
 	sprite.modulate = Color(c.r, c.g, c.b, 0)
 	
 	fade_in()
+	clean_effects()
 
 func skip_tween():
 	if tween and tween.is_valid() and tween.is_running():
