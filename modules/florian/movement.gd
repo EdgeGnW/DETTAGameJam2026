@@ -308,6 +308,7 @@ func active_players() -> Array[Player]:
 
 func move_players():
 	if active_players().size() == 1 and player_paths.size() == 0 and active_players()[0].sceneToEnter:
+		AudioManager.play_sound(BLACK_HOLE_ORBIT, 1.2, 1.1)
 		await active_players()[0].fade_out().finished
 		SceneManager.update_current_scene(active_players()[0].sceneToEnter)
 		return
