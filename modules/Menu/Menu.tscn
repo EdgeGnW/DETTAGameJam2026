@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://2cnipmg2n1ds" path="res://modules/Menu/menu.gd" id="1_lyg7a"]
 
 [node name="Pause" type="Control" unique_id=773685659]
+process_mode = 3
 z_index = 99
 layout_mode = 3
 anchors_preset = 15

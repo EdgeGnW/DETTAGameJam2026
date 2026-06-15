@@ -51,8 +51,6 @@ func skip_tween():
 		tween.custom_step(9999999)
 		tween.kill()
 		
-func _process(delta: float) -> void:
-	sprite.position.y = sin(Time.get_ticks_msec() * 0.005) * 4
 	
 func fade_in():
 	sprite.modulate.a = 0

@@ -32,6 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func toggle_menu():
 	menu.visible = not menu.visible
+	get_tree().paused = not get_tree().paused
 			
 	if not menu.visible:
 		options.hide()
