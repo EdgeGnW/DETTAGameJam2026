@@ -48,12 +48,15 @@ func play_ambience(ambience: AudioStream):
 	ambience_player.stream = ambience
 	ambience_player.play()
 	
-func play_sound(sound: AudioStream, pitch_scale := 1.0):
+func play_sound(sound: AudioStream, pitch_scale := 1.0, cutoff := 0.0):
 	var player = sound_players[sound_index]
 	player.stream = sound
 	player.pitch_scale = pitch_scale 
 	player.play()
 	sound_index = (sound_index + 1) % len(sound_players)
+	if cutoff:
+		await get_tree().create_timer(cutoff).timeout
+		player.stop()
 	
 func play_random_sound(soundarr: Array):
 	var player = sound_players[sound_index]

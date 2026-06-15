@@ -8,6 +8,8 @@ var trail
 @onready var sprite: AnimatedSprite2D = $Uriel
 @onready var select_sprite: AnimatedSprite2D = $UrielSelect
 
+var alpha := 1.0
+
 var ryb2rgb := {
 	Vector3i(0, 0, 1): Color(0,0,1),
 	Vector3i(0, 1, 0): Color(1,1,0),
@@ -27,6 +29,10 @@ var grid_position: Vector2i
 
 func clean_effects():
 	trail.reset_trail()
+	trail.hide()
+	
+func show_effects():
+	trail.show()
 
 func _ready():
 	for child in get_children():
@@ -35,13 +41,16 @@ func _ready():
 	trail = TRAIL.instantiate()
 	trail.node2d = self
 	get_parent().add_child.call_deferred(trail)
-	var a = 1.0
+	alpha = 1.0
 	var c = ryb2rgb[color]
 	if color != Vector3i(1,1,1):
-		a = 0.7
+		alpha = 0.7
 	
-	sprite.modulate = Color(c.r, c.g, c.b, a)
+	sprite.modulate = Color(c.r, c.g, c.b, 0)
 	select_sprite.modulate = c
+	
+	fade_in()
+	clean_effects()
 
 func skip_tween():
 	if tween and tween.is_valid() and tween.is_running():
@@ -53,6 +62,18 @@ func _process(delta: float) -> void:
 	sprite.position.y = sin(Engine.get_frames_drawn() / 10)
 	select_sprite.position.y = sin(Engine.get_frames_drawn() / 10)
 	
-
+func fade_in():
+	sprite.modulate.a = 0
+	var alpha_tween = create_tween()
+	alpha_tween.tween_property(sprite, "modulate:a", alpha, 0.5)
+	alpha_tween.tween_callback(func(): select_sprite.modulate.a = 1)
+	return alpha_tween
+	
+func fade_out():
+	sprite.modulate.a = alpha
+	var alpha_tween = create_tween()
+	alpha_tween.tween_callback(func(): select_sprite.modulate.a = 0)
+	alpha_tween.tween_property(sprite, "modulate:a", 0, 0.5)
+	return alpha_tween
 	
 		

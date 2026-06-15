@@ -79,6 +79,7 @@ func _ready():
 	
 	input_manager.go.connect(move_players)
 	input_manager.selectedDirection.connect(receive_direction)
+	input_manager.abortDirection.connect(abort_direction)
 	input_manager.back.connect(load_last_state_and_activate_input)
 	input_manager.reset.connect(load_first_state)
 	input_manager.switchPlayer.connect(switch_player_index)
@@ -258,7 +259,7 @@ func finish_path(player: Player):
 			animate_goal(true)
 			player = get_player_of_color(Vector3i(1,1,1))
 			player.tween = create_tween()
-			player.tween.tween_property(player.sprite, "modulate:a", 0, 0.2)
+			player.fade_out()
 			
 		elif active_players().any(is_off_grid) or lost_color():
 			gameover.emit()
@@ -282,6 +283,14 @@ func receive_direction(direction: Direction):
 	plan_path(current_player, direction)
 	#advance_player_index(1)
 	
+func abort_direction():
+	var current_player = active_players()[player_index]
+	current_player.rays.reset()
+	current_player.rays.activate()
+	player_directions.erase(current_player)
+	player_paths.erase(current_player)
+	
+	
 func switch_player_index(direction: int):
 	var current_player = active_players()[player_index]
 	current_player.rays.deactivate()
@@ -302,6 +311,8 @@ func active_players() -> Array[Player]:
 func move_players():
 	if active_players().size() == 1 and player_paths.size() == 0 and active_players()[0].sceneToEnter:
 		Globals.menu_position_stack.append(active_players()[0].grid_position)
+		AudioManager.play_sound(BLACK_HOLE_ORBIT, 1.2, 1.1)
+		await active_players()[0].fade_out().finished
 		SceneManager.update_current_scene(active_players()[0].sceneToEnter)
 		return
 	elif player_paths.size() == active_players().size():
@@ -318,6 +329,7 @@ func move_player(player: Player):
 	if player.tween:
 		player.skip_tween()
 	player.tween = create_tween()
+	player.show_effects()
 	AudioManager.play_random_sound(move_arr)
 	var final_position = map_to_local(player_paths[player])
 	var distance = (map_to_local(player.grid_position)-final_position).length()

@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://brqj6uvmrjjkx" path="res://modules/Trail/trail.gd" id="1_qil7k"]
 
 [sub_resource type="Curve" id="Curve_0faou"]
-_limits = [0.0, 1.0, 0.0, 1.314741]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.314741, 1), -0.20796682, -0.20796682, 0, 0]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 10), 17.586575, -0.20796682, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_0faou"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.40784314)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 0.42745098, 0.6156863)
 
 [node name="Trail" type="Line2D" unique_id=1762604018]
-width = 30.0
 width_curve = SubResource("Curve_0faou")
 gradient = SubResource("Gradient_0faou")
 script = ExtResource("1_qil7k")
