@@ -7,6 +7,8 @@ const TRAIL:= preload("uid://cac8gpndpiw2y")
 var trail
 @onready var sprite: AnimatedSprite2D = $Uriel
 
+var alpha := 1.0
+
 var ryb2rgb := {
 	Vector3i(0, 0, 1): Color(0,0,1),
 	Vector3i(0, 1, 0): Color(1,1,0),
@@ -34,12 +36,14 @@ func _ready():
 	trail = TRAIL.instantiate()
 	trail.node2d = self
 	get_parent().add_child.call_deferred(trail)
-	var a = 1.0
+	alpha = 1.0
 	var c = ryb2rgb[color]
 	if color != Vector3i(1,1,1):
-		a = 0.7
+		alpha = 0.7
 	
-	sprite.modulate = Color(c.r, c.g, c.b, a)
+	sprite.modulate = Color(c.r, c.g, c.b, 0)
+	
+	fade_in()
 
 func skip_tween():
 	if tween and tween.is_valid() and tween.is_running():
@@ -48,8 +52,19 @@ func skip_tween():
 		tween.kill()
 		
 func _process(delta: float) -> void:
-	sprite.position.y = sin(Engine.get_frames_drawn() / 10)
+	sprite.position.y = sin(Time.get_ticks_msec() * 0.005) * 4
 	
+func fade_in():
+	sprite.modulate.a = 0
+	var alpha_tween = create_tween()
+	alpha_tween.tween_property(sprite, "modulate:a", alpha, 0.5)
+	return alpha_tween
+	
+func fade_out():
+	sprite.modulate.a = alpha
+	var alpha_tween = create_tween()
+	alpha_tween.tween_property(sprite, "modulate:a", 0, 0.5)
+	return alpha_tween
 
 	
 		

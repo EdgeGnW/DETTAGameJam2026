@@ -1,6 +1,7 @@
 class_name HexagonalInput extends Node
 
 signal confirmSelection
+signal abortSelection
 signal go
 signal switchPlayer(direction: int)
 
@@ -46,15 +47,18 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("confirmDirection"):
 		confirmSelection.emit()
 		
-	if event.is_action_pressed("go"):
+	elif event.is_action_pressed("abortDirection"):
+		abortSelection.emit()
+		
+	elif event.is_action_pressed("go"):
 		if not Input.is_action_just_pressed("go"):
 			return
 		go.emit()
 		
-	if event.is_action_pressed("switchPlayerRight"):
+	elif event.is_action_pressed("switchPlayerRight"):
 		switchPlayer.emit(1)
 		
-	if event.is_action_pressed("switchPlayerLeft"):
+	elif event.is_action_pressed("switchPlayerLeft"):
 		switchPlayer.emit(-1)
 		
 
