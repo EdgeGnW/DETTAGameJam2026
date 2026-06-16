@@ -188,3 +188,10 @@ func _on_mouse_keyboard_pressed() -> void:
 	Sonstiges
 	   Schritt rückgängig - K
 	   Level neustarten - L"
+
+
+func _on_level_complete_pressed() -> void:
+	level_complete.hide()
+	game_over.hide()
+	SceneManager.go_back()
+	

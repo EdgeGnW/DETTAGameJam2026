@@ -236,7 +236,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
-text = "Zurück zur Levelauswahl"
+text = "Fortfahren"
 
 [node name="GameOver" type="PanelContainer" parent="." unique_id=1462305487]
 visible = false
@@ -295,7 +295,7 @@ text = "Verlassen"
 [connection signal="pressed" from="Controls/VBoxContainer/HBoxContainer/MouseKeyboard" to="." method="_on_mouse_keyboard_pressed"]
 [connection signal="pressed" from="Controls/VBoxContainer/HBoxContainer/Controller" to="." method="_on_controller_pressed"]
 [connection signal="pressed" from="Controls/VBoxContainer/HideControls" to="." method="_on_hide_controls_pressed"]
-[connection signal="pressed" from="LevelComplete/VBoxContainer/BackToLevelSelection" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="LevelComplete/VBoxContainer/BackToLevelSelection" to="." method="_on_level_complete_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/UndoLastMove" to="." method="_on_undo_last_move_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/RestartLevel" to="." method="_on_restart_level_pressed"]
-[connection signal="pressed" from="GameOver/VBoxContainer/BackToLevelSelection" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/BackToLevelSelection" to="." method="_on_level_complete_pressed"]
