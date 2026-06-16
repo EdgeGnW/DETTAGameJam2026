@@ -30,22 +30,25 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 		
 func toggle_menu():
-	menu.visible = not menu.visible
-	get_tree().paused = not get_tree().paused
-			
-	if not menu.visible:
-		options.hide()
+	if controls.visible and not menu.visible:
 		controls.hide()
 	else:
-		menu.get_child(0).get_child(0).grab_focus()
-		if Globals.menu_position_stack.size() > 0:
-			menu.find_child("Hub").show()
+		menu.visible = not menu.visible
+		get_tree().paused = not get_tree().paused
+				
+		if not menu.visible:
+			options.hide()
+			controls.hide()
 		else:
-			menu.find_child("Hub").hide()
-		if Globals.menu_position_stack.size() > 1:
-			menu.find_child("Starmap").show()
-		else:
-			menu.find_child("Starmap").hide()
+			menu.get_child(0).get_child(0).grab_focus()
+			if Globals.menu_position_stack.size() > 0:
+				menu.find_child("Hub").show()
+			else:
+				menu.find_child("Hub").hide()
+			if Globals.menu_position_stack.size() > 1:
+				menu.find_child("Starmap").show()
+			else:
+				menu.find_child("Starmap").hide()
 			
 
 func _on_controls_pressed() -> void:
