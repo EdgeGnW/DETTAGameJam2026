@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://27lemqj71ed5" path="res://modules/TileSet/Grundkachel.png" id="5_2vfpa"]
 [ext_resource type="PackedScene" uid="uid://bwnl065t80bq4" path="res://modules/LevelSelect/LevelEnterTrigger.tscn" id="6_ufi7f"]
 [ext_resource type="PackedScene" uid="uid://cano2l1v4li8e" path="res://modules/Levels/World 4/Level_4-1.tscn" id="7_6mcg0"]
-[ext_resource type="PackedScene" uid="uid://dftgcni1yx6be" path="res://modules/Levels/World 4/Level_4-2.tscn" id="8_2w20i"]
-[ext_resource type="PackedScene" uid="uid://b50jren37wyfe" path="res://modules/Levels/World 4/Level_4-3.tscn" id="9_ea7gk"]
-[ext_resource type="PackedScene" uid="uid://bqf3nf1d4qsqv" path="res://modules/Levels/World 4/Level_4-4.tscn" id="10_ptbbd"]
+[ext_resource type="PackedScene" uid="uid://dftgcni1yx6be" path="res://modules/Levels/World 4/Level_4-4.tscn" id="8_2w20i"]
+[ext_resource type="PackedScene" uid="uid://b50jren37wyfe" path="res://modules/Levels/World 4/Level_4-2.tscn" id="9_ea7gk"]
+[ext_resource type="PackedScene" uid="uid://bqf3nf1d4qsqv" path="res://modules/Levels/World 4/Level_4-3.tscn" id="10_ptbbd"]
 [ext_resource type="PackedScene" uid="uid://dwb3ofv350lg1" path="res://modules/Levels/World 4/Level_4-5.tscn" id="11_3ka03"]
 [ext_resource type="PackedScene" uid="uid://dujqvwfeltr6b" path="res://modules/Levels/World 4/Level_4-6.tscn" id="12_ea7gk"]
 [ext_resource type="PackedScene" uid="uid://jhje5qd28jya" path="res://modules/Levels/World 4/Level_4-7.tscn" id="13_ptbbd"]
@@ -82,7 +82,7 @@ script = ExtResource("2_ptbbd")
 unique_name_in_owner = true
 
 [node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("4_lj3kc")]
-position = Vector2(909.09094, 1472.7273)
+position = Vector2(1163.6364, 1903.6364)
 color = Vector3i(1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=1311493772]

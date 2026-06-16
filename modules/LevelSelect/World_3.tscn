@@ -83,7 +83,7 @@ script = ExtResource("2_k6g43")
 unique_name_in_owner = true
 
 [node name="White" parent="TileMapLayer" unique_id=472444114 instance=ExtResource("4_qbawf")]
-position = Vector2(649.09094, 1467.2727)
+position = Vector2(390.9091, 1467.2727)
 color = Vector3i(1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/White" unique_id=1311493772]
