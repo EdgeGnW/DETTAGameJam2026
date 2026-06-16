@@ -193,5 +193,6 @@ func _on_mouse_keyboard_pressed() -> void:
 func _on_level_complete_pressed() -> void:
 	level_complete.hide()
 	game_over.hide()
-	SceneManager.go_back()
+	if Globals.menu_position_stack.size() > 0:
+		SceneManager.go_back()
 	

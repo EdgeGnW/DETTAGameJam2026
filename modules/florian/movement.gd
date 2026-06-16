@@ -162,6 +162,8 @@ func check_final_position(player: Player):
 					return
 			else:
 				# Hit mirror -> Reflect
+				if is_wall(next_tile(grid_position, new_direction), new_direction):
+					new_direction = (3 + direction) % 6
 				direction = new_direction
 			plan_path(player, direction)
 			player.clean_effects()
