@@ -12,8 +12,10 @@ func isLevelCompleted(level: PackedScene) -> bool:
 
 func completeLevel(level: PackedScene):
 	if isLevelCompleted(level):
-		return
+		return false
 	completedLevels.append(getSceneName(level))
+	saveProgress()
+	return true
 
 func saveProgress():
 	var save_file = FileAccess.open("user://lightbringer.save", FileAccess.WRITE)
@@ -39,8 +41,8 @@ func checkProgress():
 		if not isLevelCompleted(trigger.sceneToLoad):
 			print('not all sublevels completed')
 			return
-	completeLevel(SceneManager.current_scene)
-	saveProgress()
+	if completeLevel(SceneManager.current_scene):
+		Menu._on_level_complete_pressed()
 	print('all sublevels completed')
 
 func resetProgress():
