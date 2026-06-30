@@ -10,7 +10,7 @@ var trail
 
 var alpha := 1.0
 
-var ryb2rgb := {
+var ryb2rgb : Dictionary[Vector3i, Color] = {
 	Vector3i(0, 0, 1): Color(0,0,1),
 	Vector3i(0, 1, 0): Color(1,1,0),
 	Vector3i(0, 1, 1): Color(0,1,0),
@@ -42,13 +42,13 @@ func _ready():
 	trail.node2d = self
 	get_parent().add_child.call_deferred(trail)
 	alpha = 1.0
-	var c = ryb2rgb[color]
+	var c := ryb2rgb[color]
 	if color != Vector3i(1,1,1):
 		alpha = 0.7
 	
-	sprite.modulate = Color(c.r, c.g, c.b, 0)
+	sprite.modulate = c
+	rays.modulate = rays.modulate.lerp(c, 0.7)
 	select_sprite.modulate = c
-	
 	fade_in()
 	clean_effects()
 

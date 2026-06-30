@@ -6,7 +6,7 @@ signal reset
 
 func rotateDirection(direction: Direction, right: bool) -> Direction:
 	var tempDirection = direction + (-1 if right else 1)
-	return tempDirection % len(Direction.keys())
+	return tempDirection % len(Direction.keys()) as Direction
 	
 
 

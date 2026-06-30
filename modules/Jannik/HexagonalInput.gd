@@ -23,6 +23,7 @@ static var directionVectors: Dictionary = {
 	Direction.DownLeft: Vector2(-0.5, 0.866),
 }
 
+@warning_ignore("shadowed_variable")
 func setProperties(player: Node2D) -> void:
 	self.player = player
 

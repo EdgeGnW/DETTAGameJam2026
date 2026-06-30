@@ -6,23 +6,8 @@
 _data = [Vector2(0, 1), 0.0, -2.6678786, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_to5mh"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_jqwj1"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_uy15k"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_8iocx"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_ebj5k"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_rfy5o"]
-colors = PackedColorArray(1, 1, 1, 0.07450981, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_ifrh1"]
+colors = PackedColorArray(1, 1, 1, 0.22745098, 1, 1, 1, 0)
 
 [node name="Rays" type="Node2D" unique_id=698268212]
 show_behind_parent = true
@@ -32,39 +17,39 @@ script = ExtResource("1_vd3ly")
 show_behind_parent = true
 points = PackedVector2Array(0, 0, 554, -1)
 width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_to5mh")
+gradient = SubResource("Gradient_ifrh1")
 
-[node name="RayUpRight" type="Line2D" parent="." unique_id=827367783]
+[node name="RayUpRight" type="Line2D" parent="." unique_id=1215737995]
 show_behind_parent = true
 rotation = -1.0471977
 points = PackedVector2Array(0, 0, 554, -1)
 width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_jqwj1")
+gradient = SubResource("Gradient_ifrh1")
 
-[node name="RayUpLeft" type="Line2D" parent="." unique_id=1345190554]
+[node name="RayUpLeft" type="Line2D" parent="." unique_id=896613536]
 show_behind_parent = true
 rotation = -2.094395
 points = PackedVector2Array(0, 0, 554, -1)
 width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_uy15k")
+gradient = SubResource("Gradient_ifrh1")
 
-[node name="RayLeft" type="Line2D" parent="." unique_id=1468654681]
+[node name="RayLeft" type="Line2D" parent="." unique_id=568771395]
 show_behind_parent = true
 rotation = -3.1415925
 points = PackedVector2Array(0, 0, 554, -1)
 width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_8iocx")
+gradient = SubResource("Gradient_ifrh1")
 
-[node name="RayDownLeft" type="Line2D" parent="." unique_id=374068194]
+[node name="RayDownLeft" type="Line2D" parent="." unique_id=1746801125]
 show_behind_parent = true
 rotation = 2.0943952
 points = PackedVector2Array(0, 0, 554, -1)
 width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_ebj5k")
+gradient = SubResource("Gradient_ifrh1")
 
-[node name="RayDownRight" type="Line2D" parent="." unique_id=1976068558]
+[node name="RayDownRight" type="Line2D" parent="." unique_id=1095160891]
 show_behind_parent = true
 rotation = 1.0471976
 points = PackedVector2Array(0, 0, 554, -1)
 width_curve = SubResource("Curve_rfy5o")
-gradient = SubResource("Gradient_rfy5o")
+gradient = SubResource("Gradient_ifrh1")

@@ -7,15 +7,16 @@ class rayProperies:
 	var intensity: int
 	var width: int
 	var length: int
-	
-	func _init(i, w, l) -> void:
-		intensity = i
-		width = w
-		length = l
+	@warning_ignore("shadowed_variable")
+	func _init(intensity, width, length) -> void:
+		self.intensity = intensity
+		self.width = width
+		self.length = length
 
-var normal_ray := rayProperies.new(30, 10, 400)
-var highlighted_ray := rayProperies.new(60, 20, 800)
-var selected_ray := rayProperies.new(180, 40, 900)
+var zero_ray := rayProperies.new(0,0,0)
+var normal_ray: rayProperies
+var highlighted_ray := rayProperies.new(60, 30, 800)
+var selected_ray := rayProperies.new(180, 50, 900)
 
 var tween_time := 0.2
 
@@ -32,12 +33,11 @@ var tween: Tween
 
 func _ready() -> void:
 	rays.assign(find_children("*", "Line2D", false, false))
-	for ray in rays:
-		ray.gradient = Gradient.new()
-		ray.gradient.colors[0] = Color.WHITE
-		ray.gradient.colors[0].a = normal_ray.intensity / 255.0
-		ray.gradient.colors[1] = Color.WHITE
-		ray.gradient.colors[1].a = normal_ray.intensity / 255.0
+	var ray = rays[0]
+	var grad = ray.gradient
+	normal_ray = rayProperies.new(ray.gradient.colors[0].a8, ray.width, ray.points[1].x)
+	for r in rays:
+		r.gradient = grad.duplicate(true)
 	deactivate()
 	
 func clear_selection():
@@ -50,14 +50,19 @@ func reset():
 	selected_index = -1
 	highlight_index = -1
 	for i in range(len(rays)):
-		rays[i].gradient.colors[0].a = 0
-		rays[i].gradient.colors[1].a = 0
+		var current_colors = rays[i].gradient.colors
+		current_colors[0].a8 = 0
+		current_colors[1].a8 = 0
+		rays[i].gradient.colors = current_colors
 
 func deactivate():
+	skip_tween()
 	for i in range(len(rays)):
 		if i == selected_index and has_selection: continue
-		rays[i].gradient.colors[0].a = 0
-		rays[i].gradient.colors[1].a = 0
+		var current_colors = rays[i].gradient.colors
+		current_colors[0].a8 = 0
+		current_colors[1].a8 = 0
+		rays[i].gradient.colors = current_colors
 	active = false
 	has_highlight = false
 	
@@ -65,10 +70,18 @@ func activate():
 	for i in range(len(rays)):
 		var ray = rays[i]
 		if i == selected_index and has_selection: continue
-		ray.points[1].x = normal_ray.length
+		var points = ray.points
+		var colors = ray.gradient.colors
+		points[1].x = normal_ray.length
+		ray.points = points
 		ray.width = normal_ray.width
-		ray.gradient.colors[0].a = normal_ray.intensity / 255.0
-		ray.gradient.colors[1].a = normal_ray.intensity / 255.0
+		colors[0].a8 = normal_ray.intensity
+		colors[1].a8 = normal_ray.intensity
+		ray.gradient.colors = colors
+		scale = Vector2.ZERO
+		tween = create_tween()
+		tween.tween_property(self, "scale", Vector2(1, 1), tween_time)
+		
 	active = true
 	
 	
@@ -134,10 +147,14 @@ func select_ray() -> void:
 		
 		
 func tween_length(length: int, ray: Line2D) -> void:
-	ray.points[1].x = length
+	var points = ray.points
+	points[1].x = length
+	ray.points = points
 		
-func tween_intensity(intensity: float, ray: Line2D) -> void:
-	ray.gradient.colors[0].a = intensity/255.0
+func tween_intensity(intensity: int, ray: Line2D) -> void:
+	var colors = ray.gradient.colors
+	colors[0].a8 = intensity
+	ray.gradient.colors = colors
 		
 func tween_ray(ray: Line2D, from_properties: rayProperies, to_properties: rayProperies):
 	tween.tween_property(ray, "width", to_properties.width, tween_time)

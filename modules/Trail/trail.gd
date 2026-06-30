@@ -15,7 +15,7 @@ var random_offset: float = 2.5
 func _ready():
 	clear_points()
 	
-func _process(delta):
+func _process(_delta):
 	if node2d == null:
 		call_deferred("free")
 	if not node2d.visible: return
@@ -23,7 +23,9 @@ func _process(delta):
 	
 	for i in range(len(points)):
 		var rand_vec = Vector2(randf_range(0,random_offset), 0).rotated(randf_range(0,PI*2))
-		points[i] += rand_vec
+		var current_points = points
+		current_points[i] += rand_vec
+		points = current_points
 	
 	# Calculate the distance from the last point to the current position
 	if get_point_count() > 0:
